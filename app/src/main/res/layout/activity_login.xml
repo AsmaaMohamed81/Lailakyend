@@ -7,7 +7,7 @@
     android:background="@drawable/background"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context="com.example.m.laylak.LoginActivity">
+    tools:context="com.example.m.laylak.Activites.LoginActivity">
 
 
     <ImageView
@@ -15,7 +15,7 @@
         android:layout_height="107dp"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/logot3"
         tools:ignore="ContentDescription" />
 
@@ -31,6 +31,7 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_marginTop="17dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/regist1"
             android:gravity="center"
@@ -65,6 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:onClick="skip"
             android:text="@string/Skip"
             android:textColor="@color/colorPrimary"
@@ -82,7 +84,6 @@
             android:id="@+id/regist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="69dp"
@@ -93,21 +94,7 @@
             android:textSize="20sp"
             tools:ignore="OnClick" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="18dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
-            android:textStyle="bold"
-            android:layout_toEndOf="@+id/regist"
-            android:layout_toRightOf="@+id/regist"
-            android:text="@string/registerMassege"
-            android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
-            tools:ignore="OnClick,RtlHardcoded" />
+
 
     </RelativeLayout>
 </LinearLayout>

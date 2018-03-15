@@ -1,32 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background">
+    android:background="@drawable/background" tools:context="com.example.m.laylak.Activites.OfferAlbum">
 
 
-    <ImageButton
-        android:id="@+id/albumgeded"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp"
-        android:background="@drawable/newalbum"
-        tools:ignore="ContentDescription" />
-
-    <ImageButton
-        android:id="@+id/albumaty"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignLeft="@+id/albumgeded"
-        android:layout_alignStart="@+id/albumgeded"
-        android:layout_below="@+id/albumgeded"
-        android:layout_marginTop="22dp"
-        android:background="@drawable/myalbums"
-        tools:ignore="ContentDescription" />
-
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycalbum"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
     <ImageButton
         android:id="@+id/imageButton3"
         android:layout_width="wrap_content"
@@ -50,8 +34,4 @@
         android:layout_marginRight="13dp"
         android:background="@drawable/share"
         tools:ignore="ContentDescription" />
-
-
-
-
 </RelativeLayout>

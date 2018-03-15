@@ -1,9 +1,11 @@
-package com.example.m.laylak;
+package com.example.m.laylak.Activites;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+
+import com.example.m.laylak.R;
 
 
 public class Splash extends AppCompatActivity {

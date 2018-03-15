@@ -2,7 +2,7 @@
     <string name="app_name">LayLaK</string>
     <string name="username">اسم المستخدم</string>
     <string name="pass">كلمه السر</string>
-    <string name="register">تسجيل</string>
+    <string name="register"> ا يوجد لديك حساب ؟ تسجيل</string>
     <string name="email">البريد الإلكتروني</string>
     <string name="phone">رقم التليفون</string>
     <string name="login">دخول</string>
@@ -15,4 +15,6 @@
     <string name="secondalbum">الألبوم الثاني</string>
     <string name="sixalbum">الألبوم السادس</string>
     <string name="details">التفاصيل</string>
+    <string name="view">عرض</string>
+    <string name="book">احجز</string>
 </resources>
