@@ -16,8 +16,6 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
 
 
-
-
         int secondsDelayed = 1;
         new Handler().postDelayed(new Runnable() {
             public void run() {
