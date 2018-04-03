@@ -73,7 +73,7 @@ public class Albumaty extends AppCompatActivity {
         if (requestCode==IMG_REQ && resultCode == RESULT_OK && data!=null)
         {
             ClipData clipData = data.getClipData();
-            Log.e("eddddd",""+clipData.getItemCount()+"   "+clipData.getItemAt(0));
+         //   Log.e("eddddd",""+clipData.getItemCount()+"   "+clipData.getItemAt(0));
             for (int index =0;index<clipData.getItemCount();index++)
             {
                 ClipData.Item item = clipData.getItemAt(index);
@@ -82,8 +82,11 @@ public class Albumaty extends AppCompatActivity {
             }
 
             Intent intent = new Intent(Albumaty.this,DetailsAlbumaty.class);
+
             intent.putExtra("details", (Serializable) uriList);
+
             startActivity(intent);
+
             Toast.makeText(this, ""+uriList.get(0), Toast.LENGTH_SHORT).show();
         }
     }
