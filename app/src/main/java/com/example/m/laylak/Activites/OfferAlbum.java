@@ -20,6 +20,7 @@ public class OfferAlbum extends AppCompatActivity {
     Modelalbums modelalbums;
     List<Modelalbums> modelalbumsList;
 
+
     int[] img={R.drawable.album1,R.drawable.album2,R.drawable.album3,R.drawable.album1,R.drawable.album2,R.drawable.album3};
     String[] title={"الالبوم الاول","الالبوم الثاني","الالبوم الاول","الالبوم الثاني","الالبوم الثالث","الالبوم الثالث"};
     String [] desc ={"asadjksjdksjdskjdsklds","asjahdsjkhdkshkdskdh","asadjksjdksjdskjdsklds","asjahdsjkhdkshkdskdh","asadjksjdksjdskjdsklds","asjahdsjkhdkshkdskdh"};
