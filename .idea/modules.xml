@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LayLaK.iml" filepath="$PROJECT_DIR$/LayLaK.iml" />
-      <module fileurl="file://E:\androidNewEnd\ALatheer\LayLaK\.idea\LayLaK.iml" filepath="E:\androidNewEnd\ALatheer\LayLaK\.idea\LayLaK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/LayLaK.iml" filepath="$PROJECT_DIR$/.idea/LayLaK.iml" />
       <module fileurl="file://E:\android\projects\LayLaK\LayLaK.iml" filepath="E:\android\projects\LayLaK\LayLaK.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
