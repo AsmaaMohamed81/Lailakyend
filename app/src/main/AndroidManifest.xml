@@ -15,7 +15,7 @@
         tools:replace="android:supportsRtl">
         <activity
             android:name=".Activites.ContactActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,7 +24,7 @@
         </activity>
         <activity
             android:name=".Activites.LoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Activites.Signup" />
         <activity android:name=".Activites.AlbumsActivity" />
         <activity android:name=".Activites.Albumaty" />

@@ -21,4 +21,5 @@
     <string name="book">احجز</string>
     <string name="subject">العنوان</string>
     <string name="message">التفاصيل</string>
+    <string name="send">send</string>
 </resources>

@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -21,20 +23,17 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ContactActivity extends AppCompatActivity {
+public class ContactActivity extends AppCompatActivity implements View.OnClickListener{
     Shimmer shimmer;
     ShimmerTextView offer_txt;
     EditText name,phone,email,message;
+    Button send;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
 
-
-
         initView();
-        SendDataToServer();
-
 
     }
 
@@ -115,6 +114,21 @@ public class ContactActivity extends AppCompatActivity {
         phone=findViewById(R.id.edt_phone);
         email=findViewById(R.id.edt_mail);
         message=findViewById(R.id.edt_message);
+        send=findViewById(R.id.btn_contact);
+
+        send.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+
+            case R.id.btn_contact:
+                SendDataToServer();
+                break;
+        }
 
     }
 }

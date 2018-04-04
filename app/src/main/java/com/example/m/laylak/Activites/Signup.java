@@ -100,7 +100,6 @@ public class Signup extends AppCompatActivity {
         }else if (TextUtils.isEmpty(uphone))
         {
             email.setError(null);
-
             phone.setError("Enter phone number");
         }else if (!Patterns.PHONE.matcher(uphone).matches())
         {

@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-
 import com.example.m.laylak.ApiServices.Preferences;
 import com.example.m.laylak.R;
 

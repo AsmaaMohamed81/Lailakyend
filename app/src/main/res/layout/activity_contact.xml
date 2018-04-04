@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:layout_width="match_parent"
-    android:background="@drawable/background"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -30,7 +29,7 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:paddingTop="5dp"
-        android:text="استوديو ليلاكي للتصوير النسائي"
+        android:text="استوديو ليلكي للتصوير النسائي"
         android:textColor="@color/colorPrimary"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -59,36 +58,36 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@color/colorPrimary"
                     android:hint="@string/username"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                    android:background="@drawable/edt_bg"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary" />
                 <EditText
                     android:id="@+id/edt_mail"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@color/colorPrimary"
                     android:inputType="textEmailAddress"
                     android:hint="@string/email"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                    android:background="@drawable/edt_bg"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary"/>
                 <EditText
                     android:id="@+id/edt_phone"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@color/colorPrimary"
                     android:inputType="phone"
                     android:hint="@string/phone"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                    android:background="@drawable/edt_bg"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary" />
 
 
                 <EditText
@@ -96,42 +95,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginBottom="10dp"
-                    android:background="@color/colorPrimary"
                     android:hint="@string/message"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:textColor="@color/white"
-                    android:textColorHint="@color/white" />
+                    android:background="@drawable/edt_bg"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
+
+        <Button
+            android:id="@+id/btn_contact"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:text="@string/send"
+            android:background="@drawable/contact"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/facebook" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/twitter" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:src="@drawable/instagram" />
-
-    </LinearLayout>
 </LinearLayout>
 </ScrollView>
