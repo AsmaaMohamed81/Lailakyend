@@ -32,7 +32,6 @@ public class AboutUsActivity extends AppCompatActivity {
 
         initView();
         GetDataFromServer();
-
     }
 
     private void GetDataFromServer() {
