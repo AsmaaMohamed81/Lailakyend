@@ -30,7 +30,7 @@ import retrofit2.Retrofit;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText userName,password;
-    private TextView register;
+    private TextView register,skip;
     private Button login;
     private ProgressDialog dialog;
 
@@ -56,7 +56,15 @@ public class LoginActivity extends AppCompatActivity {
         register = findViewById(R.id.register);
         userName = findViewById(R.id.user_name);
         password = findViewById(R.id.pass);
+        skip     = findViewById(R.id.skip);
 
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this,AlbumsActivity.class);
+                startActivity(intent);
+            }
+        });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

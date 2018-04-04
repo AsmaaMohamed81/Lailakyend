@@ -63,18 +63,8 @@
                 android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:text="@string/Skip"
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:textStyle="bold"
-                />
+
+
         </RelativeLayout>
 
 
@@ -92,7 +82,18 @@
             android:layout_marginTop="8dp"
             android:clickable="true"
             />
-
+        <TextView
+            android:id="@+id/skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/Skip"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            />
 
     </LinearLayout>
 

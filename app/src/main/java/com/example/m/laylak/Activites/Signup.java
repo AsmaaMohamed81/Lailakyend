@@ -111,6 +111,7 @@ public class Signup extends AppCompatActivity {
                 map.put("user_pass",upass);
                 map.put("user_email",uemail);
                 map.put("user_phone",uphone);
+                map.put("token_id","");
 
                 Retrofit retrofit = Api.getClient();
                 Services services = retrofit.create(Services.class);
