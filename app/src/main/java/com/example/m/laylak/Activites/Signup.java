@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.m.laylak.ApiServices.Preferences;
 import com.example.m.laylak.ApiServices.Services;
 import com.example.m.laylak.Models.ResponsModel;
 import com.example.m.laylak.R;
@@ -34,12 +35,16 @@ public class Signup extends AppCompatActivity {
     private EditText userName,password,email,phone;
     private Button signUp;
     private ProgressDialog dialog;
+    private Preferences preferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
         initView();
+        preferences = new Preferences(this);
+
     }
 
     private void initView() {
@@ -123,6 +128,7 @@ public class Signup extends AppCompatActivity {
                         {
                             if (response.body().getSuccess()==1)
                             {
+                                preferences.CreatePref(response.body().getUser_id());
                                 Intent intent = new Intent(Signup.this,AlbumsActivity.class);
                                 intent.putExtra("user_id",response.body().getUser_id());
                                 dialog.dismiss();

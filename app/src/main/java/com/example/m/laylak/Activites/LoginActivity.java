@@ -2,12 +2,14 @@ package com.example.m.laylak.Activites;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.m.laylak.ApiServices.Api;
+import com.example.m.laylak.ApiServices.Preferences;
 import com.example.m.laylak.ApiServices.Services;
 import com.example.m.laylak.Models.ResponsModel;
 import com.example.m.laylak.R;
@@ -33,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView register,skip;
     private Button login;
     private ProgressDialog dialog;
+    private Preferences preferences;
 
 
 
@@ -42,8 +46,22 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         initView();
-
-
+        preferences = new Preferences(this);
+        SharedPreferences pref = getSharedPreferences("user",MODE_PRIVATE);
+        if (pref!=null)
+        {
+            String session = pref.getString("session","");
+            if (session.equals("login"))
+            {
+                String user_id = pref.getString("id","");
+                if (!TextUtils.isEmpty(user_id)||user_id!=null)
+                {
+                    Intent intent = new Intent(LoginActivity.this,AlbumsActivity.class);
+                    intent.putExtra("user_id",user_id);
+                    startActivity(intent);
+                    finish();                }
+            }
+        }
 
 
 
@@ -120,6 +138,8 @@ public class LoginActivity extends AppCompatActivity {
                         {
                             if (response.body().getSuccess()==1)
                             {
+                                preferences.CreatePref(response.body().getUser_id());
+
                                 Intent intent = new Intent(LoginActivity.this,AlbumsActivity.class);
                                 intent.putExtra("user_id",response.body().getUser_id());
                                 dialog.dismiss();
@@ -127,7 +147,9 @@ public class LoginActivity extends AppCompatActivity {
                                 finish();
                             }else
                                 {
-                                    Toast.makeText(LoginActivity.this, "Check username or password", Toast.LENGTH_SHORT).show();
+                                    dialog.dismiss();
+
+                                    Toast.makeText(LoginActivity.this, "Check username or password", Toast.LENGTH_LONG).show();
                                 }
                         }
                     }
@@ -135,6 +157,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<ResponsModel> call, Throwable t) {
 
+                        Log.e("error",t.getMessage());
+                        dialog.dismiss();
+                        Toast.makeText(LoginActivity.this, "error some thing went haywire", Toast.LENGTH_LONG).show();
                     }
                 });
             }
