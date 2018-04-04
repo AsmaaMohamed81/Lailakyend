@@ -63,7 +63,7 @@ public class OfferAlbum extends AppCompatActivity {
 
         Retrofit retrofit=Api.getClient();
         Services service= retrofit.create(Services.class);
-        Call<List<OfferModel>> call=service.GetOffer();
+        Call<List<OfferModel>> call=service.GetOffers();
 
         call.enqueue(new Callback<List<com.example.m.laylak.Models.OfferModel>>() {
             @Override
