@@ -1,4 +1,4 @@
-package com.example.m.laylak.Services;
+package com.example.m.laylak.ApiServices;
 
 import com.example.m.laylak.Models.ResponsModel;
 
@@ -13,7 +13,7 @@ import retrofit2.http.POST;
  * Created by Emad on 2018-04-03.
  */
 
-public interface api_service {
+public interface Services {
 
     @FormUrlEncoded
     @POST("Api/InsertRegistration")

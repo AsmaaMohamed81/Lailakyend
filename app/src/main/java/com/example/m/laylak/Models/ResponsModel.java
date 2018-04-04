@@ -6,13 +6,13 @@ package com.example.m.laylak.Models;
 
 public class ResponsModel {
     private String user_id;
-    private String success;
+    private int success;
     private String message;
 
     public ResponsModel() {
     }
 
-    public ResponsModel(String user_id, String success, String message) {
+    public ResponsModel(String user_id, int success, String message) {
         this.user_id = user_id;
         this.success = success;
         this.message = message;
@@ -26,11 +26,11 @@ public class ResponsModel {
         this.user_id = user_id;
     }
 
-    public String getSuccess() {
+    public int getSuccess() {
         return success;
     }
 
-    public void setSuccess(String success) {
+    public void setSuccess(int success) {
         this.success = success;
     }
 

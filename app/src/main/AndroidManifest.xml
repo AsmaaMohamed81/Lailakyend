@@ -23,7 +23,7 @@
         <activity
             android:name=".Activites.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".Activites.signup" />
+        <activity android:name=".Activites.Signup" />
         <activity android:name=".Activites.AlbumsActivity" />
         <activity android:name=".Activites.Albumaty" />
         <activity android:name=".Activites.OfferAlbum" />
