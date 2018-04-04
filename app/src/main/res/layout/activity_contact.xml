@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:paddingTop="20dp"
-    tools:context="com.example.m.laylak.Activites.AboutActivity"
+    tools:context="com.example.m.laylak.Activites.ContactActivity"
     android:orientation="vertical">
 
     <ImageView

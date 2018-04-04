@@ -70,7 +70,7 @@ public class AdapterAlbumaty extends RecyclerView.Adapter<AdapterAlbumaty.Holder
     }
 
 
-    class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class Holder extends RecyclerView.ViewHolder {
         ImageView imgalbum;
         TextView titlealbum;
         LinearLayout linear;
@@ -81,29 +81,10 @@ public class AdapterAlbumaty extends RecyclerView.Adapter<AdapterAlbumaty.Holder
             titlealbum=itemView.findViewById(R.id.titlealbum);
             linear=itemView.findViewById(R.id.linesr);
 
-            linear.setOnClickListener(this);
 
 
         }
 
-        @Override
-        public void onClick(View view) {
 
-
-           /* Intent i = new Intent(context, DetailsAlbumaty.class);
-
-//            int postion = (int) view.getTag();
-//
-//            modelalbums=modelalbumsList.get(postion);
-//            i.putExtra("title",modelalbums.getTitle());
-//            i.putExtra("detail",modelalbums.getDesc());
-//            i.putExtra("price",modelalbums.getPrice());
-//            i.putExtra("img",modelalbums.getImg());
-
-
-            context.startActivity(i);*/
-
-
-        }
     }
 }

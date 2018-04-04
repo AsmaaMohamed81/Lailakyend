@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.m.laylak">
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +13,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
         <activity
-            android:name=".Activites.Splash"
+            android:name=".Activites.AboutUsActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,7 +31,8 @@
         <activity android:name=".Activites.DetailOffer" />
         <activity android:name=".Activites.DetailsAlbumaty" />
         <activity android:name=".Activites.AddImges" />
-        <activity android:name=".Activites.AboutActivity"></activity>
+        <activity android:name=".Activites.ContactActivity" />
+        <activity android:name=".Activites.Splash"></activity>
     </application>
 
 </manifest>
