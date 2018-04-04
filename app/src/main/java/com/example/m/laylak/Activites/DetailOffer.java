@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.m.laylak.R;
+import com.squareup.picasso.Picasso;
 
 public class DetailOffer extends AppCompatActivity {
 TextView title,desc,price;
@@ -27,13 +28,13 @@ ImageView img;
         String desce = u.getStringExtra("detail");
         String pricee = u.getStringExtra("price");
 
-        int imgg =u.getIntExtra("img",0);
+        String imgg =u.getStringExtra("img");
 
         title.setText(titlee);
         desc.setText(desce);
         price.setText(pricee);
 
-        img.setImageResource(imgg);
+        Picasso.with(this).load(imgg).into(img);
 
     }
 }

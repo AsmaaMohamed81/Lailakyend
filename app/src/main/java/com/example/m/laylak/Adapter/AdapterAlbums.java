@@ -13,8 +13,10 @@ import android.widget.TextView;
 import com.example.m.laylak.Activites.AlbumsActivity;
 import com.example.m.laylak.Activites.DetailOffer;
 import com.example.m.laylak.Activites.OfferAlbum;
-import com.example.m.laylak.Models.Modelalbums;
+import com.example.m.laylak.ApiServices.Tags;
+import com.example.m.laylak.Models.OfferModel;
 import com.example.m.laylak.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -24,13 +26,13 @@ import java.util.List;
 
 public class AdapterAlbums extends RecyclerView.Adapter<AdapterAlbums.Holder> {
 
-    Modelalbums modelalbums;
-    List<Modelalbums> modelalbumsList;
+    OfferModel OfferModel;
+    List<OfferModel> OfferModelList;
     Context context;
     OfferAlbum albumsActivity;
 
-    public AdapterAlbums(List<Modelalbums> modelalbumsList, Context context) {
-        this.modelalbumsList = modelalbumsList;
+    public AdapterAlbums(List<OfferModel> OfferModelList, Context context) {
+        this.OfferModelList = OfferModelList;
         this.context = context;
         albumsActivity= (OfferAlbum) context;
     }
@@ -45,12 +47,15 @@ public class AdapterAlbums extends RecyclerView.Adapter<AdapterAlbums.Holder> {
     @Override
     public void onBindViewHolder(final Holder holder, int position) {
 
-        modelalbums=modelalbumsList.get(position);
+        OfferModel=OfferModelList.get(position);
 
        // holder.linear.setTag(position);
 
-        holder.titlealbum.setText(modelalbums.getTitle());
-        holder.imgalbum.setImageResource(modelalbums.getImg());
+        holder.titlealbum.setText(OfferModel.getTitle());
+
+        Picasso.with(context).load(OfferModel.getImg()).into(holder.imgalbum);
+
+       // holder.imgalbum.setImageResource(OfferModel.get());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +71,7 @@ public class AdapterAlbums extends RecyclerView.Adapter<AdapterAlbums.Holder> {
 
     @Override
     public int getItemCount() {
-        return modelalbumsList.size();
+        return OfferModelList.size();
     }
 
 
@@ -94,11 +99,11 @@ public class AdapterAlbums extends RecyclerView.Adapter<AdapterAlbums.Holder> {
 //
 //            int postion = (int) view.getTag();
 //
-//            modelalbums=modelalbumsList.get(postion);
-//            i.putExtra("title",modelalbums.getTitle());
-//            i.putExtra("detail",modelalbums.getDesc());
-//            i.putExtra("price",modelalbums.getPrice());
-//            i.putExtra("img",modelalbums.getImg());
+//            OfferModel=OfferModelList.get(postion);
+//            i.putExtra("title",OfferModel.getTitle());
+//            i.putExtra("detail",OfferModel.getDesc());
+//            i.putExtra("price",OfferModel.getPrice());
+//            i.putExtra("img",OfferModel.getImg());
 //
 //
 //            context.startActivity(i);
