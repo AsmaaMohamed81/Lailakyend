@@ -1,20 +1,22 @@
 <resources>
     <string name="app_name">LayLaK</string>
-    <string name="username">اسم المستخدم</string>
-    <string name="pass">كلمه السر</string>
-    <string name="register">إنشاء حسب جديد</string>
-    <string name="email">البريد الإلكتروني</string>
-    <string name="phone">رقم التليفون</string>
-    <string name="login">دخول</string>
-    <string name="Skip">تخطي</string>
-    <string name="registerMassege">لا يوجد لديك حساب ؟</string>
+    <string name="username">user name</string>
+    <string name="pass">Password</string>
+    <string name="register">Create Acount</string>
+    <string name="email">email</string>
+    <string name="phone">phone</string>
+    <string name="login">login</string>
+    <string name="Skip">Skip</string>
+    <string name="registerMassege">Do you have account ?</string>
     <string name="firstalbum">الألبوم الأول</string>
     <string name="thirdalbum">الألبوم الثالث</string>
     <string name="falbum">الألبوم الرابع</string>
     <string name="fialbum">الألبوم الخامس</string>
     <string name="secondalbum">الألبوم الثاني</string>
     <string name="sixalbum">الألبوم السادس</string>
-    <string name="details">التفاصيل</string>
-    <string name="view">عرض</string>
-    <string name="book">احجز</string>
+    <string name="details">details</string>
+    <string name="view">view</string>
+    <string name="book">book</string>
+    <string name="subject">Subject</string>
+    <string name="message">message</string>
 </resources>

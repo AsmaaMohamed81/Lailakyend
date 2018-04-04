@@ -4,6 +4,7 @@
     package="com.example.m.laylak">
 
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,8 +14,8 @@
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
         <activity
-            android:name=".Activites.Splash"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:name=".Activites.ContactActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +24,7 @@
         </activity>
         <activity
             android:name=".Activites.LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".Activites.Signup" />
         <activity android:name=".Activites.AlbumsActivity" />
         <activity android:name=".Activites.Albumaty" />
@@ -31,8 +32,8 @@
         <activity android:name=".Activites.DetailOffer" />
         <activity android:name=".Activites.DetailsAlbumaty" />
         <activity android:name=".Activites.AddImges" />
-        <activity android:name=".Activites.ContactActivity" />
-        <activity android:name=".Activites.AboutUsActivity"></activity>
+        <activity android:name=".Activites.AboutUsActivity" />
+        <activity android:name=".Activites.Splash"></activity>
     </application>
 
 </manifest>

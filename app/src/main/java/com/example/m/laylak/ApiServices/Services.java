@@ -1,7 +1,7 @@
 package com.example.m.laylak.ApiServices;
 
 import com.example.m.laylak.Models.AboutUsModel;
-import com.example.m.laylak.Models.OfferModel;
+import com.example.m.laylak.Models.ContactModel;
 import com.example.m.laylak.Models.ResponsModel;
 
 import java.util.List;
@@ -30,8 +30,9 @@ public interface Services {
     @GET("Api/AboutUs")
     Call<List<AboutUsModel>> GetAboutUs();
 
-    @GET("Api/AllOffers")
-    Call<List<OfferModel>> GetOffer();
+    @FormUrlEncoded
+    @POST("Api/ContactUs")
+    Call<ContactModel> ContactUs(@FieldMap Map<String,String> map);
 
 
 }

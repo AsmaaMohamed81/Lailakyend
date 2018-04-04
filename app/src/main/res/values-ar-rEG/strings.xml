@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ليلكى</string>
+    <string name="username">اسم المستخدم</string>
+    <string name="pass">كلمه السر</string>
+    <string name="register">إنشاء حسب جديد</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="phone">رقم التليفون</string>
+    <string name="login">دخول</string>
+    <string name="Skip">تخطي</string>
+    <string name="registerMassege">لا يوجد لديك حساب ؟</string>
+    <string name="firstalbum">الألبوم الأول</string>
+    <string name="thirdalbum">الألبوم الثالث</string>
+    <string name="falbum">الألبوم الرابع</string>
+    <string name="fialbum">الألبوم الخامس</string>
+    <string name="secondalbum">الألبوم الثاني</string>
+    <string name="sixalbum">الألبوم السادس</string>
+    <string name="details">التفاصيل</string>
+    <string name="view">عرض</string>
+    <string name="book">احجز</string>
+    <string name="subject">العنوان</string>
+    <string name="message">التفاصيل</string>
+</resources>

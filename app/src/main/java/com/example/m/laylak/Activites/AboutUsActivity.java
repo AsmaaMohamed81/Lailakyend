@@ -13,6 +13,7 @@ import com.example.m.laylak.Models.AboutUsModel;
 import com.example.m.laylak.R;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -60,6 +61,7 @@ public class AboutUsActivity extends AppCompatActivity {
 
     private void initView() {
         recyclerView=findViewById(R.id.about_rec);
+        modelaboutList=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(AboutUsActivity.this));
         recyclerView.setHasFixedSize(true);
         aboutAdapter = new AboutAdapter(modelaboutList,AboutUsActivity.this);

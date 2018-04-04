@@ -1,116 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:background="@drawable/background"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:orientation="vertical"
     android:paddingTop="20dp"
-    tools:context="com.example.m.laylak.Activites.ContactActivity"
-    android:orientation="vertical">
+    tools:context="com.example.m.laylak.Activites.ContactActivity">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/logot2"/>
+        android:src="@drawable/logot2" />
 
     <com.romainpiel.shimmer.ShimmerTextView
         android:id="@+id/shimmer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
-        android:text="استوديو ليلاكي للتصوير النسائي"
+        android:layout_gravity="center"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:text="استوديو ليلاكي للتصوير النسائي"
+        android:textColor="@color/colorPrimary"
         android:textSize="22sp"
         android:textStyle="bold"
-        app:reflectionColor="@color/back"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="5dp"
-        android:paddingRight="5dp"
-        android:paddingLeft="5dp"
-        />
+        app:reflectionColor="@color/back" />
 
 
-<LinearLayout
-    android:padding="20dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textSize="20dp"
-            android:textColor="@color/colorPrimary"
-            android:text="الرياض - الرياض - الرياض  "/>
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <ImageView
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="right"
-            android:src="@drawable/placeholder"/>
+            android:layout_margin="7dp"
+            app:cardBackgroundColor="@color/white">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/edt_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorPrimary"
+                    android:hint="@string/username"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+                <EditText
+                    android:id="@+id/edt_mail"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorPrimary"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/email"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+                <EditText
+                    android:id="@+id/edt_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorPrimary"
+                    android:inputType="phone"
+                    android:hint="@string/phone"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+
+                <EditText
+                    android:id="@+id/edt_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorPrimary"
+                    android:hint="@string/message"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
     </LinearLayout>
 
     <LinearLayout
-        android:gravity="right"
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/colorPrimary"
-
-            android:text="01920912012901"/>
-
-        <ImageView
-            android:layout_margin="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/call"/>
-    </LinearLayout>
-
-</LinearLayout>
-    <LinearLayout
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/facebook"/>
-        <ImageView
             android:layout_margin="10dp"
+            android:src="@drawable/facebook" />
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/twitter"/>
         <ImageView
-            android:layout_margin="10dp"
-
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
-            android:src="@drawable/instagram"/>
+            android:layout_margin="10dp"
+            android:src="@drawable/twitter" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:src="@drawable/instagram" />
 
     </LinearLayout>
 </LinearLayout>
+</ScrollView>
