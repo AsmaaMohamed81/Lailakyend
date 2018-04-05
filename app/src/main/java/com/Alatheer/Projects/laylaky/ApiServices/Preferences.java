@@ -3,7 +3,7 @@ package com.Alatheer.Projects.laylaky.ApiServices;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.m.laylak.Models.UserModel;
+import com.Alatheer.Projects.laylaky.Models.UserModel;
 
 /**
  * Created by Emad on 2018-04-04.
