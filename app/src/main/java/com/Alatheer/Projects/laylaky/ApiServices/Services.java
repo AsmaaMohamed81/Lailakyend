@@ -56,5 +56,7 @@ public interface Services {
     Call<UserModel> BookAlbum(@Field("images[]")List<String> imageList,
                               @Field("user_id")String userid,
                               @Field("offer_id")String offerid);
+    @GET("Api/MyOffers/{id}")
+    Call<List<OfferModel>> MyOffer(@Path("id") String user_id);
 
 }
