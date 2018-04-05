@@ -7,7 +7,7 @@
     android:background="@drawable/background"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context="com.example.m.laylak.Activites.LoginActivity">
+    tools:context="com.Alatheer.Projects.laylaky.Activites.LoginActivity">
 
 
     <ImageView

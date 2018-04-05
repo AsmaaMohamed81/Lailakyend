@@ -14,7 +14,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.m.laylak.Activites.ProfileActivity"
+    tools:context="com.Alatheer.Projects.laylaky.Activites.ProfileActivity"
     >
     <RelativeLayout
         android:id="@+id/container"

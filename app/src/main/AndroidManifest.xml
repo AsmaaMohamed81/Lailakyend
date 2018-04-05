@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.m.laylak">
+    package="com.Alatheer.Projects.laylaky">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
         <activity
-            android:name=".Activites.Splash"
+            android:name="com.Alatheer.Projects.laylaky.Activites.Splash"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,18 +23,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activites.LoginActivity"
+            android:name="com.Alatheer.Projects.laylaky.Activites.LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Activites.Signup" />
-        <activity android:name=".Activites.AlbumsActivity" />
-        <activity android:name=".Activites.Albumaty" />
-        <activity android:name=".Activites.OfferAlbum" />
-        <activity android:name=".Activites.DetailOffer" />
-        <activity android:name=".Activites.DetailsAlbumaty" />
-        <activity android:name=".Activites.AddImges" />
-        <activity android:name=".Activites.AboutUsActivity" />
-        <activity android:name=".Activites.ContactActivity" />
-        <activity android:name=".Activites.ProfileActivity"></activity>
+        <activity android:name="com.Alatheer.Projects.laylaky.Activites.Signup" />
+        <activity android:name="com.Alatheer.Projects.laylaky.Activites.AlbumsActivity" />
+        <activity android:name="com.Alatheer.Projects.laylaky.Activites.Albumaty" />
+        <activity android:name="com.Alatheer.Projects.laylaky.Activites.OfferAlbum" />
+        <activity android:name="com.Alatheer.Projects.laylaky.Activites.DetailOffer" />
+        <activity android:name="com.Alatheer.Projects.laylaky.Activites.DetailsAlbumaty" />
+        <activity android:name="com.Alatheer.Projects.laylaky.Activites.AddImges" />
+        <activity android:name="com.Alatheer.Projects.laylaky.Activites.AboutUsActivity" />
+        <activity android:name="com.Alatheer.Projects.laylaky.Activites.ContactActivity" />
+        <activity android:name="com.Alatheer.Projects.laylaky.Activites.ProfileActivity"></activity>
     </application>
 
 </manifest>

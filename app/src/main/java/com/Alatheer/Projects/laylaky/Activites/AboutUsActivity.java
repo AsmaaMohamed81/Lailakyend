@@ -1,0 +1,70 @@
+package com.Alatheer.Projects.laylaky.Activites;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+import com.Alatheer.Projects.laylaky.Adapter.AboutAdapter;
+import com.Alatheer.Projects.laylaky.ApiServices.Api;
+import com.Alatheer.Projects.laylaky.ApiServices.Services;
+import com.Alatheer.Projects.laylaky.Models.AboutUsModel;
+import com.Alatheer.Projects.laylaky.R;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class AboutUsActivity extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    AboutAdapter aboutAdapter;
+    List<AboutUsModel> modelaboutList;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_about_us);
+
+        initView();
+        GetDataFromServer();
+    }
+
+    private void GetDataFromServer() {
+
+        Services api = Api.getClient().create(Services.class);
+        Call<List<AboutUsModel>> call =api.GetAboutUs();
+        call.enqueue(new Callback<List<AboutUsModel>>() {
+            @Override
+            public void onResponse(Call<List<AboutUsModel>> call, Response<List<AboutUsModel>> response) {
+
+                modelaboutList.clear();
+                modelaboutList.addAll( response.body());
+                aboutAdapter.notifyDataSetChanged();
+
+
+            }
+
+            @Override
+            public void onFailure(Call<List<AboutUsModel>> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
+    private void initView() {
+        recyclerView=findViewById(R.id.about_rec);
+        modelaboutList=new ArrayList<>();
+        recyclerView.setLayoutManager(new LinearLayoutManager(AboutUsActivity.this));
+        recyclerView.setHasFixedSize(true);
+        aboutAdapter = new AboutAdapter(modelaboutList,AboutUsActivity.this);
+        recyclerView.setAdapter(aboutAdapter);
+
+    }
+}
