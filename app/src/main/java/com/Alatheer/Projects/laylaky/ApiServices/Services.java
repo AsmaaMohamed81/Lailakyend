@@ -13,6 +13,7 @@ import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 /**
  * Created by Emad on 2018-04-03.
@@ -37,5 +38,8 @@ public interface Services {
 
     @GET("Api/AllOffers")
     Call<List<OfferModel>> GetOffers();
+
+    @GET("Api/MyProfile/{id}")
+    Call<UserModel> Profile(@Path("id") String user_id);
 
 }

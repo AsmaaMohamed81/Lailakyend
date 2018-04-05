@@ -53,14 +53,24 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences("user",MODE_PRIVATE);
         if (pref!=null)
         {
-            String session = pref.getString("session","");
+                    String session = pref.getString("session","");
             if (session.equals("login"))
             {
-                String user_id = pref.getString("id","");
+                    String user_id = pref.getString("id","");
                 if (!TextUtils.isEmpty(user_id)||user_id!=null)
                 {
+                    String user_name =pref.getString("user_name","");
+                    String user_email=pref.getString("email","");
+                    String user_phone=pref.getString("phone","");
+                    String user_pass =pref.getString("pass","");
+                    UserModel userModel = new UserModel();
+                    userModel.setUser_id(user_id);
+                    userModel.setUser_name(user_name);
+                    userModel.setUser_email(user_email);
+                    userModel.setUser_phone(user_phone);
+                    userModel.setUser_pass(user_pass);
+                    users.setUserData(userModel);
                     Intent intent = new Intent(LoginActivity.this,AlbumsActivity.class);
-                    intent.putExtra("user_id",user_id);
                     startActivity(intent);
                     finish();                }
             }
@@ -141,11 +151,10 @@ public class LoginActivity extends AppCompatActivity {
                         {
                             if (response.body().getSuccess()==1)
                             {
-                                preferences.CreatePref(response.body().getUser_id());
+                                preferences.CreatePref(response.body());
 
                                 users.setUserData(response.body());
-                                Intent intent = new Intent(LoginActivity.this,AlbumsActivity.class);
-                                intent.putExtra("user_id",response.body().getUser_id());
+                                Intent intent = new Intent(LoginActivity.this,ProfileActivity.class);
                                 dialog.dismiss();
                                 startActivity(intent);
                                 finish();

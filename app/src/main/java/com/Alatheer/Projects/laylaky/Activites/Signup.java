@@ -131,7 +131,7 @@ public class Signup extends AppCompatActivity {
                             if (response.body().getSuccess()==1)
                             {
                                 users.setUserData(response.body());
-                                preferences.CreatePref(response.body().getUser_id());
+                                preferences.CreatePref(response.body());
                                 Intent intent = new Intent(Signup.this,AlbumsActivity.class);
                                 intent.putExtra("user_id",response.body().getUser_id());
                                 dialog.dismiss();
