@@ -3,6 +3,7 @@ package com.Alatheer.Projects.laylaky.ApiServices;
 import com.Alatheer.Projects.laylaky.Models.AboutUsModel;
 import com.Alatheer.Projects.laylaky.Models.ContactModel;
 import com.Alatheer.Projects.laylaky.Models.OfferModel;
+import com.Alatheer.Projects.laylaky.Models.ResponseModel;
 import com.Alatheer.Projects.laylaky.Models.UserModel;
 
 import java.util.List;
@@ -47,12 +48,13 @@ public interface Services {
     Call<UserModel> Profile(@Path("id") String user_id);
 
     @FormUrlEncoded
+    @POST("Api/UpdatePass/{id}")
+    Call<ResponseModel> UpdatePassword(@Path("id")String user_id,@Field("user_pass") String password);
+
+    @FormUrlEncoded
     @POST("Api/SubscribeOffer")
     Call<UserModel> BookAlbum(@Field("images[]")List<String> imageList,
                               @Field("user_id")String userid,
                               @Field("offer_id")String offerid);
-
-
-    ///emad
 
 }

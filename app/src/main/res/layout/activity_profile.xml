@@ -1,11 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/profile_back">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            >
+
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
 <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:fillViewport="true"
     android:fitsSystemWindows="true"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@drawable/profile_back"
+
 
     >
 <RelativeLayout
@@ -19,11 +38,11 @@
     <RelativeLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="270dp">
+        android:layout_height="210dp">
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="140dp"
             android:layout_height="140dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="16dp"
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             app:civ_border_width="5dp"
@@ -45,7 +64,7 @@
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
             android:textSize="30dp"
             android:textColor="@color/white"
@@ -57,10 +76,8 @@
             android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
             android:drawableLeft="@drawable/phone"
             android:drawablePadding="5dp"
             android:textSize="14sp"
@@ -111,5 +128,6 @@
             />
     </LinearLayout>
 
-</RelativeLayout>
-</ScrollView>
+ </RelativeLayout>
+ </ScrollView>
+</LinearLayout>

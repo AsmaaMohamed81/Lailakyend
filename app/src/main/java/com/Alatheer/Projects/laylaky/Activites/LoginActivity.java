@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                     userModel.setUser_phone(user_phone);
                     userModel.setUser_pass(user_pass);
                     users.setUserData(userModel);
-                    Intent intent = new Intent(LoginActivity.this,AlbumsActivity.class);
+                    Intent intent = new Intent(LoginActivity.this,ProfileActivity.class);
                     startActivity(intent);
                     finish();                }
             }
@@ -154,7 +154,7 @@ public class LoginActivity extends AppCompatActivity {
                                 preferences.CreatePref(response.body());
 
                                 users.setUserData(response.body());
-                                Intent intent = new Intent(LoginActivity.this,AlbumsActivity.class);
+                                Intent intent = new Intent(LoginActivity.this,ProfileActivity.class);
                                 dialog.dismiss();
                                 startActivity(intent);
                                 finish();
