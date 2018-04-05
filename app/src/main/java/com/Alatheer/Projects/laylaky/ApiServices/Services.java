@@ -59,4 +59,9 @@ public interface Services {
     @GET("Api/MyOffers/{id}")
     Call<List<OfferModel>> MyOffer(@Path("id") String user_id);
 
+    @FormUrlEncoded
+    @POST("Api/UpdateProfile/{id}")
+    Call<UserModel> UpdateProfile(@Path("id")String user_id,@FieldMap Map<String,String> map);
+
+
 }
