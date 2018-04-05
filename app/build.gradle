@@ -32,6 +32,7 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.picasso:picasso:2.5.1'
     compile 'com.romainpiel.shimmer:library:1.4.0@aar'
+    compile 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.android.support:design:26.1.0'
 
 }

@@ -1,19 +1,15 @@
 package com.example.m.laylak.Activites;
 
-import android.app.Service;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 import com.example.m.laylak.Adapter.AdapterAlbums;
 import com.example.m.laylak.ApiServices.Api;
 import com.example.m.laylak.ApiServices.Services;
-import com.example.m.laylak.ApiServices.Tags;
 import com.example.m.laylak.Models.OfferModel;
-import com.example.m.laylak.Models.ResponsModel;
 import com.example.m.laylak.R;
 
 import java.util.ArrayList;
