@@ -21,4 +21,15 @@
     <string name="message">message</string>
     <string name="send">send</string>
     <string name="uploadImge">Uploed Images</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="logout">Logout</string>
+    <string name="share">Share</string>
+    <string name="about_us">About Us</string>
+    <string name="contact">Contact Us</string>
+    <string name="profile">Profile</string>
 </resources>
