@@ -40,6 +40,9 @@ public interface Services {
     @GET("Api/AllOffers")
     Call<List<OfferModel>> GetOffers();
 
+
+
+
     @GET("Api/MyProfile/{id}")
     Call<UserModel> Profile(@Path("id") String user_id);
 
