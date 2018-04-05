@@ -10,8 +10,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.Alatheer.Projects.laylaky.Activites.Albumaty;
-import com.Alatheer.Projects.laylaky.Models.Modelalbums;
+import com.Alatheer.Projects.laylaky.Models.OfferModel;
 import com.Alatheer.Projects.laylaky.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -21,14 +22,14 @@ import java.util.List;
 
 public class AdapterAlbumaty extends RecyclerView.Adapter<AdapterAlbumaty.Holder> {
 
-    Modelalbums modelalbums;
-    List<Modelalbums> modelalbumsList;
+    OfferModel OfferModel;
+    List<OfferModel> OfferModelList;
     Context context;
     Albumaty albumaty;
 
 
-    public AdapterAlbumaty(List<Modelalbums> modelalbumsList, Context context) {
-        this.modelalbumsList = modelalbumsList;
+    public AdapterAlbumaty(List<OfferModel> OfferModelList, Context context) {
+        this.OfferModelList = OfferModelList;
         //this.context = context;
         albumaty = (Albumaty) context;
     }
@@ -43,18 +44,21 @@ public class AdapterAlbumaty extends RecyclerView.Adapter<AdapterAlbumaty.Holder
     @Override
     public void onBindViewHolder(final Holder holder, int position) {
 
-        modelalbums=modelalbumsList.get(position);
+        OfferModel=OfferModelList.get(position);
 
         holder.linear.setTag(position);
 
-        holder.titlealbum.setText(modelalbums.getTitle());
-        holder.imgalbum.setImageResource(modelalbums.getImg());
+        holder.titlealbum.setText(OfferModel.getTitle());
+
+        Picasso.with(albumaty).load(OfferModel.getImg()).into(holder.imgalbum);
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int pos = holder.getAdapterPosition();
-                albumaty.setPos(pos);
+                int pos= holder.getAdapterPosition();
+                albumaty.pos(pos);
+
             }
         });
 
@@ -62,7 +66,7 @@ public class AdapterAlbumaty extends RecyclerView.Adapter<AdapterAlbumaty.Holder
 
     @Override
     public int getItemCount() {
-        return modelalbumsList.size();
+        return OfferModelList.size();
     }
 
 

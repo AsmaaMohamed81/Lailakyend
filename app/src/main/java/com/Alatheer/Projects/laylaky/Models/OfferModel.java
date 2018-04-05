@@ -14,11 +14,25 @@ public class OfferModel {
    private String details;
    private String price;
 
-    public OfferModel(String title, String img, String details, String price) {
+
+    public void setAlbum_id(String album_id) {
+        this.album_id = album_id;
+    }
+
+    public String getAlbum_id() {
+
+        return album_id;
+    }
+
+    private String album_id;
+
+    public OfferModel(String offer_id, String title, String img, String details, String price, String album_id) {
+        this.offer_id = offer_id;
         this.title = title;
         this.img = img;
         this.details = details;
         this.price = price;
+        this.album_id = album_id;
     }
 
     public void setOffer_id(String offer_id) {

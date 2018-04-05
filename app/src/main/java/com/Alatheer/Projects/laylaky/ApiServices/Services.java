@@ -2,6 +2,7 @@ package com.Alatheer.Projects.laylaky.ApiServices;
 
 import com.Alatheer.Projects.laylaky.Models.AboutUsModel;
 import com.Alatheer.Projects.laylaky.Models.ContactModel;
+import com.Alatheer.Projects.laylaky.Models.ImgModel;
 import com.Alatheer.Projects.laylaky.Models.OfferModel;
 import com.Alatheer.Projects.laylaky.Models.ResponseModel;
 import com.Alatheer.Projects.laylaky.Models.UserModel;
@@ -56,8 +57,11 @@ public interface Services {
     Call<UserModel> BookAlbum(@Field("images[]")List<String> imageList,
                               @Field("user_id")String userid,
                               @Field("offer_id")String offerid);
-    @GET("Api/MyOffers/{id}")
-    Call<List<OfferModel>> MyOffer(@Path("id") String user_id);
+    @GET("Api/MyOffers/{user_id}")
+    Call<List<OfferModel>> MyOffer(@Path("user_id") String user_id);
+
+    @GET("Api/MyOffersImages/{album_id}")
+    Call<List<ImgModel>> GallaryMyOffer(@Path("album_id") String offer_id);
 
     @FormUrlEncoded
     @POST("Api/UpdateProfile/{id}")

@@ -39,11 +39,10 @@
         <activity android:name=".Activites.AddImges" />
         <activity android:name=".Activites.AboutUsActivity" />
         <activity android:name=".Activites.ContactActivity" />
-        <activity android:name=".Activites.ProfileActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".Activites.ProfileActivity" />
         <activity android:name=".Activites.UpdatePasswordActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            ></activity>
     </application>
 
 </manifest>

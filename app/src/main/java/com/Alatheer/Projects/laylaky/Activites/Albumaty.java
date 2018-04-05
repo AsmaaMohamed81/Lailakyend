@@ -9,27 +9,37 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.Alatheer.Projects.laylaky.Adapter.AdapterAlbumaty;
-import com.Alatheer.Projects.laylaky.Models.Modelalbums;
+import com.Alatheer.Projects.laylaky.ApiServices.Api;
+import com.Alatheer.Projects.laylaky.ApiServices.Services;
+import com.Alatheer.Projects.laylaky.Models.OfferModel;
+import com.Alatheer.Projects.laylaky.Models.OfferModel;
+import com.Alatheer.Projects.laylaky.Models.UserModel;
 import com.Alatheer.Projects.laylaky.R;
+import com.Alatheer.Projects.laylaky.SingleTone.Users;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Albumaty extends AppCompatActivity {
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class Albumaty extends AppCompatActivity implements Users.onCompleteListener {
 
     RecyclerView recyclerView;
     AdapterAlbumaty AdapterAlbumaty;
-    Modelalbums modelalbums;
-    List<Modelalbums> modelalbumsList;
+    OfferModel OfferModel;
+    List<OfferModel> OfferModelList;
     private final int IMG_REQ=200;
     List<Uri> uriList;
+    Users users;
+    UserModel userModel;
 
-    int[] img={R.drawable.hhh,R.drawable.hhh,R.drawable.hhh,R.drawable.hhh};
-    String[] title={"البوم اطفالي","البوم خطوبتي","ااسم الالبوم","البوم فرحي"};
 
 
     @Override
@@ -37,52 +47,101 @@ public class Albumaty extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer_album);
         recyclerView=findViewById(R.id.recycalbum);
+
+
+        users = Users.getInstance();
+        users.getData(this);
+
+//        Log.e("id", userModel.getUser_id());
+
+
         uriList = new ArrayList<>();
-        modelalbumsList=new ArrayList<>();
+        OfferModelList=new ArrayList<>();
 
-        for (int i=0;i<title.length;i++) {
-
-            modelalbums=new Modelalbums(title[i],img[i]);
-            modelalbumsList.add(modelalbums);
-        }
 
         recyclerView.setLayoutManager(new GridLayoutManager(Albumaty.this,2));
         recyclerView.setHasFixedSize(true);
 
-        AdapterAlbumaty = new AdapterAlbumaty(modelalbumsList,Albumaty.this);
+        AdapterAlbumaty = new AdapterAlbumaty(OfferModelList,Albumaty.this);
         recyclerView.setAdapter(AdapterAlbumaty);
-    }
-    public void setPos(int pos)
-    {
-        //Modelalbums modelalbums = modelalbumsList.get(pos);
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("image/*");
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
-        startActivityForResult(intent,IMG_REQ);
+        myoffer();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==IMG_REQ && resultCode == RESULT_OK && data!=null)
-        {
-            ClipData clipData = data.getClipData();
-         //   Log.e("eddddd",""+clipData.getItemCount()+"   "+clipData.getItemAt(0));
-            for (int index =0;index<clipData.getItemCount();index++)
-            {
-                ClipData.Item item = clipData.getItemAt(index);
-                Uri uri = item.getUri();
-                uriList.add(uri);
+    private void myoffer(){
+
+        Services services= Api.getClient().create(Services.class);
+        Call<List<OfferModel>> call=services.MyOffer(userModel.getUser_id());
+        call.enqueue(new Callback<List<OfferModel>>() {
+            @Override
+            public void onResponse(Call<List<OfferModel>> call, Response<List<OfferModel>> response) {
+                OfferModelList.addAll(response.body());
+                AdapterAlbumaty.notifyDataSetChanged();
             }
 
-            Intent intent = new Intent(Albumaty.this,DetailsAlbumaty.class);
+            @Override
+            public void onFailure(Call<List<OfferModel>> call, Throwable t) {
 
-            intent.putExtra("details", (Serializable) uriList);
+            }
+        });
+    }
 
-            startActivity(intent);
+    public  void pos(int pos){
 
-            Toast.makeText(this, ""+uriList.get(0), Toast.LENGTH_SHORT).show();
-        }
+
+        OfferModel OfferModel = OfferModelList.get(pos);
+        Intent i = new Intent(Albumaty.this, DetailsMyOffer.class);
+
+
+        i.putExtra("title",OfferModel.getTitle());
+        i.putExtra("detail",OfferModel.getDetails());
+        i.putExtra("price",OfferModel.getPrice());
+        i.putExtra("img", OfferModel.getImg());
+        i.putExtra("id_offer", OfferModel.getOffer_id());
+        i.putExtra("id_album", OfferModel.getAlbum_id());
+
+        Toast.makeText(this, ""+OfferModel.getAlbum_id(), Toast.LENGTH_SHORT).show();
+        startActivity(i);
+
+
+    }
+//    public void setPos(int pos)
+//    {
+//        //OfferModel OfferModel = OfferModelList.get(pos);
+//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//        intent.setType("image/*");
+//        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
+//        startActivityForResult(intent,IMG_REQ);
+//    }
+//
+//    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        if (requestCode==IMG_REQ && resultCode == RESULT_OK && data!=null)
+//        {
+//            ClipData clipData = data.getClipData();
+//         //   Log.e("eddddd",""+clipData.getItemCount()+"   "+clipData.getItemAt(0));
+//            for (int index =0;index<clipData.getItemCount();index++)
+//            {
+//                ClipData.Item item = clipData.getItemAt(index);
+//                Uri uri = item.getUri();
+//                uriList.add(uri);
+//            }
+//
+//            Intent intent = new Intent(Albumaty.this,DetailsAlbumaty.class);
+//
+//            intent.putExtra("details", (Serializable) uriList);
+//
+//            startActivity(intent);
+//
+//            Toast.makeText(this, ""+uriList.get(0), Toast.LENGTH_SHORT).show();
+//        }
+//    }
+
+    @Override
+    public void OnDataSuccess(UserModel userModel) {
+//        Log.e("id", userModel.getUser_id());
+        this.userModel=userModel;
+
     }
 }
