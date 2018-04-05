@@ -28,11 +28,7 @@ public class OfferAlbum extends AppCompatActivity {
     List<OfferModel> OfferModelList;
 
 
-    int[] img={R.drawable.album1,R.drawable.album2,R.drawable.album3,R.drawable.album1,R.drawable.album2,R.drawable.album3};
-    String[] title={"الالبوم الاول","الالبوم الثاني","الالبوم الاول","الالبوم الثاني","الالبوم الثالث","الالبوم الثالث"};
-    String [] desc ={"asadjksjdksjdskjdsklds","asjahdsjkhdkshkdskdh","asadjksjdksjdskjdsklds","asjahdsjkhdkshkdskdh","asadjksjdksjdskjdsklds","asjahdsjkhdkshkdskdh"};
 
-    String[] pric = {"200","400","200","400","200","400"};
 
 
     @Override
@@ -45,11 +41,7 @@ public class OfferAlbum extends AppCompatActivity {
 
         OfferModelList=new ArrayList<>();
 
-//        for (int i=0;i<title.length;i++) {
-//
-//            OfferModel=new OfferModel(title[i],img[i],desc[i],pric[i]);
-//            OfferModelList.add(OfferModel);
-//        }
+
 
         recyclerView.setLayoutManager(new GridLayoutManager(OfferAlbum.this,3));
         recyclerView.setHasFixedSize(true);
@@ -64,7 +56,6 @@ public class OfferAlbum extends AppCompatActivity {
         call.enqueue(new Callback<List<com.example.m.laylak.Models.OfferModel>>() {
             @Override
             public void onResponse(Call<List<OfferModel>> call, Response<List<OfferModel>> response) {
-//                Toast.makeText(OfferAlbum.this, "sucess", Toast.LENGTH_SHORT).show();
 
                 OfferModelList.addAll(response.body());
                 adapterAlbums.notifyDataSetChanged();

@@ -32,9 +32,6 @@ public class Albumaty extends AppCompatActivity {
 
     int[] img={R.drawable.hhh,R.drawable.hhh,R.drawable.hhh,R.drawable.hhh};
     String[] title={"البوم اطفالي","البوم خطوبتي","ااسم الالبوم","البوم فرحي"};
-    String [] desc ={"asadjksjdksjdskjdsklds","asjahdsjkhdkshkdskdh","asadjksjdksjdskjdsklds","asjahdsjkhdkshkdskdh","asadjksjdksjdskjdsklds","asjahdsjkhdkshkdskdh"};
-
-    String[] pric = {"200","400","200","400","200","400"};
 
 
     @Override

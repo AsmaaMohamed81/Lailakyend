@@ -35,11 +35,7 @@ public class DetailsAlbumaty extends AppCompatActivity {
         simpleGallery = (Gallery) findViewById(R.id.simpleGallery); // get the reference of Gallery
         selectedImageView = (ImageView) findViewById(R.id.selectedImageView); // get the reference of ImageView
 
-        /*customGalleryAdapter = new CustomGalleryAdapter(getApplicationContext(), images); // initialize the adapter
-        simpleGallery.setAdapter(customGalleryAdapter);*/ // set the adapter
 
-
-        // perform setOnItemClickListener event on the Gallery
         simpleGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -67,25 +63,5 @@ public class DetailsAlbumaty extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
+
 }
