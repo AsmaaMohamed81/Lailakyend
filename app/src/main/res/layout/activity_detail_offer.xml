@@ -93,7 +93,15 @@
                 android:src="@drawable/icon2"/>
 
         </LinearLayout>
-
+        <Button
+            android:id="@+id/Upload"
+            android:text="@string/uploadImge"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:textSize="10dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/collect2"/>
         <Button
             android:id="@+id/detail_book"
             android:text="@string/book"

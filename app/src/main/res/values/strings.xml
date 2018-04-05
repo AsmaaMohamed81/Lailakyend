@@ -20,4 +20,5 @@
     <string name="subject">Subject</string>
     <string name="message">message</string>
     <string name="send">send</string>
+    <string name="uploadImge">Uploed Images</string>
 </resources>

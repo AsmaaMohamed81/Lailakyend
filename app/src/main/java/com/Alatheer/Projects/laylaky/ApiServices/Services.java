@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -41,5 +42,11 @@ public interface Services {
 
     @GET("Api/MyProfile/{id}")
     Call<UserModel> Profile(@Path("id") String user_id);
+
+    @FormUrlEncoded
+    @POST("Api/SubscribeOffer")
+    Call<UserModel> BookAlbum(@Field("images[]")List<String> imageList,
+                              @Field("user_id")String userid,
+                              @Field("offer_id")String offerid);
 
 }
