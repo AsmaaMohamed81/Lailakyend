@@ -22,4 +22,9 @@
     <string name="subject">العنوان</string>
     <string name="message">التفاصيل</string>
     <string name="send">send</string>
+    <string name="logout">Logout</string>
+    <string name="share">Share</string>
+    <string name="about_us">About Us</string>
+    <string name="contact">Contact Us</string>
+    <string name="profile">Profile</string>
 </resources>

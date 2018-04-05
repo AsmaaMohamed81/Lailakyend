@@ -61,10 +61,6 @@ public class AlbumsActivity extends AppCompatActivity implements View.OnClickLis
         share.setOnClickListener(this);
 
 
-
-
-
-
     }
 
     private void getDataFromIntent() {
