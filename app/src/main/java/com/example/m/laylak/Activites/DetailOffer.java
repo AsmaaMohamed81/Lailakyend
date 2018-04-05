@@ -3,20 +3,27 @@ package com.example.m.laylak.Activites;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.m.laylak.Models.UserModel;
 import com.example.m.laylak.R;
+import com.example.m.laylak.SingleTone.Users;
 import com.squareup.picasso.Picasso;
 
-public class DetailOffer extends AppCompatActivity {
+public class DetailOffer extends AppCompatActivity implements Users.onCompleteListener{
 TextView title,desc,price;
 ImageView img;
+Users users;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_offer);
 
+        users = Users.getInstance();
+        users.getData(this);
         title=findViewById(R.id.detail_title);
         desc=findViewById(R.id.detail_desc);
         price=findViewById(R.id.detail_pric);
@@ -36,5 +43,10 @@ ImageView img;
 
         Picasso.with(this).load(imgg).into(img);
 
+    }
+
+    @Override
+    public void OnDataSuccess(UserModel userModel) {
+        Log.e("id",userModel.getUser_id());
     }
 }

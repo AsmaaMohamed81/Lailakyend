@@ -18,9 +18,10 @@ import android.widget.Toast;
 
 import com.example.m.laylak.ApiServices.Preferences;
 import com.example.m.laylak.ApiServices.Services;
-import com.example.m.laylak.Models.ResponsModel;
+import com.example.m.laylak.Models.UserModel;
 import com.example.m.laylak.R;
 import com.example.m.laylak.ApiServices.Api;
+import com.example.m.laylak.SingleTone.Users;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,12 +37,14 @@ public class Signup extends AppCompatActivity {
     private Button signUp;
     private ProgressDialog dialog;
     private Preferences preferences;
+    Users users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
 
+        users = Users.getInstance();
         initView();
         preferences = new Preferences(this);
 
@@ -119,14 +122,15 @@ public class Signup extends AppCompatActivity {
 
                 Retrofit retrofit = Api.getClient();
                 Services services = retrofit.create(Services.class);
-                Call<ResponsModel> call = services.Register(map);
-                call.enqueue(new Callback<ResponsModel>() {
+                Call<UserModel> call = services.Register(map);
+                call.enqueue(new Callback<UserModel>() {
                     @Override
-                    public void onResponse(Call<ResponsModel> call, Response<ResponsModel> response) {
+                    public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                         if (response.isSuccessful())
                         {
                             if (response.body().getSuccess()==1)
                             {
+                                users.setUserData(response.body());
                                 preferences.CreatePref(response.body().getUser_id());
                                 Intent intent = new Intent(Signup.this,AlbumsActivity.class);
                                 intent.putExtra("user_id",response.body().getUser_id());
@@ -142,7 +146,7 @@ public class Signup extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<ResponsModel> call, Throwable t) {
+                    public void onFailure(Call<UserModel> call, Throwable t) {
                         Log.e("register error",t.getMessage());
                         Toast.makeText(Signup.this, "Error some thing went haywire", Toast.LENGTH_SHORT).show();
                     }

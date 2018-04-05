@@ -3,7 +3,7 @@ package com.example.m.laylak.ApiServices;
 import com.example.m.laylak.Models.AboutUsModel;
 import com.example.m.laylak.Models.ContactModel;
 import com.example.m.laylak.Models.OfferModel;
-import com.example.m.laylak.Models.ResponsModel;
+import com.example.m.laylak.Models.UserModel;
 
 import java.util.List;
 import java.util.Map;
@@ -22,11 +22,11 @@ public interface Services {
 
     @FormUrlEncoded
     @POST("Api/InsertRegistration")
-    Call<ResponsModel> Register(@FieldMap Map<String,String> map);
+    Call<UserModel> Register(@FieldMap Map<String,String> map);
 
     @FormUrlEncoded
     @POST("Api/Login")
-    Call<ResponsModel> Login(@FieldMap Map<String,String> map);
+    Call<UserModel> Login(@FieldMap Map<String,String> map);
 
     @GET("Api/AboutUs")
     Call<List<AboutUsModel>> GetAboutUs();

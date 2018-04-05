@@ -20,8 +20,9 @@ import android.widget.Toast;
 import com.example.m.laylak.ApiServices.Api;
 import com.example.m.laylak.ApiServices.Preferences;
 import com.example.m.laylak.ApiServices.Services;
-import com.example.m.laylak.Models.ResponsModel;
+import com.example.m.laylak.Models.UserModel;
 import com.example.m.laylak.R;
+import com.example.m.laylak.SingleTone.Users;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button login;
     private ProgressDialog dialog;
     private Preferences preferences;
+    Users users;
 
 
 
@@ -46,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         initView();
+        users = Users.getInstance();
         preferences = new Preferences(this);
         SharedPreferences pref = getSharedPreferences("user",MODE_PRIVATE);
         if (pref!=null)
@@ -130,16 +133,17 @@ public class LoginActivity extends AppCompatActivity {
                 map.put("user_pass",upass);
                 Retrofit retrofit = Api.getClient();
                 Services services = retrofit.create(Services.class);
-                Call<ResponsModel> call = services.Login(map);
-                call.enqueue(new Callback<ResponsModel>() {
+                Call<UserModel> call = services.Login(map);
+                call.enqueue(new Callback<UserModel>() {
                     @Override
-                    public void onResponse(Call<ResponsModel> call, Response<ResponsModel> response) {
+                    public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                         if (response.isSuccessful())
                         {
                             if (response.body().getSuccess()==1)
                             {
                                 preferences.CreatePref(response.body().getUser_id());
 
+                                users.setUserData(response.body());
                                 Intent intent = new Intent(LoginActivity.this,AlbumsActivity.class);
                                 intent.putExtra("user_id",response.body().getUser_id());
                                 dialog.dismiss();
@@ -155,7 +159,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<ResponsModel> call, Throwable t) {
+                    public void onFailure(Call<UserModel> call, Throwable t) {
 
                         Log.e("error",t.getMessage());
                         dialog.dismiss();
