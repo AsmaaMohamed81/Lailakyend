@@ -22,9 +22,7 @@ public class DetailsAlbumaty extends AppCompatActivity {
     CustomGalleryAdapter customGalleryAdapter;
     ImageView selectedImageView;
     // array of images
-   /* int[] images = {R.drawable.images1, R.drawable.images2, R.drawable.album1, R.drawable.album2, R.drawable.album3,
-            R.drawable.images1, R.drawable.images2, R.drawable.album1, R.drawable.album2, R.drawable.album3, R.drawable.images1,
-            R.drawable.images2, R.drawable.album3};*/
+
    List<Uri> uriList ;
 
     @Override
