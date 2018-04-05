@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity
     AlertDialog.Builder builder;
     private Users users;
     private TextView name,email;
+    private DrawerLayout drawer;
+    private ActionBarDrawerToggle toggle;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +46,13 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         preferences = new Preferences(this);
@@ -83,8 +85,9 @@ public class MainActivity extends AppCompatActivity
     private void initView() {
         albumgeded= findViewById(R.id.albumgeded);
         albumaty  = findViewById(R.id.albumaty);
-        name=findViewById(R.id.txt_username);
-        email=findViewById(R.id.txt_email);
+        View view = navigationView.getHeaderView(0);
+        name=view.findViewById(R.id.txt_username);
+        email=view.findViewById(R.id.txt_email);
         users = Users.getInstance();
         users.getData(this);
         albumgeded.setOnClickListener(this);
