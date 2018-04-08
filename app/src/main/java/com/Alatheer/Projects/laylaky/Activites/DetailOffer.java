@@ -55,6 +55,7 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_offer);
         enCodedImageList = new ArrayList<>();
+
         uriList = new ArrayList<>();
         selectedImage = new ArrayList<>();
 

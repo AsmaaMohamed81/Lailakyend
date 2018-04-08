@@ -10,22 +10,23 @@
     <string name="login">دخول</string>
     <string name="Skip">تخطي</string>
     <string name="registerMassege">لا يوجد لديك حساب ؟</string>
-    <string name="firstalbum">الألبوم الأول</string>
-    <string name="thirdalbum">الألبوم الثالث</string>
-    <string name="falbum">الألبوم الرابع</string>
-    <string name="fialbum">الألبوم الخامس</string>
-    <string name="secondalbum">الألبوم الثاني</string>
-    <string name="sixalbum">الألبوم السادس</string>
+
     <string name="details">التفاصيل</string>
     <string name="view">عرض</string>
     <string name="book">احجز</string>
     <string name="subject">العنوان</string>
     <string name="message">التفاصيل</string>
-    <string name="send">send</string>
-    <string name="logout">Logout</string>
-    <string name="share">Share</string>
-    <string name="about_us">About Us</string>
-    <string name="contact">Contact Us</string>
-    <string name="profile">Profile</string>
-    <string name="gallary">gallary</string>
+    <string name="send">ارسال</string>
+    <string name="logout">تسجيل دخول</string>
+    <string name="share">مشاركه</string>
+    <string name="about_us">من نحن</string>
+    <string name="contact">اتصل بنا</string>
+    <string name="profile">صفحه شخصيه</string>
+    <string name="gallary">البوم</string>
+    <string name="uploadImge">ارفع الصور</string>
+    <string name="title_activity_main">الرئيسيه</string>
+    <string name="navigation_drawer_open">افتح القاءمه</string>
+    <string name="navigation_drawer_close">اغلق القاءمه</string>
+    <string name="action_settings">الاعدادات</string>
+    <string name="updateprfile">تحديث الملف الشخصي</string>
 </resources>

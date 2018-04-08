@@ -146,7 +146,7 @@
             android:layout_marginRight="70dp"
             android:layout_marginBottom="30dp"
             android:background="@drawable/profile_btn"
-            android:text="تحديث الملف الشخصي"
+            android:text="@string/updateprfile"
             android:textSize="18sp"
             android:textColor="@color/colorPrimary"
             />

@@ -8,19 +8,14 @@
     <string name="login">login</string>
     <string name="Skip">Skip</string>
     <string name="registerMassege">Do you have account ?</string>
-    <string name="firstalbum">الألبوم الأول</string>
-    <string name="thirdalbum">الألبوم الثالث</string>
-    <string name="falbum">الألبوم الرابع</string>
-    <string name="fialbum">الألبوم الخامس</string>
-    <string name="secondalbum">الألبوم الثاني</string>
-    <string name="sixalbum">الألبوم السادس</string>
+
     <string name="details">details</string>
     <string name="view">view</string>
     <string name="book">book</string>
     <string name="subject">Subject</string>
     <string name="message">message</string>
     <string name="send">send</string>
-    <string name="uploadImge">Uploed Images</string>
+    <string name="uploadImge">Upload Images</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -33,4 +28,5 @@
     <string name="contact">Contact Us</string>
     <string name="profile">Profile</string>
     <string name="gallary">gallary</string>
+    <string name="updateprfile">تحديث الملف الشخصي</string>
 </resources>

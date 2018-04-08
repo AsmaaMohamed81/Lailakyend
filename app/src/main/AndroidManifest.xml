@@ -45,6 +45,7 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Activites.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Activites.DetailsMyOffer"/>
     </application>
 
 </manifest>

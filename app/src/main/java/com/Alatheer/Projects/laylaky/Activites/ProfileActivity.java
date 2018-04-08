@@ -83,6 +83,8 @@ public class ProfileActivity extends AppCompatActivity implements Users.onComple
                 UpdateProfile();
             }
         });
+
+
         ProgressBar progressBar = new ProgressBar(this);
         Drawable drawable = progressBar.getIndeterminateDrawable().mutate();
         drawable.setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
@@ -152,9 +154,11 @@ public class ProfileActivity extends AppCompatActivity implements Users.onComple
                                 user_name.setEnabled(false);
                                 user_email.setEnabled(false);
                                 user_phone.setEnabled(false);
+
                                 u_name=userModel.getUser_name();
                                 u_phone=userModel.getUser_phone();
                                 u_email=userModel.getUser_email();
+
                                 done.setVisibility(View.INVISIBLE);
                                 updateBtn.setVisibility(View.VISIBLE);
                                 Toast.makeText(ProfileActivity.this, "Profile updated successfully", Toast.LENGTH_SHORT).show();

@@ -143,6 +143,17 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
 
+          String text ="استوديو ليلاكي";
+          String link ="https://play.google.com/store/apps/details?id=com.Alatheer.Projects.laylaky";
+
+          Intent intent=new Intent(Intent.ACTION_SEND);
+          intent.putExtra(Intent.EXTRA_TEXT,text+"\n"+link);
+          intent.setType("text/plain");
+          startActivity(intent);
+
+
+
+
         } else if (id == R.id.nav_logout) {
 
             builder.show();

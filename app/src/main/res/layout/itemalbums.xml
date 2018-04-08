@@ -18,7 +18,6 @@
             android:padding="10dp"
             android:src="@drawable/logot2"
             android:textColor="@color/colorPrimary"
-            android:text="@string/firstalbum"
 
             tools:ignore="SpUsage" />
 
