@@ -43,23 +43,34 @@ public class DetailsAlbumaty extends AppCompatActivity {
         setContentView(R.layout.activity_details_albumaty);
         uriList=new ArrayList<>();
 
-        simpleGallery = (Gallery) findViewById(R.id.simpleGallery); // get the reference of Gallery
-        selectedImageView = (ImageView) findViewById(R.id.selectedImageView); // get the reference of ImageView
+
+
+        simpleGallery =  findViewById(R.id.simpleGallery); // get the reference of Gallery
+        selectedImageView =  findViewById(R.id.selectedImageView); // get the reference of ImageView
+
+        getntent();
+        getDataFromIntent();
+//
+
+
+//        Picasso.with(DetailsAlbumaty.this).load(ImgPath+imgModel.getImage()).into(selectedImageView);
 
         customGalleryAdapter = new CustomGalleryAdapter(this, uriList); // initialize the adapter
         simpleGallery.setAdapter(customGalleryAdapter);
+
+
+
 
         simpleGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // set the selected image in the ImageView
+                Toast.makeText(DetailsAlbumaty.this, position+"", Toast.LENGTH_SHORT).show();
                 imgModel=  uriList.get(position);
                 Picasso.with(DetailsAlbumaty.this).load(ImgPath+imgModel.getImage()).into(selectedImageView);
             }
         });
 
-        getntent();
-        getDataFromIntent();
     }
 
     private void getDataFromIntent() {
@@ -77,6 +88,8 @@ public class DetailsAlbumaty extends AppCompatActivity {
 //                Toast.makeText(DetailsAlbumaty.this, ""+response.body().get(0).getImage(), Toast.LENGTH_SHORT).show();
                // Toast.makeText(DetailsAlbumaty.this, ""+uriList.get(1), Toast.LENGTH_SHORT).show();
                 customGalleryAdapter.notifyDataSetChanged();
+                Picasso.with(DetailsAlbumaty.this).load(ImgPath+response.body().get(0).getImage()).into(selectedImageView);
+
 
 
 
@@ -98,16 +111,11 @@ public class DetailsAlbumaty extends AppCompatActivity {
         if (u != null) {
 
             idoffer = u.getStringExtra("id_album");
-            Toast.makeText(this, "fff"+idoffer, Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(this, "fff"+idoffer, Toast.LENGTH_SHORT).show();
         }
     }
 
-//    private void UpdateUI(List<Uri> uriList) {
-//
-//        customGalleryAdapter = new CustomGalleryAdapter(this, uriList); // initialize the adapter
-//        simpleGallery.setAdapter(customGalleryAdapter);
-//
-//    }
+
 
 
 }

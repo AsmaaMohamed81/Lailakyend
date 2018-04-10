@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.Alatheer.Projects.laylaky.Adapter.AdapterAlbumaty;
@@ -39,6 +41,7 @@ public class Albumaty extends AppCompatActivity implements Users.onCompleteListe
     List<Uri> uriList;
     Users users;
     UserModel userModel;
+    ImageButton share,back;
 
 
 
@@ -47,6 +50,31 @@ public class Albumaty extends AppCompatActivity implements Users.onCompleteListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer_album);
         recyclerView=findViewById(R.id.recycalbum);
+        share=findViewById(R.id.share);
+        back=findViewById(R.id.back);
+
+        share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String text ="استوديو ليلاكي";
+                String link ="https://play.google.com/store/apps/details?id=com.Alatheer.Projects.laylaky";
+
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.putExtra(Intent.EXTRA_TEXT,text+"\n"+link);
+                intent.setType("text/plain");
+                startActivity(intent);
+
+            }
+        });
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+
+            }
+        });
 
 
         users = Users.getInstance();

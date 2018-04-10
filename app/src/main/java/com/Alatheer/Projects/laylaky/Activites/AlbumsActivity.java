@@ -16,7 +16,7 @@ public class AlbumsActivity extends AppCompatActivity implements View.OnClickLis
     private ImageButton albumgeded,albumaty;
     private Preferences preferences;
     private String user_id;
-    private ImageView logout,share;
+    private ImageView back,share;
     AlertDialog.Builder builder;
 
     @Override
@@ -52,12 +52,12 @@ public class AlbumsActivity extends AppCompatActivity implements View.OnClickLis
     private void initView() {
         albumgeded= findViewById(R.id.albumgeded);
         albumaty  = findViewById(R.id.albumaty);
-        logout    = findViewById(R.id.logout);
+        back    = findViewById(R.id.back);
         share     = findViewById(R.id.share);
 
         albumgeded.setOnClickListener(this);
         albumaty.setOnClickListener(this);
-        logout.setOnClickListener(this);
+        back.setOnClickListener(this);
         share.setOnClickListener(this);
 
 
@@ -99,10 +99,24 @@ public class AlbumsActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(i2);
                 break;
 
-            case R.id.logout:
-                builder.show();
+            case R.id.back:
+                finish();
                 break;
             case R.id.share:
+
+
+
+
+
+                        String text ="استوديو ليلاكي";
+                        String link ="https://play.google.com/store/apps/details?id=com.Alatheer.Projects.laylaky";
+
+                        Intent intent=new Intent(Intent.ACTION_SEND);
+                        intent.putExtra(Intent.EXTRA_TEXT,text+"\n"+link);
+                        intent.setType("text/plain");
+                        startActivity(intent);
+
+
                 break;
         }
     }
