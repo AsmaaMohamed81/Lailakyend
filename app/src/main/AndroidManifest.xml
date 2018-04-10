@@ -6,9 +6,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -39,13 +39,17 @@
         <activity android:name=".Activites.AddImges" />
         <activity android:name=".Activites.AboutUsActivity" />
         <activity android:name=".Activites.ContactActivity" />
-        <activity android:name=".Activites.ProfileActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"/>
-        <activity android:name=".Activites.UpdatePasswordActivity"
+        <activity
+            android:name=".Activites.ProfileActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.UpdatePasswordActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Activites.MainActivity"
+        <activity
+            android:name=".Activites.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Activites.DetailsMyOffer"/>
+        <activity android:name=".Activites.DetailsMyOffer" />
+        <activity android:name=".Activites.UserActivity"></activity>
     </application>
 
 </manifest>

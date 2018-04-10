@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.Alatheer.Projects.laylaky.Adapter.AdapterAlbums;
 import com.Alatheer.Projects.laylaky.ApiServices.Api;
@@ -26,6 +27,7 @@ public class OfferAlbum extends AppCompatActivity {
     AdapterAlbums adapterAlbums;
     OfferModel OfferModel;
     List<OfferModel> OfferModelList;
+    private String user_type;
 
 
 
@@ -35,8 +37,8 @@ public class OfferAlbum extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer_album);
-        
-        
+        getDataFromIntent();
+
         recyclerView=findViewById(R.id.recycalbum);
 
         OfferModelList=new ArrayList<>();
@@ -73,6 +75,16 @@ public class OfferAlbum extends AppCompatActivity {
 
     }
 
+    private void getDataFromIntent() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            if (intent.hasExtra("user_type"))
+            {
+                user_type = intent.getStringExtra("user_type");
+            }
+    }
+    }
+
     public  void pos(int pos){
 
 
@@ -85,7 +97,7 @@ public class OfferAlbum extends AppCompatActivity {
         i.putExtra("price",OfferModel.getPrice());
         i.putExtra("img", OfferModel.getImg());
         i.putExtra("id_offer", OfferModel.getOffer_id());
-
+        i.putExtra("user_type",user_type);
 
         startActivity(i);
 

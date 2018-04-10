@@ -47,6 +47,7 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
     List<String> enCodedImageList;
 
     UserModel userModel;
+    String user_type;
 
 
 
@@ -54,6 +55,9 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_offer);
+        initView();
+        getDataFromIntent();
+
         enCodedImageList = new ArrayList<>();
 
         uriList = new ArrayList<>();
@@ -63,9 +67,7 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
         users.getData(this);
 
 
-        initView();
 
-        getDataFromIntent();
 
         title.setText(titlee);
         desc.setText(desce);
@@ -76,6 +78,7 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
 
 
     }
+
 
 
     private void book(){
@@ -199,19 +202,29 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
 
     @Override
     public void OnDataSuccess(UserModel userModel) {
-        Log.e("id", userModel.getUser_id());
+       // Log.e("id", userModel.getUser_id());
         this.userModel=userModel;
     }
 
     private void getDataFromIntent() {
-        Intent u = getIntent();
-        if (u != null) {
-            titlee = u.getStringExtra("title");
-            desce = u.getStringExtra("detail");
-            pricee = u.getStringExtra("price");
+        Intent intent = getIntent();
+        if (intent != null) {
+            if (intent.hasExtra("user_type"))
+            {
+                user_type = intent.getStringExtra("user_type");
+                if (user_type.equals("visitor"))
+                {
+                    detail_book.setVisibility(View.INVISIBLE);
+                    Upload.setVisibility(View.INVISIBLE);
+                }
 
-            imgg = u.getStringExtra("img");
-             idoffer = u.getStringExtra("id_offer");
+            }
+            titlee = intent.getStringExtra("title");
+            desce = intent.getStringExtra("detail");
+            pricee = intent.getStringExtra("price");
+
+            imgg = intent.getStringExtra("img");
+             idoffer = intent.getStringExtra("id_offer");
         }
     }
     private void UpdateUI(List<Uri> uriList) {

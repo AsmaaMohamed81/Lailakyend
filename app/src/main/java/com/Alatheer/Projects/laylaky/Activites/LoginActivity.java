@@ -92,8 +92,9 @@ public class LoginActivity extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(LoginActivity.this,UserActivity.class);
+                intent.putExtra("user_type","visitor");
+                startActivity(intent);
             }
         });
         login.setOnClickListener(new View.OnClickListener() {
