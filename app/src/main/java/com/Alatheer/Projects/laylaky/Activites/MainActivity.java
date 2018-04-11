@@ -37,25 +37,15 @@ public class MainActivity extends AppCompatActivity
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
     private NavigationView navigationView;
+    private Toolbar toolbar;
+    private String user_type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-         toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        preferences = new Preferences(this);
         initView();
         getDataFromIntent();
         CreateAlertDialog();
@@ -83,6 +73,18 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initView() {
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        drawer =  findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        navigationView =  findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        preferences = new Preferences(this);
         albumgeded= findViewById(R.id.albumgeded);
         albumaty  = findViewById(R.id.albumaty);
         View view = navigationView.getHeaderView(0);
@@ -103,7 +105,11 @@ public class MainActivity extends AppCompatActivity
             if (intent.hasExtra("user_id"))
             {
                 user_id = intent.getStringExtra("user_id");
+                user_type = intent.getStringExtra("user_type");
+
                 Log.e("getDataFromIntent: ",user_id);
+                Log.e("getDataFromIntent: ",user_type);
+
             }
         }
     }
@@ -179,12 +185,14 @@ public class MainActivity extends AppCompatActivity
             case R.id.albumgeded:
 
                 Intent i = new Intent(MainActivity.this,OfferAlbum.class);
+                i.putExtra("user_type",user_type);
                 startActivity(i);
 
                 break;
             case R.id.albumaty :
 
                 Intent i2 = new Intent(MainActivity.this, Albumaty.class);
+
                 startActivity(i2);
                 break;
 
@@ -198,7 +206,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void UpdateUi(UserModel userModel) {
-        name.setText(userModel.getUser_name());
+       // name.setText(userModel.getUser_name());
         email.setText(userModel.getUser_email());
     }
 }

@@ -71,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                     userModel.setUser_pass(user_pass);
                     users.setUserData(userModel);
                     Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                    intent.putExtra("user_type","client");
                     startActivity(intent);
                     finish();                }
             }
@@ -156,6 +157,7 @@ public class LoginActivity extends AppCompatActivity {
 
                                 users.setUserData(response.body());
                                 Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                intent.putExtra("user_type","client");
                                 dialog.dismiss();
                                 startActivity(intent);
                                 finish();

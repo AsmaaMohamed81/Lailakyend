@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -29,6 +31,7 @@ ImageView   img1 ,img2 ,img3 ,img4 ,img5 ,img6;
         img1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
 
                 Intent photoPickerIntent = new Intent(Intent.ACTION_PICK
                         ,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
