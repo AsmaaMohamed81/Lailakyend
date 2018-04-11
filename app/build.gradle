@@ -16,6 +16,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    repositories {
+        maven { url "https://jitpack.io" }
+
+    }
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -33,5 +37,7 @@ dependencies {
     compile 'com.romainpiel.shimmer:library:1.4.0@aar'
     compile 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.android.support:design:26.1.0'
+    compile 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.2@aar'
+
 
 }
