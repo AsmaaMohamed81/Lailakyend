@@ -31,7 +31,6 @@ import com.Alatheer.Projects.laylaky.ApiServices.Services;
 import com.Alatheer.Projects.laylaky.Models.ImgModel;
 import com.Alatheer.Projects.laylaky.Models.OfferModel;
 import com.Alatheer.Projects.laylaky.R;
-import com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -44,15 +43,13 @@ import retrofit2.Response;
 import static com.Alatheer.Projects.laylaky.ApiServices.Tags.ImgPath;
 
 public class DetailsAlbumaty extends AppCompatActivity {
-    private RecyclerViewPager recView;
-    private RecyclerViewPager.LayoutManager manager;
-    private RecyclerViewPager.Adapter adapter;
+    private RecyclerView recView;
+    private RecyclerView.LayoutManager manager;
+    private RecyclerView.Adapter adapter;
     private ProgressBar bar;
     Gallery simpleGallery;
-    int fi=0;
     CustomGalleryAdapter customGalleryAdapter;
     ImageView selectedImageView;
-    // array of images
 
     List<ImgModel> uriList;
      String idoffer;
@@ -66,30 +63,43 @@ public class DetailsAlbumaty extends AppCompatActivity {
 
         initView();
         getDataFromIntent();
+        final SnapHelper snapHelper = new PagerSnapHelper();
+        snapHelper.attachToRecyclerView(recView);
         recView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-
-
             }
 
             @Override
-            public void onScrolled(final RecyclerView recyclerView, int dx, int dy) {
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        int currPos = recView.getCurrentPosition()+1;
-                        int total = recView.getAdapter().getItemCount();
+                int currPos = snapHelper.findTargetSnapPosition(recView.getLayoutManager(), dx, dy)+1;
+                int total = recView.getAdapter().getItemCount();
 
-                        counter.setText("<"+currPos+"/"+total+">");
-                        Log.e("curr",recView.getCurrentPosition()+"");
+                counter.setText("<"+currPos+"/"+total+">");
 
-                    }
-                },100);
             }
         });
+
+
+            /*final SnapHelper snapHelper = new PagerSnapHelper();
+        snapHelper.attachToRecyclerView(recView);
+        recView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                int targetSnapPosition = snapHelper.findTargetSnapPosition(recyclerView.getLayoutManager(), dx, dx);
+                Log.e("posssssss",targetSnapPosition+"");
+            }
+        });
+*/
+
 
         /*final SnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recView);
@@ -107,31 +117,7 @@ public class DetailsAlbumaty extends AppCompatActivity {
             }
         });
 */
-       /* simpleGallery =  findViewById(R.id.simpleGallery); // get the reference of Gallery
-        selectedImageView =  findViewById(R.id.selectedImageView); // get the reference of ImageView
-*/
-        //getDataFromIntent();
-//
 
-
-//        Picasso.with(DetailsAlbumaty.this).load(ImgPath+imgModel.getImage()).into(selectedImageView);
-
-      /*  customGalleryAdapter = new CustomGalleryAdapter(this, uriList); // initialize the adapter
-        simpleGallery.setAdapter(customGalleryAdapter);
-*/
-
-
-
-        /*simpleGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // set the selected image in the ImageView
-                Toast.makeText(DetailsAlbumaty.this, position+"", Toast.LENGTH_SHORT).show();
-                imgModel=  uriList.get(position);
-                Picasso.with(DetailsAlbumaty.this).load(ImgPath+imgModel.getImage()).into(selectedImageView);
-            }
-        });
-*/
     }
 
     @Override

@@ -3,41 +3,39 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="صور الالبوم"
-    android:textColor="@color/white"
-    android:gravity="center"
-    android:textSize="16sp"
-    android:textStyle="bold"
-    android:background="@color/colorPrimary"
-    android:padding="5dp"
-    />
-   <TextView
-       android:id="@+id/counter"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:textSize="15sp"
-       android:textColor="@color/white"
-       android:gravity="center"
-       android:background="@color/colorPrimary"
-       android:padding="5dp"
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            >
+            <TextView
+                android:id="@+id/counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:padding="5dp"
+                android:layout_gravity="center"
 
-       />
+                />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
 <FrameLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/recView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        app:rvp_triggerOffset="0.1"
-        app:rvp_singlePageFling="true"
-        android:clipToPadding="false"/>
+        android:clipToPadding="true"
+       />
     <ProgressBar
         android:id="@+id/progBar"
         android:layout_width="wrap_content"
