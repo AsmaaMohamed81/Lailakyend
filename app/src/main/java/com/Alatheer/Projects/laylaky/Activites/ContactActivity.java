@@ -1,5 +1,6 @@
 package com.Alatheer.Projects.laylaky.Activites;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -29,8 +30,10 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
     Shimmer shimmer;
     ShimmerTextView offer_txt;
     EditText name,phone,email,message;
-    TextView mail,web,mob;
+    TextView mail,web,mob,map;
     Button send;
+
+    double lat,lang;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +55,11 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
                 mail.setText(response.body().getEmail_info());
                 web.setText(response.body().getWeb_info());
                 mob.setText(response.body().getTele_info());
+
+                lat=response.body().getLocation_google_lat();
+                lang=response.body().getLocation_google_long();
+
+
             }
 
             @Override
@@ -143,8 +151,19 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
         mail=findViewById(R.id.email);
         mob=findViewById(R.id.phone);
         web=findViewById(R.id.web);
+        map=findViewById(R.id.mapk);
 
         send.setOnClickListener(this);
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ContactActivity.this, "dasdssdsdsss", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ContactActivity.this,MapsActivity.class);
+                intent.putExtra("lat",lat);
+                intent.putExtra("lang",lang);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -156,6 +175,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.btn_contact:
                 SendDataToServer();
                 break;
+
         }
 
     }

@@ -1,18 +1,26 @@
 package com.Alatheer.Projects.laylaky.Activites;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.Alatheer.Projects.laylaky.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+
+    Double latitude, longitude;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +30,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        Intent  intent= getIntent();
+        latitude = intent.getDoubleExtra("lat",2.1);
+       longitude =  intent.getDoubleExtra("lang",2.1);
     }
 
 
@@ -39,8 +51,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.map);
+        LatLng playground = new LatLng(latitude, longitude);
+        MarkerOptions markerOptions = new MarkerOptions().position(playground)
+                .title("استديو ليلاكي ")
+                .icon(icon);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(playground, 16.0f));
+
+        mMap.addMarker(markerOptions);
     }
 }
