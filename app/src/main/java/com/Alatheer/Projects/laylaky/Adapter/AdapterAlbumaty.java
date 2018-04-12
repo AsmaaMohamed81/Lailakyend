@@ -87,4 +87,5 @@ public class AdapterAlbumaty extends RecyclerView.Adapter<AdapterAlbumaty.Holder
 
 
     }
+
 }

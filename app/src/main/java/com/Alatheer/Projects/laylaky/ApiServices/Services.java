@@ -70,6 +70,8 @@ public interface Services {
     @FormUrlEncoded
     @POST("Api/UpdateProfile/{id}")
     Call<UserModel> UpdateProfile(@Path("id")String user_id,@FieldMap Map<String,String> map);
-
+    @FormUrlEncoded
+    @POST("Api/AddAlbumImage/{album_id}")
+    Call<List<ImgModel>> AddImages(@Path("album_id") String album_id,@Field("Images[]")List<String> imagesList);
 
 }

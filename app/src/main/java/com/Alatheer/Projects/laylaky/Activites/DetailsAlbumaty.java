@@ -1,15 +1,18 @@
 package com.Alatheer.Projects.laylaky.Activites;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +23,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,6 +46,7 @@ import com.Alatheer.Projects.laylaky.Models.OfferModel;
 import com.Alatheer.Projects.laylaky.R;
 import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +54,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 import static com.Alatheer.Projects.laylaky.ApiServices.Tags.ImgPath;
 
@@ -62,9 +68,8 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
     Gallery simpleGallery;
     CustomGalleryAdapter customGalleryAdapter;
     ImageView selectedImageView;
-
-    List<ImgModel> uriList;
-     String idoffer;
+    private String album_id;
+     List<ImgModel> uriList;
      ImgModel imgModel;
      TextView counter;
      private int count=0;
@@ -72,6 +77,8 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
      private final int IMG_REQ=1230;
      private Bitmap bitmap;
      private List<String> encodedImageList;
+     private List<Bitmap> bitmaps;
+     private ProgressDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +87,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
         initView();
         getDataFromIntent();
+        CreateProgress();
         final SnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recView);
         recView.setOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -167,10 +175,22 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
         getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
+    private void CreateProgress()
+    {
+        ProgressBar bar = new ProgressBar(this);
+        Drawable drawable = bar.getIndeterminateDrawable().mutate();
+        drawable.setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("جار اضافة الصور..");
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setIndeterminateDrawable(drawable);
+
+    }
     private void getData() {
 
         Services services = Api.getClient().create(Services.class);
-        Call<List<ImgModel>> call = services.GallaryMyOffer(idoffer);
+        Call<List<ImgModel>> call = services.GallaryMyOffer(album_id);
         call.enqueue(new Callback<List<ImgModel>>() {
             @Override
             public void onResponse(Call<List<ImgModel>> call, Response<List<ImgModel>> response) {
@@ -217,7 +237,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
             if (intent.hasExtra("id_album"))
             {
-                idoffer = intent.getStringExtra("id_album");
+                album_id = intent.getStringExtra("id_album");
 
             }
         }
@@ -264,34 +284,116 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
     private void selectImages() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("image/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
         startActivityForResult(intent.createChooser(intent,"Select image"),IMG_REQ);
     }
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode==IMG_REQ && resultCode == RESULT_OK && data !=null)
         {
             ClipData clipData = data.getClipData();
+            bitmaps = new ArrayList<>();
+
             if (clipData == null)
             {
                 Uri uri = data.getData();
                 try {
+                    bitmaps.clear();
                     bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
-
+                    bitmaps.add(bitmap);
+                    enCodeImage(bitmaps);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
 
-            }
+            }else
+                {
+                    bitmaps.clear();
+                    if (clipData.getItemCount()>0)
+                    {
+                        Log.e("clipData",""+clipData.getItemCount());
+                        List<Uri> uriList = new ArrayList<>();
+                        for (int i=0;i<clipData.getItemCount();i++)
+                        {
+                            ClipData.Item item = clipData.getItemAt(i);
+                            uriList.add(item.getUri());
+
+                        }
+
+                        Log.e("uriList",""+uriList.size());
+
+                        if (uriList.size()>0)
+                        {
+                            for (Uri uri :uriList)
+                            {
+                                try {
+                                    Bitmap bitmap2 = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
+                                    bitmaps.add(bitmap2);
+                                } catch (FileNotFoundException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            enCodeImage(bitmaps);
+
+                        }
+                    }
+
+                }
         }
     }
 
     private void enCodeImage(List<Bitmap> bitmapList)
     {
+        encodedImageList.clear();
+        for (Bitmap bitmap:bitmapList)
+        {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG,90,outputStream);
+            byte [] bytes = outputStream.toByteArray();
+            encodedImageList.add(Base64.encodeToString(bytes,Base64.DEFAULT));
+        }
+        Log.e("dateList",encodedImageList.size()+"");
+
+        AddImages(encodedImageList);
+    }
+
+    private void AddImages(List<String> encodedImageList) {
+        dialog.show();
+        Retrofit retrofit = Api.getClient();
+        Services services = retrofit.create(Services.class);
+        Call<List<ImgModel>> call = services.AddImages(album_id, encodedImageList);
+        call.enqueue(new Callback<List<ImgModel>>() {
+            @Override
+            public void onResponse(Call<List<ImgModel>> call, Response<List<ImgModel>> response) {
+                if (response.isSuccessful())
+                {
+                    if (response.body().size()>0)
+                    {
+                        GalleryAdapter galleryAdapter = (GalleryAdapter) recView.getAdapter();
+                        galleryAdapter.AddImage(response.body());
+                        dialog.dismiss();
+                        Toast.makeText(DetailsAlbumaty.this, "تم إضافة الصور بنجاح", Toast.LENGTH_SHORT).show();
+                    }else
+                        {
+                            dialog.dismiss();
+                            Toast.makeText(DetailsAlbumaty.this, "عفوا لم يتم إضافة الصور", Toast.LENGTH_SHORT).show();
+
+                        }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ImgModel>> call, Throwable t) {
+                Toast.makeText(DetailsAlbumaty.this, "Something went haywire", Toast.LENGTH_SHORT).show();
+                Log.e("Error",t.getMessage());
+            }
+        });
 
     }
+
     public void SetPos(View view , int pos)
     {
         if(((CheckBox)view).isChecked())

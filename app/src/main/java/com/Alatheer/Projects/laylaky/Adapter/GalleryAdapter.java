@@ -114,4 +114,10 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
         imgModelList.removeAll(imgModels);
         notifyDataSetChanged();
     }
+    public void AddImage(List<ImgModel> imgModels)
+    {
+        imgModelList.clear();
+        imgModelList.addAll(imgModels);
+        notifyDataSetChanged();
+    }
 }

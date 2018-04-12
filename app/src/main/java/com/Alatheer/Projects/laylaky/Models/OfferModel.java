@@ -14,6 +14,8 @@ public class OfferModel {
    private String details;
    private String price;
    private String size_offer;
+    private String album_id;
+
 
     public OfferModel(String offer_id, String title, String img, String details, String price, String size_offer, String album_id) {
         this.offer_id = offer_id;
@@ -48,7 +50,6 @@ public class OfferModel {
         return album_id;
     }
 
-    private String album_id;
 
     public OfferModel(String offer_id, String title, String img, String details, String price, String album_id) {
         this.offer_id = offer_id;
