@@ -13,7 +13,31 @@ public class OfferModel {
    private String img;
    private String details;
    private String price;
+   private String size_offer;
 
+    public OfferModel(String offer_id, String title, String img, String details, String price, String size_offer, String album_id) {
+        this.offer_id = offer_id;
+        this.title = title;
+        this.img = img;
+        this.details = details;
+        this.price = price;
+        this.size_offer = size_offer;
+        this.album_id = album_id;
+    }
+
+    public OfferModel() {
+
+    }
+
+    public void setSize_offer(String size_offer) {
+
+        this.size_offer = size_offer;
+    }
+
+    public String getSize_offer() {
+
+        return size_offer;
+    }
 
     public void setAlbum_id(String album_id) {
         this.album_id = album_id;

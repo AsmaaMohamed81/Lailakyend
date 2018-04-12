@@ -97,6 +97,7 @@ public class OfferAlbum extends AppCompatActivity {
         i.putExtra("price",OfferModel.getPrice());
         i.putExtra("img", OfferModel.getImg());
         i.putExtra("id_offer", OfferModel.getOffer_id());
+        i.putExtra("size_offer",OfferModel.getSize_offer());
         i.putExtra("user_type",user_type);
 
         startActivity(i);

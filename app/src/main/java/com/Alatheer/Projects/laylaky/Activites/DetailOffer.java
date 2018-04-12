@@ -35,11 +35,11 @@ import retrofit2.Response;
 
 
 public class DetailOffer extends AppCompatActivity implements Users.onCompleteListener {
-    TextView title, desc, price;
+    TextView title, desc, price,size;
     ImageView img;
     Button detail_book,Upload;
     Users users;
-    String titlee, desce, pricee, imgg, idoffer;
+    String titlee, desce, pricee, imgg, idoffer,size_offer;
     int IMG_REQ = 200;
 
     List<Uri> uriList;
@@ -72,6 +72,8 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
         title.setText(titlee);
         desc.setText(desce);
         price.setText(pricee);
+        size.setText(size_offer);
+
 
         Picasso.with(this).load(imgg).into(img);
 
@@ -125,6 +127,7 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
         desc = findViewById(R.id.detail_desc);
         price = findViewById(R.id.detail_pric);
         detail_book = findViewById(R.id.detail_book);
+        size=findViewById(R.id.account_img);
         Upload=findViewById(R.id.Upload);
 
         img = findViewById(R.id.detail_img);
@@ -225,6 +228,7 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
 
             imgg = intent.getStringExtra("img");
              idoffer = intent.getStringExtra("id_offer");
+            size_offer=intent.getStringExtra("size_offer");
         }
     }
     private void UpdateUI(List<Uri> uriList) {
