@@ -7,11 +7,13 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Alatheer.Projects.laylaky.ApiServices.Api;
 import com.Alatheer.Projects.laylaky.ApiServices.Services;
 import com.Alatheer.Projects.laylaky.Models.ContactModel;
+import com.Alatheer.Projects.laylaky.Models.ModelContactUs;
 import com.Alatheer.Projects.laylaky.R;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
@@ -27,6 +29,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
     Shimmer shimmer;
     ShimmerTextView offer_txt;
     EditText name,phone,email,message;
+    TextView mail,web,mob;
     Button send;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,28 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_contact);
 
         initView();
+        getdata();
 
+    }
+
+    private void getdata() {
+
+        Services services=Api.getClient().create(Services.class);
+        Call<ModelContactUs> call=services.GetContactUs();
+        call.enqueue(new Callback<ModelContactUs>() {
+            @Override
+            public void onResponse(Call<ModelContactUs> call, Response<ModelContactUs> response) {
+
+                mail.setText(response.body().getEmail_info());
+                web.setText(response.body().getWeb_info());
+                mob.setText(response.body().getTele_info());
+            }
+
+            @Override
+            public void onFailure(Call<ModelContactUs> call, Throwable t) {
+
+            }
+        });
     }
 
     private void SendDataToServer() {
@@ -115,6 +139,10 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
         email=findViewById(R.id.edt_mail);
         message=findViewById(R.id.edt_message);
         send=findViewById(R.id.btn_contact);
+
+        mail=findViewById(R.id.email);
+        mob=findViewById(R.id.phone);
+        web=findViewById(R.id.web);
 
         send.setOnClickListener(this);
 

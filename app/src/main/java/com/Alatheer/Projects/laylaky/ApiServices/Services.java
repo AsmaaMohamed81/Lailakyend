@@ -3,6 +3,7 @@ package com.Alatheer.Projects.laylaky.ApiServices;
 import com.Alatheer.Projects.laylaky.Models.AboutUsModel;
 import com.Alatheer.Projects.laylaky.Models.ContactModel;
 import com.Alatheer.Projects.laylaky.Models.ImgModel;
+import com.Alatheer.Projects.laylaky.Models.ModelContactUs;
 import com.Alatheer.Projects.laylaky.Models.OfferModel;
 import com.Alatheer.Projects.laylaky.Models.ResponseModel;
 import com.Alatheer.Projects.laylaky.Models.UserModel;
@@ -38,6 +39,9 @@ public interface Services {
     @FormUrlEncoded
     @POST("Api/ContactUs")
     Call<ContactModel> ContactUs(@FieldMap Map<String,String> map);
+
+    @GET("Api/ContactUs")
+    Call<ModelContactUs> GetContactUs();
 
     @GET("Api/AllOffers")
     Call<List<OfferModel>> GetOffers();

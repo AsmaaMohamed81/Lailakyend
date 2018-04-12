@@ -30,4 +30,6 @@
     <string name="gallary">gallary</string>
     <string name="updateprfile">تحديث الملف الشخصي</string>
     <string name="offers">Offers</string>
+    <string name="location"> Go To MAP </string>
+    <string name="title_activity_maps">Map</string>
 </resources>
