@@ -30,12 +30,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.squareup.picasso:picasso:2.5.1'
-    compile 'com.romainpiel.shimmer:library:1.4.0@aar'
-    compile 'de.hdodenhof:circleimageview:2.2.0'
+    implementation 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.picasso:picasso:2.5.1'
+    implementation 'com.romainpiel.shimmer:library:1.4.0@aar'
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
     implementation 'com.android.support:design:26.1.0'
 
 
