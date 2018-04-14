@@ -1,8 +1,8 @@
 package com.Alatheer.Projects.laylaky.Activites;
 
 import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import com.Alatheer.Projects.laylaky.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
