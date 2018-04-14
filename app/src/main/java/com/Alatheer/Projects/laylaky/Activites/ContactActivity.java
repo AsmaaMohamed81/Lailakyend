@@ -157,7 +157,6 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ContactActivity.this, "dasdssdsdsss", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ContactActivity.this,MapsActivity.class);
                 intent.putExtra("lat",lat);
                 intent.putExtra("lang",lang);
