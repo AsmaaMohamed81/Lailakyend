@@ -105,7 +105,16 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
                     if (!isContextMode)
                     {
-                        counter.setText("<"+currPos+"/"+total+">");
+                        if (currPos>total)
+                        {
+                            currPos=total;
+                            counter.setText("<"+currPos+"/"+total+">");
+
+                        }else
+                            {
+                                counter.setText("<"+currPos+"/"+total+">");
+
+                            }
 
                     }
 
@@ -361,6 +370,9 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
     }
 
     private void AddImages(List<String> encodedImageList) {
+        Log.e("dataaaaaa",encodedImageList.get(0));
+        Log.e("dataaaaaa",encodedImageList.get(1));
+        Log.e("dataaaaaa",album_id);
         dialog.show();
         Retrofit retrofit = Api.getClient();
         Services services = retrofit.create(Services.class);
@@ -387,6 +399,8 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
             @Override
             public void onFailure(Call<List<ImgModel>> call, Throwable t) {
+                dialog.dismiss();
+
                 Toast.makeText(DetailsAlbumaty.this, "Something went haywire", Toast.LENGTH_SHORT).show();
                 Log.e("Error",t.getMessage());
             }

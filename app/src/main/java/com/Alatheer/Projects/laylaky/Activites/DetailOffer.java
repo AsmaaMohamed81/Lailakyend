@@ -1,5 +1,6 @@
 package com.Alatheer.Projects.laylaky.Activites;
 
+import android.app.ProgressDialog;
 import android.bluetooth.BluetoothClass;
 import android.content.ClipData;
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,7 +50,7 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
 
     UserModel userModel;
     String user_type;
-
+    private ProgressDialog dialog;
 
 
     @Override
@@ -76,15 +78,24 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
 
 
         Picasso.with(this).load(imgg).into(img);
-
+        CreateProgress();
 
 
     }
 
 
+    private void CreateProgress()
+    {
+        dialog = new ProgressDialog(this);
+        dialog.setMessage("Upload Image...");
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setCancelable(true);
+
+    }
 
     private void book(){
 
+        dialog.show();
 
         Services services= Api.getClient().create(Services.class);
         Call<UserModel> call =services.BookAlbum(enCodedImageList,userModel.getUser_id(),idoffer);
@@ -96,10 +107,13 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
                 {
                     if (response.body().getSuccess()==1)
                     {
+                        dialog.dismiss();
                 Toast.makeText(DetailOffer.this, "Add", Toast.LENGTH_SHORT).show();
                     }
                     else
                     {
+                        dialog.dismiss();
+
                         Toast.makeText(DetailOffer.this, "Error", Toast.LENGTH_SHORT).show();
 
                     }
@@ -109,6 +123,8 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
 
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
+                dialog.dismiss();
+                Toast.makeText(DetailOffer.this, "Something went haywire", Toast.LENGTH_SHORT).show();
                 Log.e("error", t.getMessage());
 
 
@@ -170,6 +186,7 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
         if (requestCode == IMG_REQ && resultCode == RESULT_OK && data != null) {
             ClipData clipData = data.getClipData();
             uriList.clear();
+
 
             if (clipData != null) {
 
