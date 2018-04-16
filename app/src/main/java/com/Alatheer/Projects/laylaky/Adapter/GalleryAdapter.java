@@ -51,13 +51,11 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
         if (detailsAlbumaty.isContextMode)
         {
             holder.checkbox.setVisibility(View.VISIBLE);
-            holder.bg.setVisibility(View.VISIBLE);
 
         }else
             {
                 holder.checkbox.setChecked(false);
                 holder.checkbox.setVisibility(View.GONE);
-                holder.bg.setVisibility(View.GONE);
 
             }
         holder.itemView.setOnLongClickListener(detailsAlbumaty);
@@ -78,13 +76,12 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
     public class myHolder extends RecyclerView.ViewHolder
     {
         CheckBox checkbox;
-        FrameLayout bg;
-        private ImageView gallery_Img;
+        public ImageView gallery_Img;
         public myHolder(View itemView) {
             super(itemView);
             gallery_Img = itemView.findViewById(R.id.galler_Img);
             checkbox = itemView.findViewById(R.id.checkbox);
-            bg = itemView.findViewById(R.id.bg);
+
         }
 
         public void BindData(ImgModel imgModel)
@@ -120,4 +117,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
         imgModelList.addAll(imgModels);
         notifyDataSetChanged();
     }
+
+
+
 }

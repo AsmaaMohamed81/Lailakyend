@@ -43,6 +43,7 @@ import com.Alatheer.Projects.laylaky.ApiServices.Api;
 import com.Alatheer.Projects.laylaky.ApiServices.Services;
 import com.Alatheer.Projects.laylaky.Models.ImgModel;
 import com.Alatheer.Projects.laylaky.Models.OfferModel;
+import com.Alatheer.Projects.laylaky.Models.ResponseModel;
 import com.Alatheer.Projects.laylaky.R;
 import com.squareup.picasso.Picasso;
 
@@ -64,6 +65,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
     private RecyclerView.Adapter adapter;
     private ProgressBar bar;
     private Toolbar toolBar;
+    private int  album_size;
     public boolean isContextMode=false;
     Gallery simpleGallery;
     CustomGalleryAdapter customGalleryAdapter;
@@ -78,7 +80,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
      private Bitmap bitmap;
      private List<String> encodedImageList;
      private List<Bitmap> bitmaps;
-     private ProgressDialog dialog;
+     private ProgressDialog dialog,dialog2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +90,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
         initView();
         getDataFromIntent();
         CreateProgress();
+        CreatedeleteProgress();
         final SnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recView);
         recView.setOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -196,6 +199,18 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
         dialog.setIndeterminateDrawable(drawable);
 
     }
+    private void CreatedeleteProgress()
+    {
+        ProgressBar bar = new ProgressBar(this);
+        Drawable drawable = bar.getIndeterminateDrawable().mutate();
+        drawable.setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+        dialog2 = new ProgressDialog(this);
+        dialog2.setMessage("جار حزف الصور..");
+        dialog2.setCancelable(true);
+        dialog2.setCanceledOnTouchOutside(false);
+        dialog2.setIndeterminateDrawable(drawable);
+
+    }
     private void getData() {
 
         Services services = Api.getClient().create(Services.class);
@@ -247,7 +262,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
             if (intent.hasExtra("id_album"))
             {
                 album_id = intent.getStringExtra("id_album");
-
+                album_size = intent.getIntExtra("album_size",0);
             }
         }
     }
@@ -274,26 +289,75 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
         int id = item.getItemId();
         if (id==R.id.add)
         {
-            selectImages();
+
+            if ( recView.getAdapter().getItemCount()== album_size)
+            {
+                Toast.makeText(this, "البوم الصور ممتلئ", Toast.LENGTH_SHORT).show();
+            }else if (recView.getAdapter().getItemCount()<album_size)
+            {
+                selectImages();
+
+            }
         }else if (id==R.id.delete)
         {
-            GalleryAdapter galleryAdapter = (GalleryAdapter) recView.getAdapter();
-            galleryAdapter.DeleteImages(selectedImagesList);
-            isContextMode = false;
-            adapter.notifyDataSetChanged();
-            counter.setText("البوم الصور");
-            toolBar.getMenu().clear();
-            toolBar.inflateMenu(R.menu.add_menu);
-            count=0;
+            Delete_Image(selectedImagesList);
 
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void Delete_Image(final List<ImgModel> selectedImagesList) {
+
+        List<String> ids = new ArrayList<>();
+        for (ImgModel imgModel :selectedImagesList)
+        {
+            ids.add(imgModel.getImage_id());
+        }
+        dialog2.show();
+        Retrofit retrofit = Api.getClient();
+        Services services = retrofit.create(Services.class);
+        Call<ResponseModel> call = services.deleteImages(ids);
+        call.enqueue(new Callback<ResponseModel>() {
+            @Override
+            public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
+                if (response.isSuccessful())
+                {
+                    if (response.body().getSuccess()==1)
+                    {
+                        GalleryAdapter galleryAdapter = (GalleryAdapter) recView.getAdapter();
+                        galleryAdapter.DeleteImages(selectedImagesList);
+                        isContextMode = false;
+                        adapter.notifyDataSetChanged();
+                        counter.setText("البوم الصور");
+                        toolBar.getMenu().clear();
+                        toolBar.inflateMenu(R.menu.add_menu);
+                        count=0;
+                        dialog2.dismiss();
+                        Toast.makeText(DetailsAlbumaty.this, "تم حزف الصور بنجاح", Toast.LENGTH_SHORT).show();
+                    }else
+                        {
+                            dialog2.dismiss();
+
+                            Toast.makeText(DetailsAlbumaty.this, "خطأ لم يتم حزف الصور حاول مره اخرى لاحقا", Toast.LENGTH_SHORT).show();
+                        }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseModel> call, Throwable t) {
+                dialog2.dismiss();
+
+                Toast.makeText(DetailsAlbumaty.this, "Something went haywire", Toast.LENGTH_SHORT).show();
+                Log.e("Error",t.getMessage());
+            }
+        });
     }
 
     private void selectImages() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("image/*");
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivityForResult(intent.createChooser(intent,"Select image"),IMG_REQ);
     }
 
@@ -313,7 +377,17 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
                     bitmaps.clear();
                     bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(uri));
                     bitmaps.add(bitmap);
-                    enCodeImage(bitmaps);
+                    int total_size = recView.getAdapter().getItemCount()+bitmaps.size();
+
+
+                    if (total_size>album_size)
+                   {
+                       Toast.makeText(this, "عدد صور الالبوم محدوده", Toast.LENGTH_SHORT).show();
+                   }else if (total_size<=album_size)
+                   {
+                       encodeImage1(bitmap);
+
+                   }
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -323,7 +397,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
                     bitmaps.clear();
                     if (clipData.getItemCount()>0)
                     {
-                        Log.e("clipData",""+clipData.getItemCount());
+
                         List<Uri> uriList = new ArrayList<>();
                         for (int i=0;i<clipData.getItemCount();i++)
                         {
@@ -332,7 +406,8 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
                         }
 
-                        Log.e("uriList",""+uriList.size());
+
+
 
                         if (uriList.size()>0)
                         {
@@ -345,7 +420,16 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
                                     e.printStackTrace();
                                 }
                             }
-                            enCodeImage(bitmaps);
+                            int total_size = recView.getAdapter().getItemCount()+clipData.getItemCount();
+
+                              if (total_size>album_size)
+                            {
+                                Toast.makeText(this, "عدد صور الالبوم محدوده", Toast.LENGTH_SHORT).show();
+                            }else if (total_size<=album_size)
+                            {
+                                enCodeImage(bitmaps);
+
+                            }
 
                         }
                     }
@@ -356,7 +440,8 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
     private void enCodeImage(List<Bitmap> bitmapList)
     {
-        encodedImageList.clear();
+
+        //encodedImageList.clear();
         for (Bitmap bitmap:bitmapList)
         {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -364,15 +449,22 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
             byte [] bytes = outputStream.toByteArray();
             encodedImageList.add(Base64.encodeToString(bytes,Base64.DEFAULT));
         }
-        Log.e("dateList",encodedImageList.size()+"");
 
         AddImages(encodedImageList);
     }
 
-    private void AddImages(List<String> encodedImageList) {
-        Log.e("dataaaaaa",encodedImageList.get(0));
-        Log.e("dataaaaaa",encodedImageList.get(1));
-        Log.e("dataaaaaa",album_id);
+    private void encodeImage1(Bitmap bitmap)
+    {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,90,outputStream);
+        byte [] bytes = outputStream.toByteArray();
+        encodedImageList.add(Base64.encodeToString(bytes,Base64.DEFAULT));
+        AddImages(encodedImageList);
+
+    }
+
+    private void AddImages(final List<String> encodedImageList) {
+
         dialog.show();
         Retrofit retrofit = Api.getClient();
         Services services = retrofit.create(Services.class);
@@ -387,6 +479,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
                         GalleryAdapter galleryAdapter = (GalleryAdapter) recView.getAdapter();
                         galleryAdapter.AddImage(response.body());
                         dialog.dismiss();
+                        encodedImageList.clear();
                         Toast.makeText(DetailsAlbumaty.this, "تم إضافة الصور بنجاح", Toast.LENGTH_SHORT).show();
                     }else
                         {
@@ -417,6 +510,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
             selectedImagesList.add(uriList.get(pos));
         }else
             {
+
                 count--;
                 IncreaseAndDecreaseCounter(count);
                 selectedImagesList.remove(uriList.get(pos));

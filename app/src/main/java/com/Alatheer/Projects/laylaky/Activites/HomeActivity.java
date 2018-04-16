@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.Alatheer.Projects.laylaky.ApiServices.Preferences;
 import com.Alatheer.Projects.laylaky.R;
 
-public class AlbumsActivity extends AppCompatActivity implements View.OnClickListener{
+public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
     private ImageButton albumgeded,albumaty;
     private Preferences preferences;
     private String user_id;
@@ -22,7 +22,7 @@ public class AlbumsActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_albums);
+        setContentView(R.layout.activity_home);
         preferences = new Preferences(this);
         initView();
         getDataFromIntent();
@@ -89,13 +89,13 @@ public class AlbumsActivity extends AppCompatActivity implements View.OnClickLis
         {
             case R.id.albumgeded:
 
-                Intent i = new Intent(AlbumsActivity.this,OfferAlbum.class);
+                Intent i = new Intent(HomeActivity.this,OfferAlbum.class);
                 startActivity(i);
 
                 break;
             case R.id.albumaty :
 
-                Intent i2 = new Intent(AlbumsActivity.this, Albumaty.class);
+                Intent i2 = new Intent(HomeActivity.this, Albumaty.class);
                 startActivity(i2);
                 break;
 
@@ -123,7 +123,7 @@ public class AlbumsActivity extends AppCompatActivity implements View.OnClickLis
 
     private void LogOut() {
         preferences.clear();
-        Intent intent = new Intent(AlbumsActivity.this,LoginActivity.class);
+        Intent intent = new Intent(HomeActivity.this,LoginActivity.class);
         startActivity(intent);
         finish();
     }

@@ -17,6 +17,7 @@ public class OfferModel {
     private String album_id;
 
 
+
     public OfferModel(String offer_id, String title, String img, String details, String price, String size_offer, String album_id) {
         this.offer_id = offer_id;
         this.title = title;

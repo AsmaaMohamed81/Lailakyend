@@ -18,6 +18,8 @@ public class DetailsMyOffer extends AppCompatActivity {
     Button gallary;
     String titlee, desce, pricee, imgg, idoffer;
      String id_album;
+     int album_size;
+
 
     @Override
 
@@ -50,7 +52,7 @@ public class DetailsMyOffer extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(DetailsMyOffer.this,DetailsAlbumaty.class);
                 i.putExtra("id_album",id_album);
-
+                i.putExtra("album_size",album_size);
                 startActivity(i);
 
 
@@ -72,6 +74,7 @@ public class DetailsMyOffer extends AppCompatActivity {
             imgg = u.getStringExtra("img");
             idoffer = u.getStringExtra("id_offer");
             id_album=u.getStringExtra("id_album");
+            album_size = Integer.parseInt(u.getStringExtra("album_size"));
         }
     }
 }

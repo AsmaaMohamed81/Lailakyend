@@ -1,11 +1,17 @@
 package com.Alatheer.Projects.laylaky.Activites;
 
 import android.content.Intent;
+import android.graphics.PorterDuff;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.Alatheer.Projects.laylaky.Adapter.AdapterAlbums;
 import com.Alatheer.Projects.laylaky.ApiServices.Api;
@@ -28,6 +34,9 @@ public class OfferAlbum extends AppCompatActivity {
     OfferModel OfferModel;
     List<OfferModel> OfferModelList;
     private String user_type;
+    private LinearLayout container;
+    private ProgressBar progBar;
+
 
 
 
@@ -38,6 +47,9 @@ public class OfferAlbum extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer_album);
         getDataFromIntent();
+        progBar = findViewById(R.id.progBar);
+        progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+        container = findViewById(R.id.container);
 
         recyclerView=findViewById(R.id.recycalbum);
 
@@ -59,14 +71,29 @@ public class OfferAlbum extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<OfferModel>> call, Response<List<OfferModel>> response) {
 
-                OfferModelList.addAll(response.body());
-                adapterAlbums.notifyDataSetChanged();
+                if (response.isSuccessful())
+                {
+                    if (response.body().size()>0)
+                    {
+                        progBar.setVisibility(View.GONE);
+                        container.setVisibility(View.GONE);
+                        OfferModelList.addAll(response.body());
+                        adapterAlbums.notifyDataSetChanged();
+                    }else
+                        {
+                            progBar.setVisibility(View.GONE);
+                            container.setVisibility(View.VISIBLE);
+                        }
+                }
+
 
             }
 
             @Override
             public void onFailure(Call<List<OfferModel>> call, Throwable t) {
-
+               // progBar.setVisibility(View.GONE);
+                Log.e("Error",t.getMessage());
+                Toast.makeText(OfferAlbum.this, "Something went haywire", Toast.LENGTH_SHORT).show();
             }
         });
 

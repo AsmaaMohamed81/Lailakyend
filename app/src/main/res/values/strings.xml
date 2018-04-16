@@ -15,7 +15,7 @@
     <string name="subject">Subject</string>
     <string name="message">message</string>
     <string name="send">send</string>
-    <string name="uploadImge">Upload Images</string>
+    <string name="uploadImge">Select photos</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

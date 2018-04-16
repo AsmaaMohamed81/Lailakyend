@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-
-    android:orientation="vertical">
+    android:fitsSystemWindows="true"
+    android:fillViewport="true"
+    >
     <LinearLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -122,23 +123,39 @@
                 android:src="@drawable/picture"/>
 
         </LinearLayout>
+
         <Button
             android:id="@+id/Upload"
             android:text="@string/uploadImge"
-            android:layout_width="100dp"
-            android:layout_height="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:textSize="10dp"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimary"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/collect2"/>
-        <Button
+            android:background="@drawable/select_bg"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+
+            />
+        <!--<Button
             android:id="@+id/detail_book"
             android:text="@string/book"
             android:layout_width="100dp"
             android:layout_height="35dp"
             android:textColor="@color/white"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/collect2"/>
+            android:background="@drawable/collect2"/>-->
+
+       <!-- <Button
+            android:id="@+id/display_image"
+            android:text="View Images"
+            android:layout_width="110dp"
+            android:layout_height="35dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/collect2"
+            android:layout_marginTop="5dp"
+            />-->
 
     </LinearLayout>
 </ScrollView>

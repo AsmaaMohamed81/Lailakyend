@@ -23,7 +23,7 @@
     <string name="contact">اتصل بنا</string>
     <string name="profile">صفحه شخصيه</string>
     <string name="gallary">البوم</string>
-    <string name="uploadImge">ارفع الصور</string>
+    <string name="uploadImge">إختر صور الالبوم</string>
     <string name="title_activity_main">الرئيسيه</string>
     <string name="navigation_drawer_open">افتح القاءمه</string>
     <string name="navigation_drawer_close">اغلق القاءمه</string>

@@ -74,4 +74,7 @@ public interface Services {
     @POST("Api/AddAlbumImage/{album_id}")
     Call<List<ImgModel>> AddImages(@Path("album_id") String album_id,@Field("images[]")List<String> imagesList);
 
+    @FormUrlEncoded
+    @POST("Api/DeleteImage")
+    Call<ResponseModel> deleteImages(@Field("image_id[]") List<String> imgList);
 }
