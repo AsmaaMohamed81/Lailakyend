@@ -52,8 +52,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         albumgeded= findViewById(R.id.albumgeded);
         albumaty  = findViewById(R.id.albumaty);
-        back    = findViewById(R.id.back);
-        share     = findViewById(R.id.share);
+//        back    = findViewById(R.id.back);
+//        share     = findViewById(R.id.share);
 
         albumgeded.setOnClickListener(this);
         albumaty.setOnClickListener(this);
@@ -99,25 +99,25 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i2);
                 break;
 
-            case R.id.back:
-                finish();
-                break;
-            case R.id.share:
+//            case R.id.back:
+//                finish();
+//                break;
+//            case R.id.share:
 
-
-
-
-
-                        String text ="استوديو ليلاكي";
-                        String link ="https://play.google.com/store/apps/details?id=com.Alatheer.Projects.laylaky";
-
-                        Intent intent=new Intent(Intent.ACTION_SEND);
-                        intent.putExtra(Intent.EXTRA_TEXT,text+"\n"+link);
-                        intent.setType("text/plain");
-                        startActivity(intent);
-
-
-                break;
+//
+//
+//
+//
+//                        String text ="استوديو ليلاكي";
+//                        String link ="https://play.google.com/store/apps/details?id=com.Alatheer.Projects.laylaky";
+//
+//                        Intent intent=new Intent(Intent.ACTION_SEND);
+//                        intent.putExtra(Intent.EXTRA_TEXT,text+"\n"+link);
+//                        intent.setType("text/plain");
+//                        startActivity(intent);
+//
+//
+//                break;
         }
     }
 

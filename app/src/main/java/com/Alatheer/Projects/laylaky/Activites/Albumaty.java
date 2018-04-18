@@ -59,32 +59,13 @@ public class Albumaty extends AppCompatActivity implements Users.onCompleteListe
         progBar = findViewById(R.id.progBar);
         progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         recyclerView=findViewById(R.id.recycalbum);
-        share=findViewById(R.id.share);
-        back=findViewById(R.id.back);
+//        share=findViewById(R.id.share);
+//        back=findViewById(R.id.back);
         container = findViewById(R.id.container);
 
-        share.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                String text ="استوديو ليلاكي";
-                String link ="https://play.google.com/store/apps/details?id=com.Alatheer.Projects.laylaky";
 
-                Intent intent=new Intent(Intent.ACTION_SEND);
-                intent.putExtra(Intent.EXTRA_TEXT,text+"\n"+link);
-                intent.setType("text/plain");
-                startActivity(intent);
 
-            }
-        });
-
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-
-            }
-        });
 
 
         users = Users.getInstance();
