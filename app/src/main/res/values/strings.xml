@@ -40,7 +40,7 @@
     <string name="confirm">Confirm</string>
     <string name="cancel">cancel</string>
     <string name="something">Something went haywire</string>
-    <string name="done">success</string>
+    <string name="done">success </string>
     <string name="upload_img">Upload Image...</string>
     <string name="img_deleted">Image deleted successfully</string>
     <string name="img_not_deleted">Error image not deleted try again later</string>
