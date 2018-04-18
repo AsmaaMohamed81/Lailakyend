@@ -93,7 +93,7 @@ public class OfferAlbum extends AppCompatActivity {
             public void onFailure(Call<List<OfferModel>> call, Throwable t) {
                // progBar.setVisibility(View.GONE);
                 Log.e("Error",t.getMessage());
-                Toast.makeText(OfferAlbum.this, "Something went haywire", Toast.LENGTH_SHORT).show();
+                Toast.makeText(OfferAlbum.this, getString(R.string.something), Toast.LENGTH_SHORT).show();
             }
         });
 

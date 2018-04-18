@@ -139,7 +139,7 @@ public class Albumaty extends AppCompatActivity implements Users.onCompleteListe
             @Override
             public void onFailure(Call<List<OfferModel>> call, Throwable t) {
                 Log.e("Error",t.getMessage());
-                Toast.makeText(Albumaty.this, "Something ent haywire", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Albumaty.this, R.string.something, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -162,43 +162,10 @@ public class Albumaty extends AppCompatActivity implements Users.onCompleteListe
 
 
     }
-//    public void setPos(int pos)
-//    {
-//        //OfferModel OfferModel = OfferModelList.get(pos);
-//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-//        intent.setType("image/*");
-//        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
-//        startActivityForResult(intent,IMG_REQ);
-//    }
-//
-//    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode==IMG_REQ && resultCode == RESULT_OK && data!=null)
-//        {
-//            ClipData clipData = data.getClipData();
-//         //   Log.e("eddddd",""+clipData.getItemCount()+"   "+clipData.getItemAt(0));
-//            for (int index =0;index<clipData.getItemCount();index++)
-//            {
-//                ClipData.Item item = clipData.getItemAt(index);
-//                Uri uri = item.getUri();
-//                uriList.add(uri);
-//            }
-//
-//            Intent intent = new Intent(Albumaty.this,DetailsAlbumaty.class);
-//
-//            intent.putExtra("details", (Serializable) uriList);
-//
-//            startActivity(intent);
-//
-//            Toast.makeText(this, ""+uriList.get(0), Toast.LENGTH_SHORT).show();
-//        }
-//    }
+
 
     @Override
     public void OnDataSuccess(UserModel userModel) {
-//        Log.e("id", userModel.getUser_id());
         this.userModel=userModel;
 
     }

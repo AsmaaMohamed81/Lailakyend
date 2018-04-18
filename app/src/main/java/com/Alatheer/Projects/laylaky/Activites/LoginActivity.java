@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
         Drawable drawable = progressBar.getIndeterminateDrawable().mutate();
         drawable.setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         dialog = new ProgressDialog(this);
-        dialog.setMessage("Login...");
+        dialog.setMessage(getString(R.string.login_));
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setIndeterminateDrawable(drawable);
@@ -131,11 +131,11 @@ public class LoginActivity extends AppCompatActivity {
 
         if (TextUtils.isEmpty(uname))
         {
-            userName.setError("Enter user name");
+            userName.setError(getString(R.string.enter_user_name));
         }else if (TextUtils.isEmpty(upass))
         {
             userName.setError(null);
-            password.setError("Enter password");
+            password.setError(getString(R.string.enter_pass));
         }else
             {
                 password.setError(null);
@@ -165,7 +165,7 @@ public class LoginActivity extends AppCompatActivity {
                                 {
                                     dialog.dismiss();
 
-                                    Toast.makeText(LoginActivity.this, "Check username or password", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(LoginActivity.this, R.string.chk_user_pas, Toast.LENGTH_LONG).show();
                                 }
                         }
                     }
@@ -175,7 +175,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         Log.e("error",t.getMessage());
                         dialog.dismiss();
-                        Toast.makeText(LoginActivity.this, "error some thing went haywire", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, getString(R.string.something), Toast.LENGTH_LONG).show();
                     }
                 });
             }

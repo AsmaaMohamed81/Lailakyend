@@ -50,7 +50,7 @@ public class UpdatePasswordActivity extends AppCompatActivity implements Users.o
         Drawable drawable = progressBar.getIndeterminateDrawable().mutate();
         drawable.setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         dialog = new ProgressDialog(this);
-        dialog.setMessage("Update password...");
+        dialog.setMessage(getString(R.string.upd_pass));
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setIndeterminateDrawable(drawable);
@@ -84,17 +84,17 @@ public class UpdatePasswordActivity extends AppCompatActivity implements Users.o
 
         if (TextUtils.isEmpty(txtpass))
         {
-            pass.setError("Enter new password");
+            pass.setError(getString(R.string.enter_new_password));
         }else if (TextUtils.isEmpty(txt_re_pass))
         {
             pass.setError(null);
-            re_pass.setError("please retype password");
+            re_pass.setError(getString(R.string.re_type_password));
 
         }
         else if (!txtpass.equals(txt_re_pass))
         {
             re_pass.setText(null);
-            Toast.makeText(this, "Password not match", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.pass_not_match, Toast.LENGTH_SHORT).show();
 
         }
         else
@@ -112,14 +112,14 @@ public class UpdatePasswordActivity extends AppCompatActivity implements Users.o
                             if (response.body().getSuccess()==1)
                             {
                                 dialog.dismiss();
-                                Toast.makeText(UpdatePasswordActivity.this, "updated successfully", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(UpdatePasswordActivity.this, R.string.upd_succ, Toast.LENGTH_SHORT).show();
                                 finish();
 
                             }else
                                 {
                                     dialog.dismiss();
 
-                                    Toast.makeText(UpdatePasswordActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(UpdatePasswordActivity.this, R.string.fialed, Toast.LENGTH_SHORT).show();
                                 }
                         }
                     }
@@ -127,7 +127,7 @@ public class UpdatePasswordActivity extends AppCompatActivity implements Users.o
                     @Override
                     public void onFailure(Call<ResponseModel> call, Throwable t) {
                         dialog.dismiss();
-                        Toast.makeText(UpdatePasswordActivity.this, "Error Something went haywire", Toast.LENGTH_LONG).show();
+                        Toast.makeText(UpdatePasswordActivity.this, getString(R.string.something), Toast.LENGTH_LONG).show();
                         Log.e("error",t.getMessage());
                     }
                 });

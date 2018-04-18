@@ -54,7 +54,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.map);
         LatLng playground = new LatLng(latitude, longitude);
         MarkerOptions markerOptions = new MarkerOptions().position(playground)
-                .title("استديو ليلاكي ")
+                .title(getString(R.string.studio_lailaky))
                 .icon(icon);
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(playground, 16.0f));
 

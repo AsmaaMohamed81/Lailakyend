@@ -187,7 +187,7 @@ public class DisplayGalleryActivity extends AppCompatActivity implements View.On
     private void CreatePorgDialog()
     {
         dialog = new ProgressDialog(this);
-        dialog.setMessage("جار حجز الصور...");
+        dialog.setMessage(getString(R.string.upload_img));
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(false);
     }
@@ -237,14 +237,14 @@ public class DisplayGalleryActivity extends AppCompatActivity implements View.On
                     if (response.body().getSuccess()==1)
                     {
                         dialog.dismiss();
-                        Toast.makeText(DisplayGalleryActivity.this, "تم حجز الالبوم بنجاح", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DisplayGalleryActivity.this, R.string.album_reg, Toast.LENGTH_SHORT).show();
                         finish();
                     }
                     else
                     {
                         dialog.dismiss();
 
-                        Toast.makeText(DisplayGalleryActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DisplayGalleryActivity.this, R.string.album_not_booked, Toast.LENGTH_SHORT).show();
 
                     }
 
@@ -254,7 +254,7 @@ public class DisplayGalleryActivity extends AppCompatActivity implements View.On
             @Override
             public void onFailure(Call<UserModel> call, Throwable t) {
                 dialog.dismiss();
-                Toast.makeText(DisplayGalleryActivity.this, "Something went haywire", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DisplayGalleryActivity.this, getString(R.string.something), Toast.LENGTH_SHORT).show();
                 Log.e("error", t.getMessage());
 
 

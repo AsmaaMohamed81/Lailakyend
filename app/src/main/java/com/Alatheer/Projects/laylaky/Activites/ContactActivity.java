@@ -119,7 +119,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
                 if (response.isSuccessful()){
                     if (response.body().getSuccess()==1){
 
-                        Toast.makeText(ContactActivity.this, "success", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ContactActivity.this, R.string.done, Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }

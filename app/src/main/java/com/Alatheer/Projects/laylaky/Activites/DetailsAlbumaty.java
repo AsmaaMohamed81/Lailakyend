@@ -193,7 +193,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
         Drawable drawable = bar.getIndeterminateDrawable().mutate();
         drawable.setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         dialog = new ProgressDialog(this);
-        dialog.setMessage("جار اضافة الصور..");
+        dialog.setMessage(getString(R.string.upload_img));
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setIndeterminateDrawable(drawable);
@@ -205,7 +205,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
         Drawable drawable = bar.getIndeterminateDrawable().mutate();
         drawable.setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         dialog2 = new ProgressDialog(this);
-        dialog2.setMessage("جار حزف الصور..");
+        dialog2.setMessage(getString(R.string.delete_img));
         dialog2.setCancelable(true);
         dialog2.setCanceledOnTouchOutside(false);
         dialog2.setIndeterminateDrawable(drawable);
@@ -292,7 +292,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
             if ( recView.getAdapter().getItemCount()== album_size)
             {
-                Toast.makeText(this, "البوم الصور ممتلئ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.album_full, Toast.LENGTH_SHORT).show();
             }else if (recView.getAdapter().getItemCount()<album_size)
             {
                 selectImages();
@@ -328,17 +328,17 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
                         galleryAdapter.DeleteImages(selectedImagesList);
                         isContextMode = false;
                         adapter.notifyDataSetChanged();
-                        counter.setText("البوم الصور");
+                        counter.setText(R.string.album);
                         toolBar.getMenu().clear();
                         toolBar.inflateMenu(R.menu.add_menu);
                         count=0;
                         dialog2.dismiss();
-                        Toast.makeText(DetailsAlbumaty.this, "تم حزف الصور بنجاح", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailsAlbumaty.this, R.string.img_deleted, Toast.LENGTH_SHORT).show();
                     }else
                         {
                             dialog2.dismiss();
 
-                            Toast.makeText(DetailsAlbumaty.this, "خطأ لم يتم حزف الصور حاول مره اخرى لاحقا", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DetailsAlbumaty.this, R.string.img_not_deleted, Toast.LENGTH_SHORT).show();
                         }
                 }
             }
@@ -347,7 +347,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
             public void onFailure(Call<ResponseModel> call, Throwable t) {
                 dialog2.dismiss();
 
-                Toast.makeText(DetailsAlbumaty.this, "Something went haywire", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetailsAlbumaty.this, getString(R.string.something), Toast.LENGTH_SHORT).show();
                 Log.e("Error",t.getMessage());
             }
         });
@@ -382,7 +382,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
                     if (total_size>album_size)
                    {
-                       Toast.makeText(this, "عدد صور الالبوم محدوده", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(this, R.string.album_limited, Toast.LENGTH_SHORT).show();
                    }else if (total_size<=album_size)
                    {
                        encodeImage1(bitmap);
@@ -424,7 +424,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
                               if (total_size>album_size)
                             {
-                                Toast.makeText(this, "عدد صور الالبوم محدوده", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(this, R.string.album_limited, Toast.LENGTH_SHORT).show();
                             }else if (total_size<=album_size)
                             {
                                 enCodeImage(bitmaps);
@@ -480,11 +480,11 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
                         galleryAdapter.AddImage(response.body());
                         dialog.dismiss();
                         encodedImageList.clear();
-                        Toast.makeText(DetailsAlbumaty.this, "تم إضافة الصور بنجاح", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailsAlbumaty.this, R.string.img_added, Toast.LENGTH_SHORT).show();
                     }else
                         {
                             dialog.dismiss();
-                            Toast.makeText(DetailsAlbumaty.this, "عفوا لم يتم إضافة الصور", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(DetailsAlbumaty.this, R.string.img_not_added, Toast.LENGTH_SHORT).show();
 
                         }
                 }
@@ -494,7 +494,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
             public void onFailure(Call<List<ImgModel>> call, Throwable t) {
                 dialog.dismiss();
 
-                Toast.makeText(DetailsAlbumaty.this, "Something went haywire", Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetailsAlbumaty.this, getString(R.string.something), Toast.LENGTH_SHORT).show();
                 Log.e("Error",t.getMessage());
             }
         });

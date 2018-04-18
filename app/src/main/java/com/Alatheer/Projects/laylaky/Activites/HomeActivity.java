@@ -32,14 +32,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private void CreateAlertDialog() {
         builder = new AlertDialog.Builder(this);
-        builder.setMessage("هل ترغب في تسجيل الخروج؟");
-        builder.setPositiveButton("نعم", new DialogInterface.OnClickListener() {
+        builder.setMessage(R.string.do_logout);
+        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 LogOut();
             }
         });
-        builder.setNegativeButton("لا", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 AlertDialog dialog = builder.create();

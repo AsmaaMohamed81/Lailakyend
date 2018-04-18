@@ -55,14 +55,14 @@ public class MainActivity extends AppCompatActivity
     }
     private void CreateAlertDialog() {
         builder = new AlertDialog.Builder(this);
-        builder.setMessage("هل ترغب في تسجيل الخروج؟");
-        builder.setPositiveButton("نعم", new DialogInterface.OnClickListener() {
+        builder.setMessage(getString(R.string.do_logout));
+        builder.setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 LogOut();
             }
         });
-        builder.setNegativeButton("لا", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton((getString(R.string.no)), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 AlertDialog dialog = builder.create();

@@ -11,7 +11,9 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycalbum"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
     <ImageButton
         android:id="@+id/back"
         android:layout_width="wrap_content"
@@ -19,11 +21,11 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="14dp"
+        android:layout_marginBottom="40dp"
         android:layout_marginLeft="15dp"
         android:layout_marginStart="15dp"
         android:background="@drawable/back"
-        tools:ignore="ContentDescription" />
+         />
 
     <ImageButton
         android:id="@+id/share"
@@ -35,6 +37,7 @@
         android:layout_marginEnd="13dp"
         android:layout_marginRight="13dp"
         android:background="@drawable/share"
-        tools:ignore="ContentDescription" />
+        android:layout_centerVertical="true"
+        />
 
 </RelativeLayout>

@@ -55,7 +55,8 @@
                 android:layout_height="wrap_content"
 
                 android:textColor="@color/colorPrimary"
-                android:text="البوم للصور يحتوي علي مجموعه من البومات"/>
+
+                />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -83,7 +84,8 @@
                 android:layout_height="wrap_content"
 
                 android:textColor="@color/colorPrimary"
-                android:text="سعر الالبوم"/>
+
+                />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -96,7 +98,7 @@
 
         <Button
             android:id="@+id/gallary"
-            android:text="gallary"
+            android:text="@string/sel_album_img"
             android:layout_width="wrap_content"
             android:layout_height="35dp"
             android:textColor="@color/white"

@@ -69,7 +69,7 @@ public class Signup extends AppCompatActivity {
         Drawable drawable = progressBar.getIndeterminateDrawable().mutate();
         drawable.setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         dialog = new ProgressDialog(this);
-        dialog.setMessage("Wait for register...");
+        dialog.setMessage(getString(R.string.regis));
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setIndeterminateDrawable(drawable);
@@ -86,27 +86,27 @@ public class Signup extends AppCompatActivity {
 
         if (TextUtils.isEmpty(uname))
         {
-            userName.setError("Enter uer name");
+            userName.setError(getString(R.string.enter_user_name));
         }else if (TextUtils.isEmpty(upass))
         {
             userName.setError(null);
-            password.setError("Enter password");
+            password.setError(getString(R.string.enter_pass));
         }else if (TextUtils.isEmpty(uemail))
         {
             password.setError(null);
-            email.setError("Enter email address");
+            email.setError(getString(R.string.enter_email));
         }else if (!Patterns.EMAIL_ADDRESS.matcher(uemail).matches())
         {
             password.setError(null);
-            email.setError("Invalid email address");
+            email.setError(getString(R.string.inv_email));
 
         }else if (TextUtils.isEmpty(uphone))
         {
             email.setError(null);
-            phone.setError("Enter phone number");
+            phone.setError(getString(R.string.enter_phone));
         }else if (!Patterns.PHONE.matcher(uphone).matches())
         {
-            phone.setError("Invalid phone number");
+            phone.setError(getString(R.string.inv_phone));
 
         }else
             {
@@ -139,7 +139,7 @@ public class Signup extends AppCompatActivity {
                                 finish();
                             }else
                                 {
-                                    Toast.makeText(Signup.this, "Error", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Signup.this, R.string.error, Toast.LENGTH_SHORT).show();
 
                                 }
                         }
@@ -148,7 +148,7 @@ public class Signup extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<UserModel> call, Throwable t) {
                         Log.e("register error",t.getMessage());
-                        Toast.makeText(Signup.this, "Error some thing went haywire", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Signup.this, getString(R.string.something), Toast.LENGTH_SHORT).show();
                     }
                 });
             }

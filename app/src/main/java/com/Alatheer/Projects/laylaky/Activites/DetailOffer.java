@@ -92,7 +92,7 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
     private void CreateProgress()
     {
         dialog = new ProgressDialog(this);
-        dialog.setMessage("Upload Image...");
+        dialog.setMessage(getString(R.string.upload_img));
         dialog.setCanceledOnTouchOutside(false);
         dialog.setCancelable(true);
 
