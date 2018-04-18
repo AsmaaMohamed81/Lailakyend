@@ -21,6 +21,7 @@ public class Preferences {
     {
         SharedPreferences sPref = context.getSharedPreferences("user",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sPref.edit();
+
         editor.putString("id",userModel.getUser_id());
         editor.putString("user_name",userModel.getUser_name());
         editor.putString("email",userModel.getUser_email());
@@ -36,6 +37,7 @@ public class Preferences {
     {
         SharedPreferences sPref = context.getSharedPreferences("user",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sPref.edit();
+
         editor.putString("id","");
         editor.putString("user_name","");
         editor.putString("email","");
@@ -51,6 +53,7 @@ public class Preferences {
     {
         SharedPreferences sPref = context.getSharedPreferences("user",Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sPref.edit();
+
         editor.putString("id",userModel.getUser_id());
         editor.putString("user_name",userModel.getUser_name());
         editor.putString("email",userModel.getUser_email());
