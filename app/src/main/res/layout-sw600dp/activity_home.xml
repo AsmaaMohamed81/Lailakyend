@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+
+    <ImageButton
+        android:id="@+id/albumgeded"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:background="@drawable/newalbum"
+        tools:ignore="ContentDescription" />
+
+    <ImageButton
+        android:id="@+id/albumaty"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignLeft="@+id/albumgeded"
+        android:layout_alignStart="@+id/albumgeded"
+        android:layout_below="@+id/albumgeded"
+        android:layout_marginTop="22dp"
+        android:background="@drawable/myalbums"
+        tools:ignore="ContentDescription" />
+
+
+
+
+
+
+</RelativeLayout>

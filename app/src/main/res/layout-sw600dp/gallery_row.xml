@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+    <ImageView
+        android:id="@+id/galler_Img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:checked="false"
+        android:layout_margin="5dp"
+        app:buttonTint="@color/colorPrimary"
+        />
+    <!--<FrameLayout
+        android:id="@+id/bg"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_gravity="right|center_horizontal"
+        android:background="@color/white"
+        >
+
+    </FrameLayout>-->
+
+</FrameLayout>
