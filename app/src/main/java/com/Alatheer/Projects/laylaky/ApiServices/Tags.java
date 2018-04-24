@@ -5,6 +5,6 @@ package com.Alatheer.Projects.laylaky.ApiServices;
  */
 
 public class Tags {
-    public static final String BaseUrl="http://lilaky.alatheertech.com/";
-    public static final String ImgPath ="http://lilaky.alatheertech.com/uploads/images/";
+    public static final String BaseUrl="http://lilaky.com/";
+    public static final String ImgPath ="http://lilaky.com/uploads/images/";
 }
