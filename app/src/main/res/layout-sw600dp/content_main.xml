@@ -8,8 +8,8 @@
 
     <ImageButton
         android:id="@+id/albumgeded"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="58dp"
@@ -18,8 +18,8 @@
 
     <ImageButton
         android:id="@+id/albumaty"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_alignLeft="@+id/albumgeded"
         android:layout_alignStart="@+id/albumgeded"
         android:layout_below="@+id/albumgeded"
