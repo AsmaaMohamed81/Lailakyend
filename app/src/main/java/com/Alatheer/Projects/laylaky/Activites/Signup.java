@@ -137,9 +137,16 @@ public class Signup extends AppCompatActivity {
                                 dialog.dismiss();
                                 startActivity(intent);
                                 finish();
-                            }else
+                            }else if (response.body().getSuccess()==0)
                                 {
+
+                                    dialog.dismiss();
                                     Toast.makeText(Signup.this, R.string.error, Toast.LENGTH_SHORT).show();
+
+                                }else if (response.body().getSuccess()==2)
+                                {
+                                    dialog.dismiss();
+                                    Toast.makeText(Signup.this, R.string.register_befor, Toast.LENGTH_SHORT).show();
 
                                 }
                         }

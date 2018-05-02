@@ -10,6 +10,7 @@
     <string name="login">دخول</string>
     <string name="Skip">تخطي</string>
     <string name="registerMassege">لا يوجد لديك حساب ؟</string>
+    <string name="title_activity_maps">الخريطة</string>
 
     <string name="details">التفاصيل</string>
     <string name="view">عرض</string>
@@ -69,5 +70,6 @@
     <string name="pass_not_match">كلمة المرور غير متطابقة</string>
     <string name="upd_succ">تم تحديث كلمة المرور بنجاح</string>
     <string name="fialed">فشل</string>
+    <string name="register_befor">إسم المستخدم موجود من قبل</string>
 
 </resources>
