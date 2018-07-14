@@ -34,7 +34,7 @@
                 android:layout_height="match_parent"
                 android:src="@color/colorPrimary"
                 android:layout_weight="1"
-                android:scaleType="centerCrop"
+                android:scaleType="matrix"
 
                 />
             <ImageView
@@ -78,7 +78,7 @@
                 android:layout_height="match_parent"
                 android:src="@color/colorPrimary"
                 android:layout_weight="1"
-                android:scaleType="centerCrop"
+                android:scaleType="matrix"
 
                 />
             <ImageView
@@ -109,7 +109,7 @@
                 android:layout_weight="1"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="matrix"
 
 
                 />
@@ -141,7 +141,7 @@
                 android:layout_weight="1"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:scaleType="centerCrop"
+                android:scaleType="matrix"
 
                 />
             <ImageView
@@ -188,7 +188,7 @@
                 android:layout_height="match_parent"
                 android:src="@color/colorPrimary"
                 android:layout_weight="1"
-                android:scaleType="centerCrop"
+                android:scaleType="matrix"
 
                 />
             <ImageView
