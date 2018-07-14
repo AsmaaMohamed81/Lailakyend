@@ -1,6 +1,7 @@
 package com.Alatheer.Projects.laylaky.Activites;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -11,6 +12,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -61,6 +63,8 @@ public class Signup extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                HideKeyBoard();
                 Signup();
             }
         });
@@ -78,7 +82,8 @@ public class Signup extends AppCompatActivity {
 
     }
 
-    private void Signup() {
+    private void Signup()
+    {
         String uname = userName.getText().toString();
         String upass = password.getText().toString();
         String uemail= email.getText().toString();
@@ -162,6 +167,12 @@ public class Signup extends AppCompatActivity {
             }
 
 
+
+    }
+    private void HideKeyBoard()
+    {
+        InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        manager.hideSoftInputFromWindow(userName.getWindowToken(),0);
 
     }
 }

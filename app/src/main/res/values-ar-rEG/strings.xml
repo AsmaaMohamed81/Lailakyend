@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ليلكى</string>
+    <string name="app_name">ليلكي</string>
     <string name="username">اسم المستخدم</string>
     <string name="pass">كلمه السر</string>
     <string name="register">إنشاء حسب جديد</string>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:layout_marginLeft="25dp"
+
+    >
+    <FrameLayout
+        android:id="@+id/f1"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="75dp"
+        android:layout_gravity="center_vertical"
+        android:padding="2dp"
+        >
+        <net.karthikraj.shapesimage.ShapesImage
+            android:id="@+id/shape1"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@color/colorPrimary"
+            app:shape="guitar_pick"
+            android:scaleType="centerCrop"
+
+            android:rotation="315"
+            />
+        <ImageView
+            android:id="@+id/shape1_icon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:src="@drawable/gallery"
+            android:padding="10dp"
+
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/f2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="62dp"
+        android:padding="2dp"
+
+        >
+        <net.karthikraj.shapesimage.ShapesImage
+            android:id="@+id/shape2"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@color/colorPrimary"
+            app:shape="guitar_pick"
+            android:scaleType="centerCrop"
+
+            android:rotation="225"/>
+        <ImageView
+            android:id="@+id/shape2_icon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:src="@drawable/gallery"
+            android:padding="10dp"
+
+            />
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:id="@+id/f3"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="140dp"
+        android:layout_marginBottom="75dp"
+        android:padding="2dp"
+        >
+        <net.karthikraj.shapesimage.ShapesImage
+            android:id="@+id/shape3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:rotation="45"
+            android:src="@color/colorPrimary"
+            app:shape="guitar_pick"
+            android:scaleType="centerCrop"
+
+            />
+        <ImageView
+            android:id="@+id/shape3_icon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:src="@drawable/gallery"
+            android:padding="10dp"
+
+            />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/f4"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="62dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="140dp"
+        android:padding="2dp"
+        >
+        <net.karthikraj.shapesimage.ShapesImage
+            android:id="@+id/shape4"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:rotation="135"
+            android:src="@color/colorPrimary"
+            android:scaleType="centerCrop"
+
+            app:shape="guitar_pick" />
+        <ImageView
+            android:id="@+id/shape4_icon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="center"
+            android:src="@drawable/gallery"
+            android:padding="10dp"
+
+            />
+    </FrameLayout>
+
+</FrameLayout>
+
+</RelativeLayout>

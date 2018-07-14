@@ -1,6 +1,7 @@
 package com.Alatheer.Projects.laylaky.Activites;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.PorterDuff;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -103,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                /* Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
                 startActivity(intent);*/
+               HideKeyBoard();
                 SignIn();
             }
         });
@@ -122,6 +125,12 @@ public class LoginActivity extends AppCompatActivity {
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setIndeterminateDrawable(drawable);
+
+    }
+
+    private void HideKeyBoard() {
+        InputMethodManager manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        manager.hideSoftInputFromWindow(userName.getWindowToken(),0);
 
     }
 

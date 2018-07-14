@@ -210,7 +210,14 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
             encoded.add(Base64.encodeToString(bytes,Base64.DEFAULT));
         }*/
 
-        Intent intent = new Intent(DetailOffer.this,DisplayGalleryActivity.class);
+       /* Intent intent = new Intent(DetailOffer.this,DisplayGalleryActivity.class);
+        //intent.putExtra("data",encoded);
+        intent.putExtra("album_size",size_offer);
+        intent.putExtra("id_offer",idoffer);
+        intent.putExtra("user_id",userModel.getUser_id());
+        startActivity(intent);
+        finish();*/
+        Intent intent = new Intent(DetailOffer.this,FramesActivity.class);
         //intent.putExtra("data",encoded);
         intent.putExtra("album_size",size_offer);
         intent.putExtra("id_offer",idoffer);
