@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/f1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/shape1"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@color/colorPrimary"
+        android:scaleType="fitXY"
+        android:layout_gravity="center"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/f23"
+        android:scaleType="fitXY"/>
+
+    <ImageView
+        android:id="@+id/shape1_icon"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/gallery"
+        android:layout_gravity="center"
+
+        />
+
+</FrameLayout>

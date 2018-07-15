@@ -65,15 +65,38 @@ public class Fragment_Poster extends Fragment {
     }
 
     private void AddImages() {
-        Images.add(R.drawable.a3);
-        Images.add(R.drawable.a6);
-        Images.add(R.drawable.a10);
-        Images.add(R.drawable.a11);
-        Images.add(R.drawable.a12);
-        Images.add(R.drawable.a13);
-        Images.add(R.drawable.a14);
-        Images.add(R.drawable.a15);
-        Images.add(R.drawable.a16);
+        Images.add(R.drawable.f15);
+        Images.add(R.drawable.f16);
+        Images.add(R.drawable.f14);
+        Images.add(R.drawable.f18);
+
+        Images.add(R.drawable.f19);
+        Images.add(R.drawable.f17);
+        Images.add(R.drawable.f11);
+        Images.add(R.drawable.f12);
+
+        Images.add(R.drawable.f13);
+        Images.add(R.drawable.f6);
+        Images.add(R.drawable.f4);
+        Images.add(R.drawable.f23);
+
+        Images.add(R.drawable.f25);
+        Images.add(R.drawable.f9);
+        Images.add(R.drawable.f10);
+        Images.add(R.drawable.f20);
+
+        Images.add(R.drawable.f22);
+        Images.add(R.drawable.f24);
+        Images.add(R.drawable.f7);
+        Images.add(R.drawable.f2);
+
+        Images.add(R.drawable.f28);
+        Images.add(R.drawable.f5);
+        Images.add(R.drawable.f26);
+        Images.add(R.drawable.f27);
+
+        Images.add(R.drawable.f8);
+        Images.add(R.drawable.f21);
 
         adapter.notifyDataSetChanged();
     }
