@@ -27,7 +27,7 @@
                 android:src="@color/colorPrimary"
                 app:shape="octagon"
 
-                android:scaleType="centerCrop"
+                android:scaleType="matrix"
 
                 />
             <ImageView
@@ -56,7 +56,7 @@
                 android:id="@+id/shape2"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:scaleType="centerCrop"
+                android:scaleType="matrix"
 
                 android:src="@color/colorPrimary"
                 app:shape="octagon"
@@ -88,7 +88,7 @@
                 android:layout_height="218dp"
                 android:src="@color/colorPrimary"
                 app:shape="octagon"
-                android:scaleType="centerCrop"
+                android:scaleType="matrix"
 
                 />
 

@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="299dp"
             android:src="@color/colorPrimary"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
             app:shape="cloud" />
         <ImageView
             android:id="@+id/shape1_icon"
@@ -50,7 +50,7 @@
             android:layout_height="match_parent"
             android:src="@color/colorPrimary"
             android:rotation="180"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
 
             app:shape="guitar_pick" />
         <ImageView
@@ -79,7 +79,7 @@
             android:id="@+id/shape3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
 
             android:src="@color/colorPrimary"
             android:rotation="180"
@@ -112,7 +112,7 @@
             android:layout_height="match_parent"
             android:src="@color/colorPrimary"
             android:rotation="180"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
 
             app:shape="guitar_pick" />
 
