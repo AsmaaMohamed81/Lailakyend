@@ -104,12 +104,14 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                     img3_selected = 0;
                     img4_selected = 0;
                     img5_selected = 0;
-                   /* shape1.setEnabled(true);
-                    shape2.setEnabled(false);
-                    shape3.setEnabled(false);
-                    shape4.setEnabled(false);
-                    shape5.setEnabled(false);
-*/
+
+                    shape1.setClickable(true);
+                    shape2.setClickable(false);
+                    shape3.setClickable(false);
+                    shape4.setClickable(false);
+                    shape5.setClickable(false);
+
+
                 }  else
                     {
                         SelectImage(IMG_REQ1);
@@ -137,6 +139,12 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                     shape3.setEnabled(false);
                     shape4.setEnabled(false);
                     shape5.setEnabled(false);
+
+                    shape1.setClickable(false);
+                    shape2.setClickable(true);
+                    shape3.setClickable(false);
+                    shape4.setClickable(false);
+                    shape5.setClickable(false);
                 }  else
                 {
                     SelectImage(IMG_REQ2);
@@ -159,11 +167,11 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                     img3_selected = 1;
                     img4_selected = 0;
                     img5_selected = 0;
-//                    shape1.setEnabled(false);
-//                    shape2.setEnabled(false);
-//                    shape3.setEnabled(true);
-//                    shape4.setEnabled(false);
-//                    shape5.setEnabled(false);
+                    shape1.setClickable(false);
+                    shape2.setClickable(false);
+                    shape3.setClickable(true);
+                    shape4.setClickable(false);
+                    shape5.setClickable(false);
                 }  else
                 {
                     SelectImage(IMG_REQ3);
@@ -186,11 +194,12 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                     img3_selected = 0;
                     img4_selected = 1;
                     img5_selected = 0;
-//                    shape1.setEnabled(false);
-//                    shape2.setEnabled(false);
-//                    shape3.setEnabled(false);
-//                    shape4.setEnabled(true);
-//                    shape5.setEnabled(false);
+
+                    shape1.setClickable(false);
+                    shape2.setClickable(false);
+                    shape3.setClickable(false);
+                    shape4.setClickable(true);
+                    shape5.setClickable(false);
 
                 }  else
                 {
@@ -214,11 +223,12 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                     img3_selected = 0;
                     img4_selected = 0;
                     img5_selected = 1;
-//                    shape1.setEnabled(false);
-//                    shape2.setEnabled(false);
-//                    shape3.setEnabled(false);
-//                    shape4.setEnabled(false);
-//                    shape5.setEnabled(true);
+                    shape1.setClickable(false);
+                    shape2.setClickable(false);
+                    shape3.setClickable(false);
+                    shape4.setClickable(false);
+                    shape5.setClickable(true);
+
                 }  else
                 {
                     SelectImage(IMG_REQ5);
@@ -229,12 +239,6 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
         });
 
 
-      /*  shape1.setOnTouchListener(this);
-        shape2.setOnTouchListener(this);
-        shape3.setOnTouchListener(this);
-        shape4.setOnTouchListener(this);
-        shape5.setOnTouchListener(this);
-*/
 
     }
 
@@ -265,13 +269,7 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                 img3_selected = 0;
                 img4_selected = 0;
                 img5_selected = 0;
-                shape1.setOnTouchListener(this);
 
-//                shape1.setEnabled(true);
-//                shape2.setEnabled(false);
-//                shape3.setEnabled(false);
-//                shape4.setEnabled(false);
-//                shape5.setEnabled(false);
 
             }else if (bitmap2==null)
             {
@@ -290,13 +288,8 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                 img3_selected = 0;
                 img4_selected = 0;
                 img5_selected = 0;
-                shape2.setOnTouchListener(this);
 
-//                shape1.setEnabled(false);
-//                shape2.setEnabled(true);
-//                shape3.setEnabled(false);
-//                shape4.setEnabled(false);
-//                shape5.setEnabled(false);
+
            }
             else if (bitmap3==null)
             {
@@ -316,13 +309,8 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                 img3_selected = 1;
                 img4_selected = 0;
                 img5_selected = 0;
-                shape3.setOnTouchListener(this);
 
-//                shape1.setEnabled(false);
-//                shape2.setEnabled(false);
-//                shape3.setEnabled(true);
-//                shape4.setEnabled(false);
-//                shape5.setEnabled(false);
+
             }
             else if (bitmap4==null)
             {
@@ -342,13 +330,8 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                 img3_selected = 0;
                 img4_selected = 1;
                 img5_selected = 0;
-                shape4.setOnTouchListener(this);
 
-//                shape1.setEnabled(false);
-//                shape2.setEnabled(false);
-//                shape3.setEnabled(false);
-//                shape4.setEnabled(true);
-//                shape5.setEnabled(false);
+
             }
             else if (bitmap5==null)
             {
@@ -368,13 +351,8 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                 img3_selected = 0;
                 img4_selected = 0;
                 img5_selected = 1;
-                shape5.setOnTouchListener(this);
 
-//                shape1.setEnabled(false);
-//                shape2.setEnabled(false);
-//                shape3.setEnabled(false);
-//                shape4.setEnabled(false);
-//                shape5.setEnabled(true);
+
             }
             else if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null&&bitmap4!=null&&bitmap5!=null)
             {
@@ -419,7 +397,6 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
         }
     }
     public boolean onTouch(View v, MotionEvent event) {
-        // handle touch events here
         ImageView view = (ImageView) v;
         int id = v.getId();
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
@@ -545,12 +522,7 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
         point.set(x / 2, y / 2);
     }
 
-    /**
-     * Calculate the degree to be rotated by.
-     *
-     * @param event
-     * @return Degrees
-     */
+
     private float rotation(MotionEvent event) {
         double delta_x = (event.getX(0) - event.getX(1));
         double delta_y = (event.getY(0) - event.getY(1));

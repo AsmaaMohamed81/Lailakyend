@@ -59,7 +59,7 @@ public class Fragment_Poster extends Fragment {
         recView = view.findViewById(R.id.recView);
         manager = new GridLayoutManager(context,2);
         recView.setLayoutManager(manager);
-        adapter = new ClassicImagesAdapter(context,Images, Tags.Classic,this);
+        adapter = new ClassicImagesAdapter(context,Images, Tags.Poster,this);
         recView.setAdapter(adapter);
         AddImages();
     }

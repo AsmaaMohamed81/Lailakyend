@@ -435,7 +435,10 @@ public class DisplayImagesActivity extends AppCompatActivity {
 
             }else
                 {
-                    if (imageUrl.size()>=5)
+                    Uri uri = data.getData();
+                    imageUrl.add(uri.toString());
+                    adapter.notifyDataSetChanged();
+                    /*if (imageUrl.size()>=5)
                     {
                         Uri uri = data.getData();
                         imageUrl.add(uri.toString());
@@ -444,7 +447,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
                         {
                             Toast.makeText(this, "اختر على الاقل 5 صور", Toast.LENGTH_SHORT).show();
 
-                        }
+                        }*/
                 }
         }
     }
