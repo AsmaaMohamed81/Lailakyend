@@ -73,6 +73,8 @@ public class ClassicImagesAdapter extends RecyclerView.Adapter<ClassicImagesAdap
 
                 }else if (type.equals(Tags.Poster))
                 {
+                    fragment_poster.SetPos(holder.getAdapterPosition());
+
                 }
             }
         });
