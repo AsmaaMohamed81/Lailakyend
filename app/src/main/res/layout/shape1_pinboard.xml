@@ -39,7 +39,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:shape="circle"
-                        android:scaleType="centerCrop"
+                        android:scaleType="matrix"
                         android:src="@color/colorPrimary"
 
                         />
@@ -69,7 +69,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:shape="circle"
-                        android:scaleType="centerCrop"
+                        android:scaleType="matrix"
                         android:src="@color/colorPrimary"
 
                         />
@@ -105,7 +105,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:siBorderWidth="6dp"
-                        android:scaleType="centerCrop"
+                        android:scaleType="matrix"
                         app:shape="circle"
                         android:src="@color/colorPrimary"
 
@@ -137,7 +137,7 @@
                         android:layout_height="match_parent"
                         app:siBorderWidth="6dp"
                         app:siBorderColor="#000000"
-                        android:scaleType="centerCrop"
+                        android:scaleType="matrix"
                         android:src="@color/colorPrimary"
 
 

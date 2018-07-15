@@ -24,7 +24,7 @@
             android:layout_height="200dp"
             android:src="@color/colorPrimary"
             app:shape="guitar_pick"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
 
             android:rotation="315"
             />
@@ -54,7 +54,7 @@
             android:layout_height="200dp"
             android:src="@color/colorPrimary"
             app:shape="guitar_pick"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
 
             android:rotation="225"/>
         <ImageView
@@ -85,7 +85,7 @@
             android:rotation="45"
             android:src="@color/colorPrimary"
             app:shape="guitar_pick"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
 
             />
         <ImageView
@@ -114,7 +114,7 @@
             android:layout_height="200dp"
             android:rotation="135"
             android:src="@color/colorPrimary"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
 
             app:shape="guitar_pick" />
         <ImageView

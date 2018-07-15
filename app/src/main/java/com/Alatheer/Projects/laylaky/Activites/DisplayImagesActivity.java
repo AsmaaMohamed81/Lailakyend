@@ -438,6 +438,8 @@ public class DisplayImagesActivity extends AppCompatActivity {
                     Uri uri = data.getData();
                     imageUrl.add(uri.toString());
                     adapter.notifyDataSetChanged();
+                    card_container.setVisibility(View.VISIBLE);
+
                     /*if (imageUrl.size()>=5)
                     {
                         Uri uri = data.getData();

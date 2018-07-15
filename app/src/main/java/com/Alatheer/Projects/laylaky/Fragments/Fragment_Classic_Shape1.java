@@ -50,7 +50,6 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
     private static final int DRAG = 1;
     private static final int ZOOM = 2;
     private int mode = NONE;
-    // remember some things for zooming
     private PointF start = new PointF();
     private PointF mid = new PointF();
     private float oldDist = 1f;
@@ -105,11 +104,7 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                     img4_selected = 0;
                     img5_selected = 0;
 
-                    shape1.setClickable(true);
-                    shape2.setClickable(false);
-                    shape3.setClickable(false);
-                    shape4.setClickable(false);
-                    shape5.setClickable(false);
+
 
 
                 }  else
@@ -134,17 +129,7 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                     img3_selected = 0;
                     img4_selected = 0;
                     img5_selected = 0;
-                    shape1.setEnabled(false);
-                    shape2.setEnabled(true);
-                    shape3.setEnabled(false);
-                    shape4.setEnabled(false);
-                    shape5.setEnabled(false);
 
-                    shape1.setClickable(false);
-                    shape2.setClickable(true);
-                    shape3.setClickable(false);
-                    shape4.setClickable(false);
-                    shape5.setClickable(false);
                 }  else
                 {
                     SelectImage(IMG_REQ2);
@@ -167,11 +152,7 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                     img3_selected = 1;
                     img4_selected = 0;
                     img5_selected = 0;
-                    shape1.setClickable(false);
-                    shape2.setClickable(false);
-                    shape3.setClickable(true);
-                    shape4.setClickable(false);
-                    shape5.setClickable(false);
+
                 }  else
                 {
                     SelectImage(IMG_REQ3);
@@ -195,11 +176,7 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                     img4_selected = 1;
                     img5_selected = 0;
 
-                    shape1.setClickable(false);
-                    shape2.setClickable(false);
-                    shape3.setClickable(false);
-                    shape4.setClickable(true);
-                    shape5.setClickable(false);
+
 
                 }  else
                 {
@@ -223,11 +200,7 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                     img3_selected = 0;
                     img4_selected = 0;
                     img5_selected = 1;
-                    shape1.setClickable(false);
-                    shape2.setClickable(false);
-                    shape3.setClickable(false);
-                    shape4.setClickable(false);
-                    shape5.setClickable(true);
+
 
                 }  else
                 {
@@ -250,11 +223,9 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
     public void getImageUri(String uri)
     {
         try {
-            Log.e("url",uri);
             Bitmap bitmap = BitmapFactory.decodeStream(getActivity().getContentResolver().openInputStream(Uri.parse(uri)));
             if (bitmap1==null)
             {
-                Log.e("url1","1");
 
                 bitmap1 = bitmap;
                 shape1.setImageBitmap(bitmap1);
@@ -269,11 +240,11 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                 img3_selected = 0;
                 img4_selected = 0;
                 img5_selected = 0;
+                shape1.setOnTouchListener(this);
 
 
             }else if (bitmap2==null)
             {
-                Log.e("url2","2");
 
                 bitmap2 = bitmap;
                 shape2.setImageBitmap(bitmap2);
@@ -288,9 +259,10 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                 img3_selected = 0;
                 img4_selected = 0;
                 img5_selected = 0;
+                shape2.setOnTouchListener(this);
 
 
-           }
+            }
             else if (bitmap3==null)
             {
                 Log.e("url3","3");
@@ -309,6 +281,7 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                 img3_selected = 1;
                 img4_selected = 0;
                 img5_selected = 0;
+                shape3.setOnTouchListener(this);
 
 
             }
@@ -330,6 +303,8 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                 img3_selected = 0;
                 img4_selected = 1;
                 img5_selected = 0;
+                shape4.setOnTouchListener(this);
+
 
 
             }
@@ -352,6 +327,7 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                 img4_selected = 0;
                 img5_selected = 1;
 
+                shape5.setOnTouchListener(this);
 
             }
             else if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null&&bitmap4!=null&&bitmap5!=null)
@@ -398,61 +374,80 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
     }
     public boolean onTouch(View v, MotionEvent event) {
         ImageView view = (ImageView) v;
+
         int id = v.getId();
+
+        switch (id)
+        {
+            case R.id.shape1:
+                f1.setBackgroundResource(R.drawable.img_selected);
+                f2.setBackgroundResource(R.drawable.img_unselected);
+                f3.setBackgroundResource(R.drawable.img_unselected);
+                f4.setBackgroundResource(R.drawable.img_unselected);
+                f5.setBackgroundResource(R.drawable.img_unselected);
+                img1_selected = 1;
+                img2_selected = 0;
+                img3_selected = 0;
+                img4_selected = 0;
+                img5_selected = 0;
+                break;
+            case R.id.shape2:
+                f1.setBackgroundResource(R.drawable.img_unselected);
+                f2.setBackgroundResource(R.drawable.img_selected);
+                f3.setBackgroundResource(R.drawable.img_unselected);
+                f4.setBackgroundResource(R.drawable.img_unselected);
+                f5.setBackgroundResource(R.drawable.img_unselected);
+                img1_selected = 0;
+                img2_selected = 1;
+                img3_selected = 0;
+                img4_selected = 0;
+                img5_selected = 0;
+                break;
+            case R.id.shape3:
+                f1.setBackgroundResource(R.drawable.img_unselected);
+                f2.setBackgroundResource(R.drawable.img_unselected);
+                f3.setBackgroundResource(R.drawable.img_selected);
+                f4.setBackgroundResource(R.drawable.img_unselected);
+                f5.setBackgroundResource(R.drawable.img_unselected);
+                img1_selected = 0;
+                img2_selected = 0;
+                img3_selected = 1;
+                img4_selected = 0;
+                img5_selected = 0;
+                break;
+            case R.id.shape4:
+                f1.setBackgroundResource(R.drawable.img_unselected);
+                f2.setBackgroundResource(R.drawable.img_unselected);
+                f3.setBackgroundResource(R.drawable.img_unselected);
+                f4.setBackgroundResource(R.drawable.img_selected);
+                f5.setBackgroundResource(R.drawable.img_unselected);
+                img1_selected = 0;
+                img2_selected = 0;
+                img3_selected = 0;
+                img4_selected = 1;
+                img5_selected = 0;
+                break;
+            case R.id.shape5:
+                f1.setBackgroundResource(R.drawable.img_unselected);
+                f2.setBackgroundResource(R.drawable.img_unselected);
+                f3.setBackgroundResource(R.drawable.img_unselected);
+                f4.setBackgroundResource(R.drawable.img_unselected);
+                f5.setBackgroundResource(R.drawable.img_selected);
+                img1_selected = 0;
+                img2_selected = 0;
+                img3_selected = 0;
+                img4_selected = 0;
+                img5_selected = 1;
+                break;
+
+        }
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN:
                 savedMatrix.set(matrix);
                 start.set(event.getX(), event.getY());
                 mode = DRAG;
                 lastEvent = null;
-                if (id==R.id.shape1)
-                {
-                    f1.setBackgroundResource(R.drawable.img_selected);
-                    f2.setBackgroundResource(R.drawable.img_unselected);
-                    f3.setBackgroundResource(R.drawable.img_unselected);
-                    f4.setBackgroundResource(R.drawable.img_unselected);
-                    f5.setBackgroundResource(R.drawable.img_unselected);
-                    shape1.setOnTouchListener(this);
 
-
-                }else if (id==R.id.shape2)
-                {
-                    f1.setBackgroundResource(R.drawable.img_unselected);
-                    f2.setBackgroundResource(R.drawable.img_selected);
-                    f3.setBackgroundResource(R.drawable.img_unselected);
-                    f4.setBackgroundResource(R.drawable.img_unselected);
-                    f5.setBackgroundResource(R.drawable.img_unselected);
-
-                    shape2.setOnTouchListener(this);
-                }
-                else if (id==R.id.shape3)
-                {
-                    f1.setBackgroundResource(R.drawable.img_unselected);
-                    f2.setBackgroundResource(R.drawable.img_unselected);
-                    f3.setBackgroundResource(R.drawable.img_selected);
-                    f4.setBackgroundResource(R.drawable.img_unselected);
-                    f5.setBackgroundResource(R.drawable.img_unselected);
-                    shape3.setOnTouchListener(this);
-                }
-                else if (id==R.id.shape4)
-                {
-                    f1.setBackgroundResource(R.drawable.img_unselected);
-                    f2.setBackgroundResource(R.drawable.img_unselected);
-                    f3.setBackgroundResource(R.drawable.img_unselected);
-                    f4.setBackgroundResource(R.drawable.img_selected);
-                    f5.setBackgroundResource(R.drawable.img_unselected);
-
-
-                    shape4.setOnTouchListener(this);
-                }else if (id==R.id.shape5)
-                {
-                    f1.setBackgroundResource(R.drawable.img_unselected);
-                    f2.setBackgroundResource(R.drawable.img_unselected);
-                    f3.setBackgroundResource(R.drawable.img_unselected);
-                    f4.setBackgroundResource(R.drawable.img_unselected);
-                    f5.setBackgroundResource(R.drawable.img_selected);
-                    shape5.setOnTouchListener(this);
-                }
                 break;
             case MotionEvent.ACTION_POINTER_DOWN:
                 oldDist = spacing(event);
@@ -502,7 +497,31 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
                 break;
         }
 
-        view.setImageMatrix(matrix);
+        if (img1_selected==1)
+        {
+            shape1.setImageMatrix(matrix);
+
+        }else if (img2_selected==1)
+        {
+            shape2.setImageMatrix(matrix);
+
+        }
+        else if (img3_selected==1)
+        {
+            shape3.setImageMatrix(matrix);
+
+        }
+        else if (img4_selected==1)
+        {
+            shape4.setImageMatrix(matrix);
+
+        }
+        else if (img5_selected==1)
+        {
+            shape5.setImageMatrix(matrix);
+
+        }
+
         return true;
     }
 
