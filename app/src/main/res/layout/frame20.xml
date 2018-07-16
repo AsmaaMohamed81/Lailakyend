@@ -41,6 +41,8 @@
                     android:layout_height="56dp"
                     android:layout_gravity="center"
                     android:src="@drawable/gallery"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginLeft="8dp"
                     />
 
             </FrameLayout>
@@ -67,6 +69,8 @@
                     android:layout_height="56dp"
                     android:layout_gravity="center"
                     android:src="@drawable/gallery"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="8dp"
                     />
             </FrameLayout>
         </LinearLayout>
@@ -98,6 +102,7 @@
                     android:layout_height="56dp"
                     android:layout_gravity="center"
                     android:src="@drawable/gallery"
+                    android:layout_marginLeft="20dp"
                     />
 
             </FrameLayout>
@@ -124,6 +129,8 @@
                     android:layout_height="56dp"
                     android:layout_gravity="center"
                     android:src="@drawable/gallery"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="8dp"
                     />
             </FrameLayout>
 

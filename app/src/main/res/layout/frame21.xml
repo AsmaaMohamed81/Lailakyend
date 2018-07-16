@@ -24,6 +24,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="2dp"
+
                 >
                 <ImageView
                     android:id="@+id/shape1"
@@ -40,6 +41,8 @@
                     android:layout_height="56dp"
                     android:layout_gravity="center"
                     android:src="@drawable/gallery"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="15dp"
                     />
 
             </FrameLayout>
@@ -66,6 +69,8 @@
                     android:layout_height="56dp"
                     android:layout_gravity="center"
                     android:src="@drawable/gallery"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginRight="15dp"
                     />
             </FrameLayout>
         </LinearLayout>
@@ -97,6 +102,8 @@
                     android:layout_height="56dp"
                     android:layout_gravity="center"
                     android:src="@drawable/gallery"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginBottom="10dp"
                     />
 
             </FrameLayout>
@@ -123,6 +130,8 @@
                     android:layout_height="56dp"
                     android:layout_gravity="center"
                     android:src="@drawable/gallery"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="10dp"
                     />
             </FrameLayout>
 

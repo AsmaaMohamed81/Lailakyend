@@ -30,7 +30,7 @@ public class Fragment_Poster_Frame24 extends Fragment implements View.OnTouchLis
     private ImageView shape1_icon,shape2_icon,shape3_icon;
     private Bitmap bitmap1,bitmap2,bitmap3;
     private final int IMG_REQ1=1,IMG_REQ2=2,IMG_REQ3=3;
-    private FrameLayout f1,f2,f3;
+    //private FrameLayout f1,f2,f3;
     private DisplayImagesActivity activity;
     private int img1_selected = 0;
     private int img2_selected = 0;
@@ -69,20 +69,20 @@ public class Fragment_Poster_Frame24 extends Fragment implements View.OnTouchLis
         shape3_icon = view.findViewById(R.id.shape3_icon);
 
 
-        f1 = view.findViewById(R.id.f1);
+        /*f1 = view.findViewById(R.id.f1);
         f2 = view.findViewById(R.id.f2);
         f3 = view.findViewById(R.id.f3);
-
+*/
 
         shape1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null)
                 {
-                    f1.setBackgroundResource(R.drawable.img_selected);
+                   /* f1.setBackgroundResource(R.drawable.img_selected);
                     f2.setBackgroundResource(R.drawable.img_unselected);
                     f3.setBackgroundResource(R.drawable.img_unselected);
-
+*/
                     img1_selected = 1;
                     img2_selected = 0;
                     img3_selected = 0;
@@ -100,9 +100,9 @@ public class Fragment_Poster_Frame24 extends Fragment implements View.OnTouchLis
             public void onClick(View v) {
                 if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null)
                 {
-                    f1.setBackgroundResource(R.drawable.img_unselected);
+                   /* f1.setBackgroundResource(R.drawable.img_unselected);
                     f2.setBackgroundResource(R.drawable.img_selected);
-                    f3.setBackgroundResource(R.drawable.img_unselected);
+                    f3.setBackgroundResource(R.drawable.img_unselected);*/
 
                     img1_selected = 0;
                     img2_selected = 1;
@@ -121,10 +121,10 @@ public class Fragment_Poster_Frame24 extends Fragment implements View.OnTouchLis
             public void onClick(View v) {
                 if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null)
                 {
-                    f1.setBackgroundResource(R.drawable.img_unselected);
+                   /* f1.setBackgroundResource(R.drawable.img_unselected);
                     f2.setBackgroundResource(R.drawable.img_unselected);
                     f3.setBackgroundResource(R.drawable.img_selected);
-
+*/
                     img1_selected = 0;
                     img2_selected = 0;
                     img3_selected = 1;
@@ -155,10 +155,10 @@ public class Fragment_Poster_Frame24 extends Fragment implements View.OnTouchLis
                 bitmap1 = bitmap;
                 shape1.setImageBitmap(bitmap1);
                 shape1_icon.setVisibility(View.GONE);
-                f1.setBackgroundResource(R.drawable.img_selected);
+               /* f1.setBackgroundResource(R.drawable.img_selected);
                 f2.setBackgroundResource(R.drawable.img_unselected);
                 f3.setBackgroundResource(R.drawable.img_unselected);
-
+*/
                 img1_selected = 1;
                 img2_selected = 0;
                 img3_selected = 0;
@@ -172,9 +172,9 @@ public class Fragment_Poster_Frame24 extends Fragment implements View.OnTouchLis
                 bitmap2 = bitmap;
                 shape2.setImageBitmap(bitmap2);
                 shape2_icon.setVisibility(View.GONE);
-                f1.setBackgroundResource(R.drawable.img_unselected);
+               /* f1.setBackgroundResource(R.drawable.img_unselected);
                 f2.setBackgroundResource(R.drawable.img_selected);
-                f3.setBackgroundResource(R.drawable.img_unselected);
+                f3.setBackgroundResource(R.drawable.img_unselected);*/
 
                 img1_selected = 0;
                 img2_selected = 1;
@@ -189,9 +189,9 @@ public class Fragment_Poster_Frame24 extends Fragment implements View.OnTouchLis
 
                 shape3.setImageBitmap(bitmap3);
                 shape3_icon.setVisibility(View.GONE);
-                f1.setBackgroundResource(R.drawable.img_unselected);
+               /* f1.setBackgroundResource(R.drawable.img_unselected);
                 f2.setBackgroundResource(R.drawable.img_unselected);
-                f3.setBackgroundResource(R.drawable.img_selected);
+                f3.setBackgroundResource(R.drawable.img_selected);*/
                 shape3.setOnTouchListener(this);
 
                 img1_selected = 0;
@@ -241,50 +241,50 @@ public class Fragment_Poster_Frame24 extends Fragment implements View.OnTouchLis
         switch (id)
         {
             case R.id.shape1:
-                f1.setBackgroundResource(R.drawable.img_selected);
+               /* f1.setBackgroundResource(R.drawable.img_selected);
                 f2.setBackgroundResource(R.drawable.img_unselected);
                 f3.setBackgroundResource(R.drawable.img_unselected);
-
+*/
                 img1_selected = 1;
                 img2_selected = 0;
                 img3_selected = 0;
 
                 break;
             case R.id.shape2:
-                f1.setBackgroundResource(R.drawable.img_unselected);
+                /*f1.setBackgroundResource(R.drawable.img_unselected);
                 f2.setBackgroundResource(R.drawable.img_selected);
                 f3.setBackgroundResource(R.drawable.img_unselected);
-
+*/
                 img1_selected = 0;
                 img2_selected = 1;
                 img3_selected = 0;
 
                 break;
             case R.id.shape3:
-                f1.setBackgroundResource(R.drawable.img_unselected);
+               /* f1.setBackgroundResource(R.drawable.img_unselected);
                 f2.setBackgroundResource(R.drawable.img_unselected);
                 f3.setBackgroundResource(R.drawable.img_selected);
-
+*/
                 img1_selected = 0;
                 img2_selected = 0;
                 img3_selected = 1;
 
                 break;
             case R.id.shape4:
-                f1.setBackgroundResource(R.drawable.img_unselected);
+               /* f1.setBackgroundResource(R.drawable.img_unselected);
                 f2.setBackgroundResource(R.drawable.img_unselected);
                 f3.setBackgroundResource(R.drawable.img_unselected);
-
+*/
                 img1_selected = 0;
                 img2_selected = 0;
                 img3_selected = 0;
 
                 break;
             case R.id.shape5:
-                f1.setBackgroundResource(R.drawable.img_unselected);
+               /* f1.setBackgroundResource(R.drawable.img_unselected);
                 f2.setBackgroundResource(R.drawable.img_unselected);
                 f3.setBackgroundResource(R.drawable.img_unselected);
-
+*/
                 img1_selected = 0;
                 img2_selected = 0;
                 img3_selected = 0;
