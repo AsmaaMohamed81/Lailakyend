@@ -65,38 +65,37 @@ public class Fragment_Poster extends Fragment {
     }
 
     private void AddImages() {
-        Images.add(R.drawable.f15);
-        Images.add(R.drawable.f16);
-        Images.add(R.drawable.f14);
-        Images.add(R.drawable.f18);
+        Images.add(R.drawable.fff15);
+        Images.add(R.drawable.fff16);
+        Images.add(R.drawable.fff14);
+        Images.add(R.drawable.fff18);
 
-        Images.add(R.drawable.f19);
-        Images.add(R.drawable.f17);
-        Images.add(R.drawable.f11);
-        Images.add(R.drawable.f12);
+        Images.add(R.drawable.fff19);
+        Images.add(R.drawable.fff17);
+        Images.add(R.drawable.fff11);
+        Images.add(R.drawable.fff12);
 
-        Images.add(R.drawable.f13);
-        Images.add(R.drawable.f6);
-        Images.add(R.drawable.f4);
-        Images.add(R.drawable.f23);
+        Images.add(R.drawable.fff13);
+        Images.add(R.drawable.fff6);
+        Images.add(R.drawable.fff4);
+        Images.add(R.drawable.fff23);
 
-        Images.add(R.drawable.f25);
-        Images.add(R.drawable.f9);
-        Images.add(R.drawable.f10);
-        Images.add(R.drawable.f20);
+        Images.add(R.drawable.fff25);
+        Images.add(R.drawable.fff9);
+        Images.add(R.drawable.fff10);
+        Images.add(R.drawable.fff20);
 
-        Images.add(R.drawable.f22);
-        Images.add(R.drawable.f24);
-        Images.add(R.drawable.f7);
-        Images.add(R.drawable.f2);
+        Images.add(R.drawable.fff22);
+        Images.add(R.drawable.fff24);
+        Images.add(R.drawable.fff7);
+        Images.add(R.drawable.fff2);
 
-        Images.add(R.drawable.f28);
-        Images.add(R.drawable.f5);
-        Images.add(R.drawable.f26);
-        Images.add(R.drawable.f27);
+        Images.add(R.drawable.fff28);
+        Images.add(R.drawable.fff5);
+        Images.add(R.drawable.fff26);
 
-        Images.add(R.drawable.f8);
-        Images.add(R.drawable.f21);
+
+        Images.add(R.drawable.fff8);
 
         adapter.notifyDataSetChanged();
     }
@@ -118,7 +117,7 @@ public class Fragment_Poster extends Fragment {
 
         Intent intent = new Intent(getActivity(), DisplayImagesActivity.class);
         intent.putExtra("position",pos);
-        intent.putExtra("type",Tags.Classic);
+        intent.putExtra("type",Tags.Poster);
         context.startActivity(intent);
     }
 }

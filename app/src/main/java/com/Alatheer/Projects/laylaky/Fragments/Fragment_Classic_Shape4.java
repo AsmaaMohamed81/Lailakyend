@@ -132,6 +132,7 @@ public class Fragment_Classic_Shape4 extends Fragment implements View.OnTouchLis
 
                 img1_selected = 1;
                 img2_selected = 0;
+                shape1.setOnTouchListener(this);
 
 
 
@@ -146,6 +147,7 @@ public class Fragment_Classic_Shape4 extends Fragment implements View.OnTouchLis
 
                 img1_selected = 0;
                 img2_selected = 1;
+                shape2.setOnTouchListener(this);
 
             }
             else if (bitmap1!=null&&bitmap2!=null)

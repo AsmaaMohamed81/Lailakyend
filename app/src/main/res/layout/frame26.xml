@@ -23,9 +23,10 @@
                android:layout_weight="1"
                >
             <ImageView
+                android:id="@+id/shape1"
+                android:scaleType="matrix"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:src="@color/colorPrimary"
                 android:rotation="350"
                 android:layout_gravity="center"/>
@@ -46,9 +47,10 @@
                 android:layout_weight="1"
                 >
             <ImageView
+                android:id="@+id/shape2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:scaleType="matrix"
                 android:src="@color/colorPrimary"
                 android:layout_gravity="center"/>
 
@@ -69,9 +71,11 @@
     >
 
     <ImageView
+        android:id="@+id/shape3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:scaleType="matrix"
         android:src="@color/colorPrimary"
         android:layout_gravity="center"/>
 

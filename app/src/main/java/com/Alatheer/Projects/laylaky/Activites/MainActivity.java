@@ -207,7 +207,10 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void UpdateUi(UserModel userModel) {
-        name.setText(userModel.getUser_name());
-        email.setText(userModel.getUser_email());
+        try {
+            name.setText(userModel.getUser_name());
+            email.setText(userModel.getUser_email());
+        }catch (NullPointerException e){}
+
     }
 }

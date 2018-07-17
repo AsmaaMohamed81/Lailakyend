@@ -11,7 +11,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@color/colorPrimary"
-        android:scaleType="fitXY"
+        android:scaleType="matrix"
         android:layout_gravity="center"/>
     <ImageView
         android:layout_width="match_parent"

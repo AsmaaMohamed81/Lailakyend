@@ -7,7 +7,6 @@ import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomSheetBehavior;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -39,6 +38,30 @@ import com.Alatheer.Projects.laylaky.Fragments.Fragment_Pinboard_Shape5;
 import com.Alatheer.Projects.laylaky.Fragments.Fragment_Pinboard_Shape6;
 import com.Alatheer.Projects.laylaky.Fragments.Fragment_Pinboard_Shape7;
 import com.Alatheer.Projects.laylaky.Fragments.Fragment_Pinboard_Shape8;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame1;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame10;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame11;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame12;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame13;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame14;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame15;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame16;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame17;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame18;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame19;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame2;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame20;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame21;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame22;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame24;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame25;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame3;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame4;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame5;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame6;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame7;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame8;
+import com.Alatheer.Projects.laylaky.Fragments.Fragment_Poster_Frame9;
 import com.Alatheer.Projects.laylaky.R;
 
 import java.util.ArrayList;
@@ -76,6 +99,36 @@ public class DisplayImagesActivity extends AppCompatActivity {
     private Fragment_Pinboard_Shape7 pinboardShape7;
     private Fragment_Pinboard_Shape8 pinboardShape8;
     private Fragment_Pinboard_Shape9 pinboardShape9;
+
+
+    private Fragment_Poster_Frame1 posterframe1;
+    private Fragment_Poster_Frame2 posterframe2;
+    private Fragment_Poster_Frame3 posterframe3;
+    private Fragment_Poster_Frame4 posterframe4;
+    private Fragment_Poster_Frame5 posterframe5;
+    private Fragment_Poster_Frame6 posterframe6;
+    private Fragment_Poster_Frame7 posterframe7;
+    private Fragment_Poster_Frame8 posterframe8;
+    private Fragment_Poster_Frame9 posterframe9;
+    private Fragment_Poster_Frame10 posterframe10;
+    private Fragment_Poster_Frame11 posterframe11;
+    private Fragment_Poster_Frame12 posterframe12;
+    private Fragment_Poster_Frame13 posterframe13;
+    private Fragment_Poster_Frame14 posterframe14;
+    private Fragment_Poster_Frame15 posterframe15;
+    private Fragment_Poster_Frame16 posterframe16;
+    private Fragment_Poster_Frame17 posterframe17;
+    private Fragment_Poster_Frame18 posterframe18;
+    private Fragment_Poster_Frame19 posterframe19;
+    private Fragment_Poster_Frame20 posterframe20;
+    private Fragment_Poster_Frame21 posterframe21;
+    private Fragment_Poster_Frame22 posterframe22;
+
+    private Fragment_Poster_Frame24 posterframe24;
+    private Fragment_Poster_Frame25 posterframe25;
+
+
+
 
 
 
@@ -299,6 +352,108 @@ public class DisplayImagesActivity extends AppCompatActivity {
         }else if (type.equals(Tags.Poster))
         {
 
+            switch (pos) {
+                case 0:
+                    posterframe1 = Fragment_Poster_Frame1.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe1).commit();
+                    break;
+                case 1:
+                    posterframe2 = Fragment_Poster_Frame2.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe2).commit();
+                    break;
+                case 2:
+                    posterframe3 = Fragment_Poster_Frame3.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe3).commit();
+                    break;
+                case 3:
+                    posterframe4 = Fragment_Poster_Frame4.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe4).commit();
+                    break;
+                case 4:
+                    posterframe5 = Fragment_Poster_Frame5.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe5).commit();
+                    break;
+                case 5:
+                    posterframe6 = Fragment_Poster_Frame6.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe6).commit();
+                    break;
+                case 6:
+                    posterframe7 = Fragment_Poster_Frame7.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe7).commit();
+                    break;
+                case 7:
+                    posterframe8 = Fragment_Poster_Frame8.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe8).commit();
+                    break;
+                case 8:
+                    posterframe9 = Fragment_Poster_Frame9.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe9).commit();
+                    break;
+
+                case 9:
+                    posterframe10 = Fragment_Poster_Frame10.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe10).commit();
+                    break;
+                case 10:
+                    posterframe11 = Fragment_Poster_Frame11.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe11).commit();
+                    break;
+                case 11:
+                    posterframe12 = Fragment_Poster_Frame12.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe12).commit();
+                    break;
+                case 12:
+                    posterframe13 = Fragment_Poster_Frame13.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe13).commit();
+                    break;
+                case 13:
+                    posterframe14 = Fragment_Poster_Frame14.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe14).commit();
+                    break;
+                case 14:
+                    posterframe15 = Fragment_Poster_Frame15.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe15).commit();
+                    break;
+                case 15:
+                    posterframe16 = Fragment_Poster_Frame16.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe16).commit();
+                    break;
+                case 16:
+                    posterframe17 = Fragment_Poster_Frame17.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe17).commit();
+                    break;
+                case 17:
+                    posterframe18 = Fragment_Poster_Frame18.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe18).commit();
+                    break;
+                case 18:
+                    posterframe19 = Fragment_Poster_Frame19.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe19).commit();
+                    break;
+                case 19:
+                    posterframe20 = Fragment_Poster_Frame20.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe20).commit();
+                    break;
+                case 20:
+                    posterframe21 = Fragment_Poster_Frame21.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe21).commit();
+                    break;
+                case 21:
+                    posterframe22 = Fragment_Poster_Frame22.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe22).commit();
+                    break;
+
+                case 22:
+                    posterframe24 = Fragment_Poster_Frame24.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe24).commit();
+                    break;
+                case 23:
+                    posterframe25 = Fragment_Poster_Frame25.getInstance();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe25).commit();
+                    break;
+
+            }
+
         }else if (type.equals(Tags.custom))
         {
            Intent intent = new Intent(DisplayImagesActivity.this,CustomShapeActivity.class);
@@ -400,6 +555,114 @@ public class DisplayImagesActivity extends AppCompatActivity {
         else if (type.equals(Tags.Poster))
         {
 
+            switch (this.pos)
+            {
+                case 0:
+                    posterframe1.getImageUri(uri);
+                    break;
+                case 1:
+                    posterframe2.getImageUri(uri);
+                    break;
+
+                case 2:
+                    posterframe3.getImageUri(uri);
+
+                    break;
+                case 3:
+                    posterframe4.getImageUri(uri);
+
+                    break;
+                case 4:
+                    posterframe5.getImageUri(uri);
+
+                    break;
+                case 5:
+                    posterframe6.getImageUri(uri);
+
+                    break;
+                case 6:
+                    posterframe7.getImageUri(uri);
+
+                    break;
+                case 7:
+                    posterframe8.getImageUri(uri);
+
+                    break;
+                case 8:
+                    posterframe9.getImageUri(uri);
+
+                    break;
+
+
+                case 9:
+                    posterframe10.getImageUri(uri);
+                    break;
+
+                case 10:
+                    posterframe11.getImageUri(uri);
+
+                    break;
+                case 11:
+                    posterframe12.getImageUri(uri);
+
+                    break;
+                case 12:
+                    posterframe13.getImageUri(uri);
+
+                    break;
+                case 13:
+                    posterframe14.getImageUri(uri);
+
+                    break;
+                case 14:
+                    posterframe15.getImageUri(uri);
+
+                    break;
+                case 15:
+                    posterframe16.getImageUri(uri);
+
+                    break;
+                case 16:
+                    posterframe17.getImageUri(uri);
+
+                    break;
+                case 17:
+                    posterframe18.getImageUri(uri);
+
+                    break;
+
+                case 18:
+                    posterframe19.getImageUri(uri);
+
+                    break;
+
+                case 19:
+                    posterframe20.getImageUri(uri);
+
+                    break;
+                case 20:
+                    posterframe21.getImageUri(uri);
+
+                    break;
+
+                case 21:
+                    posterframe22.getImageUri(uri);
+
+                    break;
+
+
+                case 22:
+                    posterframe24.getImageUri(uri);
+
+                    break;
+
+                case 23:
+                    posterframe25.getImageUri(uri);
+
+                    break;
+
+            }
+
         }
 
 
@@ -435,12 +698,12 @@ public class DisplayImagesActivity extends AppCompatActivity {
 
             }else
                 {
-                    Uri uri = data.getData();
+                    /*Uri uri = data.getData();
                     imageUrl.add(uri.toString());
                     adapter.notifyDataSetChanged();
-                    card_container.setVisibility(View.VISIBLE);
+                    card_container.setVisibility(View.VISIBLE);*/
 
-                    /*if (imageUrl.size()>=5)
+                    if (imageUrl.size()>=5)
                     {
                         Uri uri = data.getData();
                         imageUrl.add(uri.toString());
@@ -449,7 +712,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
                         {
                             Toast.makeText(this, "اختر على الاقل 5 صور", Toast.LENGTH_SHORT).show();
 
-                        }*/
+                        }
                 }
         }
     }

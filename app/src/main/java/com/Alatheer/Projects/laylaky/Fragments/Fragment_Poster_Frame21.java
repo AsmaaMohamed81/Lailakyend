@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,16 +19,14 @@ import android.widget.ImageView;
 import com.Alatheer.Projects.laylaky.Activites.DisplayImagesActivity;
 import com.Alatheer.Projects.laylaky.R;
 
-import net.karthikraj.shapesimage.ShapesImage;
-
 import java.io.FileNotFoundException;
 
 /**
  * Created by elashry on 10/07/2018.
  */
 
-public class Fragment_Classic_Shape7 extends Fragment implements View.OnTouchListener{
-    private ShapesImage shape1,shape2,shape3,shape4;
+public class Fragment_Poster_Frame21 extends Fragment implements View.OnTouchListener{
+    private ImageView shape1,shape2,shape3,shape4;
     private ImageView shape1_icon,shape2_icon,shape3_icon,shape4_icon;
     private Bitmap bitmap1,bitmap2,bitmap3,bitmap4;
     private final int IMG_REQ1=1,IMG_REQ2=2,IMG_REQ3=3,IMG_REQ4=4;
@@ -55,7 +52,7 @@ public class Fragment_Classic_Shape7 extends Fragment implements View.OnTouchLis
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.shape15_classic,container,false);
+        View view = inflater.inflate(R.layout.frame21,container,false);
         initView(view);
         return view;
     }
@@ -273,9 +270,10 @@ public class Fragment_Classic_Shape7 extends Fragment implements View.OnTouchLis
             e.printStackTrace();
         }
     }
-    public static Fragment_Classic_Shape7 getInstance()
+
+    public static Fragment_Poster_Frame21 getInstance()
     {
-        Fragment_Classic_Shape7 fragment = new Fragment_Classic_Shape7();
+        Fragment_Poster_Frame21 fragment = new Fragment_Poster_Frame21();
         return fragment;
     }
     public boolean onTouch(View v, MotionEvent event) {

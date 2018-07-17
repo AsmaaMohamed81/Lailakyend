@@ -96,7 +96,7 @@ public class ClassicImagesAdapter extends RecyclerView.Adapter<ClassicImagesAdap
 
         public void BindData(int image)
         {
-            Picasso.with(context).load(image).into(img);
+            img.setImageResource(image);
         }
     }
 }

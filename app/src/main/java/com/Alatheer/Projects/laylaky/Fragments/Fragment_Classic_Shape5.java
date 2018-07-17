@@ -186,6 +186,7 @@ public class Fragment_Classic_Shape5 extends Fragment implements View.OnTouchLis
                 img2_selected = 0;
                 img3_selected = 0;
                 img4_selected = 0;
+                shape1.setOnTouchListener(this);
 
 
             }else if (bitmap2==null)
@@ -202,6 +203,8 @@ public class Fragment_Classic_Shape5 extends Fragment implements View.OnTouchLis
                 img2_selected = 1;
                 img3_selected = 0;
                 img4_selected = 0;
+                shape2.setOnTouchListener(this);
+
             }
             else if (bitmap3==null)
             {
@@ -218,6 +221,8 @@ public class Fragment_Classic_Shape5 extends Fragment implements View.OnTouchLis
                 img2_selected = 0;
                 img3_selected = 1;
                 img4_selected = 0;
+                shape3.setOnTouchListener(this);
+
             }
             else if (bitmap4==null)
             {
@@ -234,6 +239,8 @@ public class Fragment_Classic_Shape5 extends Fragment implements View.OnTouchLis
                 img2_selected = 0;
                 img3_selected = 0;
                 img4_selected = 1;
+                shape4.setOnTouchListener(this);
+
             }
 
             else if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null&&bitmap4!=null)

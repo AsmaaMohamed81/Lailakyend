@@ -106,6 +106,7 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
                 f1.setBackgroundResource(R.drawable.img_selected);
 
                 img1_selected = 1;
+                shape1.setOnTouchListener(this);
 
 
 
