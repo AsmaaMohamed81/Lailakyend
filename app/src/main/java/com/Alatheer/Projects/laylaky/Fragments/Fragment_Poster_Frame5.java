@@ -25,7 +25,7 @@ import java.io.FileNotFoundException;
  * Created by elashry on 10/07/2018.
  */
 
-public class Fragment_Poster_Frame5 extends Fragment implements View.OnTouchListener{
+public class  Fragment_Poster_Frame5 extends Fragment implements View.OnTouchListener{
     private ImageView shape1;
     private ImageView shape1_icon;
     private Bitmap bitmap1;

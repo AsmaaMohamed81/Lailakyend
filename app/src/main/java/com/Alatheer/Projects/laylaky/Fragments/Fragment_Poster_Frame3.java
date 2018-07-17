@@ -32,7 +32,7 @@ public class Fragment_Poster_Frame3 extends Fragment implements View.OnTouchList
     private final int IMG_REQ1=1;
     private FrameLayout f1;
     private DisplayImagesActivity activity;
-    private int img1_selected = 0;
+     private int img1_selected = 0;
 
     private Matrix matrix = new Matrix();
     private Matrix savedMatrix = new Matrix();

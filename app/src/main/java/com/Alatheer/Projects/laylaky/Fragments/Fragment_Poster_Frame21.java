@@ -38,7 +38,7 @@ public class Fragment_Poster_Frame21 extends Fragment implements View.OnTouchLis
     private int img4_selected = 0;
     private Matrix matrix = new Matrix();
     private Matrix savedMatrix = new Matrix();
-    // we can be in one of these 3 states
+     // we can be in one of these 3 states
     private static final int NONE = 0;
     private static final int DRAG = 1;
     private static final int ZOOM = 2;
