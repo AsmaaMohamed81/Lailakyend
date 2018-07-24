@@ -1,17 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.jcmore2.collage.CollageView
-        android:id="@+id/collageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dip"
-        >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/upload_bg"
+        android:textColor="@color/colorPrimary"
+        android:textSize="13sp"
+        android:text="@string/save"
+        android:visibility="invisible"
 
-    </com.jcmore2.collage.CollageView>
-    </RelativeLayout>
+        />
+    <FrameLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.jcmore2.collage.CollageView
+            android:id="@+id/collageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dip"
+            >
+
+        </com.jcmore2.collage.CollageView>
+    </FrameLayout>
+
+    </LinearLayout>
 

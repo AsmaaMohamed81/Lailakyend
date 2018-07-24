@@ -16,9 +16,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.Alatheer.Projects.laylaky.Activites.DisplayImagesActivity;
+import com.Alatheer.Projects.laylaky.ApiServices.Tags;
 import com.Alatheer.Projects.laylaky.R;
+import com.Alatheer.Projects.laylaky.SingleTone.FinalAlbumImage;
 
 import net.karthikraj.shapesimage.ShapesImage;
 
@@ -29,6 +32,11 @@ import java.io.FileNotFoundException;
  */
 
 public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchListener{
+    private static final String TAG1="user_id";
+    private static final String TAG2="offer_id";
+    private static final String TAG3="album_size";
+    private String user_id="",offer_id="";
+    private int album_size=0;
     private ShapesImage shape1,shape2;
     private ImageView shape1_icon,shape2_icon;
     private Bitmap bitmap1,bitmap2;
@@ -50,6 +58,10 @@ public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchLis
     private float d = 0f;
     private float newRot = 0f;
     private float[] lastEvent = null;
+    private int count=0;
+    private LinearLayout root;
+    FinalAlbumImage instance;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,6 +70,15 @@ public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchLis
         return view;
     }
     private void initView(View view) {
+        instance = FinalAlbumImage.getInstance();
+        Bundle bundle = getArguments();
+
+        if (bundle!=null)
+        {
+            user_id = bundle.getString(TAG1);
+            offer_id = bundle.getString(TAG2);
+            album_size = bundle.getInt(TAG3);
+        }
         activity = (DisplayImagesActivity) getActivity();
         shape1 = view.findViewById(R.id.shape1);
         shape2 = view.findViewById(R.id.shape2);
@@ -68,6 +89,7 @@ public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchLis
 
         f1 = view.findViewById(R.id.f1);
         f2 = view.findViewById(R.id.f2);
+        root = view.findViewById(R.id.root);
 
 
         shape1.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +133,27 @@ public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchLis
 
 
     }
+    public Bitmap getBitmap()
+    {
+       f1.setBackgroundResource(R.drawable.transparent_bg);
+       f2.setBackgroundResource(R.drawable.transparent_bg);
 
+        root.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(root.getDrawingCache());
+        root.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
+    public void clearUi()
+    {
+        bitmap1=null;
+        bitmap2=null;
+
+
+        shape1.setImageBitmap(null);
+        shape2.setImageBitmap(null);
+        Log.e("albumSize",album_size+"");
+
+    }
     private void SelectImage(int img_req)
     {
         activity.displayImage(img_req);
@@ -132,6 +174,11 @@ public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchLis
 
                 img1_selected = 1;
                 img2_selected = 0;
+                if (bitmap1!=null&&bitmap2!=null)
+                {
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                }
                 shape1.setOnTouchListener(this);
 
 
@@ -147,6 +194,11 @@ public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchLis
 
                 img1_selected = 0;
                 img2_selected = 1;
+                if (bitmap1!=null&&bitmap2!=null)
+                {
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                }
                 shape2.setOnTouchListener(this);
 
 
@@ -154,6 +206,8 @@ public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchLis
             else if (bitmap1!=null&&bitmap2!=null)
             {
 
+                DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                activity.setButtonsaveVisibility(Tags.visible_btn);
                 if (img1_selected==1)
                 {
                     shape1.setImageBitmap(bitmap);
@@ -176,9 +230,14 @@ public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchLis
             e.printStackTrace();
         }
     }
-    public static Fragment_Classic_Shape3 getInstance()
+    public static Fragment_Classic_Shape3 getInstance(String user_id,String offer_id,int album_size)
     {
         Fragment_Classic_Shape3 fragment = new Fragment_Classic_Shape3();
+        Bundle bundle = new Bundle();
+        bundle.putString(TAG1,user_id);
+        bundle.putString(TAG2,offer_id);
+        bundle.putInt(TAG3,album_size);
+        fragment.setArguments(bundle);
         return fragment;
     }
     public boolean onTouch(View v, MotionEvent event) {
@@ -202,30 +261,6 @@ public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchLis
 
                 img1_selected = 0;
                 img2_selected = 1;
-
-                break;
-            case R.id.shape3:
-                f1.setBackgroundResource(R.drawable.img_unselected);
-                f2.setBackgroundResource(R.drawable.img_unselected);
-
-                img1_selected = 0;
-                img2_selected = 0;
-
-                break;
-            case R.id.shape4:
-                f1.setBackgroundResource(R.drawable.img_unselected);
-                f2.setBackgroundResource(R.drawable.img_unselected);
-
-                img1_selected = 0;
-                img2_selected = 0;
-
-                break;
-            case R.id.shape5:
-                f1.setBackgroundResource(R.drawable.img_unselected);
-                f2.setBackgroundResource(R.drawable.img_unselected);
-
-                img1_selected = 0;
-                img2_selected = 0;
 
                 break;
 

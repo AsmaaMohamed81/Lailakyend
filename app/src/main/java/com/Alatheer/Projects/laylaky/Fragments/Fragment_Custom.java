@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class Fragment_Custom extends Fragment {
     private void initView(View view) {
         Bundle bundle = getArguments();
 
+
         if (bundle!=null)
         {
             user_id = bundle.getString(TAG1);
@@ -50,9 +52,13 @@ public class Fragment_Custom extends Fragment {
         select_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.e("sdasd","453543453435");
                 Intent intent = new Intent(getActivity(), DisplayImagesActivity.class);
                 intent.putExtra("type", Tags.custom);
                 intent.putExtra("position",555);
+                intent.putExtra("album_size",album_size);
+                intent.putExtra("user_id",user_id);
+                intent.putExtra("id_offer",offer_id);
                 startActivity(intent);
             }
         });

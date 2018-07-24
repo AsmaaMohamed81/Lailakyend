@@ -34,6 +34,8 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.romainpiel.shimmer:library:1.4.0@aar'
     implementation 'de.hdodenhof:circleimageview:2.2.0'
@@ -43,6 +45,7 @@ dependencies {
     implementation 'net.karthikraj.shapesimage:shapesimage:1.0.2'
     implementation 'net.margaritov.preference.colorpicker.ColorPickerPreference:ColorPickerPreference:1.0.0'
     implementation 'com.jcmore2.collage:collage:1.0.0'
+    implementation 'com.github.chrisbanes:PhotoView:2.1.4'
 
 
 }

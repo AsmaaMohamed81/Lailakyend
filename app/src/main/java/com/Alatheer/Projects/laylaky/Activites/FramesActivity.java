@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -193,6 +194,10 @@ public class FramesActivity extends AppCompatActivity {
             album_size = Integer.parseInt(intent.getStringExtra("album_size"));
             user_id = intent.getStringExtra("user_id");
             id_offer = intent.getStringExtra("id_offer");
+
+            Log.e("Frames albumsize",album_size+"");
+            Log.e("Frames id",user_id+"");
+            Log.e("Frames offer",id_offer+"");
 
         }
     }

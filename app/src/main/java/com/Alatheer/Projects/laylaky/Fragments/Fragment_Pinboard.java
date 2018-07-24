@@ -53,6 +53,8 @@ public class Fragment_Pinboard extends Fragment {
             user_id = bundle.getString(TAG1);
             offer_id = bundle.getString(TAG2);
             album_size = bundle.getInt(TAG3);
+
+
         }
         Images = new ArrayList<>();
         context =view.getContext();
@@ -93,6 +95,9 @@ public class Fragment_Pinboard extends Fragment {
         Intent intent = new Intent(getActivity(), DisplayImagesActivity.class);
         intent.putExtra("position",pos);
         intent.putExtra("type",Tags.Pinboard);
+        intent.putExtra("album_size",album_size);
+        intent.putExtra("user_id",user_id);
+        intent.putExtra("id_offer",offer_id);
         context.startActivity(intent);
     }
 }

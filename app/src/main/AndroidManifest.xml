@@ -61,9 +61,12 @@
             android:name=".Activites.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".Activites.DisplayGalleryActivity" />
-        <activity android:name=".Activites.FramesActivity"></activity>
-        <activity android:name=".Activites.DisplayImagesActivity"></activity>
-        <activity android:name=".Activites.CustomShapeActivity"></activity>
+        <activity android:name=".Activites.FramesActivity" />
+        <activity android:name=".Activites.DisplayImagesActivity" />
+        <activity android:name=".Activites.CustomShapeActivity" />
+        <activity android:name=".Activites.FinalAlbumActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            ></activity>
     </application>
 
 </manifest>

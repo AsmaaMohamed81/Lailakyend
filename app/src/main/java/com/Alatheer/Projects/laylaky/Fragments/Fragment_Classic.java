@@ -53,6 +53,11 @@ public class Fragment_Classic extends Fragment {
             user_id = bundle.getString(TAG1);
             offer_id = bundle.getString(TAG2);
             album_size = bundle.getInt(TAG3);
+
+
+            Log.e("fclassic",album_size+"");
+            Log.e("fclassic",user_id+"");
+            Log.e("fclassic",offer_id+"");
         }
         Images = new ArrayList<>();
         context =view.getContext();
@@ -96,6 +101,10 @@ public class Fragment_Classic extends Fragment {
         Intent intent = new Intent(getActivity(), DisplayImagesActivity.class);
         intent.putExtra("position",pos);
         intent.putExtra("type",Tags.Classic);
+        intent.putExtra("album_size",album_size);
+        intent.putExtra("user_id",user_id);
+        intent.putExtra("id_offer",offer_id);
+
         context.startActivity(intent);
     }
 }

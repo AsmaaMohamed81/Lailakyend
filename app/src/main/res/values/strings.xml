@@ -71,4 +71,6 @@
     <string name="upd_succ">updated successfully</string>
     <string name="fialed">Failed</string>
     <string name="register_befor">this user exist</string>
+    <string name="save">Save</string>
+    <string name="upld">upload</string>
 </resources>

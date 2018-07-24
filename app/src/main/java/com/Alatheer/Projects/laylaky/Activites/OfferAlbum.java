@@ -18,6 +18,7 @@ import com.Alatheer.Projects.laylaky.ApiServices.Api;
 import com.Alatheer.Projects.laylaky.ApiServices.Services;
 import com.Alatheer.Projects.laylaky.Models.OfferModel;
 import com.Alatheer.Projects.laylaky.R;
+import com.Alatheer.Projects.laylaky.SingleTone.FinalAlbumImage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,14 +30,15 @@ import retrofit2.Retrofit;
 
 public class OfferAlbum extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    AdapterAlbums adapterAlbums;
-    OfferModel OfferModel;
-    List<OfferModel> OfferModelList;
+    private RecyclerView recyclerView;
+    private AdapterAlbums adapterAlbums;
+    private OfferModel OfferModel;
+    private List<OfferModel> OfferModelList;
     private String user_type;
     private LinearLayout container;
     private ProgressBar progBar;
 
+    private FinalAlbumImage instance;
 
 
 
@@ -46,6 +48,7 @@ public class OfferAlbum extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer_album);
+        instance = FinalAlbumImage.getInstance();
         getDataFromIntent();
         progBar = findViewById(R.id.progBar);
         progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
@@ -114,7 +117,7 @@ public class OfferAlbum extends AppCompatActivity {
 
     public  void pos(int pos){
 
-
+        instance.ClearList();
         OfferModel OfferModel = OfferModelList.get(pos);
         Intent i = new Intent(OfferAlbum.this, DetailOffer.class);
 

@@ -9,15 +9,20 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.Alatheer.Projects.laylaky.Activites.DisplayImagesActivity;
+import com.Alatheer.Projects.laylaky.ApiServices.Tags;
 import com.Alatheer.Projects.laylaky.R;
+import com.Alatheer.Projects.laylaky.SingleTone.FinalAlbumImage;
 
 import net.karthikraj.shapesimage.ShapesImage;
 
@@ -28,6 +33,11 @@ import java.io.FileNotFoundException;
  */
 
 public class Fragment_Pinboard_Shape4 extends Fragment implements View.OnTouchListener{
+    private static final String TAG1="user_id";
+    private static final String TAG2="offer_id";
+    private static final String TAG3="album_size";
+    private String user_id="",offer_id="";
+    private int album_size=0;
     private ShapesImage shape1,shape2,shape3,shape4;
     private ImageView shape1_icon,shape2_icon,shape3_icon,shape4_icon;
     private Bitmap bitmap1,bitmap2,bitmap3,bitmap4;
@@ -51,6 +61,11 @@ public class Fragment_Pinboard_Shape4 extends Fragment implements View.OnTouchLi
     private float d = 0f;
     private float newRot = 0f;
     private float[] lastEvent = null;
+    private int count=0;
+    FinalAlbumImage instance;
+    private RelativeLayout root;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -59,6 +74,16 @@ public class Fragment_Pinboard_Shape4 extends Fragment implements View.OnTouchLi
         return view;
     }
     private void initView(View view) {
+        instance = FinalAlbumImage.getInstance();
+        Bundle bundle = getArguments();
+
+        if (bundle!=null)
+        {
+            user_id = bundle.getString(TAG1);
+            offer_id = bundle.getString(TAG2);
+            album_size = bundle.getInt(TAG3);
+        }
+        root = view.findViewById(R.id.root);
         activity = (DisplayImagesActivity) getActivity();
         shape1 = view.findViewById(R.id.shape1);
         shape2 = view.findViewById(R.id.shape2);
@@ -185,6 +210,11 @@ public class Fragment_Pinboard_Shape4 extends Fragment implements View.OnTouchLi
                 img2_selected = 0;
                 img3_selected = 0;
                 img4_selected = 0;
+                if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null&&bitmap4!=null)
+                {
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                }
                 shape1.setOnTouchListener(this);
 
 
@@ -202,6 +232,11 @@ public class Fragment_Pinboard_Shape4 extends Fragment implements View.OnTouchLi
                 img2_selected = 1;
                 img3_selected = 0;
                 img4_selected = 0;
+                if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null&&bitmap4!=null)
+                {
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                }
                 shape2.setOnTouchListener(this);
 
             }
@@ -220,6 +255,11 @@ public class Fragment_Pinboard_Shape4 extends Fragment implements View.OnTouchLi
                 img2_selected = 0;
                 img3_selected = 1;
                 img4_selected = 0;
+                if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null&&bitmap4!=null)
+                {
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                }
                 shape3.setOnTouchListener(this);
 
             }
@@ -238,12 +278,20 @@ public class Fragment_Pinboard_Shape4 extends Fragment implements View.OnTouchLi
                 img2_selected = 0;
                 img3_selected = 0;
                 img4_selected = 1;
+                if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null&&bitmap4!=null)
+                {
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                }
                 shape4.setOnTouchListener(this);
 
             }
 
             else if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null&&bitmap4!=null)
             {
+
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
 
                 if (img1_selected==1)
                 {
@@ -272,10 +320,42 @@ public class Fragment_Pinboard_Shape4 extends Fragment implements View.OnTouchLi
             e.printStackTrace();
         }
     }
+    public Bitmap getBitmap()
+    {
+        f1.setBackgroundResource(R.drawable.transparent_bg);
+        f2.setBackgroundResource(R.drawable.transparent_bg);
+        f3.setBackgroundResource(R.drawable.transparent_bg);
+        f4.setBackgroundResource(R.drawable.transparent_bg);
+        root.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(root.getDrawingCache());
+        root.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
+    public void clearUi()
+    {
+        bitmap1=null;
+        bitmap2=null;
+        bitmap3=null;
+        bitmap4=null;
 
-    public static Fragment_Pinboard_Shape4 getInstance()
+        shape1.setImageBitmap(null);
+        shape2.setImageBitmap(null);
+        shape3.setImageBitmap(null);
+        shape4.setImageBitmap(null);
+
+
+        Log.e("albumSize",album_size+"");
+
+
+    }
+    public static Fragment_Pinboard_Shape4 getInstance(String user_id,String offer_id,int album_size)
     {
         Fragment_Pinboard_Shape4 fragment = new Fragment_Pinboard_Shape4();
+        Bundle bundle = new Bundle();
+        bundle.putString(TAG1,user_id);
+        bundle.putString(TAG2,offer_id);
+        bundle.putInt(TAG3,album_size);
+        fragment.setArguments(bundle);
         return fragment;
     }
     public boolean onTouch(View v, MotionEvent event) {

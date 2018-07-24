@@ -6,10 +6,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     >
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/upload_bg"
+        android:textColor="@color/colorPrimary"
+        android:textSize="13sp"
+        android:text="@string/save"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+
+        />
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/btn_save"
 
         >
 

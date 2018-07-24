@@ -16,9 +16,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.Alatheer.Projects.laylaky.Activites.DisplayImagesActivity;
+import com.Alatheer.Projects.laylaky.ApiServices.Tags;
 import com.Alatheer.Projects.laylaky.R;
+import com.Alatheer.Projects.laylaky.SingleTone.FinalAlbumImage;
 
 import net.karthikraj.shapesimage.ShapesImage;
 
@@ -29,6 +33,11 @@ import java.io.FileNotFoundException;
  */
 
 public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchListener{
+    private static final String TAG1="user_id";
+    private static final String TAG2="offer_id";
+    private static final String TAG3="album_size";
+    private String user_id="",offer_id="";
+    private int album_size=0;
     private ShapesImage shape1;
     private ImageView shape1_icon;
     private Bitmap bitmap1;
@@ -50,6 +59,10 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
     private float d = 0f;
     private float newRot = 0f;
     private float[] lastEvent = null;
+    private int count=0;
+    private RelativeLayout root;
+    FinalAlbumImage instance;
+
 
     @Nullable
     @Override
@@ -59,6 +72,15 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
         return view;
     }
     private void initView(View view) {
+        instance = FinalAlbumImage.getInstance();
+        Bundle bundle = getArguments();
+
+        if (bundle!=null)
+        {
+            user_id = bundle.getString(TAG1);
+            offer_id = bundle.getString(TAG2);
+            album_size = bundle.getInt(TAG3);
+        }
         activity = (DisplayImagesActivity) getActivity();
         shape1 = view.findViewById(R.id.shape1);
 
@@ -66,6 +88,7 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
         shape1_icon = view.findViewById(R.id.shape1_icon);
 
         f1 = view.findViewById(R.id.f1);
+        root = view.findViewById(R.id.root);
 
 
         shape1.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +110,25 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
 
 
     }
+    public Bitmap getBitmap()
+    {
+        f1.setBackgroundResource(R.drawable.transparent_bg);
 
+
+        root.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(root.getDrawingCache());
+        root.setDrawingCacheEnabled(false);
+        return bitmap;
+    }
+    public void clearUi()
+    {
+        bitmap1=null;
+
+        shape1.setImageBitmap(null);
+
+
+
+    }
     private void SelectImage(int img_req)
     {
         activity.displayImage(img_req);
@@ -99,6 +140,9 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
             Bitmap bitmap = BitmapFactory.decodeStream(getActivity().getContentResolver().openInputStream(Uri.parse(uri)));
             if (bitmap1==null)
             {
+
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
 
                 bitmap1 = bitmap;
                 shape1.setImageBitmap(bitmap1);
@@ -127,9 +171,14 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
             e.printStackTrace();
         }
     }
-    public static Fragment_Classic_Shape8 getInstance()
+    public static Fragment_Classic_Shape8 getInstance(String user_id,String offer_id,int album_size)
     {
         Fragment_Classic_Shape8 fragment = new Fragment_Classic_Shape8();
+        Bundle bundle = new Bundle();
+        bundle.putString(TAG1,user_id);
+        bundle.putString(TAG2,offer_id);
+        bundle.putInt(TAG3,album_size);
+        fragment.setArguments(bundle);
         return fragment;
     }
     public boolean onTouch(View v, MotionEvent event) {
@@ -145,30 +194,7 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
                 img1_selected = 1;
 
                 break;
-            case R.id.shape2:
-                f1.setBackgroundResource(R.drawable.img_unselected);
 
-                img1_selected = 0;
-
-                break;
-            case R.id.shape3:
-                f1.setBackgroundResource(R.drawable.img_unselected);
-
-                img1_selected = 0;
-
-                break;
-            case R.id.shape4:
-                f1.setBackgroundResource(R.drawable.img_unselected);
-
-                img1_selected = 0;
-
-                break;
-            case R.id.shape5:
-                f1.setBackgroundResource(R.drawable.img_unselected);
-
-                img1_selected = 0;
-
-                break;
 
         }
         switch (event.getAction() & MotionEvent.ACTION_MASK) {

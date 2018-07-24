@@ -5,7 +5,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:paddingTop="50dp"
-    android:layout_marginBottom="50dp">
+    android:layout_marginBottom="50dp"
+    android:id="@+id/root"
+
+    >
 
     <FrameLayout
         android:id="@+id/f1"
@@ -20,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@color/colorPrimary"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
             />
         <ImageView
             android:id="@+id/shape1_icon"
@@ -50,7 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@color/colorPrimary"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
 
             />
         <ImageView
@@ -78,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@color/colorPrimary"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
 
             />
 

@@ -6,7 +6,10 @@
     android:orientation="vertical"
     android:paddingTop="50dp"
     android:layout_marginBottom="50dp"
-    android:gravity="center">
+    android:gravity="center"
+    android:id="@+id/root"
+
+    >
 
     <FrameLayout
         android:id="@+id/f1"

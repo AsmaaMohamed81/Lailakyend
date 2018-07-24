@@ -6,6 +6,8 @@
     android:orientation="vertical"
     android:paddingRight="10dp"
     android:paddingLeft="10dp"
+    android:id="@+id/root"
+
     >
 
     <FrameLayout
@@ -22,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@color/colorPrimary"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
             />
         <ImageView
             android:id="@+id/shape1_icon"
@@ -50,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@color/colorPrimary"
-            android:scaleType="centerCrop"
+            android:scaleType="matrix"
 
             />
         <ImageView

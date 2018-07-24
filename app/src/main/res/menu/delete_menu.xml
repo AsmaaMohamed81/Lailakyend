@@ -6,6 +6,6 @@
         android:title="delete"
         android:orderInCategory="100"
         app:showAsAction="always"
-        android:icon="@drawable/delete"/>
+        android:icon="@drawable/del_icon"/>
 
 </menu>

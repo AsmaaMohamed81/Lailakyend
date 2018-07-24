@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,7 +18,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.Alatheer.Projects.laylaky.Activites.DisplayImagesActivity;
+import com.Alatheer.Projects.laylaky.ApiServices.Tags;
 import com.Alatheer.Projects.laylaky.R;
+import com.Alatheer.Projects.laylaky.SingleTone.FinalAlbumImage;
 
 import java.io.FileNotFoundException;
 
@@ -26,6 +29,11 @@ import java.io.FileNotFoundException;
  */
 
 public class  Fragment_Poster_Frame10 extends Fragment implements View.OnTouchListener{
+    private static final String TAG1="user_id";
+    private static final String TAG2="offer_id";
+    private static final String TAG3="album_size";
+    private String user_id="",offer_id="";
+    private int album_size=0;
     private ImageView shape1;
     private ImageView shape1_icon;
     private Bitmap bitmap1;
@@ -47,6 +55,8 @@ public class  Fragment_Poster_Frame10 extends Fragment implements View.OnTouchLi
     private float d = 0f;
     private float newRot = 0f;
     private float[] lastEvent = null;
+    private int count=0;
+    FinalAlbumImage instance;
 
     @Nullable
     @Override
@@ -56,6 +66,15 @@ public class  Fragment_Poster_Frame10 extends Fragment implements View.OnTouchLi
         return view;
     }
     private void initView(View view) {
+        instance = FinalAlbumImage.getInstance();
+        Bundle bundle = getArguments();
+
+        if (bundle!=null)
+        {
+            user_id = bundle.getString(TAG1);
+            offer_id = bundle.getString(TAG2);
+            album_size = bundle.getInt(TAG3);
+        }
         activity = (DisplayImagesActivity) getActivity();
         shape1 = view.findViewById(R.id.shape1);
 
@@ -101,6 +120,8 @@ public class  Fragment_Poster_Frame10 extends Fragment implements View.OnTouchLi
                 shape1.setImageBitmap(bitmap1);
                 shape1_icon.setVisibility(View.GONE);
                 f1.setBackgroundResource(R.drawable.img_selected);
+                DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                activity.setButtonsaveVisibility(Tags.visible_btn);
                 shape1.setOnTouchListener(this);
 
 
@@ -125,9 +146,36 @@ public class  Fragment_Poster_Frame10 extends Fragment implements View.OnTouchLi
             e.printStackTrace();
         }
     }
-    public static Fragment_Poster_Frame10 getInstance()
+    public Bitmap getBitmap()
+    {
+        f1.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(f1.getDrawingCache());
+        f1.setDrawingCacheEnabled(false);
+        f1.setBackgroundResource(R.drawable.transparent_bg);
+
+        return bitmap;
+    }
+    public void clearUi()
+    {
+        bitmap1=null;
+
+
+        shape1.setImageBitmap(null);
+
+
+
+        Log.e("albumSize",album_size+"");
+
+
+    }
+    public static Fragment_Poster_Frame10 getInstance(String user_id,String offer_id,int album_size)
     {
         Fragment_Poster_Frame10 fragment = new Fragment_Poster_Frame10();
+        Bundle bundle = new Bundle();
+        bundle.putString(TAG1,user_id);
+        bundle.putString(TAG2,offer_id);
+        bundle.putInt(TAG3,album_size);
+        fragment.setArguments(bundle);
         return fragment;
     }
     public boolean onTouch(View v, MotionEvent event) {
