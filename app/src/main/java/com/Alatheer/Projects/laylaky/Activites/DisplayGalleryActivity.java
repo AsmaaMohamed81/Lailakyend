@@ -309,7 +309,6 @@ public class DisplayGalleryActivity extends AppCompatActivity implements View.On
         startActivityForResult(intent.createChooser(intent,"select image"),IMG_REQ);
     }
 
-
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -382,17 +381,6 @@ public class DisplayGalleryActivity extends AppCompatActivity implements View.On
             }
     }
 
-    private void encodedImage(List<Bitmap> bitmapList)
-    {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        for (int i=0;i<bitmapList.size();i++)
-        {
-            Bitmap bitmap =bitmapList.get(i);
-            bitmap.compress(Bitmap.CompressFormat.JPEG,90,outputStream);
-            byte[] bytes = outputStream.toByteArray();
-            encodedImages.add(Base64.encodeToString(bytes,Base64.DEFAULT));
-        }
-    }
     private void encodedImage1(Bitmap bitmap)
     {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();

@@ -24,6 +24,7 @@ import com.Alatheer.Projects.laylaky.Models.UserModel;
 import com.Alatheer.Projects.laylaky.R;
 import com.Alatheer.Projects.laylaky.ApiServices.Api;
 import com.Alatheer.Projects.laylaky.SingleTone.Users;
+import com.lamudi.phonefield.PhoneInputLayout;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,9 +37,11 @@ import retrofit2.Retrofit;
 public class Signup extends AppCompatActivity {
 
     private EditText userName,password,email,phone;
+    private PhoneInputLayout edt_phone_check;
     private Button signUp;
     private ProgressDialog dialog;
     private Preferences preferences;
+
     Users users;
 
     @Override
@@ -57,7 +60,8 @@ public class Signup extends AppCompatActivity {
         userName = findViewById(R.id.user_name);
         password = findViewById(R.id.pass);
         email = findViewById(R.id.email);
-        phone = findViewById(R.id.phone);
+        phone = findViewById(R.id.edt_phone);
+        edt_phone_check = findViewById(R.id.edt_phone_check);
         signUp = findViewById(R.id.signUp);
 
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -88,7 +92,7 @@ public class Signup extends AppCompatActivity {
         String upass = password.getText().toString();
         String uemail= email.getText().toString();
         String uphone= phone.getText().toString();
-
+        edt_phone_check.setPhoneNumber(uphone);
         if (TextUtils.isEmpty(uname))
         {
             userName.setError(getString(R.string.enter_user_name));
@@ -98,23 +102,37 @@ public class Signup extends AppCompatActivity {
             password.setError(getString(R.string.enter_pass));
         }else if (TextUtils.isEmpty(uemail))
         {
+            userName.setError(null);
             password.setError(null);
             email.setError(getString(R.string.enter_email));
         }else if (!Patterns.EMAIL_ADDRESS.matcher(uemail).matches())
         {
+            userName.setError(null);
+            userName.setError(null);
             password.setError(null);
             email.setError(getString(R.string.inv_email));
 
         }else if (TextUtils.isEmpty(uphone))
         {
+            userName.setError(null);
+            userName.setError(null);
+            password.setError(null);
             email.setError(null);
             phone.setError(getString(R.string.enter_phone));
-        }else if (!Patterns.PHONE.matcher(uphone).matches())
+        }else if (edt_phone_check.isValid())
         {
+            userName.setError(null);
+            userName.setError(null);
+            password.setError(null);
+            email.setError(null);
             phone.setError(getString(R.string.inv_phone));
 
         }else
             {
+                userName.setError(null);
+                userName.setError(null);
+                password.setError(null);
+                email.setError(null);
                 phone.setError(null);
                 dialog.show();
                 Map <String,String> map = new HashMap<>();

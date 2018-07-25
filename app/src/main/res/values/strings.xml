@@ -2,7 +2,7 @@
     <string name="app_name">lilaky</string>
     <string name="username">user name</string>
     <string name="pass">Password</string>
-    <string name="register">Create Account</string>
+    <string name="register">SignUp</string>
     <string name="email">email</string>
     <string name="phone">phone</string>
     <string name="login">login</string>
@@ -60,11 +60,11 @@
     <string name="studio_lailaky">lilaky studio</string>
     <string name="regis">Wait for register...</string>
     <string name="error">Error</string>
-    <string name="enter_user_name">Enter user name</string>
-    <string name="enter_pass">Enter password</string>
-    <string name="enter_email">Enter email address</string>
+    <string name="enter_user_name">User name require</string>
+    <string name="enter_pass">Password require</string>
+    <string name="enter_email">Email address require</string>
     <string name="inv_email">Invalid email address</string>
-    <string name="enter_phone">Enter phone number</string>
+    <string name="enter_phone">Phone number require</string>
     <string name="inv_phone">Invalid phone number</string>
     <string name="upd_pass">Update password...</string>
     <string name="pass_not_match">Password not match</string>
@@ -73,4 +73,9 @@
     <string name="register_befor">this user exist</string>
     <string name="save">Save</string>
     <string name="upld">upload</string>
+    <string name="enter_name">Name require</string>
+    <string name="email_require">Email require</string>
+    <string name="enter_msg">Enter your message</string>
+    <string name="price">Price</string>
+    <string name="album_size">Album size</string>
 </resources>

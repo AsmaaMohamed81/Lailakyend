@@ -4,7 +4,7 @@
     <string name="app_name">ليلكي</string>
     <string name="username">اسم المستخدم</string>
     <string name="pass">كلمه السر</string>
-    <string name="register">إنشاء حسب جديد</string>
+    <string name="register">إنشاءحساب</string>
     <string name="email">البريد الإلكتروني</string>
     <string name="phone">رقم التليفون</string>
     <string name="login">دخول</string>
@@ -32,7 +32,7 @@
     <string name="updateprfile">تحديث الملف الشخصي</string>
     <string name="location">الموقع</string>
     <string name="name">الإسم</string>
-    <string name="sel_album_img">اختار صور الالبوم</string>
+    <string name="sel_album_img">صور الالبوم</string>
     <string name="chos_album_photo">برجاء إضافة مجموعة صور للالبوم</string>
     <string name="enter_new_password">أدخل كلمة مرور جديدة</string>
     <string name="re_type_password">أعد كتابة كلمة المرور</string>
@@ -73,5 +73,11 @@
     <string name="register_befor">إسم المستخدم موجود من قبل</string>
     <string name="save">حفظ</string>
     <string name="upld">إرسال الصور</string>
+    <string name="enter_name">أدخل الاسم</string>
+    <string name="email_require">أدخل البريد الالكتروني</string>
+    <string name="enter_msg">أدخل الرسالة</string>
+    <string name="price">السعر</string>
+    <string name="album_size">عدد صور الالبوم</string>
+
 
 </resources>

@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -46,6 +47,9 @@ import com.Alatheer.Projects.laylaky.Models.OfferModel;
 import com.Alatheer.Projects.laylaky.Models.ResponseModel;
 import com.Alatheer.Projects.laylaky.R;
 import com.squareup.picasso.Picasso;
+import com.yarolegovich.discretescrollview.DiscreteScrollView;
+import com.yarolegovich.discretescrollview.transform.Pivot;
+import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -59,14 +63,13 @@ import retrofit2.Retrofit;
 
 import static com.Alatheer.Projects.laylaky.ApiServices.Tags.ImgPath;
 
-public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongClickListener{
-    private RecyclerView recView;
-    private RecyclerView.LayoutManager manager;
+public class DetailsAlbumaty extends AppCompatActivity {
+    private DiscreteScrollView recView;
     private RecyclerView.Adapter adapter;
     private ProgressBar bar;
     private Toolbar toolBar;
     private int  album_size;
-    public boolean isContextMode=false;
+    //public boolean isContextMode=false;
     Gallery simpleGallery;
     CustomGalleryAdapter customGalleryAdapter;
     ImageView selectedImageView;
@@ -89,11 +92,9 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
         initView();
         getDataFromIntent();
-        CreateProgress();
-        CreatedeleteProgress();
-        final SnapHelper snapHelper = new PagerSnapHelper();
-        snapHelper.attachToRecyclerView(recView);
-        recView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+        //CreateProgress();
+        //CreatedeleteProgress();
+       /* recView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
@@ -123,43 +124,21 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
 
             }
-        });
+        });*/
+        recView.setItemTransformer(new ScaleTransformer.Builder()
+                .setMaxScale(1.05f)
+                .setMinScale(0.8f)
+                .setPivotX(Pivot.X.CENTER) // CENTER is a default one
+                .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
+                .build());
 
-
-            /*final SnapHelper snapHelper = new PagerSnapHelper();
-        snapHelper.attachToRecyclerView(recView);
-        recView.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                int targetSnapPosition = snapHelper.findTargetSnapPosition(recyclerView.getLayoutManager(), dx, dx);
-                Log.e("posssssss",targetSnapPosition+"");
-            }
-        });
-*/
-
-
-        /*final SnapHelper snapHelper = new PagerSnapHelper();
-        snapHelper.attachToRecyclerView(recView);
-        recView.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                int targetSnapPosition = snapHelper.findTargetSnapPosition(recyclerView.getLayoutManager(), dx, dx);
-                Log.e("posssssss",targetSnapPosition+"");
-            }
-        });
-*/
+       recView.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {
+           @Override
+           public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int adapterPosition) {
+               int page=adapterPosition+1;
+               counter.setText("<"+page+"/"+uriList.size()+">");
+           }
+       });
 
     }
 
@@ -177,8 +156,6 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
         bar = findViewById(R.id.progBar);
         bar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         recView = findViewById(R.id.recView);
-        manager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
-        recView.setLayoutManager(manager);
         adapter = new GalleryAdapter(uriList,this);
         recView.setAdapter(adapter);
         counter = findViewById(R.id.counter);
@@ -268,7 +245,7 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
     }
 
 
-    @Override
+    /*@Override
     public boolean onLongClick(View view) {
         isContextMode = true;
         toolBar.getMenu().clear();
@@ -329,8 +306,8 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
                         isContextMode = false;
                         adapter.notifyDataSetChanged();
                         counter.setText(R.string.album);
-                        toolBar.getMenu().clear();
-                        toolBar.inflateMenu(R.menu.add_menu);
+                       *//* toolBar.getMenu().clear();
+                        toolBar.inflateMenu(R.menu.add_menu);*//*
                         count=0;
                         dialog2.dismiss();
                         Toast.makeText(DetailsAlbumaty.this, R.string.img_deleted, Toast.LENGTH_SHORT).show();
@@ -351,17 +328,17 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
                 Log.e("Error",t.getMessage());
             }
         });
-    }
+    }*/
 
-    private void selectImages() {
+   /* private void selectImages() {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("image/*");
+        intent.setType("image*//*");
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE,true);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivityForResult(intent.createChooser(intent,"Select image"),IMG_REQ);
-    }
+    }*/
 
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+  /*  @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -436,9 +413,9 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
                 }
         }
-    }
+    }*/
 
-    private void enCodeImage(List<Bitmap> bitmapList)
+   /* private void enCodeImage(List<Bitmap> bitmapList)
     {
 
         //encodedImageList.clear();
@@ -536,15 +513,15 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
         }
     }
-
-    @Override
+*/
+    /*@Override
     public void onBackPressed() {
         if (isContextMode)
         {
             isContextMode=false;
             adapter.notifyDataSetChanged();
-            toolBar.getMenu().clear();
-            toolBar.inflateMenu(R.menu.add_menu);
+           *//* toolBar.getMenu().clear();
+            toolBar.inflateMenu(R.menu.add_menu);*//*
             counter.setText("البوم الصور");
             count=0;
             selectedImagesList.clear();
@@ -554,5 +531,5 @@ public class DetailsAlbumaty extends AppCompatActivity implements View.OnLongCli
 
             }
 
-    }
+    }*/
 }

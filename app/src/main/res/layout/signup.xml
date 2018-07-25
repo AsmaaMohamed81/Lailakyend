@@ -72,22 +72,36 @@
             android:singleLine="true"
             android:scrollHorizontally="true"
             />
-        <EditText
-            android:id="@+id/phone"
+        <FrameLayout
             android:layout_width="310dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/phon1e"
-            android:gravity="center"
-            android:hint="@string/phone"
-            android:textColor="@color/colorPrimary"
-            android:textColorHint="@color/colorPrimary"
-            tools:ignore="TextFields"
-            android:inputType="phone"
-            android:paddingRight="85dp"
-            android:singleLine="true"
-            android:scrollHorizontally="true"
-            />
+            android:layout_height="60dp">
+            <com.lamudi.phonefield.PhoneInputLayout
+                android:id="@+id/edt_phone_check"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:visibility="gone"
+                >
+
+            </com.lamudi.phonefield.PhoneInputLayout>
+            <EditText
+                android:id="@+id/edt_phone"
+                android:layout_width="310dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/phon1e"
+                android:gravity="center"
+                android:hint="@string/phone"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:inputType="phone"
+                android:paddingRight="85dp"
+                android:singleLine="true"
+                android:scrollHorizontally="true"
+                />
+
+        </FrameLayout>
+
         <Button
             android:id="@+id/signUp"
             android:layout_width="wrap_content"

@@ -42,28 +42,50 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:orientation="horizontal">
-
-
-
+            android:orientation="horizontal"
+            android:weightSum="2"
+            >
             <TextView
                 android:id="@+id/detail_desc"
-                android:gravity="center_vertical"
+                android:gravity="center"
                 android:layout_gravity="center_vertical"
 
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
 
                 android:textColor="@color/colorPrimary"
 
                 />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:gravity="right"
-                android:src="@drawable/icon1"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight=".75"
+                android:gravity="right|center_vertical"
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="13sp"
+                    android:text="@string/details"
+                    android:gravity="center"
+                    />
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="right"
+                    android:scaleType="center"
+                    android:src="@drawable/icon1"/>
+
+            </LinearLayout>
+
+
+
 
         </LinearLayout>
         <LinearLayout
@@ -71,7 +93,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="right"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="2"
+            >
 
 
 
@@ -81,18 +105,38 @@
                 android:layout_gravity="center_vertical"
 
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
 
                 android:textColor="@color/colorPrimary"
 
                 />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:gravity="right"
-                android:src="@drawable/icon2"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight=".75"
+                android:gravity="right|center_vertical"
+
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="13sp"
+                    android:text="@string/price"
+                    android:gravity="center"
+                    />
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="right"
+                    android:src="@drawable/icon2"
+                    android:scaleType="center"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -104,7 +148,7 @@
             android:textColor="@color/white"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/collect2"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             />
 
 

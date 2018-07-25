@@ -155,20 +155,20 @@
                         android:background="@drawable/edt_bg"
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/colorPrimary"/>
-                    <EditText
-                        android:id="@+id/edt_phone"
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:layout_marginBottom="10dp"
-                        android:inputType="phone"
-                        android:hint="@string/phone"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:textSize="30sp"
-                        android:background="@drawable/edt_bg"
-                        android:textColor="@color/colorPrimary"
-                        android:textColorHint="@color/colorPrimary" />
+                        android:layout_height="wrap_content">
+                        <com.lamudi.phonefield.PhoneInputLayout
+                            android:id="@+id/edt_phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            >
 
+                        </com.lamudi.phonefield.PhoneInputLayout>
+
+
+                    </FrameLayout>
 
                     <EditText
                         android:id="@+id/edt_message"

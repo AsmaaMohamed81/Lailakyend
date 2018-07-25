@@ -17,6 +17,7 @@ import com.Alatheer.Projects.laylaky.Activites.DetailsAlbumaty;
 import com.Alatheer.Projects.laylaky.ApiServices.Tags;
 import com.Alatheer.Projects.laylaky.Models.ImgModel;
 import com.Alatheer.Projects.laylaky.R;
+import com.github.chrisbanes.photoview.PhotoView;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -48,7 +49,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
     public void onBindViewHolder(final myHolder holder, int position) {
         ImgModel imgModel = imgModelList.get(position);
         holder.BindData(imgModel);
-        if (detailsAlbumaty.isContextMode)
+       /* if (detailsAlbumaty.isContextMode)
         {
             holder.checkbox.setVisibility(View.VISIBLE);
 
@@ -59,12 +60,12 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
 
             }
         holder.itemView.setOnLongClickListener(detailsAlbumaty);
-        holder.checkbox.setOnClickListener(new View.OnClickListener() {
+        //holder.checkbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 detailsAlbumaty.SetPos(view,holder.getAdapterPosition());
             }
-        });
+        });*/
 
     }
 
@@ -75,12 +76,12 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
 
     public class myHolder extends RecyclerView.ViewHolder
     {
-        CheckBox checkbox;
-        public ImageView gallery_Img;
+        //CheckBox checkbox;
+        public PhotoView gallery_Img;
         public myHolder(View itemView) {
             super(itemView);
             gallery_Img = itemView.findViewById(R.id.galler_Img);
-            checkbox = itemView.findViewById(R.id.checkbox);
+            //checkbox = itemView.findViewById(R.id.checkbox);
 
         }
 

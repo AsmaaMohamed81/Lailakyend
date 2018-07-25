@@ -45,7 +45,6 @@ public class Albumaty extends AppCompatActivity implements Users.onCompleteListe
     List<Uri> uriList;
     Users users;
     UserModel userModel;
-    ImageButton share,back;
     private ProgressBar progBar;
     private LinearLayout container;
 
@@ -59,20 +58,10 @@ public class Albumaty extends AppCompatActivity implements Users.onCompleteListe
         progBar = findViewById(R.id.progBar);
         progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         recyclerView=findViewById(R.id.recycalbum);
-//        share=findViewById(R.id.share);
-//        back=findViewById(R.id.back);
         container = findViewById(R.id.container);
-
-
-
-
-
 
         users = Users.getInstance();
         users.getData(this);
-
-//        Log.e("id", userModel.getUser_id());
-
 
         uriList = new ArrayList<>();
         OfferModelList=new ArrayList<>();
