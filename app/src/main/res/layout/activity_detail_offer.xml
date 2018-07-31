@@ -65,7 +65,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_weight=".75"
+                android:layout_weight=".9"
                 android:gravity="center_vertical|right"
                 >
                 <TextView
@@ -112,7 +112,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_weight=".75"
+                android:layout_weight=".9"
                 android:gravity="center_vertical|right"
                 >
                 <TextView
@@ -162,7 +162,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_weight=".75"
+                android:layout_weight=".9"
                 android:gravity="center_vertical|right"
                 >
 

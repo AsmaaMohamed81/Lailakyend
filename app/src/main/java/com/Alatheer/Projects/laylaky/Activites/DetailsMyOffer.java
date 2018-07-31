@@ -33,7 +33,7 @@ public class DetailsMyOffer extends AppCompatActivity {
 
         title.setText(titlee);
         desc.setText(desce);
-        price.setText(pricee);
+        price.setText(pricee+" ريال");
 
         Picasso.with(this).load(imgg).into(img);
 

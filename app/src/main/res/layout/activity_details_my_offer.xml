@@ -62,8 +62,9 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_weight=".75"
+                android:layout_weight=".9"
                 android:gravity="right|center_vertical"
+                android:layout_marginLeft="10dp"
 
                 >
                 <TextView
@@ -115,8 +116,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_weight=".75"
+                android:layout_weight=".9"
                 android:gravity="right|center_vertical"
+                android:layout_marginLeft="10dp"
+
 
                 >
                 <TextView

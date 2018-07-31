@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,6 +105,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
                 }
             };
 
+            Log.e("fsdfsdddddd",Tags.ImgPath+imgModel.getImage());
             Picasso.with(context).load(Uri.parse(Tags.ImgPath+imgModel.getImage())).into(target);
         }
     }

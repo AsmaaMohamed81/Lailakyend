@@ -78,8 +78,8 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
 
         title.setText(titlee);
         desc.setText(desce);
-        price.setText(pricee);
-        size.setText(size_offer);
+        price.setText(pricee+" ريال");
+        size.setText(size_offer+" صورة");
 
 
         Picasso.with(this).load(imgg).into(img);

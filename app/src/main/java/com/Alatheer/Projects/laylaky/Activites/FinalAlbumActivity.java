@@ -3,6 +3,7 @@ package com.Alatheer.Projects.laylaky.Activites;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Matrix;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -107,7 +108,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
         List<MultipartBody.Part> partList = new ArrayList<>();
         for (Bitmap bitmap :bitmapList)
         {
-            File file = getFile(bitmap);
+            File file = getFile(resizeBitmap(bitmap));
             RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"),file);
             MultipartBody.Part part = MultipartBody.Part.createFormData("images[]",file.getName(),requestBody);
             partList.add(part);
@@ -242,5 +243,17 @@ public class FinalAlbumActivity extends AppCompatActivity {
         return file;
     }
 
+    private Bitmap resizeBitmap(Bitmap bitmap)
+    {
+        int maxHeight = 2000;
+        int maxWidth = 2000;
+        float scale = Math.min(((float)maxHeight / bitmap.getWidth()), ((float)maxWidth / bitmap.getHeight()));
+
+        Matrix matrix = new Matrix();
+        matrix.postScale(scale, scale);
+
+        bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        return bitmap;
+    }
     //images[]
 }
