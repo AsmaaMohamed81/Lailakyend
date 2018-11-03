@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.Alatheer.Projects.laylaky.Activites.DisplayImagesActivity"
+    tools:context="com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity"
 
     >
 
@@ -41,7 +41,7 @@
                        android:layout_centerInParent="true"
                        android:textColor="@color/colorPrimary"
                        android:textSize="13sp"
-                       android:text="Show photo"
+                       android:text="@string/show_photo"
                        />
                    <ImageView
                        android:id="@+id/img_state"

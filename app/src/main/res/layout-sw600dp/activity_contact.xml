@@ -13,7 +13,7 @@
         android:orientation="vertical"
 
         android:paddingTop="20dp"
-        tools:context="com.Alatheer.Projects.laylaky.Activites.ContactActivity">
+        tools:context="com.Alatheer.Projects.lailaky.Activites.ContactActivity">
 
         <ImageView
             android:layout_width="match_parent"

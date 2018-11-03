@@ -14,7 +14,7 @@
     android:padding="20dp"
     android:layout_gravity="center"
 
-    tools:context="com.Alatheer.Projects.laylaky.Activites.LoginActivity">
+    tools:context="com.Alatheer.Projects.lailaky.Activites.LoginActivity">
 
 
     <ImageView

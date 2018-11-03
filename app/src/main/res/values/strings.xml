@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">lilaky</string>
+    <string name="app_name">lailaky</string>
     <string name="username">user name</string>
     <string name="pass">Password</string>
     <string name="register">SignUp</string>
@@ -77,5 +77,16 @@
     <string name="email_require">Email require</string>
     <string name="enter_msg">Enter your message</string>
     <string name="price">Price</string>
-    <string name="album_size">Album size</string>
+    <string name="album_size">Album page size</string>
+    <string name="upl_image">Upload album images....</string>
+    <string name="view2">View</string>
+    <string name="another_page">Another page</string>
+    <string name="img_not_eno">Album is full</string>
+    <string name="do_se">Do you want to select other pages to upload?. or View images.\n</string>
+    <string name="rem">Remain</string>
+    <string name="sel_min">Select minimum 5 photo</string>
+    <string name="show_photo">Show photo</string>
+    <string name="page">Page</string>
+    <string name="sar">SAR</string>
+
 </resources>
