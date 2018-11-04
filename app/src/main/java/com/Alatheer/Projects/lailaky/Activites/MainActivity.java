@@ -1,25 +1,38 @@
 package com.Alatheer.Projects.lailaky.Activites;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
-import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.Alatheer.Projects.lailaky.ApiServices.Preferences;
+import com.Alatheer.Projects.lailaky.ApiServices.Tags;
 import com.Alatheer.Projects.lailaky.Models.UserModel;
 import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.Users;
+
+
+import java.util.Locale;
+
+import io.paperdb.Paper;
+
+
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,View.OnClickListener , Users.onCompleteListener{
@@ -36,10 +49,22 @@ public class MainActivity extends AppCompatActivity
     private Toolbar toolbar;
     private String user_type;
 
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        Paper.init(newBase);
+
+        super.attachBaseContext(LanguageHelper.onAttach(newBase,Paper.book().read("language",Locale.getDefault().getLanguage())));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Paper.init(this);
+        LanguageHelper.onAttach(this, (String)Paper.book().read("language"));
+
 
 
         initView();
@@ -91,6 +116,13 @@ public class MainActivity extends AppCompatActivity
         albumgeded.setOnClickListener(this);
         albumaty.setOnClickListener(this);
 
+        String lang = Paper.book().read("language");
+        if (lang==null)
+        {
+            Paper.book().write("language","ar");
+        }
+        updateLayout((String)Paper.book().read("language"));
+
 
     }
 
@@ -133,7 +165,15 @@ public class MainActivity extends AppCompatActivity
             Intent i = new Intent(MainActivity.this,ProfileActivity.class);
             startActivity(i);
 
-        } else if (id == R.id.nav_contact) {
+        }
+         else if (id == R.id.lang) {
+
+          drawer.closeDrawer(GravityCompat.START);
+
+          CreateLanguageDialog();
+
+
+      }else if (id == R.id.nav_contact) {
             Intent i = new Intent(MainActivity.this,ContactActivity.class);
             startActivity(i);
 
@@ -144,7 +184,14 @@ public class MainActivity extends AppCompatActivity
             startActivity(i);
 
 
-        } else if (id == R.id.nav_share) {
+        }
+      else if (id == R.id.nav_help) {
+
+          Intent i = new Intent(MainActivity.this,HelpActivity.class);
+          startActivity(i);
+
+
+      }else if (id == R.id.nav_share) {
 
           String text ="استوديو ليلاكي";
           String link ="https://play.google.com/store/apps/details?id=com.Alatheer.Projects.laylaky";
@@ -209,4 +256,92 @@ public class MainActivity extends AppCompatActivity
         }catch (NullPointerException e){}
 
     }
+
+    private void CreateLanguageDialog()
+    {
+
+        View view = LayoutInflater.from(this).inflate(R.layout.custom_lang_alert_dialog,null);
+
+        android.app.AlertDialog.Builder dialog = new android.app.AlertDialog.Builder(this);
+        final android.app.AlertDialog alertDialog = dialog.create();
+
+        final RadioButton rb_ar = view.findViewById(R.id.rb_ar);
+        final RadioButton rb_en = view.findViewById(R.id.rb_en);
+        final FrameLayout fl_ar = view.findViewById(R.id.fl_ar);
+        final FrameLayout fl_en = view.findViewById(R.id.fl_en);
+
+        String lang = Paper.book().read("language");
+        if (lang.equals("en"))
+        {
+            rb_en.setChecked(true);
+            fl_ar.setVisibility(View.INVISIBLE);
+            fl_en.setVisibility(View.VISIBLE);
+
+        }else if (lang.equals("ar"))
+        {
+            rb_ar.setChecked(true);
+            fl_ar.setVisibility(View.VISIBLE);
+            fl_en.setVisibility(View.INVISIBLE);
+        }
+        rb_ar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (rb_ar.isChecked())
+                {
+                    fl_ar.setVisibility(View.VISIBLE);
+                    fl_en.setVisibility(View.INVISIBLE);
+                    alertDialog.dismiss();
+                    Paper.book().write("language","ar");
+                    updateLayout((String)Paper.book().read("language"));
+                    RefreshLayout();
+                }
+
+
+
+            }
+        });
+
+        rb_en.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (rb_en.isChecked())
+                {
+                    fl_ar.setVisibility(View.INVISIBLE);
+                    fl_en.setVisibility(View.VISIBLE);
+                    alertDialog.dismiss();
+                    Paper.book().write("language","en");
+
+                    updateLayout((String)Paper.book().read("language"));
+                    RefreshLayout();
+
+                }
+
+
+
+
+            }
+        });
+
+        alertDialog.setCancelable(true);
+        alertDialog.setView(view);
+        alertDialog.getWindow().getAttributes().windowAnimations = R.style.CustomAnimations_slide; //style id
+
+        alertDialog.show();
+
+    }
+
+    private void updateLayout(String language)
+    {
+        LanguageHelper.setLocality(language,this);
+
+    }
+    private void RefreshLayout()
+    {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
+    }
+
 }

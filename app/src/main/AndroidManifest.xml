@@ -10,63 +10,70 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
 
     <application
+        android:name=".Activites.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo"
-        android:supportsRtl="false"
+        android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
         <activity
-            android:name="com.Alatheer.Projects.lailaky.Activites.Splash"
+            android:name=".Activites.Splash"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
-            android:name="com.Alatheer.Projects.lailaky.Activites.LoginActivity"
+            android:name=".Activites.LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.Signup" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.HomeActivity" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.Albumaty" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.OfferAlbum" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.DetailOffer" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.DetailsAlbumaty" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.AddImges" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.AboutUsActivity" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.ContactActivity" />
+        <activity android:name=".Activites.Signup" />
+        <activity android:name=".Activites.HomeActivity" />
+        <activity android:name=".Activites.Albumaty" />
+        <activity android:name=".Activites.OfferAlbum" />
+        <activity android:name=".Activites.DetailOffer" />
+        <activity android:name=".Activites.DetailsAlbumaty" />
+        <activity android:name=".Activites.AddImges" />
+        <activity android:name=".Activites.AboutUsActivity" />
+        <activity android:name=".Activites.ContactActivity" />
         <activity
-            android:name="com.Alatheer.Projects.lailaky.Activites.ProfileActivity"
+            android:name=".Activites.ProfileActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.Alatheer.Projects.lailaky.Activites.UpdatePasswordActivity"
+            android:name=".Activites.UpdatePasswordActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name="com.Alatheer.Projects.lailaky.Activites.MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.DetailsMyOffer" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.UserActivity" />
+            android:name=".Activites.MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".Activites.DetailsMyOffer" />
+        <activity android:name=".Activites.UserActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.Alatheer.Projects.lailaky.Activites.MapsActivity"
+            android:name=".Activites.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.DisplayGalleryActivity" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.FramesActivity" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.CustomShapeActivity" />
-        <activity android:name="com.Alatheer.Projects.lailaky.Activites.FinalAlbumActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-            ></activity>
+        <activity android:name=".Activites.DisplayGalleryActivity" />
+        <activity android:name=".Activites.FramesActivity" />
+        <activity android:name=".Activites.DisplayImagesActivity" />
+        <activity android:name=".Activites.CustomShapeActivity" />
+        <activity
+            android:name=".Activites.FinalAlbumActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Activites.HelpActivity"
+            android:screenOrientation="landscape" >
+
+
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/alert_lang_bg"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/alert_lang_bg_title"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:text="@string/choose_lang"
+        android:gravity="center_vertical"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/fl_ar"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/white"
+                android:visibility="invisible"
+
+                >
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/fl_en"
+
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:visibility="invisible"
+                >
+
+            </FrameLayout>
+        </LinearLayout>
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            >
+            <RadioButton
+                android:id="@+id/rb_ar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="عربي"
+                android:textSize="20sp"
+                android:button="@drawable/alert_dialog_radiobtn"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:layout_marginLeft="8dp"
+                android:paddingRight="10dp"
+                android:layout_marginRight="8dp"
+
+                />
+            <RadioButton
+                android:id="@+id/rb_en"
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:button="@drawable/alert_dialog_radiobtn"
+                android:paddingLeft="10dp"
+                android:layout_marginLeft="8dp"
+                android:paddingRight="10dp"
+                android:layout_marginRight="8dp"
+                android:textDirection="rtl"
+                android:letterSpacing="0.1"
+
+
+                />
+        </RadioGroup>
+    </FrameLayout>
+
+</LinearLayout>

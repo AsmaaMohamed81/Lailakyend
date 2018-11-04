@@ -18,6 +18,7 @@
     <string name="uploadImge">Select photos</string>
     <string name="title_activity_main">MainActivity</string>
 
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -88,5 +89,7 @@
     <string name="show_photo">Show photo</string>
     <string name="page">Page</string>
     <string name="sar">SAR</string>
+    <string name="choose_lang">CHOOSE LANGUAGE</string>
+    <string name="help">Help</string>
 
 </resources>

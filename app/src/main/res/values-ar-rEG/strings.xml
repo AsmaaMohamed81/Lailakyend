@@ -88,6 +88,8 @@
     <string name="show_photo">عرض الصور</string>
     <string name="page">صفحة</string>
     <string name="sar">ريال</string>
+    <string name="choose_lang">تغير اللغه</string>
+    <string name="help">مساعده</string>
 
 
 </resources>

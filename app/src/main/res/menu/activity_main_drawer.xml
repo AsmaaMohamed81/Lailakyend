@@ -8,6 +8,12 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/user_icon_nav"
             android:title="@string/profile" />
+
+        <item
+            android:id="@+id/lang"
+            android:title="@string/choose_lang"
+            android:icon="@drawable/lang"
+            />
         <item
         android:id="@+id/nav_about"
         android:icon="@drawable/info_icon_nav"
@@ -16,6 +22,10 @@
             android:id="@+id/nav_contact"
             android:icon="@drawable/contact_icon_nav"
             android:title="@string/contact" />
+        <item
+            android:id="@+id/nav_help"
+            android:icon="@drawable/help"
+            android:title="@string/help" />
         <item
             android:id="@+id/nav_share"
             android:icon="@drawable/share_icon_nav"
