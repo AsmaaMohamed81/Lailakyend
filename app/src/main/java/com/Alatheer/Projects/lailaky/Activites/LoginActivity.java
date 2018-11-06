@@ -27,8 +27,10 @@ import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.Users;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
+import io.paperdb.Paper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,14 +44,27 @@ public class LoginActivity extends AppCompatActivity {
     private Preferences preferences;
     Users users;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
 
+
+        Paper.init(newBase);
+
+
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+
+        Paper.init(this);
+
+
         initView();
+
         users = Users.getInstance();
         preferences = new Preferences(this);
         SharedPreferences pref = getSharedPreferences("user",MODE_PRIVATE);
@@ -95,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this,UserActivity.class);
+                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                 intent.putExtra("user_type","visitor");
                 startActivity(intent);
             }
@@ -188,5 +203,12 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
             }
+    }
+
+    private void RefreshLayout()
+    {
+        Intent intent = getIntent();
+        finish();
+        startActivity(intent);
     }
 }

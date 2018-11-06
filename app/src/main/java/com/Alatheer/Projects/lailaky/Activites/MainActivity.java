@@ -25,6 +25,7 @@ import com.Alatheer.Projects.lailaky.ApiServices.Tags;
 import com.Alatheer.Projects.lailaky.Models.UserModel;
 import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.Users;
+import com.Alatheer.Projects.lailaky.share.Common;
 
 
 import java.util.Locale;
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity
     private NavigationView navigationView;
     private Toolbar toolbar;
     private String user_type;
+    String lang;
+    private UserModel userModel;
 
 
     @Override
@@ -94,6 +97,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void initView() {
+
+        users = Users.getInstance();
+        userModel = users.getUserModel();
+
+
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         drawer =  findViewById(R.id.drawer_layout);
@@ -162,8 +170,22 @@ public class MainActivity extends AppCompatActivity
 
       if (id == R.id.nav_profile) {
 
-            Intent i = new Intent(MainActivity.this,ProfileActivity.class);
-            startActivity(i);
+          if (userModel!=null)
+          {
+              Intent i = new Intent(MainActivity.this,ProfileActivity.class);
+              startActivity(i);
+          }else
+          {
+
+              android.support.v7.app.AlertDialog alertDialog = Common.CreateUserNotSignInAlertDialog(MainActivity.this);
+              alertDialog.show();
+              navigationView.getMenu().getItem(1).setChecked(false);
+
+              navigationView.getMenu().getItem(0).setChecked(true);
+
+          }
+
+
 
         }
          else if (id == R.id.lang) {
@@ -206,7 +228,18 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_logout) {
 
-            builder.show();
+
+          if (userModel==null)
+          {
+              Intent intent=new Intent(MainActivity.this,LoginActivity.class);
+              startActivity(intent  );
+
+          }else
+          {
+              builder.show();
+          }
+
+
 
         }
 
@@ -235,9 +268,25 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.albumaty :
 
-                Intent i2 = new Intent(MainActivity.this, Albumaty.class);
 
-                startActivity(i2);
+                if (userModel!=null)
+                {
+                    Intent i2 = new Intent(MainActivity.this, Albumaty.class);
+
+                    startActivity(i2);
+                }else
+                {
+
+                    android.support.v7.app.AlertDialog alertDialog = Common.CreateUserNotSignInAlertDialog(MainActivity.this);
+                    alertDialog.show();
+                    navigationView.getMenu().getItem(1).setChecked(false);
+
+                    navigationView.getMenu().getItem(0).setChecked(true);
+
+                }
+
+
+
                 break;
 
 
@@ -270,7 +319,7 @@ public class MainActivity extends AppCompatActivity
         final FrameLayout fl_ar = view.findViewById(R.id.fl_ar);
         final FrameLayout fl_en = view.findViewById(R.id.fl_en);
 
-        String lang = Paper.book().read("language");
+        lang= Paper.book().read("language");
         if (lang.equals("en"))
         {
             rb_en.setChecked(true);

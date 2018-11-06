@@ -1,5 +1,6 @@
 package com.Alatheer.Projects.lailaky.Activites;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -23,8 +24,10 @@ import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
+import io.paperdb.Paper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,6 +40,14 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
     private Button send;
     private PhoneInputLayout edt_phone;
     double lat,lang;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        Paper.init(newBase);
+
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -64,4 +64,24 @@ public class Preferences {
 
         editor.apply();
     }
+
+
+
+    public void setlanguage(Context context,boolean selected){
+
+        SharedPreferences preferences=context.getSharedPreferences("language",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= preferences.edit();
+        editor.putBoolean("isSelected",selected);
+        editor.apply();
+
+    }
+
+    public boolean getlanguage(Context context){
+        SharedPreferences preferences=context.getSharedPreferences("language",Context.MODE_PRIVATE);
+        boolean selected=preferences.getBoolean("isSelected",false);
+        return selected;
+
+
+    }
+
 }

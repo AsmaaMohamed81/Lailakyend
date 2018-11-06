@@ -1,5 +1,6 @@
 package com.Alatheer.Projects.lailaky.Activites;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,7 +15,9 @@ import com.Alatheer.Projects.lailaky.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
+import io.paperdb.Paper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,7 +29,12 @@ public class AboutUsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     AboutAdapter aboutAdapter;
     List<AboutUsModel> modelaboutList;
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        Paper.init(newBase);
 
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

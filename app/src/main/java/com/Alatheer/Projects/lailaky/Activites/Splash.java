@@ -5,22 +5,38 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
+import com.Alatheer.Projects.lailaky.ApiServices.Preferences;
 import com.Alatheer.Projects.lailaky.R;
+
+import io.paperdb.Paper;
 
 
 public class Splash extends AppCompatActivity {
 
+    Preferences preferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
+        preferences=new Preferences(this);
+//        Paper.init(this);
+//        Paper.book().read("language");
+
 
         int secondsDelayed = 1;
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                startActivity(new Intent(Splash.this, LoginActivity.class));
-                finish();
+
+                if (!preferences.getlanguage(Splash.this)){
+                    startActivity(new Intent(Splash.this, ChooseLanguage_Activity.class));
+                    finish();
+                }else {
+                    startActivity(new Intent(Splash.this, LoginActivity.class));
+                    finish();
+
+                }
+
             }
         }, secondsDelayed * 3000);
     }

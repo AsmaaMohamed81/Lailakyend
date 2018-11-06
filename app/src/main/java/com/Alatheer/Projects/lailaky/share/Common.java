@@ -8,12 +8,41 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+
+import com.Alatheer.Projects.lailaky.R;
 
 /**
  * Created by elashry on 18/10/2018.
  */
 
 public class Common {
+
+    public static AlertDialog CreateUserNotSignInAlertDialog(Context context)
+    {
+        final AlertDialog dialog = new AlertDialog.Builder(context)
+                .setCancelable(true)
+                .create();
+
+        View view = LayoutInflater.from(context).inflate(R.layout.custom_dialog,null);
+        Button doneBtn = view.findViewById(R.id.doneBtn);
+
+        doneBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.getWindow().getAttributes().windowAnimations=R.style.dialog;
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
+        return dialog;
+    }
+
     @TargetApi(Build.VERSION_CODES.KITKAT)
     public static String getImagePath(Context context, Uri uri)
     {

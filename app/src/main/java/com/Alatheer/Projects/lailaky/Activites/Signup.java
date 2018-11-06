@@ -27,8 +27,10 @@ import com.Alatheer.Projects.lailaky.SingleTone.Users;
 import com.lamudi.phonefield.PhoneInputLayout;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
+import io.paperdb.Paper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -43,7 +45,12 @@ public class Signup extends AppCompatActivity {
     private Preferences preferences;
 
     Users users;
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        Paper.init(newBase);
 
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

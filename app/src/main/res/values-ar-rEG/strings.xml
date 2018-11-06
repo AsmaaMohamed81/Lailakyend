@@ -8,7 +8,7 @@
     <string name="email">البريد الإلكتروني</string>
     <string name="phone">رقم التليفون</string>
     <string name="login">دخول</string>
-    <string name="Skip">تخطي</string>
+    <string name="Skip">الدخول كضيف</string>
     <string name="registerMassege">لا يوجد لديك حساب ؟</string>
     <string name="title_activity_maps">الخريطة</string>
 
@@ -89,7 +89,10 @@
     <string name="page">صفحة</string>
     <string name="sar">ريال</string>
     <string name="choose_lang">تغير اللغه</string>
-    <string name="help">مساعده</string>
+    <string name="help">دليل الاستخدام</string>
+    <string name="si_su">قم بتسجيل الدخول او أنشاء حساب جديد</string>
+    <string name="notification">اشعار</string>
+    <string name="continu">استمر</string>
 
 
 </resources>

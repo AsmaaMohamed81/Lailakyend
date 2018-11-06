@@ -5,20 +5,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.Alatheer.Projects.lailaky.Adapter.HelpAdapter;
-import com.Alatheer.Projects.lailaky.Models.HelpModel;
+import com.Alatheer.Projects.lailaky.Adapter.ImageAdapter;
 import com.Alatheer.Projects.lailaky.R;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
-import com.yarolegovich.discretescrollview.transform.Pivot;
-import com.yarolegovich.discretescrollview.transform.ScaleTransformer;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HelpActivity extends AppCompatActivity {
 
-    HelpAdapter helpAdapter;
-    ArrayList<HelpModel> list;
     DiscreteScrollView discreteScrollView;
 
     @Override

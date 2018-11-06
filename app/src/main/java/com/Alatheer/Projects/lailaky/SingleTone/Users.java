@@ -33,6 +33,10 @@ public class Users {
 
 
     }
+    public UserModel getUserModel()
+    {
+        return this.userModel;
+    }
 
     public void getData(Users.onCompleteListener listener)
     {

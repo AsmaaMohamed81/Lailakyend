@@ -1,6 +1,7 @@
-package com.Alatheer.Projects.lailaky.Activites;
+package com.Alatheer.Projects.lailaky.Adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,18 +12,20 @@ import android.widget.LinearLayout;
 import com.Alatheer.Projects.lailaky.R;
 
 public class ImageAdapter extends PagerAdapter {
+
     Context context;
     private int[] GalImages = new int[] {
+            R.drawable.help1,
             R.drawable.help2,
+            R.drawable.help1,
             R.drawable.help2,
-            R.drawable.help2,
-            R.drawable.help2,
-            R.drawable.help2
+            R.drawable.help1,
+            R.drawable.help1
     };
 
     LayoutInflater mLayoutInflater;
 
-    ImageAdapter(Context context){
+    public ImageAdapter(Context context){
         this.context=context;
         mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }

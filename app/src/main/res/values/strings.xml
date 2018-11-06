@@ -6,7 +6,7 @@
     <string name="email">email</string>
     <string name="phone">phone</string>
     <string name="login">login</string>
-    <string name="Skip">Skip</string>
+    <string name="Skip">Visitor</string>
     <string name="registerMassege">Do you have account ?</string>
 
     <string name="details">details</string>
@@ -90,6 +90,9 @@
     <string name="page">Page</string>
     <string name="sar">SAR</string>
     <string name="choose_lang">CHOOSE LANGUAGE</string>
-    <string name="help">Help</string>
+    <string name="help">User Guide</string>
+    <string name="si_su">Sign in or create a new account.</string>
+    <string name="notification">Notifications</string>
+    <string name="continu">Continue</string>
 
 </resources>

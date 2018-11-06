@@ -1,6 +1,7 @@
 package com.Alatheer.Projects.lailaky.Activites;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -28,8 +29,10 @@ import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.Users;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
+import io.paperdb.Paper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -47,7 +50,12 @@ public class ProfileActivity extends AppCompatActivity implements Users.onComple
     private ImageView done;
     private Preferences preferences;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        Paper.init(newBase);
 
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
