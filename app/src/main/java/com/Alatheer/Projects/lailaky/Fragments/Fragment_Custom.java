@@ -36,6 +36,7 @@ public class Fragment_Custom extends Fragment {
         return view;
     }
 
+
     private void initView(View view) {
         Bundle bundle = getArguments();
 

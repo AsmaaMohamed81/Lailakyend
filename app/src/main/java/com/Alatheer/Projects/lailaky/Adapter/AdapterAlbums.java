@@ -48,6 +48,7 @@ public class AdapterAlbums extends RecyclerView.Adapter<AdapterAlbums.Holder> {
        // holder.linear.setTag(position);
 
         holder.titlealbum.setText(OfferModel.getTitle());
+        holder.pricealbum.setText(OfferModel.getPrice()+context.getString(R.string.sar));
 
         Picasso.with(context).load(OfferModel.getImg()).into(holder.imgalbum);
 
@@ -73,7 +74,7 @@ public class AdapterAlbums extends RecyclerView.Adapter<AdapterAlbums.Holder> {
 
     class Holder extends RecyclerView.ViewHolder  {
         ImageView imgalbum;
-        TextView titlealbum;
+        TextView titlealbum,pricealbum;
         LinearLayout linear;
         public Holder(View itemView) {
             super(itemView);
@@ -81,6 +82,7 @@ public class AdapterAlbums extends RecyclerView.Adapter<AdapterAlbums.Holder> {
             imgalbum=itemView.findViewById(R.id.imgalbum);
             titlealbum=itemView.findViewById(R.id.titlealbum);
             linear=itemView.findViewById(R.id.linesr);
+            pricealbum=itemView.findViewById(R.id.pricealbum);
 
 //            linear.setOnClickListener(this);
 

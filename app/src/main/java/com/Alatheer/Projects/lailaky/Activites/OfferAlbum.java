@@ -1,5 +1,6 @@
 package com.Alatheer.Projects.lailaky.Activites;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.support.v4.content.ContextCompat;
@@ -22,6 +23,9 @@ import com.Alatheer.Projects.lailaky.SingleTone.FinalAlbumImage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
+import io.paperdb.Paper;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -42,7 +46,12 @@ public class OfferAlbum extends AppCompatActivity {
 
 
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        Paper.init(newBase);
 
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +69,7 @@ public class OfferAlbum extends AppCompatActivity {
 
 
 
-        recyclerView.setLayoutManager(new GridLayoutManager(OfferAlbum.this,3));
+        recyclerView.setLayoutManager(new GridLayoutManager(OfferAlbum.this,2));
         recyclerView.setHasFixedSize(true);
 
       adapterAlbums = new AdapterAlbums(OfferModelList,OfferAlbum.this);

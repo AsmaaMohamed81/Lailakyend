@@ -1,5 +1,6 @@
 package com.Alatheer.Projects.lailaky.Activites;
 
+import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -9,9 +10,23 @@ import com.Alatheer.Projects.lailaky.Adapter.ImageAdapter;
 import com.Alatheer.Projects.lailaky.R;
 import com.yarolegovich.discretescrollview.DiscreteScrollView;
 
+import java.util.Locale;
+
+import io.paperdb.Paper;
+
 public class HelpActivity extends AppCompatActivity {
 
     DiscreteScrollView discreteScrollView;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+
+
+        Paper.init(newBase);
+
+
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

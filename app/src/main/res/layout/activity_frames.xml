@@ -7,7 +7,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.Alatheer.Projects.lailaky.Activites.FramesActivity">
-
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/sel_min"
+    android:gravity="center_horizontal"
+    android:textColor="@color/colorPrimary"
+    android:textSize="20sp"
+    android:textStyle="bold"/>
     <android.support.design.widget.TabLayout
         android:id="@+id/tab"
         android:layout_width="match_parent"

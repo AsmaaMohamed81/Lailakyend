@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
 import com.Alatheer.Projects.lailaky.Adapter.ClassicImagesAdapter;
@@ -43,6 +44,7 @@ public class Fragment_Classic extends Fragment {
         View view = inflater.inflate(R.layout.fragment_classic,container,false);
         initView(view);
         return view;
+
     }
 
     private void initView(View view) {

@@ -2,6 +2,7 @@ package com.Alatheer.Projects.lailaky.Activites;
 
 import android.Manifest;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -76,6 +77,9 @@ import com.Alatheer.Projects.lailaky.share.Common;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
+import io.paperdb.Paper;
 
 public class DisplayImagesActivity extends AppCompatActivity {
     private RecyclerView recView;
@@ -146,6 +150,16 @@ public class DisplayImagesActivity extends AppCompatActivity {
     private final String read_perm = Manifest.permission.READ_EXTERNAL_STORAGE;
     private final int read_req = 102;
 
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+
+
+        Paper.init(newBase);
+
+
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+    }
 
 
     @Override
@@ -1094,8 +1108,10 @@ public class DisplayImagesActivity extends AppCompatActivity {
             {
                 if (clipData.getItemCount()<5&&imageUrl.size()==0)
                 {
-                    Toast.makeText(this, "اختر على الاقل 5 صور", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this, "اختر على الاقل 5 صور", Toast.LENGTH_SHORT).show();
 
+                    android.support.v7.app.AlertDialog alertDialog = Common.chooseAlertDialog(DisplayImagesActivity.this);
+                    alertDialog.show();
                 }else
                     {
                         for (int i =0;i<clipData.getItemCount();i++)
@@ -1130,7 +1146,10 @@ public class DisplayImagesActivity extends AppCompatActivity {
                         adapter.notifyDataSetChanged();
                     }else
                         {
-                            Toast.makeText(this, R.string.sel_min, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(this, R.string.sel_min, Toast.LENGTH_SHORT).show();
+
+                            android.support.v7.app.AlertDialog alertDialog = Common.chooseAlertDialog(DisplayImagesActivity.this);
+                            alertDialog.show();
 
                         }
                 }

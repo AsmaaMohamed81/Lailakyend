@@ -1,5 +1,6 @@
 package com.Alatheer.Projects.lailaky.Activites;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,10 @@ import android.widget.TextView;
 import com.Alatheer.Projects.lailaky.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.Locale;
+
+import io.paperdb.Paper;
+
 public class DetailsMyOffer extends AppCompatActivity {
     TextView title, desc, price;
     ImageView img;
@@ -19,6 +24,12 @@ public class DetailsMyOffer extends AppCompatActivity {
      String id_album;
      int album_size;
 
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        Paper.init(newBase);
+
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+    }
 
     @Override
 

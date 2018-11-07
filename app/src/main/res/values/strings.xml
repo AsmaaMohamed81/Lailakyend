@@ -94,5 +94,6 @@
     <string name="si_su">Sign in or create a new account.</string>
     <string name="notification">Notifications</string>
     <string name="continu">Continue</string>
+    <string name="hsnan">OK</string>
 
 </resources>

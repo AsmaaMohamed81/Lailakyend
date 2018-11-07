@@ -1,6 +1,7 @@
 package com.Alatheer.Projects.lailaky.Activites;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -18,6 +19,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
+import io.paperdb.Paper;
 
 
 public class DetailOffer extends AppCompatActivity implements Users.onCompleteListener {
@@ -36,7 +40,12 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
     String user_type;
     private ProgressDialog dialog;
     private List<Bitmap>galleryModelList;
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        Paper.init(newBase);
 
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

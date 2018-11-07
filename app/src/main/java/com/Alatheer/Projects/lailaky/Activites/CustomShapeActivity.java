@@ -1,5 +1,6 @@
 package com.Alatheer.Projects.lailaky.Activites;
 import android.content.ClipData;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,11 +18,15 @@ import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.FinalAlbumImage;
+import com.Alatheer.Projects.lailaky.share.Common;
 import com.jcmore2.collage.CollageView;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
+import io.paperdb.Paper;
 
 
 public class CustomShapeActivity extends AppCompatActivity {
@@ -35,6 +40,19 @@ public class CustomShapeActivity extends AppCompatActivity {
     private AlertDialog dialog;
     private String user_id="",offer_id="";
     private int album_size=0;
+
+
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+
+
+        Paper.init(newBase);
+
+
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,8 +185,10 @@ public class CustomShapeActivity extends AppCompatActivity {
             {
                 if (clipData.getItemCount()<5&&bitmapList.size()==0)
                 {
-                    Toast.makeText(this, "اختر على الاقل 5 صور", Toast.LENGTH_SHORT).show();
-                     new Thread(new Runnable() {
+                    android.support.v7.app.AlertDialog alertDialog = Common.chooseAlertDialog(CustomShapeActivity.this);
+                    alertDialog.show();
+
+                    new Thread(new Runnable() {
                         @Override
                         public void run() {
                             displayImage();
@@ -208,8 +228,8 @@ public class CustomShapeActivity extends AppCompatActivity {
 
                     }
                 }).start();
-                Toast.makeText(this, "اختر على الاقل 5 صور", Toast.LENGTH_SHORT).show();
-
+                android.support.v7.app.AlertDialog alertDialog = Common.chooseAlertDialog(CustomShapeActivity.this);
+                alertDialog.show();
 
             }
         }

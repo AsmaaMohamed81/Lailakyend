@@ -43,6 +43,28 @@ public class Common {
         return dialog;
     }
 
+    public static AlertDialog chooseAlertDialog(Context context)
+    {
+        final AlertDialog dialog = new AlertDialog.Builder(context)
+                .setCancelable(true)
+                .create();
+
+        View view = LayoutInflater.from(context).inflate(R.layout.custom_image_dialog,null);
+        Button doneBtn = view.findViewById(R.id.doneBtn);
+
+        doneBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.getWindow().getAttributes().windowAnimations=R.style.dialog;
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.setView(view);
+        return dialog;
+    }
+
     @TargetApi(Build.VERSION_CODES.KITKAT)
     public static String getImagePath(Context context, Uri uri)
     {

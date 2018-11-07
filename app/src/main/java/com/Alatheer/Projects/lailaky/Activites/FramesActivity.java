@@ -1,4 +1,5 @@
 package com.Alatheer.Projects.lailaky.Activites;
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -20,6 +21,9 @@ import com.Alatheer.Projects.lailaky.Fragments.Fragment_Poster;
 import com.Alatheer.Projects.lailaky.R;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
+import io.paperdb.Paper;
 
 public class FramesActivity extends AppCompatActivity {
     private TabLayout tab;
@@ -32,6 +36,19 @@ public class FramesActivity extends AppCompatActivity {
     private List<Fragment> fragmentList;
     private String user_id="",id_offer="";
     private int album_size=0;
+
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+
+
+        Paper.init(newBase);
+
+
+        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
