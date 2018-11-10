@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context="com.Alatheer.Projects.lailaky.Activites.LoginActivity">
+
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/bynat"
+    android:gravity="center_horizontal"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:textColor="@color/colorPrimary"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/adress"
+        android:textSize="12sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/edit_text"
+        android:layout_marginTop="5sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/phone"
+        android:textSize="12sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/edit_text"
+        android:layout_marginTop="5sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        android:textSize="12sp"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/edit_text"
+        android:layout_marginTop="5sp"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bynatTwsel"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="10dp"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:background="@drawable/edit_text"
+        android:layout_marginTop="5sp"
+        android:hint="@string/Governorate"
+        android:textColorHint="@color/colorPrimary"
+        android:padding="5dp"
+        android:textSize="12sp"/>
+    <EditText
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_weight="1"
+        android:background="@drawable/edit_text"
+        android:layout_marginTop="5sp"
+        android:hint="@string/city"
+        android:textColorHint="@color/colorPrimary"
+        android:padding="5dp"
+        android:textSize="12sp"/>
+
+</LinearLayout>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button2"
+        android:text="@string/confirm"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        />
+</LinearLayout>

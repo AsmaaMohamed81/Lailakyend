@@ -12,6 +12,12 @@ import java.util.Locale;
 
 public class LanguageHelper {
     private static final String LANGUAGE="SELECTED_LANGUAGE";
+
+    public static Context onAttach(Context context) {
+        String lang = getLanguage(context, Locale.getDefault().getLanguage());
+        return setLocality( lang,context);
+    }
+
     public static Context onAttach(Context context,String language)
     {
         String lang = getLanguage(context,language);
@@ -34,6 +40,8 @@ public class LanguageHelper {
         Configuration configuration = context.getResources().getConfiguration();
         configuration.setLocale(locale);
         configuration.setLayoutDirection(locale);
+
+
         return context.createConfigurationContext(configuration);
     }
 

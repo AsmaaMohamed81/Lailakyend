@@ -71,11 +71,8 @@
         <activity
             android:name=".Activites.HelpActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".Activites.ChooseLanguage_Activity">
-
-
-
-        </activity>
+        <activity android:name=".Activites.ChooseLanguage_Activity"></activity>
+        <activity android:name=".Activites.Confirm_SignUPActivity"></activity>
     </application>
 
 </manifest>

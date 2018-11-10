@@ -95,5 +95,10 @@
     <string name="notification">Notifications</string>
     <string name="continu">Continue</string>
     <string name="hsnan">OK</string>
+    <string name="bynat">Personal Information</string>
+    <string name="adress">Adress</string>
+    <string name="bynatTwsel">Connection Information</string>
+    <string name="Governorate">Governorate</string>
+    <string name="city">City</string>
 
 </resources>
