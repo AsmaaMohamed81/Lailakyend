@@ -8,16 +8,21 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/user_icon_nav"
             android:title="@string/profile" />
+        <item
+            android:id="@+id/complement"
+            android:icon="@drawable/bell"
+            android:title="@string/complement" />
 
         <item
             android:id="@+id/lang"
-            android:title="@string/choose_lang"
             android:icon="@drawable/lang"
-            />
+            android:title="@string/choose_lang" />
         <item
-        android:id="@+id/nav_about"
-        android:icon="@drawable/info_icon_nav"
-        android:title="@string/about_us" />
+            android:id="@+id/nav_about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/info_icon_nav"
+            android:title="@string/about_us" />
         <item
             android:id="@+id/nav_contact"
             android:icon="@drawable/contact_icon_nav"

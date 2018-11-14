@@ -38,7 +38,7 @@ import retrofit2.Retrofit;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText userName,password;
-    private TextView register,skip;
+    private TextView register,skip,forgetPass;
     private Button login;
     private ProgressDialog dialog;
     private Preferences preferences;
@@ -102,6 +102,7 @@ public class LoginActivity extends AppCompatActivity {
         userName = findViewById(R.id.user_name);
         password = findViewById(R.id.pass);
         skip     = findViewById(R.id.skip);
+        forgetPass=findViewById(R.id.forgetPass);
 
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,6 +129,16 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        forgetPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(LoginActivity.this,confirmEmail_ForgetPass.class);
+                startActivity(intent);
+            }
+        });
+
+
         ProgressBar progressBar = new ProgressBar(this);
         Drawable drawable = progressBar.getIndeterminateDrawable().mutate();
         drawable.setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);

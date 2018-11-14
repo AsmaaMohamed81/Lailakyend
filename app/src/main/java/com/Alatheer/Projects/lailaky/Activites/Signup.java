@@ -69,6 +69,9 @@ public class Signup extends AppCompatActivity {
         phone = findViewById(R.id.edt_phone);
         signUp = findViewById(R.id.signUp);
 
+
+        email.setText(getIntent().getStringExtra("mail"));
+
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

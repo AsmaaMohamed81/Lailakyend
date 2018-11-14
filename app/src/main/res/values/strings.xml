@@ -102,5 +102,6 @@
     <string name="Governorate">Governorate</string>
     <string name="city">City</string>
     <string name="forgetPass">Forgot Password?</string>
+    <string name="complement">Complete Information</string>
 
 </resources>

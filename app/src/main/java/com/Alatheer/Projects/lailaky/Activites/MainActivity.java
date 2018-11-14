@@ -138,8 +138,8 @@ public class MainActivity extends AppCompatActivity
         Intent intent = getIntent();
         if (intent!=null)
         {
-            user_type = intent.getStringExtra("user_type");
-            Log.e("getDataFromIntent: ",user_type);
+//            user_type = intent.getStringExtra("user_type");
+//            Log.e("getDataFromIntent: ",user_type);
 
             if (intent.hasExtra("user_id"))
             {
@@ -184,6 +184,26 @@ public class MainActivity extends AppCompatActivity
               navigationView.getMenu().getItem(0).setChecked(true);
 
           }
+
+
+
+        }
+        else if (id == R.id.complement) {
+
+            if (userModel!=null)
+            {
+                Intent i = new Intent(MainActivity.this,Confirm_SignUPActivity.class);
+                startActivity(i);
+            }else
+            {
+
+                android.support.v7.app.AlertDialog alertDialog = Common.CreateUserNotSignInAlertDialog(MainActivity.this);
+                alertDialog.show();
+                navigationView.getMenu().getItem(1).setChecked(false);
+
+                navigationView.getMenu().getItem(0).setChecked(true);
+
+            }
 
 
 

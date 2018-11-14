@@ -30,7 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="@drawable/edit_text"
-        android:layout_marginTop="5sp"/>
+        android:layout_marginTop="5sp"
+        android:padding="5dp" />
 
     <TextView
         android:layout_width="match_parent"
@@ -44,7 +45,8 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="@drawable/edit_text"
-        android:layout_marginTop="5sp"/>
+        android:layout_marginTop="5sp"
+        android:padding="5dp"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -58,7 +60,8 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="@drawable/edit_text"
-        android:layout_marginTop="5sp"/>
+        android:layout_marginTop="5sp"
+        android:padding="5dp"/>
 
 
     <TextView
@@ -97,7 +100,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/confirm"
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"

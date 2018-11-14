@@ -101,6 +101,7 @@
     <string name="Governorate">الولايه</string>
     <string name="city">المدينه</string>
     <string name="forgetPass">هل نسيت كلمه المرور؟</string>
+    <string name="complement">Complete Information</string>
 
 
 </resources>
