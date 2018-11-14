@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/image"
     android:background="@drawable/spalsh"
-    tools:context="com.Alatheer.Projects.lailaky.Activites.Splash">
+    tools:context="com.Alatheer.Projects.lailaky.Activites.Splash"
+    android:orientation="horizontal">
 
 </LinearLayout>

@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.util.TypedValue;
 import android.view.View;
@@ -100,18 +101,35 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onResponse(Call<ModelContactUs> call, Response<ModelContactUs> response) {
 
-                mail.setText(response.body().getEmail_info());
-                web.setText(response.body().getWeb_info());
-                mob.setText(response.body().getTele_info());
+                if (response.isSuccessful()){
 
-                lat=response.body().getLocation_google_lat();
-                lang=response.body().getLocation_google_long();
+
+                    if (response.body()!=null)
+                    {
+                        Toast.makeText(ContactActivity.this, "yesssssssssssss", Toast.LENGTH_SHORT).show();
+
+                        mail.setText(response.body().getEmail_info());
+                        web.setText(response.body().getWeb_info());
+                        mob.setText(response.body().getTele_info());
+
+                        lat=response.body().getLocation_google_lat();
+                        lang=response.body().getLocation_google_long();
+                    }
+
+
+
+
+                }
+
 
 
             }
 
             @Override
             public void onFailure(Call<ModelContactUs> call, Throwable t) {
+                Log.e("Errortttttttttttt",t.getMessage());
+
+                Toast.makeText(ContactActivity.this, "faillllll"+call, Toast.LENGTH_SHORT).show();
 
             }
         });

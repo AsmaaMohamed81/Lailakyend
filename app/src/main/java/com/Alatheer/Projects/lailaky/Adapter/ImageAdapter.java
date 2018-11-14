@@ -15,12 +15,17 @@ public class ImageAdapter extends PagerAdapter {
 
     Context context;
     private int[] GalImages = new int[] {
-            R.drawable.help1,
-            R.drawable.help2,
-            R.drawable.help1,
-            R.drawable.help2,
-            R.drawable.help1,
-            R.drawable.help1
+            R.drawable.guid10,
+            R.drawable.guid9,
+            R.drawable.guid8,
+            R.drawable.guid7,
+            R.drawable.guid6,
+            R.drawable.guid5,
+            R.drawable.guid4,
+            R.drawable.guid3,
+            R.drawable.guid2,
+            R.drawable.guid1
+
     };
 
     LayoutInflater mLayoutInflater;

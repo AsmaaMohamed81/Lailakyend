@@ -40,6 +40,23 @@
             android:textStyle="bold"
             app:reflectionColor="@color/back" />
 
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textSize="21sp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/et_update_profile"
+            android:layout_marginTop="5dp"
+            android:textStyle="bold"
+            android:text="مواعيد العمل من الساعه 9 صباحا الي الساعه 11 ليلا جميع ايام الاسبوع ماعدا الجمعه "
+
+            />
         <TextView
             android:id="@+id/email"
             android:layout_width="match_parent"

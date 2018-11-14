@@ -39,7 +39,6 @@ import retrofit2.Retrofit;
 public class Signup extends AppCompatActivity {
 
     private EditText userName,password,email,phone;
-    private PhoneInputLayout edt_phone_check;
     private Button signUp;
     private ProgressDialog dialog;
     private Preferences preferences;
@@ -68,7 +67,6 @@ public class Signup extends AppCompatActivity {
         password = findViewById(R.id.pass);
         email = findViewById(R.id.email);
         phone = findViewById(R.id.edt_phone);
-        edt_phone_check = findViewById(R.id.edt_phone_check);
         signUp = findViewById(R.id.signUp);
 
         signUp.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +81,11 @@ public class Signup extends AppCompatActivity {
         ProgressBar progressBar = new ProgressBar(this);
         Drawable drawable = progressBar.getIndeterminateDrawable().mutate();
         drawable.setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+
+
+        drawable.setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+
+
         dialog = new ProgressDialog(this);
         dialog.setMessage(getString(R.string.regis));
         dialog.setCancelable(true);
@@ -99,7 +102,6 @@ public class Signup extends AppCompatActivity {
         String upass = password.getText().toString();
         String uemail= email.getText().toString();
         String uphone= phone.getText().toString();
-        edt_phone_check.setPhoneNumber(uphone);
         if (TextUtils.isEmpty(uname))
         {
             userName.setError(getString(R.string.enter_user_name));
@@ -126,14 +128,6 @@ public class Signup extends AppCompatActivity {
             password.setError(null);
             email.setError(null);
             phone.setError(getString(R.string.enter_phone));
-        }else if (edt_phone_check.isValid())
-        {
-            userName.setError(null);
-            userName.setError(null);
-            password.setError(null);
-            email.setError(null);
-            phone.setError(getString(R.string.inv_phone));
-
         }else
             {
                 userName.setError(null);
@@ -148,7 +142,7 @@ public class Signup extends AppCompatActivity {
                 map.put("user_pass",upass);
                 map.put("user_email",uemail);
                 map.put("user_phone",uphone);
-                map.put("token_id","");
+                map.put("token_id"," ");
 
                 Retrofit retrofit = Api.getClient();
                 Services services = retrofit.create(Services.class);
@@ -158,22 +152,26 @@ public class Signup extends AppCompatActivity {
                     public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                         if (response.isSuccessful())
                         {
+
+                            dialog.dismiss();
+
                             if (response.body().getSuccess()==1)
                             {
+
                                 users.setUserData(response.body());
                                 preferences.CreatePref(response.body());
                                 Intent intent = new Intent(Signup.this,MainActivity.class);
                                 intent.putExtra("user_id",response.body().getUser_id());
-                                dialog.dismiss();
                                 startActivity(intent);
-                                finish();
+
                             }else if (response.body().getSuccess()==0)
                                 {
 
                                     dialog.dismiss();
                                     Toast.makeText(Signup.this, R.string.error, Toast.LENGTH_SHORT).show();
 
-                                }else if (response.body().getSuccess()==2)
+                                }
+                                else if (response.body().getSuccess()==2)
                                 {
                                     dialog.dismiss();
 
@@ -185,6 +183,8 @@ public class Signup extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<UserModel> call, Throwable t) {
+                        dialog.dismiss();
+
                         Log.e("register error",t.getMessage());
                         Toast.makeText(Signup.this, getString(R.string.something), Toast.LENGTH_SHORT).show();
                     }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,26 +19,19 @@ import io.paperdb.Paper;
 public class ChooseLanguage_Activity extends AppCompatActivity {
 
     Button btn_ar, btn_en, continu;
-    String language = "ar", lang;
-
+    String lang;
     Preferences preferences;
-
     @Override
     protected void attachBaseContext(Context newBase) {
         Paper.init(newBase);
-
-        super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
+        String lang = Paper.book().read("language");
+        super.attachBaseContext(LanguageHelper.onAttach(newBase,lang));
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_language_);
-
-        Paper.init(this);
-        lang = Paper.book().read("language");
-
-
         initView();
     }
 
@@ -49,7 +43,7 @@ public class ChooseLanguage_Activity extends AppCompatActivity {
         btn_en = findViewById(R.id.btn_en);
         continu = findViewById(R.id.btn_continue);
 
-
+        lang = Paper.book().read("language",Locale.getDefault().getLanguage());
         if (lang.equals("en")) {
             btn_en.setBackgroundResource(R.drawable.btn_en_use);
             btn_en.setTextColor(ContextCompat.getColor(ChooseLanguage_Activity.this, R.color.white));
@@ -68,10 +62,13 @@ public class ChooseLanguage_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                language = "ar";
-                Paper.book().write("language", language);
+                Paper.book().write("language", "ar");
+                LanguageHelper.setLocality("ar",ChooseLanguage_Activity.this);
 
-                refreshlayout(language);
+                refreshLayout();
+
+
+
             }
         });
 
@@ -80,10 +77,11 @@ public class ChooseLanguage_Activity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                language = "en";
-                Paper.book().write("language", language);
+                Paper.book().write("language", "en");
+                LanguageHelper.setLocality("en",ChooseLanguage_Activity.this);
+                refreshLayout();
 
-                refreshlayout(language);
+
 
             }
         });
@@ -103,11 +101,10 @@ public class ChooseLanguage_Activity extends AppCompatActivity {
         });
     }
 
-    public void refreshlayout(String language) {
-
+    private void refreshLayout()
+    {
         Intent intent = getIntent();
         finish();
         startActivity(intent);
-        LanguageHelper.setLocality(language, this);
     }
 }

@@ -92,6 +92,7 @@
     <string name="choose_lang">CHOOSE LANGUAGE</string>
     <string name="help">User Guide</string>
     <string name="si_su">Sign in or create a new account.</string>
+    <string name="continuee">continue</string>
     <string name="notification">Notifications</string>
     <string name="continu">Continue</string>
     <string name="hsnan">OK</string>
@@ -100,5 +101,6 @@
     <string name="bynatTwsel">Connection Information</string>
     <string name="Governorate">Governorate</string>
     <string name="city">City</string>
+    <string name="forgetPass">Forgot Password?</string>
 
 </resources>

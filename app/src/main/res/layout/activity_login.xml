@@ -86,7 +86,22 @@
             android:textSize="20sp"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
+            android:textStyle="bold"
             android:clickable="true"
+            />
+
+        <TextView
+            android:id="@+id/forgetPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgetPass"
+            android:textColor="@color/colorPrimary"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:textAllCaps="true"
             />
         <TextView
             android:id="@+id/skip"
@@ -97,8 +112,8 @@
             android:text="@string/Skip"
             android:textColor="@color/colorPrimary"
             android:textSize="20sp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"/>
+            android:textStyle="bold"
+            />
 
 
 

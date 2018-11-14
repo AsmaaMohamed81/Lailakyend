@@ -91,6 +91,7 @@
     <string name="choose_lang">تغير اللغه</string>
     <string name="help">دليل الاستخدام</string>
     <string name="si_su">قم بتسجيل الدخول او أنشاء حساب جديد</string>
+    <string name="continuee">استمر</string>
     <string name="notification">اشعار</string>
     <string name="continu">استمر</string>
     <string name="hsnan">حسنا</string>
@@ -99,6 +100,7 @@
     <string name="bynatTwsel">بيانات التوصيل</string>
     <string name="Governorate">الولايه</string>
     <string name="city">المدينه</string>
+    <string name="forgetPass">هل نسيت كلمه المرور؟</string>
 
 
 </resources>

@@ -68,7 +68,7 @@
         android:textStyle="bold"
         android:textSize="15sp"
         android:textAllCaps="true"
-        android:text="@string/continu"
+        android:text="@string/continuee"
         />
 
 

@@ -19,7 +19,7 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:supportsRtl">
+        >
         <activity
             android:name=".Activites.Splash"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -71,8 +71,12 @@
         <activity
             android:name=".Activites.HelpActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".Activites.ChooseLanguage_Activity"></activity>
-        <activity android:name=".Activites.Confirm_SignUPActivity"></activity>
+        <activity android:name=".Activites.ChooseLanguage_Activity">
+
+        </activity>
+        <activity android:name=".Activites.Confirm_SignUPActivity">
+
+        </activity>
     </application>
 
 </manifest>
