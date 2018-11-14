@@ -98,10 +98,10 @@
     <string name="bynat">البيانات الشخصيه</string>
     <string name="adress">العنوان</string>
     <string name="bynatTwsel">بيانات التوصيل</string>
-    <string name="Governorate">الولايه</string>
+    <string name="Governorate">المنطقه</string>
     <string name="city">المدينه</string>
     <string name="forgetPass">هل نسيت كلمه المرور؟</string>
-    <string name="complement">Complete Information</string>
+    <string name="complement">اكمل معلوماتك </string>
 
 
 </resources>

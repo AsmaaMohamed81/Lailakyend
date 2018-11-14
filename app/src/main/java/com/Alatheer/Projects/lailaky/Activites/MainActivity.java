@@ -138,8 +138,8 @@ public class MainActivity extends AppCompatActivity
         Intent intent = getIntent();
         if (intent!=null)
         {
-//            user_type = intent.getStringExtra("user_type");
-//            Log.e("getDataFromIntent: ",user_type);
+            user_type = intent.getStringExtra("user_type");
+            Log.e("getDataFromIntent: ",user_type);
 
             if (intent.hasExtra("user_id"))
             {

@@ -164,6 +164,7 @@ public class Signup extends AppCompatActivity {
                                 users.setUserData(response.body());
                                 preferences.CreatePref(response.body());
                                 Intent intent = new Intent(Signup.this,MainActivity.class);
+                                intent.putExtra("user_type","client");
                                 intent.putExtra("user_id",response.body().getUser_id());
                                 startActivity(intent);
 
