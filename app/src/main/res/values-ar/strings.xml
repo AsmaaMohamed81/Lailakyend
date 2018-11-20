@@ -70,7 +70,7 @@
     <string name="pass_not_match">كلمة المرور غير متطابقة</string>
     <string name="upd_succ">تم تحديث كلمة المرور بنجاح</string>
     <string name="fialed">فشل</string>
-    <string name="register_befor">إسم المستخدم موجود من قبل</string>
+    <string name="register_befor">إسم المستخدم  او البريد الالكتروني موجود من قبل</string>
     <string name="save">حفظ</string>
     <string name="upld">إرسال الصور</string>
     <string name="enter_name">أدخل الاسم</string>
@@ -102,6 +102,7 @@
     <string name="city">المدينه</string>
     <string name="forgetPass">هل نسيت كلمه المرور؟</string>
     <string name="complement">اكمل معلوماتك </string>
+    <string name="sendmail">انتظر حتي يتم ارسال الايميل</string>
 
 
 </resources>

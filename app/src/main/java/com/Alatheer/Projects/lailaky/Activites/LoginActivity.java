@@ -104,6 +104,8 @@ public class LoginActivity extends AppCompatActivity {
         skip     = findViewById(R.id.skip);
         forgetPass=findViewById(R.id.forgetPass);
 
+//        userName.setText(getIntent().getStringExtra("mail"));
+
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

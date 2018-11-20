@@ -7,6 +7,7 @@ public class ModelContactUs implements Serializable {
     private String tele_info;
     private String email_info;
     private String web_info;
+    private String time_work;
     private double location_google_lat;
     private double location_google_long;
 
@@ -28,5 +29,9 @@ public class ModelContactUs implements Serializable {
 
     public double getLocation_google_long() {
         return location_google_long;
+    }
+
+    public String getTime_work() {
+        return time_work;
     }
 }

@@ -36,6 +36,7 @@ public interface Services {
     @POST("Api/Login")
     Call<UserModel> Login(@FieldMap Map<String,String> map);
 
+
     @GET("Api/AboutUs")
     Call<List<AboutUsModel>> GetAboutUs();
 
@@ -85,4 +86,7 @@ public interface Services {
     @POST("Api/AddAlbumImage/{user_id}/{offer_id}")
     Call<ResponseModel> uploadAlbumImages(@Path("user_id") String user_id,@Path("offer_id") String offer_id,@Part List<MultipartBody.Part> imagesList);
 
+    @FormUrlEncoded
+    @POST("Api/forgetPassword")
+    Call<UserModel> forgetPassword(@Field("user_email") String user_email);
 }

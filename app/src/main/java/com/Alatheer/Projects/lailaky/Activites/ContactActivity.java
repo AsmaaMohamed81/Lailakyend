@@ -37,7 +37,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
     private Shimmer shimmer;
     private ShimmerTextView offer_txt;
     private EditText name,email,message;
-    private TextView mail,web,mob,map;
+    private TextView mail,web,mob,map,time_work;
     private Button send;
     private PhoneInputLayout edt_phone;
     double lat,lang;
@@ -79,6 +79,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
         mob=findViewById(R.id.phone);
         web=findViewById(R.id.web);
         map=findViewById(R.id.mapk);
+        time_work=findViewById(R.id.time_work);
 
         send.setOnClickListener(this);
         map.setOnClickListener(new View.OnClickListener() {
@@ -111,6 +112,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
                         mail.setText(response.body().getEmail_info());
                         web.setText(response.body().getWeb_info());
                         mob.setText(response.body().getTele_info());
+                        time_work.setText(response.body().getTime_work());
 
                         lat=response.body().getLocation_google_lat();
                         lang=response.body().getLocation_google_long();

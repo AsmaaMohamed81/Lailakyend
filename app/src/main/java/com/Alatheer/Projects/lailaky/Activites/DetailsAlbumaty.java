@@ -67,37 +67,37 @@ public class DetailsAlbumaty extends AppCompatActivity {
         getDataFromIntent();
         //CreateProgress();
         //CreatedeleteProgress();
-       /* recView.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-
-                    int currPos = snapHelper.findTargetSnapPosition(recView.getLayoutManager(), dx, dy)+1;
-                    int total = recView.getAdapter().getItemCount();
-
-                    if (!isContextMode)
-                    {
-                        if (currPos>total)
-                        {
-                            currPos=total;
-                            counter.setText("<"+currPos+"/"+total+">");
-
-                        }else
-                            {
-                                counter.setText("<"+currPos+"/"+total+">");
-
-                            }
-
-                    }
-
-
-            }
-        });*/
+//       recView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//                super.onScrollStateChanged(recyclerView, newState);
+//            }
+//
+//            @Override
+//            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+//                super.onScrolled(recyclerView, dx, dy);
+//
+//                    int currPos = snapHelper.findTargetSnapPosition(recView.getLayoutManager(), dx, dy)+1;
+//                    int total = recView.getAdapter().getItemCount();
+//
+//                    if (!isContextMode)
+//                    {
+//                        if (currPos>total)
+//                        {
+//                            currPos=total;
+//                            counter.setText("<"+currPos+"/"+total+">");
+//
+//                        }else
+//                            {
+//                                counter.setText("<"+currPos+"/"+total+">");
+//
+//                            }
+//
+//                    }
+//
+//
+//            }
+//        });
         recView.setItemTransformer(new ScaleTransformer.Builder()
                 .setMaxScale(1.05f)
                 .setMinScale(0.8f)
@@ -176,21 +176,15 @@ public class DetailsAlbumaty extends AppCompatActivity {
                     adapter.notifyDataSetChanged();
                     bar.setVisibility(View.GONE);
                 }
-
-/*
-
-              //  Toast.makeText(DetailsAlbumaty.this, "success", Toast.LENGTH_SHORT).show();
-                uriList.clear();
-                uriList.addAll(response.body());
-//                Toast.makeText(DetailsAlbumaty.this, ""+response.body().get(0).getImage(), Toast.LENGTH_SHORT).show();
-               // Toast.makeText(DetailsAlbumaty.this, ""+uriList.get(1), Toast.LENGTH_SHORT).show();
-                customGalleryAdapter.notifyDataSetChanged();
-                Picasso.with(DetailsAlbumaty.this).load(ImgPath+response.body().get(0).getImage()).into(selectedImageView);
-
-
-*/
-
-
+//              //  Toast.makeText(DetailsAlbumaty.this, "success", Toast.LENGTH_SHORT).show();
+//                uriList.clear();
+//                uriList.addAll(response.body());
+////                Toast.makeText(DetailsAlbumaty.this, ""+response.body().get(0).getImage(), Toast.LENGTH_SHORT).show();
+//               // Toast.makeText(DetailsAlbumaty.this, ""+uriList.get(1), Toast.LENGTH_SHORT).show();
+//                customGalleryAdapter.notifyDataSetChanged();
+//                Picasso.with(DetailsAlbumaty.this).load(ImgPath+response.body().get(0).getImage()).into(selectedImageView);
+//
+//
             }
 
             @Override

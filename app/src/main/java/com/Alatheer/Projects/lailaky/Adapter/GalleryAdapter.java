@@ -46,7 +46,10 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
     @Override
     public void onBindViewHolder(final myHolder holder, int position) {
         ImgModel imgModel = imgModelList.get(position);
+        ImgModel imgModel2 = imgModelList.get(position+1);
         holder.BindData(imgModel);
+        holder.BindData(imgModel2);
+
        /* if (detailsAlbumaty.isContextMode)
         {
             holder.checkbox.setVisibility(View.VISIBLE);
@@ -75,10 +78,12 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
     public class myHolder extends RecyclerView.ViewHolder
     {
         //CheckBox checkbox;
-        public PhotoView gallery_Img;
+        public PhotoView gallery_Img1,gallery_Img2;
         public myHolder(View itemView) {
             super(itemView);
-            gallery_Img = itemView.findViewById(R.id.galler_Img);
+            gallery_Img1 = itemView.findViewById(R.id.galler_Img1);
+            gallery_Img2 = itemView.findViewById(R.id.galler_Img2);
+
             //checkbox = itemView.findViewById(R.id.checkbox);
 
         }
@@ -88,7 +93,9 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
             target = new Target() {
                 @Override
                 public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                    gallery_Img.setImageBitmap(resizeBitmap(bitmap));
+                    gallery_Img1.setImageBitmap(resizeBitmap(bitmap));
+                    gallery_Img2.setImageBitmap(resizeBitmap(bitmap));
+
                 }
 
                 @Override
@@ -104,6 +111,8 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
 
             Log.e("fsdfsdddddd",Tags.ImgPath+imgModel.getImage());
             Picasso.with(context).load(Uri.parse(Tags.ImgPath+imgModel.getImage())).into(target);
+            Picasso.with(context).load(Uri.parse(Tags.ImgPath+imgModel.getImage())).into(target);
+
         }
     }
 

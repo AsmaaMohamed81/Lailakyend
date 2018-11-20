@@ -138,7 +138,7 @@ public class Signup extends AppCompatActivity {
                 password.setError(null);
                 email.setError(null);
                 phone.setError(null);
-                dialog.show();
+              dialog.show();
                 Map <String,String> map = new HashMap<>();
 
                 map.put("user_name",uname);
@@ -156,10 +156,13 @@ public class Signup extends AppCompatActivity {
                         if (response.isSuccessful())
                         {
 
+
                             dialog.dismiss();
 
                             if (response.body().getSuccess()==1)
                             {
+
+                                Toast.makeText(Signup.this, "yasss", Toast.LENGTH_SHORT).show();
 
                                 users.setUserData(response.body());
                                 preferences.CreatePref(response.body());

@@ -15,6 +15,7 @@ public class OfferModel {
    private String price;
    private String size_offer;
     private String album_id;
+    private String img_size;
 
 
 
@@ -99,7 +100,16 @@ public class OfferModel {
         return details;
     }
 
+
     public String getPrice() {
         return price;
+    }
+
+    public String getImg_size() {
+        return img_size;
+    }
+
+    public void setImg_size(String img_size) {
+        this.img_size = img_size;
     }
 }
