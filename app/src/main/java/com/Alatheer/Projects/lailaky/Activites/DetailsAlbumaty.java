@@ -47,7 +47,7 @@ public class DetailsAlbumaty extends AppCompatActivity {
     CustomGalleryAdapter customGalleryAdapter;
     ImageView selectedImageView;
     private String album_id;
-     List<ImgModel> uriList;
+     List<ImgModel> uriList1,uriList2;
      ImgModel imgModel;
      TextView counter;
      private int count=0;
@@ -105,13 +105,13 @@ public class DetailsAlbumaty extends AppCompatActivity {
                 .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
                 .build());
 
-       recView.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {
-           @Override
-           public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int adapterPosition) {
-               int page=adapterPosition+1;
-               counter.setText("<"+page+"/"+uriList.size()+">");
-           }
-       });
+//       recView.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {
+//           @Override
+//           public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int adapterPosition) {
+//               int page=adapterPosition+1;
+//               counter.setText("<"+page+"/"+uriList.size()+">");
+//           }
+//       });
 
     }
 
@@ -123,13 +123,15 @@ public class DetailsAlbumaty extends AppCompatActivity {
 
     private void initView() {
         selectedImagesList = new ArrayList<>();
-        uriList=new ArrayList<>();
+        uriList1=new ArrayList<>();
+        uriList2=new ArrayList<>();
+
         encodedImageList = new ArrayList<>();
 
         bar = findViewById(R.id.progBar);
         bar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this,R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         recView = findViewById(R.id.recView);
-        adapter = new GalleryAdapter(uriList,this);
+        adapter = new GalleryAdapter(uriList1,this);
         recView.setAdapter(adapter);
         counter = findViewById(R.id.counter);
         toolBar = findViewById(R.id.toolBar);
@@ -171,8 +173,11 @@ public class DetailsAlbumaty extends AppCompatActivity {
 
                 if (response.isSuccessful())
                 {
-                    uriList.clear();
-                    uriList.addAll(response.body());
+                    uriList1.clear();
+                    uriList2.clear();
+
+                    uriList1.addAll(response.body());
+                    uriList2.addAll(response.body());
                     adapter.notifyDataSetChanged();
                     bar.setVisibility(View.GONE);
                 }
