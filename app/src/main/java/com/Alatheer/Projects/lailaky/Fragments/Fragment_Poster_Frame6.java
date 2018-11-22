@@ -171,6 +171,8 @@ public class Fragment_Poster_Frame6 extends Fragment implements View.OnTouchList
         Bundle bundle = new Bundle();
         bundle.putString(TAG1,user_id);
         bundle.putString(TAG2,offer_id);
+        bundle.putString(TAG4,paper_id);
+
         bundle.putInt(TAG3,album_size);
         fragment.setArguments(bundle);
         return fragment;

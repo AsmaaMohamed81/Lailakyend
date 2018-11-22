@@ -54,6 +54,8 @@ public class Fragment_Poster extends Fragment {
         {
             user_id = bundle.getString(TAG1);
             offer_id = bundle.getString(TAG2);
+            paper_id = bundle.getString(TAG4);
+
             album_size = bundle.getInt(TAG3);
         }
         Images = new ArrayList<>();
@@ -102,12 +104,14 @@ public class Fragment_Poster extends Fragment {
         adapter.notifyDataSetChanged();
     }
 
-    public static Fragment_Poster getInstance(String user_id,String offer_id,int album_size)
+    public static Fragment_Poster getInstance(String user_id,String offer_id,String paper_id,int album_size)
     {
         Fragment_Poster fragment = new Fragment_Poster();
         Bundle bundle = new Bundle();
         bundle.putString(TAG1,user_id);
         bundle.putString(TAG2,offer_id);
+        bundle.putString(TAG4,paper_id);
+
         bundle.putInt(TAG3,album_size);
         fragment.setArguments(bundle);
         return fragment;
@@ -122,6 +126,8 @@ public class Fragment_Poster extends Fragment {
         intent.putExtra("type",Tags.Poster);
         intent.putExtra("album_size",album_size);
         intent.putExtra("user_id",user_id);
+        intent.putExtra("paper_id",paper_id);
+
         intent.putExtra("id_offer",offer_id);
         context.startActivity(intent);
     }
