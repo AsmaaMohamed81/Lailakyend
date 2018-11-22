@@ -23,14 +23,17 @@ import java.util.List;
 public class Adapter_Paper extends RecyclerView.Adapter<Adapter_Paper.ViewHolder>{
 
     private List<PaperModel> Paperlist;
-    private Context context;
+     TypeePaperActivity mTypeePaperActivity;
+     Context context;
 
     private int lastSelectedPosition = -1;
+    public  String Paper_id="";
 
-    public Adapter_Paper(List<PaperModel> brands, TypeePaperActivity typeePaperActivity) {
+    public Adapter_Paper(List<PaperModel> brands, Context context) {
 
         Paperlist = brands;
-        context = typeePaperActivity;
+        this.context=context;
+        mTypeePaperActivity =(TypeePaperActivity) context;
     }
 
     @NonNull
@@ -45,10 +48,12 @@ public class Adapter_Paper extends RecyclerView.Adapter<Adapter_Paper.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
         PaperModel paperModel = Paperlist.get(position);
-        holder.paper_type.setText(paperModel.getPaper_type());
+        holder.paper_type.setText(paperModel.getpaper_type());
+        holder.paper_id.setText(paperModel.getpaper_id());
+
 
         Picasso.with(context).load(Uri.parse(Tags.ImgPath+paperModel.getImg())).into(holder.paperImage);
 
@@ -57,6 +62,17 @@ public class Adapter_Paper extends RecyclerView.Adapter<Adapter_Paper.ViewHolder
         // this condition un-checks previous selections
         holder.selectionState.setChecked(lastSelectedPosition == position);
 
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int pos= holder.getAdapterPosition();
+                mTypeePaperActivity.pos(pos);
+
+            }
+        });
+
+
     }
 
     @Override
@@ -64,9 +80,9 @@ public class Adapter_Paper extends RecyclerView.Adapter<Adapter_Paper.ViewHolder
         return Paperlist.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+     class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView paper_type;
+        public TextView paper_type,paper_id;
         public ImageView paperImage;
         public RadioButton selectionState;
 
@@ -74,17 +90,24 @@ public class Adapter_Paper extends RecyclerView.Adapter<Adapter_Paper.ViewHolder
             super(view);
             paper_type = view.findViewById(R.id.paper_type);
             paperImage = view.findViewById(R.id.imgPaper);
+            paper_id = view.findViewById(R.id.paper_id);
+
             selectionState = (RadioButton) view.findViewById(R.id.paper_select);
 
             selectionState.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     lastSelectedPosition = getAdapterPosition();
-                    notifyDataSetChanged();
+
+                    Paper_id=paper_id.getText()+"";
 
                     Toast.makeText(Adapter_Paper.this.context,
-                            "selected offer is " + paper_type.getText(),
+                            "selected offer is " + Paper_id,
                             Toast.LENGTH_LONG).show();
+
+                    notifyDataSetChanged();
+
+
                 }});}}
 
 }

@@ -29,7 +29,9 @@ public class  Fragment_Poster_Frame4 extends Fragment implements View.OnTouchLis
     private static final String TAG1="user_id";
     private static final String TAG2="offer_id";
     private static final String TAG3="album_size";
-    private String user_id="",offer_id="";
+    private static final String TAG4="paper_id";
+
+    private String user_id="",offer_id="",paper_id="";
     private int album_size=0;
     private ImageView shape1;
     private ImageView shape1_icon;
@@ -70,6 +72,8 @@ public class  Fragment_Poster_Frame4 extends Fragment implements View.OnTouchLis
         {
             user_id = bundle.getString(TAG1);
             offer_id = bundle.getString(TAG2);
+            paper_id = bundle.getString(TAG4);
+
             album_size = bundle.getInt(TAG3);
         }
         activity = (DisplayImagesActivity) getActivity();
@@ -159,7 +163,7 @@ public class  Fragment_Poster_Frame4 extends Fragment implements View.OnTouchLis
 
 
     }
-    public static Fragment_Poster_Frame4 getInstance(String user_id,String offer_id,int album_size)
+    public static Fragment_Poster_Frame4 getInstance(String user_id, String offer_id, String paper_id, int album_size)
     {
         Fragment_Poster_Frame4 fragment = new Fragment_Poster_Frame4();
         Bundle bundle = new Bundle();

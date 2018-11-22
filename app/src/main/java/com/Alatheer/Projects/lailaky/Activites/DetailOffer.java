@@ -206,7 +206,7 @@ public class DetailOffer extends AppCompatActivity implements Users.onCompleteLi
         intent.putExtra("user_id",userModel.getUser_id());
         startActivity(intent);
         finish();*/
-        Intent intent = new Intent(DetailOffer.this,FramesActivity.class);
+        Intent intent = new Intent(DetailOffer.this,TypeePaperActivity.class);
         //intent.putExtra("data",encoded);
         intent.putExtra("album_size",size_offer);
         intent.putExtra("id_offer",idoffer);

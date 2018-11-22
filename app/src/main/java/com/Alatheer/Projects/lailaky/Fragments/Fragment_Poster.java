@@ -28,7 +28,9 @@ public class Fragment_Poster extends Fragment {
     private static final String TAG1="user_id";
     private static final String TAG2="offer_id";
     private static final String TAG3="album_size";
-    private String user_id="",offer_id="";
+    private static final String TAG4="paper_id";
+
+    private String user_id="",offer_id="",paper_id="";
     private int album_size=0;
 
 

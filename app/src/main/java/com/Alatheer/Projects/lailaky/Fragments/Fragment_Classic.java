@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
 import com.Alatheer.Projects.lailaky.Adapter.ClassicImagesAdapter;
@@ -30,7 +29,8 @@ public class Fragment_Classic extends Fragment {
     private static final String TAG1="user_id";
     private static final String TAG2="offer_id";
     private static final String TAG3="album_size";
-    private String user_id="",offer_id="";
+    private static final String TAG4="paper_id";
+    private String user_id="",offer_id="",paper_id="";
     private int album_size=0;
     private RecyclerView recView;
     private RecyclerView.LayoutManager manager;
@@ -54,6 +54,7 @@ public class Fragment_Classic extends Fragment {
         {
             user_id = bundle.getString(TAG1);
             offer_id = bundle.getString(TAG2);
+            paper_id = bundle.getString(TAG4);
             album_size = bundle.getInt(TAG3);
 
 
@@ -85,12 +86,13 @@ public class Fragment_Classic extends Fragment {
         adapter.notifyDataSetChanged();
     }
 
-    public static Fragment_Classic getInstance(String user_id,String offer_id,int album_size)
+    public static Fragment_Classic getInstance(String user_id,String offer_id,String paper_id,int album_size)
     {
         Fragment_Classic fragment = new Fragment_Classic();
         Bundle bundle = new Bundle();
         bundle.putString(TAG1,user_id);
         bundle.putString(TAG2,offer_id);
+        bundle.putString(TAG4,paper_id);
         bundle.putInt(TAG3,album_size);
         fragment.setArguments(bundle);
         return fragment;

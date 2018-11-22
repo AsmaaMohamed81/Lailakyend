@@ -34,7 +34,7 @@ public class FramesActivity extends AppCompatActivity {
     private List<String> titles;
     private ViewPagerAdapter adapter;
     private List<Fragment> fragmentList;
-    private String user_id="",id_offer="";
+    private String user_id="",id_offer="",paper_id="";
     private int album_size=0;
 
 
@@ -211,19 +211,24 @@ public class FramesActivity extends AppCompatActivity {
             album_size = Integer.parseInt(intent.getStringExtra("album_size"));
             user_id = intent.getStringExtra("user_id");
             id_offer = intent.getStringExtra("id_offer");
+            paper_id = intent.getStringExtra("paper_id");
+
+
 
             Log.e("Frames albumsize",album_size+"");
             Log.e("Frames id",user_id+"");
             Log.e("Frames offer",id_offer+"");
+            Log.e("Frames paper",paper_id+"");
+
 
         }
     }
 
     private void AddFragments() {
-        fragmentList.add(Fragment_Classic.getInstance(user_id,id_offer,album_size));
-        fragmentList.add(Fragment_Poster.getInstance(user_id,id_offer,album_size));
-        fragmentList.add(Fragment_Pinboard.getInstance(user_id,id_offer,album_size));
-        fragmentList.add(Fragment_Custom.getInstance(user_id,id_offer,album_size));
+        fragmentList.add(Fragment_Classic.getInstance(user_id,id_offer,paper_id,album_size));
+        fragmentList.add(Fragment_Poster.getInstance(user_id,id_offer,paper_id,album_size));
+        fragmentList.add(Fragment_Pinboard.getInstance(user_id,id_offer,paper_id,album_size));
+        fragmentList.add(Fragment_Custom.getInstance(user_id,id_offer,paper_id,album_size));
 
         icons.add(R.drawable.classic);
         icons.add(R.drawable.poster);

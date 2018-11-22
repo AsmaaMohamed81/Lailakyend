@@ -31,7 +31,9 @@ public class Fragment_Pinboard_Shape3 extends Fragment implements View.OnTouchLi
     private static final String TAG1="user_id";
     private static final String TAG2="offer_id";
     private static final String TAG3="album_size";
-    private String user_id="",offer_id="";
+    private static final String TAG4="paper_id";
+
+    private String user_id="",offer_id="",paper_id="";
     private int album_size=0;
     private ShapesImage shape1,shape2,shape3;
     private ImageView shape1_icon,shape2_icon,shape3_icon;
@@ -74,6 +76,7 @@ public class Fragment_Pinboard_Shape3 extends Fragment implements View.OnTouchLi
         {
             user_id = bundle.getString(TAG1);
             offer_id = bundle.getString(TAG2);
+            paper_id = bundle.getString(TAG4);
             album_size = bundle.getInt(TAG3);
         }
         root = view.findViewById(R.id.root);
@@ -284,12 +287,13 @@ public class Fragment_Pinboard_Shape3 extends Fragment implements View.OnTouchLi
 
 
     }
-    public static Fragment_Pinboard_Shape3 getInstance(String user_id,String offer_id,int album_size)
+    public static Fragment_Pinboard_Shape3 getInstance(String user_id, String offer_id, String paper_id, int album_size)
     {
         Fragment_Pinboard_Shape3 fragment = new Fragment_Pinboard_Shape3();
         Bundle bundle = new Bundle();
         bundle.putString(TAG1,user_id);
         bundle.putString(TAG2,offer_id);
+        bundle.putString(TAG4,paper_id);
         bundle.putInt(TAG3,album_size);
         fragment.setArguments(bundle);
         return fragment;

@@ -89,7 +89,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
     private  int IMG_REQ;
     private String type="";
     private int pos=0;
-    private String user_id="",offer_id="";
+    private String user_id="",offer_id="",paper_id="";
     private int album_size=0;
     private CardView card_container;
     private ImageView img_close;
@@ -642,6 +642,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
             pos = intent.getIntExtra("position",0);
             user_id = intent.getStringExtra("user_id");
             offer_id =intent.getStringExtra("id_offer");
+            paper_id =intent.getStringExtra("paper_id");
             album_size = intent.getIntExtra("album_size",0);
             Log.e("fclassic",album_size+"");
             Log.e("fclassic",user_id+"");
@@ -658,52 +659,52 @@ public class DisplayImagesActivity extends AppCompatActivity {
             switch (pos)
             {
                 case 0:
-                    classicShape1 = Fragment_Classic_Shape1.getInstance(user_id,offer_id,album_size);
+                    classicShape1 = Fragment_Classic_Shape1.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,classicShape1).commit();
                     break;
                 case 1:
-                    classicShape2 = Fragment_Classic_Shape2.getInstance(user_id,offer_id,album_size);
+                    classicShape2 = Fragment_Classic_Shape2.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, classicShape2).commit();
 
                     break;
                 case 2:
-                    classicShape3 = Fragment_Classic_Shape3.getInstance(user_id,offer_id,album_size);
+                    classicShape3 = Fragment_Classic_Shape3.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, classicShape3).commit();
 
                     break;
                 case 3:
-                    classicShape4 = Fragment_Classic_Shape4.getInstance(user_id,offer_id,album_size);
+                    classicShape4 = Fragment_Classic_Shape4.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, classicShape4).commit();
 
                     break;
                 case 4:
-                    classicShape5 = Fragment_Classic_Shape5.getInstance(user_id,offer_id,album_size);
+                    classicShape5 = Fragment_Classic_Shape5.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, classicShape5).commit();
 
                     break;
                 case 5:
-                    classicShape6 = Fragment_Classic_Shape6.getInstance(user_id,offer_id,album_size);
+                    classicShape6 = Fragment_Classic_Shape6.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, classicShape6).commit();
 
                     break;
                 case 6:
-                    classicShape7 = Fragment_Classic_Shape7.getInstance(user_id,offer_id,album_size);
+                    classicShape7 = Fragment_Classic_Shape7.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, classicShape7).commit();
 
                     break;
                 case 7:
-                    classicShape8 = Fragment_Classic_Shape8.getInstance(user_id,offer_id,album_size);
+                    classicShape8 = Fragment_Classic_Shape8.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, classicShape8).commit();
 
                     break;
                 case 8:
-                    classicShape9 = Fragment_Classic_Shape9.getInstance(user_id,offer_id,album_size);
+                    classicShape9 = Fragment_Classic_Shape9.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, classicShape9).commit();
 
@@ -716,53 +717,53 @@ public class DisplayImagesActivity extends AppCompatActivity {
             switch (pos)
             {
                 case 0:
-                    pinboardShape1 = Fragment_Pinboard_Shape1.getInstance(user_id,offer_id,album_size);
+                    pinboardShape1 = Fragment_Pinboard_Shape1.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pinboardShape1).commit();
                     break;
                 case 1:
-                    pinboardShape2 = Fragment_Pinboard_Shape2.getInstance(user_id,offer_id,album_size);
+                    pinboardShape2 = Fragment_Pinboard_Shape2.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pinboardShape2).commit();
 
                     break;
                 case 2:
-                    pinboardShape3 = Fragment_Pinboard_Shape3.getInstance(user_id,offer_id,album_size);
+                    pinboardShape3 = Fragment_Pinboard_Shape3.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pinboardShape3).commit();
 
                     break;
                 case 3:
-                    pinboardShape4 = Fragment_Pinboard_Shape4.getInstance(user_id,offer_id,album_size);
+                    pinboardShape4 = Fragment_Pinboard_Shape4.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pinboardShape4).commit();
 
                     break;
                 case 4:
-                    pinboardShape5 = Fragment_Pinboard_Shape5.getInstance(user_id,offer_id,album_size);
+                    pinboardShape5 = Fragment_Pinboard_Shape5.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pinboardShape5).commit();
 
                     break;
                 case 5:
-                    pinboardShape6 = Fragment_Pinboard_Shape6.getInstance(user_id,offer_id,album_size);
+                    pinboardShape6 = Fragment_Pinboard_Shape6.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pinboardShape6).commit();
 
                     break;
                 case 6:
-                    pinboardShape7 = Fragment_Pinboard_Shape7.getInstance(user_id,offer_id,album_size);
+                    pinboardShape7 = Fragment_Pinboard_Shape7.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pinboardShape7).commit();
 
                     break;
                 case 7:
-                    pinboardShape8 = Fragment_Pinboard_Shape8.getInstance(user_id,offer_id,album_size);
+                    pinboardShape8 = Fragment_Pinboard_Shape8.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pinboardShape8).commit();
 
                     break;
                 case 8:
-                    pinboardShape9 = Fragment_Pinboard_Shape9.getInstance(user_id,offer_id,album_size);
+                    pinboardShape9 = Fragment_Pinboard_Shape9.getInstance(user_id,offer_id,paper_id,album_size);
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, pinboardShape9).commit();
 
@@ -777,101 +778,101 @@ public class DisplayImagesActivity extends AppCompatActivity {
 
             switch (pos) {
                 case 0:
-                    posterframe1 = Fragment_Poster_Frame1.getInstance(user_id,offer_id,album_size);
+                    posterframe1 = Fragment_Poster_Frame1.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe1).commit();
                     break;
                 case 1:
-                    posterframe2 = Fragment_Poster_Frame2.getInstance(user_id,offer_id,album_size);
+                    posterframe2 = Fragment_Poster_Frame2.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe2).commit();
                     break;
                 case 2:
-                    posterframe3 = Fragment_Poster_Frame3.getInstance(user_id,offer_id,album_size);
+                    posterframe3 = Fragment_Poster_Frame3.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe3).commit();
                     break;
                 case 3:
-                    posterframe4 = Fragment_Poster_Frame4.getInstance(user_id,offer_id,album_size);
+                    posterframe4 = Fragment_Poster_Frame4.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe4).commit();
                     break;
                 case 4:
-                    posterframe5 = Fragment_Poster_Frame5.getInstance(user_id,offer_id,album_size);
+                    posterframe5 = Fragment_Poster_Frame5.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe5).commit();
                     break;
                 case 5:
-                    posterframe6 = Fragment_Poster_Frame6.getInstance(user_id,offer_id,album_size);
+                    posterframe6 = Fragment_Poster_Frame6.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe6).commit();
                     break;
                 case 6:
-                    posterframe7 = Fragment_Poster_Frame7.getInstance(user_id,offer_id,album_size);
+                    posterframe7 = Fragment_Poster_Frame7.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe7).commit();
                     break;
                 case 7:
-                    posterframe8 = Fragment_Poster_Frame8.getInstance(user_id,offer_id,album_size);
+                    posterframe8 = Fragment_Poster_Frame8.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe8).commit();
                     break;
                 case 8:
-                    posterframe9 = Fragment_Poster_Frame9.getInstance(user_id,offer_id,album_size);
+                    posterframe9 = Fragment_Poster_Frame9.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe9).commit();
                     break;
 
                 case 9:
-                    posterframe10 = Fragment_Poster_Frame10.getInstance(user_id,offer_id,album_size);
+                    posterframe10 = Fragment_Poster_Frame10.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe10).commit();
                     break;
                 case 10:
-                    posterframe11 = Fragment_Poster_Frame11.getInstance(user_id,offer_id,album_size);
+                    posterframe11 = Fragment_Poster_Frame11.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe11).commit();
                     break;
                 case 11:
-                    posterframe12 = Fragment_Poster_Frame12.getInstance(user_id,offer_id,album_size);
+                    posterframe12 = Fragment_Poster_Frame12.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe12).commit();
                     break;
                 case 12:
-                    posterframe13 = Fragment_Poster_Frame13.getInstance(user_id,offer_id,album_size);
+                    posterframe13 = Fragment_Poster_Frame13.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe13).commit();
                     break;
                 case 13:
-                    posterframe14 = Fragment_Poster_Frame14.getInstance(user_id,offer_id,album_size);
+                    posterframe14 = Fragment_Poster_Frame14.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe14).commit();
                     break;
                 case 14:
-                    posterframe15 = Fragment_Poster_Frame15.getInstance(user_id,offer_id,album_size);
+                    posterframe15 = Fragment_Poster_Frame15.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe15).commit();
                     break;
                 case 15:
-                    posterframe16 = Fragment_Poster_Frame16.getInstance(user_id,offer_id,album_size);
+                    posterframe16 = Fragment_Poster_Frame16.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe16).commit();
                     break;
                 case 16:
-                    posterframe17 = Fragment_Poster_Frame17.getInstance(user_id,offer_id,album_size);
+                    posterframe17 = Fragment_Poster_Frame17.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe17).commit();
                     break;
                 case 17:
-                    posterframe18 = Fragment_Poster_Frame18.getInstance(user_id,offer_id,album_size);
+                    posterframe18 = Fragment_Poster_Frame18.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe18).commit();
                     break;
                 case 18:
-                    posterframe19 = Fragment_Poster_Frame19.getInstance(user_id,offer_id,album_size);
+                    posterframe19 = Fragment_Poster_Frame19.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe19).commit();
                     break;
                 case 19:
-                    posterframe20 = Fragment_Poster_Frame20.getInstance(user_id,offer_id,album_size);
+                    posterframe20 = Fragment_Poster_Frame20.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe20).commit();
                     break;
                 case 20:
-                    posterframe21 = Fragment_Poster_Frame21.getInstance(user_id,offer_id,album_size);
+                    posterframe21 = Fragment_Poster_Frame21.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe21).commit();
                     break;
                 case 21:
-                    posterframe22 = Fragment_Poster_Frame22.getInstance(user_id,offer_id,album_size);
+                    posterframe22 = Fragment_Poster_Frame22.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe22).commit();
                     break;
 
                 case 22:
-                    posterframe24 = Fragment_Poster_Frame24.getInstance(user_id,offer_id,album_size);
+                    posterframe24 = Fragment_Poster_Frame24.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe24).commit();
                     break;
                 case 23:
-                    posterframe25 = Fragment_Poster_Frame25.getInstance(user_id,offer_id,album_size);
+                    posterframe25 = Fragment_Poster_Frame25.getInstance(user_id,offer_id,paper_id,album_size);
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, posterframe25).commit();
                     break;
 
@@ -883,7 +884,8 @@ public class DisplayImagesActivity extends AppCompatActivity {
            intent.putExtra("album_size",album_size);
            intent.putExtra("user_id",user_id);
            intent.putExtra("id_offer",offer_id);
-           startActivity(intent);
+            intent.putExtra("paper_id",paper_id);
+            startActivity(intent);
            finish();
 
     }
@@ -1192,6 +1194,8 @@ public class DisplayImagesActivity extends AppCompatActivity {
         Intent intent = new Intent(DisplayImagesActivity.this,FinalAlbumActivity.class);
         intent.putExtra("user_id",user_id);
         intent.putExtra("id_offer",offer_id);
+        intent.putExtra("paper_id",offer_id);
+
         startActivity(intent);
         finish();
     }

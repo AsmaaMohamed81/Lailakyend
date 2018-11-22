@@ -48,7 +48,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
     private List<Bitmap> bitmapList_selection;
     private Toolbar toolBar;
     private ImageView back;
-    private String user_id="",offer_id="";
+    private String user_id="",offer_id="",paper_id="";
     private Button uploadBtn;
     private ProgressDialog dialog;
 
@@ -119,7 +119,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
     private void SendDataToServer(List<MultipartBody.Part> partList) {
         dialog.show();
         Api.getClient().create(Services.class)
-                .uploadAlbumImages(user_id,offer_id,partList)
+                .uploadAlbumImages(user_id,offer_id,paper_id,partList)
                 .enqueue(new Callback<ResponseModel>() {
                     @Override
                     public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
@@ -159,6 +159,8 @@ public class FinalAlbumActivity extends AppCompatActivity {
 
             user_id = intent.getStringExtra("user_id");
             offer_id =intent.getStringExtra("id_offer");
+            offer_id =intent.getStringExtra("paper_id");
+
 
         }
     }

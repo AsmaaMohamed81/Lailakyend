@@ -28,6 +28,8 @@
         tools:ignore="SpUsage"
         android:layout_marginTop="3dp" />
 
+
+
     <RadioButton
         android:id="@+id/paper_select"
         android:layout_width="wrap_content"
@@ -54,10 +56,16 @@
         tools:ignore="SpUsage"
         />
 
-
-
-
     <TextView
+        android:layout_gravity="center"
+        android:id="@+id/paper_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sdssd"
+        android:visibility="gone"
+ />
+
+    <Button
         android:layout_gravity="center"
         android:id="@+id/choose"
         android:layout_width="match_parent"
@@ -68,7 +76,14 @@
         android:textColor="#fff"
         android:text="@string/choose"
         tools:ignore="SpUsage"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:background="@color/back"/>
+
+
+
+
 </LinearLayout>
 
 

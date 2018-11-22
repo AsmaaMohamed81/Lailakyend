@@ -5,6 +5,7 @@ import com.Alatheer.Projects.lailaky.Models.ContactModel;
 import com.Alatheer.Projects.lailaky.Models.ImgModel;
 import com.Alatheer.Projects.lailaky.Models.ModelContactUs;
 import com.Alatheer.Projects.lailaky.Models.OfferModel;
+import com.Alatheer.Projects.lailaky.Models.PaperModel;
 import com.Alatheer.Projects.lailaky.Models.ResponseModel;
 import com.Alatheer.Projects.lailaky.Models.UserModel;
 
@@ -84,9 +85,12 @@ public interface Services {
 
     @Multipart
     @POST("Api/AddAlbumImage/{user_id}/{offer_id}")
-    Call<ResponseModel> uploadAlbumImages(@Path("user_id") String user_id,@Path("offer_id") String offer_id,@Part List<MultipartBody.Part> imagesList);
+    Call<ResponseModel> uploadAlbumImages(@Path("user_id") String user_id,@Path("offer_id") String offer_id,@Path("paper_id") String paper_id,@Part List<MultipartBody.Part> imagesList);
 
     @FormUrlEncoded
     @POST("Api/forgetPassword")
     Call<UserModel> forgetPassword(@Field("user_email") String user_email);
+
+    @GET("Api/papers")
+    Call<List<PaperModel>> getTypePaper();
 }

@@ -2,37 +2,37 @@ package com.Alatheer.Projects.lailaky.Models;
 
 public class PaperModel {
 
-    private String Paper_type;
-    private int img;
-    private String Paper_id;
+    private String paper_type;
+    private String img;
+    private String paper_id;
 
-    public PaperModel(String paper_type, int img, String paper_id) {
-        Paper_type = paper_type;
+    public PaperModel(String paper_type, String img, String paper_id) {
+        paper_type = paper_type;
         this.img = img;
-        Paper_id = paper_id;
+        paper_id = paper_id;
     }
 
-    public String getPaper_type() {
-        return Paper_type;
+    public String getpaper_type() {
+        return paper_type;
     }
 
-    public void setPaper_type(String paper_type) {
-        Paper_type = paper_type;
+    public void setpaper_type(String paper_type) {
+        paper_type = paper_type;
     }
 
-    public int getImg() {
+    public String getImg() {
         return img;
     }
 
-    public void setImg(int img) {
+    public void setImg(String img) {
         this.img = img;
     }
 
-    public String getPaper_id() {
-        return Paper_id;
+    public String getpaper_id() {
+        return paper_id;
     }
 
-    public void setPaper_id(String paper_id) {
-        Paper_id = paper_id;
+    public void setpaper_id(String paper_id) {
+        paper_id = paper_id;
     }
 }

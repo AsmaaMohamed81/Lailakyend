@@ -24,7 +24,9 @@ public class Fragment_Custom extends Fragment {
     private static final String TAG1="user_id";
     private static final String TAG2="offer_id";
     private static final String TAG3="album_size";
-    private String user_id="",offer_id="";
+    private static final String TAG4="paper_id";
+
+    private String user_id="",offer_id="",paper_id="";
     private int album_size=0;
     private CollageView collageView;
     private ImageView select_btn;
@@ -45,6 +47,7 @@ public class Fragment_Custom extends Fragment {
         {
             user_id = bundle.getString(TAG1);
             offer_id = bundle.getString(TAG2);
+            paper_id = bundle.getString(TAG4);
             album_size = bundle.getInt(TAG3);
         }
 
@@ -60,18 +63,20 @@ public class Fragment_Custom extends Fragment {
                 intent.putExtra("album_size",album_size);
                 intent.putExtra("user_id",user_id);
                 intent.putExtra("id_offer",offer_id);
+                intent.putExtra("paper_id",paper_id);
                 startActivity(intent);
             }
         });
 
     }
 
-    public static Fragment_Custom getInstance(String user_id,String offer_id,int album_size)
+    public static Fragment_Custom getInstance(String user_id,String offer_id,String paper_id,int album_size)
     {
         Fragment_Custom fragment = new Fragment_Custom();
         Bundle bundle = new Bundle();
         bundle.putString(TAG1,user_id);
         bundle.putString(TAG2,offer_id);
+        bundle.putString(TAG4,paper_id);
         bundle.putInt(TAG3,album_size);
         fragment.setArguments(bundle);
         return fragment;

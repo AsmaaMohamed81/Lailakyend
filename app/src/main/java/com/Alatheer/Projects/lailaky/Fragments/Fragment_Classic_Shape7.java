@@ -31,7 +31,9 @@ public class Fragment_Classic_Shape7 extends Fragment implements View.OnTouchLis
     private static final String TAG1="user_id";
     private static final String TAG2="offer_id";
     private static final String TAG3="album_size";
-    private String user_id="",offer_id="";
+    private static final String TAG4="paper_id";
+
+    private String user_id="",offer_id="",paper_id="";
     private int album_size=0;
     private ShapesImage shape1,shape2,shape3,shape4;
     private ImageView shape1_icon,shape2_icon,shape3_icon,shape4_icon;
@@ -75,6 +77,8 @@ public class Fragment_Classic_Shape7 extends Fragment implements View.OnTouchLis
         {
             user_id = bundle.getString(TAG1);
             offer_id = bundle.getString(TAG2);
+            paper_id = bundle.getString(TAG4);
+
             album_size = bundle.getInt(TAG3);
         }
         activity = (DisplayImagesActivity) getActivity();
@@ -335,12 +339,13 @@ public class Fragment_Classic_Shape7 extends Fragment implements View.OnTouchLis
 
         }
     }
-    public static Fragment_Classic_Shape7 getInstance(String user_id,String offer_id,int album_size)
+    public static Fragment_Classic_Shape7 getInstance(String user_id, String offer_id, String paper_id, int album_size)
     {
         Fragment_Classic_Shape7 fragment = new Fragment_Classic_Shape7();
         Bundle bundle = new Bundle();
         bundle.putString(TAG1,user_id);
         bundle.putString(TAG2,offer_id);
+        bundle.putString(TAG4,paper_id);
         bundle.putInt(TAG3,album_size);
         fragment.setArguments(bundle);
         return fragment;
