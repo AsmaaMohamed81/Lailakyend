@@ -57,7 +57,7 @@ public class DisplayGalleryActivity extends AppCompatActivity implements View.On
     private int album_size;
     private List<Bitmap> bitmapList;
     private List<String> encodedImages;
-    private String user_id,offer_id;
+    private String user_id,offer_id,paper_id;
     private ProgressDialog dialog;
     private boolean isGranted=false;
     private String write_external = Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -137,6 +137,8 @@ public class DisplayGalleryActivity extends AppCompatActivity implements View.On
 
             user_id = intent.getStringExtra("user_id");
             offer_id = intent.getStringExtra("id_offer");
+            paper_id = intent.getStringExtra("paper_id");
+
         }
     }
     private void checkPermission()
@@ -212,19 +214,19 @@ public class DisplayGalleryActivity extends AppCompatActivity implements View.On
             Log.e("encodedimage",s);
         }
 
-        UploadDataToServer(encodedImages,user_id,offer_id);
+        UploadDataToServer(encodedImages,user_id,offer_id,paper_id);
 
 
 
     }
 
-    private void UploadDataToServer(List<String> encodedImages, String user_id, String offer_id) {
+    private void UploadDataToServer(List<String> encodedImages, String user_id, String offer_id,String paper_id) {
 
 
         dialog.show();
         Services services= Api.getClient().create(Services.class);
         Call<UserModel> call =services.
-                BookAlbum(encodedImages,user_id,offer_id);
+                BookAlbum(encodedImages,user_id,offer_id,paper_id);
         call.enqueue(new Callback<UserModel>() {
             @Override
             public void onResponse(Call<UserModel> call, Response<UserModel> response) {

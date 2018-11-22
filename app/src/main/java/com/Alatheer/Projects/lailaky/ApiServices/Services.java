@@ -65,7 +65,9 @@ public interface Services {
     @POST("Api/SubscribeOffer")
     Call<UserModel> BookAlbum(@Field("images[]")List<String> imageList,
                               @Field("user_id")String userid,
-                              @Field("offer_id")String offerid);
+                              @Field("offer_id")String offerid
+                              ,@Field("paper_id")String paper_id);
+
     @GET("Api/MyOffers/{user_id}")
     Call<List<OfferModel>> MyOffer(@Path("user_id") String user_id);
 
@@ -84,7 +86,7 @@ public interface Services {
     Call<ResponseModel> deleteImages(@Field("image_id[]") List<String> imgList);
 
     @Multipart
-    @POST("Api/AddAlbumImage/{user_id}/{offer_id}")
+    @POST("Api/AddAlbumImage/{user_id}/{offer_id}/{paper_id}")
     Call<ResponseModel> uploadAlbumImages(@Path("user_id") String user_id,@Path("offer_id") String offer_id,@Path("paper_id") String paper_id,@Part List<MultipartBody.Part> imagesList);
 
     @FormUrlEncoded

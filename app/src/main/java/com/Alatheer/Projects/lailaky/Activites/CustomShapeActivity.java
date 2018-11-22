@@ -38,7 +38,7 @@ public class CustomShapeActivity extends AppCompatActivity {
     private FinalAlbumImage instance;
     private List<Bitmap> bitmapList2;
     private AlertDialog dialog;
-    private String user_id="",offer_id="";
+    private String user_id="",offer_id="",paper_id="";
     private int album_size=0;
 
 
@@ -59,6 +59,7 @@ public class CustomShapeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_shape);
         initView();
+        Toast.makeText(this, ""+paper_id, Toast.LENGTH_SHORT).show();
 
     }
 
@@ -106,6 +107,7 @@ public class CustomShapeActivity extends AppCompatActivity {
         {
             user_id = intent.getStringExtra("user_id");
             offer_id =intent.getStringExtra("id_offer");
+            paper_id =intent.getStringExtra("paper_id");
             album_size = intent.getIntExtra("album_size",0);
         }
     }
@@ -162,6 +164,7 @@ public class CustomShapeActivity extends AppCompatActivity {
         Log.e("sdfsdfsd","dddddddd");
         Intent intent = new Intent(CustomShapeActivity.this,FinalAlbumActivity.class);
         intent.putExtra("user_id",user_id);
+        intent.putExtra("paper_id",paper_id);
         intent.putExtra("id_offer",offer_id);
         startActivity(intent);
         finish();

@@ -647,6 +647,8 @@ public class DisplayImagesActivity extends AppCompatActivity {
             Log.e("fclassic",album_size+"");
             Log.e("fclassic",user_id+"");
             Log.e("fclassic",offer_id+"");
+            Toast.makeText(this, ""+paper_id, Toast.LENGTH_SHORT).show();
+
             UpdateUi(type,pos);
         }
     }
@@ -1194,7 +1196,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
         Intent intent = new Intent(DisplayImagesActivity.this,FinalAlbumActivity.class);
         intent.putExtra("user_id",user_id);
         intent.putExtra("id_offer",offer_id);
-        intent.putExtra("paper_id",offer_id);
+        intent.putExtra("paper_id",paper_id);
 
         startActivity(intent);
         finish();

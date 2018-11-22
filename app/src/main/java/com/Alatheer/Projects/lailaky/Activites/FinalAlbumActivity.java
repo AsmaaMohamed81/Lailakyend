@@ -57,6 +57,8 @@ public class FinalAlbumActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_album);
         initView();
+        Toast.makeText(FinalAlbumActivity.this, ""+paper_id, Toast.LENGTH_SHORT).show();
+
         CreateProgress();
     }
 
@@ -159,7 +161,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
 
             user_id = intent.getStringExtra("user_id");
             offer_id =intent.getStringExtra("id_offer");
-            offer_id =intent.getStringExtra("paper_id");
+            paper_id =intent.getStringExtra("paper_id");
 
 
         }
