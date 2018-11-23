@@ -3,10 +3,8 @@ package com.Alatheer.Projects.lailaky.Adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,12 +23,13 @@ import java.util.List;
  * Created by Emad on 2018-04-11.
  */
 
-public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder>{
+public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder> {
 
-    private List<ImgModel> imgModelList1,imgModelList2;
+    private List<ImgModel> imgModelList1, imgModelList2;
     private Context context;
     private Target target;
     private DetailsAlbumaty detailsAlbumaty;
+
     public GalleryAdapter(List<ImgModel> imgModelList1, Context context) {
         this.imgModelList1 = imgModelList1;
 
@@ -40,7 +39,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
 
     @Override
     public myHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.gallery_row,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.gallery_row, parent, false);
         return new myHolder(view);
     }
 
@@ -54,21 +53,16 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
 //        holder.BindData2(imgModel2);
 
 
-        int pos=position;
 
-        for (int i = 0; i <imgModelList1.size(); i++) {
-            if(i == position) {
-                Log.e("fsdfsdddddd",Tags.ImgPath+imgModelList1.get(i).getImage());
-                Log.e("fsdfsdddddd",Tags.ImgPath+imgModelList1.get(i+1).getImage());
-            }
-            }
+                Picasso.with(context).load(Uri.parse(Tags.ImgPath + imgModelList1.get(position).getImage())).into(holder.gallery_Img1);
 
-                Log.e("fsdfsdddddd",Tags.ImgPath+imgModelList1.get(position).getImage());
-        Log.e("fsdfsdddddd",Tags.ImgPath+imgModelList1.get(position+1).getImage());
+                holder.gallery_Img2.setVisibility(View.GONE);
+
+//            Picasso.with(context).load(Uri.parse(Tags.ImgPath + imgModelList1.get(position).getImage())).into(holder.gallery_Img1);
+//            Picasso.with(context).load(Uri.parse(Tags.ImgPath + imgModelList1.get(position + 1).getImage())).into(holder.gallery_Img2);
 
 
-        Picasso.with(context).load(Uri.parse(Tags.ImgPath+imgModelList1.get(position).getImage())).into(holder.gallery_Img1);
-        Picasso.with(context).load(Uri.parse(Tags.ImgPath+imgModelList1.get(position+1).getImage())).into(holder.gallery_Img2);
+
 
 
 
@@ -185,4 +179,5 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
 //        }
 
 
-    }}
+    }
+}

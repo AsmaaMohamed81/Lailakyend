@@ -229,6 +229,8 @@ public class DisplayImagesActivity extends AppCompatActivity {
         instance = FinalAlbumImage.getInstance();
         bitmapList = new ArrayList<>();
         getDataFromIntent();
+        //Toast.makeText(this, "noo"+paper_id, Toast.LENGTH_SHORT).show();
+
         bottom_root = findViewById(R.id.bottom_root);
         bottomSheetBehavior = BottomSheetBehavior.from(bottom_root);
         card_container = findViewById(R.id.card_container);
@@ -647,7 +649,6 @@ public class DisplayImagesActivity extends AppCompatActivity {
             Log.e("fclassic",album_size+"");
             Log.e("fclassic",user_id+"");
             Log.e("fclassic",offer_id+"");
-            Toast.makeText(this, ""+paper_id, Toast.LENGTH_SHORT).show();
 
             UpdateUi(type,pos);
         }

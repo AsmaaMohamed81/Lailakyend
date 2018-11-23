@@ -105,13 +105,13 @@ public class DetailsAlbumaty extends AppCompatActivity {
                 .setPivotY(Pivot.Y.BOTTOM) // CENTER is a default one
                 .build());
 
-//       recView.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {
-//           @Override
-//           public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int adapterPosition) {
-//               int page=adapterPosition+1;
-//               counter.setText("<"+page+"/"+uriList.size()+">");
-//           }
-//       });
+       recView.addOnItemChangedListener(new DiscreteScrollView.OnItemChangedListener<RecyclerView.ViewHolder>() {
+           @Override
+           public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int adapterPosition) {
+               int page=adapterPosition+1;
+               counter.setText("<"+page+"/"+uriList1.size()+">");
+           }
+       });
 
     }
 

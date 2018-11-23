@@ -21,12 +21,10 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.Alatheer.Projects.lailaky.ApiServices.Preferences;
-import com.Alatheer.Projects.lailaky.ApiServices.Tags;
 import com.Alatheer.Projects.lailaky.Models.UserModel;
 import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.Users;
 import com.Alatheer.Projects.lailaky.share.Common;
-
 
 import java.util.Locale;
 
@@ -193,6 +191,7 @@ public class MainActivity extends AppCompatActivity
             if (userModel!=null)
             {
                 Intent i = new Intent(MainActivity.this,Confirm_SignUPActivity.class);
+                i.putExtra("user_id",user_id);
                 startActivity(i);
             }else
             {

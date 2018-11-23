@@ -57,6 +57,9 @@ public class Fragment_Poster extends Fragment {
             paper_id = bundle.getString(TAG4);
 
             album_size = bundle.getInt(TAG3);
+
+        //    Toast.makeText(getActivity(), ""+paper_id, Toast.LENGTH_SHORT).show();
+
         }
         Images = new ArrayList<>();
         context =view.getContext();

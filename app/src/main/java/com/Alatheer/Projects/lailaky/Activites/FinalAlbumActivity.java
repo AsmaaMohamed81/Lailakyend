@@ -57,7 +57,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_album);
         initView();
-        Toast.makeText(FinalAlbumActivity.this, ""+paper_id, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(FinalAlbumActivity.this, ""+paper_id, Toast.LENGTH_SHORT).show();
 
         CreateProgress();
     }

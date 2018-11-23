@@ -95,4 +95,17 @@ public interface Services {
 
     @GET("Api/papers")
     Call<List<PaperModel>> getTypePaper();
+
+    @GET("Api/personalData/{user_id}")
+    Call<UserModel> personaldata(@Path("user_id") String user_id);
+
+    @FormUrlEncoded
+    @POST("Api/updatePersonalData")
+    Call<UserModel> Updatepersonaldata(@Field("address") String address,
+                                           @Field("city") String city,
+                                           @Field("governate") String governate,
+                                           @Field("user_email") String mail,
+                                           @Field("user_phone") String phone
+                                           ,@Field("user_id") String user_id);
+
 }

@@ -55,6 +55,8 @@ public class Fragment_Pinboard extends Fragment {
             offer_id = bundle.getString(TAG2);
             paper_id = bundle.getString(TAG4);
             album_size = bundle.getInt(TAG3);
+        ///    Toast.makeText(getActivity(), ""+paper_id, Toast.LENGTH_SHORT).show();
+
 
 
         }

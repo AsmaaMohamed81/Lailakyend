@@ -80,7 +80,7 @@ public class TypeePaperActivity extends AppCompatActivity {
             public void onResponse(Call<List<PaperModel>> call, Response<List<PaperModel>> response) {
 
                 if (response.isSuccessful()) {
-                    Toast.makeText(TypeePaperActivity.this, "yasss", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(TypeePaperActivity.this, "yasss", Toast.LENGTH_SHORT).show();
 
                     if (response.body().size() > 0) {
 

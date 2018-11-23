@@ -10,11 +10,38 @@ public class UserModel {
     private String user_pass;
     private String user_email;
     private String user_phone;
+    private String address;
+    private String governate;
+    private String city;
     private String token_id;
     private int success;
     private String message;
 
     public UserModel() {
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getGovernate() {
+        return governate;
+    }
+
+    public void setGovernate(String governate) {
+        this.governate = governate;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public UserModel(String user_id, String user_name, String user_pass, String user_email, String user_phone, String token_id, int success, String message) {

@@ -107,7 +107,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
 
                     if (response.body()!=null)
                     {
-                        Toast.makeText(ContactActivity.this, "yesssssssssssss", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(ContactActivity.this, "yesssssssssssss", Toast.LENGTH_SHORT).show();
 
                         mail.setText(response.body().getEmail_info());
                         web.setText(response.body().getWeb_info());

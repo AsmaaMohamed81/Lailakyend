@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.TypeePaperActivity;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
@@ -101,9 +100,9 @@ public class Adapter_Paper extends RecyclerView.Adapter<Adapter_Paper.ViewHolder
 
                     Paper_id=paper_id.getText()+"";
 
-                    Toast.makeText(Adapter_Paper.this.context,
-                            "selected offer is " + Paper_id,
-                            Toast.LENGTH_LONG).show();
+//                    Toast.makeText(Adapter_Paper.this.context,
+//                            "selected offer is " + Paper_id,
+//                            Toast.LENGTH_LONG).show();
 
                     notifyDataSetChanged();
 

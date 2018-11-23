@@ -12,7 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
 import com.Alatheer.Projects.lailaky.Adapter.ClassicImagesAdapter;
@@ -62,7 +61,8 @@ public class Fragment_Classic extends Fragment {
             Log.e("fclassic",album_size+"");
             Log.e("fclassic",user_id+"");
             Log.e("fclassic",offer_id+"");
-            Toast.makeText(context, ""+paper_id, Toast.LENGTH_SHORT).show();
+        //    Toast.makeText(getActivity(), ""+paper_id, Toast.LENGTH_SHORT).show();
+
         }
         Images = new ArrayList<>();
         context =view.getContext();
@@ -110,6 +110,8 @@ public class Fragment_Classic extends Fragment {
         intent.putExtra("album_size",album_size);
         intent.putExtra("user_id",user_id);
         intent.putExtra("id_offer",offer_id);
+        intent.putExtra("paper_id",paper_id);
+
 
         context.startActivity(intent);
     }

@@ -65,7 +65,7 @@
         android:visibility="gone"
  />
 
-    <Button
+    <TextView
         android:layout_gravity="center"
         android:id="@+id/choose"
         android:layout_width="match_parent"
