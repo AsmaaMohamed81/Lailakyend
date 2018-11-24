@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -57,8 +58,9 @@ public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchLis
     private float newRot = 0f;
     private float[] lastEvent = null;
     private int count=0;
-    private LinearLayout root;
+    private FrameLayout root;
     FinalAlbumImage instance;
+    private EditText textframe;
 
     @Nullable
     @Override
@@ -81,6 +83,8 @@ public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchLis
         activity = (DisplayImagesActivity) getActivity();
         shape1 = view.findViewById(R.id.shape1);
         shape2 = view.findViewById(R.id.shape2);
+
+        textframe=view.findViewById(R.id.textframe);
 
         shape1_icon = view.findViewById(R.id.shape1_icon);
         shape2_icon = view.findViewById(R.id.shape2_icon);

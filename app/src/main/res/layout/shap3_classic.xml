@@ -1,212 +1,252 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:id="@+id/root"
+
+
     >
 
-    <LinearLayout
-        android:layout_width="0dp"
+    <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            />
+            android:orientation="vertical">
 
-        <FrameLayout
-            android:id="@+id/f2"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:padding="2dp"
-            >
-            <net.karthikraj.shapesimage.ShapesImage
-                android:id="@+id/shape2"
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@color/colorPrimary"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/f2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
                 android:layout_weight="1"
-                android:scaleType="matrix"
+                android:padding="2dp">
 
-                />
-            <ImageView
-                android:id="@+id/shape2_icon"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_gravity="center"
-                android:src="@drawable/gallery"
-                android:padding="10dp"
+                <net.karthikraj.shapesimage.ShapesImage
+                    android:id="@+id/shape2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="matrix"
+                    android:src="@color/colorPrimary"
 
-                />
-        </FrameLayout>
+                    />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
+                <ImageView
+                    android:id="@+id/shape2_icon"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:src="@drawable/gallery"
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:layout_margin="2dp"
+                    />
+            </FrameLayout>
 
-        >
-        <FrameLayout
-            android:id="@+id/f1"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:padding="2dp"
+            android:orientation="vertical"
 
             >
-            <net.karthikraj.shapesimage.ShapesImage
-                android:id="@+id/shape1"
+
+            <FrameLayout
+                android:id="@+id/f1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@color/colorPrimary"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:scaleType="matrix"
+                android:padding="2dp"
 
-                />
-            <ImageView
-                android:id="@+id/shape1_icon"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_gravity="center"
-                android:src="@drawable/gallery"
-                android:padding="10dp"
-                />
-        </FrameLayout>
+                >
 
-        <FrameLayout
-            android:id="@+id/f5"
+                <net.karthikraj.shapesimage.ShapesImage
+                    android:id="@+id/shape1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="matrix"
+                    android:src="@color/colorPrimary"
 
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="2dp"
-            android:padding="2dp"
+                    />
 
-            >
-            <net.karthikraj.shapesimage.ShapesImage
-                android:id="@+id/shape5"
+                <ImageView
+                    android:id="@+id/shape1_icon"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:src="@drawable/gallery" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/f5"
+
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@color/colorPrimary"
-                android:layout_weight="1"
+                android:layout_height="0dp"
                 android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:scaleType="matrix"
-
-
-                />
-            <ImageView
-                android:id="@+id/shape5_icon"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_gravity="center"
-                android:src="@drawable/gallery"
-                android:padding="10dp"
-
-                />
-        </FrameLayout>
-        <FrameLayout
-            android:id="@+id/f3"
-
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:padding="2dp"
-
-
-            >
-            <net.karthikraj.shapesimage.ShapesImage
-                android:id="@+id/shape3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@color/colorPrimary"
                 android:layout_weight="1"
-                android:layout_marginTop="2dp"
-                android:layout_marginBottom="2dp"
-                android:scaleType="matrix"
+                android:padding="2dp"
 
-                />
-            <ImageView
-                android:id="@+id/shape3_icon"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_gravity="center"
-                android:src="@drawable/gallery"
-                android:padding="10dp"
+                >
 
-                />
-        </FrameLayout>
+                <net.karthikraj.shapesimage.ShapesImage
+                    android:id="@+id/shape5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    android:scaleType="matrix"
+                    android:src="@color/colorPrimary"
 
+
+                    />
+
+                <ImageView
+                    android:id="@+id/shape5_icon"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:src="@drawable/gallery"
+
+                    />
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/f3"
+
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+
+
+                >
+
+                <net.karthikraj.shapesimage.ShapesImage
+                    android:id="@+id/shape3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_weight="1"
+                    android:scaleType="matrix"
+                    android:src="@color/colorPrimary"
+
+                    />
+
+                <ImageView
+                    android:id="@+id/shape3_icon"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:src="@drawable/gallery"
+
+                    />
+
+
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <FrameLayout
+                android:id="@+id/f4"
+
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:padding="2dp"
+
+                >
+
+                <net.karthikraj.shapesimage.ShapesImage
+                    android:id="@+id/shape4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scaleType="matrix"
+                    android:src="@color/colorPrimary"
+
+                    />
+
+                <ImageView
+                    android:id="@+id/shape4_icon"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:padding="10dp"
+                    android:src="@drawable/gallery"
+
+                    />
+            </FrameLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
 
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-         />
+    <EditText
+        android:id="@+id/textframe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:background="@drawable/select_bg"
+        android:hint="  أضغط لأضافه نص "
+        android:padding="6dp"
+        android:cursorVisible="false"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="15sp"
 
-        <FrameLayout
-            android:id="@+id/f4"
 
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:padding="2dp"
 
-            >
-            <net.karthikraj.shapesimage.ShapesImage
-                android:id="@+id/shape4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@color/colorPrimary"
-                android:layout_weight="1"
-                android:scaleType="matrix"
+        />
 
-                />
-            <ImageView
-                android:id="@+id/shape4_icon"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_gravity="center"
-                android:src="@drawable/gallery"
-                android:padding="10dp"
-
-                />
-        </FrameLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</FrameLayout>

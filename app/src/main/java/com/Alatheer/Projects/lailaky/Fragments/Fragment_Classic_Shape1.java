@@ -43,7 +43,7 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
     private int img3_selected = 0;
     private int img4_selected = 0;
     private int img5_selected = 0;
-    private LinearLayout root;
+    private FrameLayout root;
 
 
     private Matrix matrix = new Matrix();
