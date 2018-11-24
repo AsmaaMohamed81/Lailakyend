@@ -53,13 +53,18 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
 //        holder.BindData2(imgModel2);
 
 
+       if (position+1>=imgModelList1.size()){
+           Picasso.with(context).load(Uri.parse(Tags.ImgPath + imgModelList1.get(position).getImage())).into(holder.gallery_Img1);
 
-                Picasso.with(context).load(Uri.parse(Tags.ImgPath + imgModelList1.get(position).getImage())).into(holder.gallery_Img1);
+//           holder.gallery_Img2.setVisibility(View.GONE);
+       }else {
 
-                holder.gallery_Img2.setVisibility(View.GONE);
 
-//            Picasso.with(context).load(Uri.parse(Tags.ImgPath + imgModelList1.get(position).getImage())).into(holder.gallery_Img1);
-//            Picasso.with(context).load(Uri.parse(Tags.ImgPath + imgModelList1.get(position + 1).getImage())).into(holder.gallery_Img2);
+           Picasso.with(context).load(Uri.parse(Tags.ImgPath + imgModelList1.get(position).getImage())).into(holder.gallery_Img1);
+           Picasso.with(context).load(Uri.parse(Tags.ImgPath + imgModelList1.get(position + 1).getImage())).into(holder.gallery_Img2);
+
+       }
+
 
 
 

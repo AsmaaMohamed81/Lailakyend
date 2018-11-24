@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -66,7 +67,7 @@ public class confirmEmail_ForgetPass extends AppCompatActivity {
 //                Intent intent=new Intent(confirmEmail_ForgetPass.this,Signup.class);
 //                intent.putExtra("mail",mail.getText().toString());
 //                startActivity(intent);
-
+                Log.e("forget", mail.getText().toString());
 
                 Retrofit retrofit = Api.getClient();
                 Services services = retrofit.create(Services.class);
@@ -75,18 +76,43 @@ public class confirmEmail_ForgetPass extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<UserModel> call, Response<UserModel> response) {
 
-                        dialog.dismiss();
 
-                        Intent intent = new Intent(confirmEmail_ForgetPass.this, LoginActivity.class);
-                        intent.putExtra("mail", mail.getText().toString());
-                        startActivity(intent);
+
+                        if (response.isSuccessful())
+                        {
+
+                            dialog.dismiss();
+
+                            if (response.body().getSuccess()==1)
+                            {
+
+                                dialog.dismiss();
+                                Toast.makeText(confirmEmail_ForgetPass.this, "افحص ايميلك ", Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(confirmEmail_ForgetPass.this, LoginActivity.class);
+                                intent.putExtra("mail", mail.getText().toString());
+                                startActivity(intent);
+
+
+                            }else if (response.body().getSuccess()==0)
+                            {
+                                Toast.makeText(confirmEmail_ForgetPass.this, "no Internet", Toast.LENGTH_SHORT).show();
+
+                            }
+                            else if (response.body().getSuccess()==2) {
+                                Toast.makeText(confirmEmail_ForgetPass.this, "this mail not Register", Toast.LENGTH_SHORT).show();
+
+                            }
+                            }
 
                     }
 
                     @Override
                     public void onFailure(Call<UserModel> call, Throwable t) {
-                        Toast.makeText(confirmEmail_ForgetPass.this, "nooooooo", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
 
+
+                        Log.e("forget",t+"");
                     }
                 });
 
