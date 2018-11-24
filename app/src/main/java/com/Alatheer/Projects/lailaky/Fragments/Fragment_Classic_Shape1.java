@@ -68,6 +68,7 @@ public class Fragment_Classic_Shape1 extends Fragment implements View.OnTouchLis
         initView(view);
         return view;
     }
+
     public static Fragment_Classic_Shape1 getInstance(String user_id, String offer_id, String paper_id, int album_size)
     {
         Fragment_Classic_Shape1 fragment = new Fragment_Classic_Shape1();

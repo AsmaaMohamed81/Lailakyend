@@ -340,6 +340,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
         {
             switch (this.pos)
             {
+
                 case 0:
                     //classicShape1.getImageUri(uri);
                     bitmapList.clear();
