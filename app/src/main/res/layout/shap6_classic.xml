@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="horizontal"
+
+
+            >
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:paddingTop="50dp"
-    android:layout_marginBottom="50dp"
-    android:id="@+id/root"
+    android:layout_marginBottom="70dp"
+    android:layout_marginTop="20dp"
 
     >
 
@@ -94,7 +117,33 @@
             android:padding="10dp"
 
             />
+
     </FrameLayout>
 
 
 </LinearLayout>
+
+            <EditText
+                android:id="@+id/textframe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:background="@drawable/select_bg"
+                android:cursorVisible="false"
+                android:hint="  أضغط لأضافه نص "
+                android:padding="6dp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="15sp"
+                android:layout_marginBottom="70dp"
+
+
+                />
+        </FrameLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+</ScrollView>

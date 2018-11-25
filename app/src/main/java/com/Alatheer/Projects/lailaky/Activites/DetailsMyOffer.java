@@ -60,7 +60,7 @@ public class DetailsMyOffer extends AppCompatActivity {
         gallary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(DetailsMyOffer.this,DetailsAlbumaty.class);
+                Intent i = new Intent(DetailsMyOffer.this,CoverActivity.class);
                 i.putExtra("id_album",id_album);
                 i.putExtra("album_size",album_size);
                 startActivity(i);
