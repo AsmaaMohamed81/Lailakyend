@@ -130,8 +130,15 @@ public class FinalAlbumActivity extends AppCompatActivity {
                             dialog.dismiss();
                             if (response.body().getSuccess_upload()==1)
                             {
-                                ClearData();
+                         //   ClearData();
+
+
                                 Toast.makeText(FinalAlbumActivity.this, "تم رفع صور الالبوم بنجاح", Toast.LENGTH_SHORT).show();
+
+                                Intent intent =new Intent(FinalAlbumActivity.this,Credit.class);
+                                startActivity(intent);
+
+
                             }else if (response.body().getSuccess_upload()==0)
                             {
                                 Toast.makeText(FinalAlbumActivity.this, "فشل لم يتم رفع الالبوم حاول مره اخرى لاحقا", Toast.LENGTH_SHORT).show();
@@ -141,7 +148,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<ResponseModel> call, Throwable t) {
-                        Log.e("Error",t.getMessage());
+                        Log.e("Erroru",t.getMessage());
                         Toast.makeText(FinalAlbumActivity.this, "فشل لم يتم رفع الالبوم حاول مره اخرى لاحقا", Toast.LENGTH_SHORT).show();
                         dialog.dismiss();
                     }

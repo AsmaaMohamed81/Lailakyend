@@ -57,8 +57,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         albumgeded.setOnClickListener(this);
         albumaty.setOnClickListener(this);
-        back.setOnClickListener(this);
-        share.setOnClickListener(this);
+//        back.setOnClickListener(this);
+//        share.setOnClickListener(this);
 
 
     }

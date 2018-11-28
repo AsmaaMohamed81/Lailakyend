@@ -77,6 +77,8 @@
         <activity android:name=".Activites.confirmEmail_ForgetPass" />
         <activity android:name=".Activites.TypeePaperActivity"></activity>
         <activity android:name=".Activites.CoverActivity"></activity>
+        <activity android:name=".Activites.Credit"></activity>
+
     </application>
 
 </manifest>
