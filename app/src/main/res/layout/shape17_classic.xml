@@ -4,9 +4,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="2dp"
-    android:id="@+id/root"
 
     >
+
+    <FrameLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="horizontal"
+
+
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="2dp"
+
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -145,6 +162,22 @@
 
 
     </LinearLayout>
+    </LinearLayout>
+        <EditText
+            android:id="@+id/textframe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:background="@drawable/select_bg"
+            android:cursorVisible="false"
+            android:hint="  أضغط لأضافه نص "
+            android:padding="6dp"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="15sp"
 
 
+            />
+
+    </FrameLayout>
 </LinearLayout>

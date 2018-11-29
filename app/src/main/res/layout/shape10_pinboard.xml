@@ -4,10 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/root"
 
     >
+    <FrameLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
     <FrameLayout
         android:id="@+id/f1"
         android:layout_width="match_parent"
@@ -128,6 +137,22 @@
             android:padding="15dp"
             />
     </FrameLayout>
+        </RelativeLayout>
+    <EditText
+        android:id="@+id/textframe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:background="@drawable/select_bg"
+        android:cursorVisible="false"
+        android:hint="  أضغط لأضافه نص "
+        android:padding="6dp"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textSize="15sp"
 
+
+        />
+    </FrameLayout>
 
 </RelativeLayout>

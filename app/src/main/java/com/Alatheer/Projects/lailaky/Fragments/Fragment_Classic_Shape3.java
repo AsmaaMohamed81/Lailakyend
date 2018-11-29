@@ -140,6 +140,10 @@ public class Fragment_Classic_Shape3 extends Fragment implements View.OnTouchLis
     {
        f1.setBackgroundResource(R.drawable.transparent_bg);
        f2.setBackgroundResource(R.drawable.transparent_bg);
+        if (textframe.getText().toString().trim().length() == 0){
+
+            textframe.setVisibility(View.GONE);
+        }
 
         root.setDrawingCacheEnabled(true);
         Bitmap bitmap = Bitmap.createBitmap(root.getDrawingCache());

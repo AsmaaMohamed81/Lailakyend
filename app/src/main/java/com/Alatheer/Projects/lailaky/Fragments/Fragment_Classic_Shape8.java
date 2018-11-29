@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -59,6 +60,7 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
     private int count=0;
     private RelativeLayout root;
     FinalAlbumImage instance;
+    private EditText textframe;
 
 
     @Nullable
@@ -88,6 +90,8 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
 
         f1 = view.findViewById(R.id.f1);
         root = view.findViewById(R.id.root);
+        textframe=view.findViewById(R.id.textframe);
+
 
 
         shape1.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +117,10 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
     {
         f1.setBackgroundResource(R.drawable.transparent_bg);
 
+        if (textframe.getText().toString().trim().length() == 0){
 
+            textframe.setVisibility(View.GONE);
+        }
         root.setDrawingCacheEnabled(true);
         Bitmap bitmap = Bitmap.createBitmap(root.getDrawingCache());
         root.setDrawingCacheEnabled(false);

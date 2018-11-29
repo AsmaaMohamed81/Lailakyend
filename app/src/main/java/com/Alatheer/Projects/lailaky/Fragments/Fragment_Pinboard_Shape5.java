@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -58,6 +59,8 @@ public class Fragment_Pinboard_Shape5 extends Fragment implements View.OnTouchLi
     private int count=0;
     FinalAlbumImage instance;
     private RelativeLayout root;
+    private EditText textframe;
+
 
     @Nullable
     @Override
@@ -82,6 +85,8 @@ public class Fragment_Pinboard_Shape5 extends Fragment implements View.OnTouchLi
         root = view.findViewById(R.id.root);
         activity = (DisplayImagesActivity) getActivity();
         shape1 = view.findViewById(R.id.shape1);
+        textframe=view.findViewById(R.id.textframe);
+
 
 
         shape1_icon = view.findViewById(R.id.shape1_icon);
@@ -152,6 +157,10 @@ public class Fragment_Pinboard_Shape5 extends Fragment implements View.OnTouchLi
     {
         f1.setBackgroundResource(R.drawable.transparent_bg);
 
+        if (textframe.getText().toString().trim().length() == 0){
+
+            textframe.setVisibility(View.GONE);
+        }
         root.setDrawingCacheEnabled(true);
         Bitmap bitmap = Bitmap.createBitmap(root.getDrawingCache());
         root.setDrawingCacheEnabled(false);

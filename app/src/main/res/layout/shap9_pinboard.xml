@@ -35,5 +35,23 @@
             android:padding="10dp"
             android:layout_marginTop="50dp"
             />
+
+
+        <EditText
+            android:id="@+id/textframe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:background="@drawable/select_bg"
+            android:cursorVisible="false"
+            android:hint="  أضغط لأضافه نص "
+            android:padding="6dp"
+            android:textColor="@color/colorPrimary"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="15sp"
+            android:layout_marginBottom="10dp"
+
+
+            />
     </FrameLayout>
 </RelativeLayout>
