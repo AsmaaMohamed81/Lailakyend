@@ -33,6 +33,7 @@ class Credit extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(Credit.this,MainActivity.class);
+                intent.putExtra("user_type","client");
                 startActivity(intent);
             }
         });
