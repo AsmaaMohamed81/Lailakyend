@@ -60,7 +60,7 @@ public class Fragment_Classic_Shape7 extends Fragment implements View.OnTouchLis
     private float newRot = 0f;
     private float[] lastEvent = null;
     private int count=0;
-    private LinearLayout root;
+    private FrameLayout root;
     FinalAlbumImage instance;
     private EditText textframe;
 
