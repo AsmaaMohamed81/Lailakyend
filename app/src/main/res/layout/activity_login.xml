@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView android:layout_width="match_parent"
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:fillViewport="true"
@@ -39,9 +40,12 @@
             android:layout_height="60dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/regist1"
-            android:gravity="center"
             android:hint="@string/username"
             android:textColor="@color/colorPrimary"
+            android:paddingRight="100dp"
+            android:paddingLeft="10dp"
+
+            android:lines="2"
             android:textColorHint="@color/colorPrimary" />
 
         <EditText
@@ -49,9 +53,11 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/password1"
-            android:gravity="center"
             android:hint="@string/pass"
             android:inputType="textPassword"
+            android:paddingRight="100dp"
+            android:paddingLeft="10dp"
+
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary" />
 

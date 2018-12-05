@@ -2,8 +2,6 @@
 <ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:layout_gravity="center"
-
     xmlns:android="http://schemas.android.com/apk/res/android" >
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -17,7 +15,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/logot2" />
 
@@ -28,7 +26,6 @@
             android:layout_gravity="center"
             android:layout_marginRight="5dp"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="20dp"
             android:gravity="center"
             android:paddingBottom="5dp"
             android:paddingLeft="5dp"
@@ -36,19 +33,18 @@
             android:paddingTop="5dp"
             android:text="استوديو ليلكي للتصوير النسائي"
             android:textColor="@color/colorPrimary"
-            android:textSize="30sp"
+            android:textSize="22sp"
             android:textStyle="bold"
             app:reflectionColor="@color/back" />
 
-
         <TextView
-            android:id="@+id/text"
+            android:id="@+id/time_work"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="42dp"
 
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:textSize="21sp"
+            android:textSize="14sp"
             android:gravity="center_horizontal"
             android:textColor="@color/colorPrimary"
             android:background="@drawable/et_update_profile"
@@ -57,10 +53,11 @@
             android:text="مواعيد العمل من الساعه 9 صباحا الي الساعه 11 ليلا جميع ايام الاسبوع ماعدا الجمعه "
 
             />
+
         <TextView
             android:id="@+id/email"
             android:layout_width="match_parent"
-            android:layout_height="84dp"
+            android:layout_height="42dp"
 
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -69,16 +66,16 @@
             android:textSize="14sp"
             android:gravity="center_vertical"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
             android:background="@drawable/et_update_profile"
             android:layout_marginTop="5dp"
 
+
+
             />
         <TextView
-            android:id="@+id/phone"
+            android:id="@+id/contact_phone"
             android:layout_width="match_parent"
-            android:layout_height="84dp"
-
+            android:layout_height="42dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:drawableLeft="@drawable/phone"
@@ -86,7 +83,6 @@
             android:textSize="14sp"
             android:gravity="center_vertical"
             android:textColor="@color/colorPrimary"
-            android:enabled="false"
             android:background="@drawable/et_update_profile"
             android:layout_marginTop="5dp"
 
@@ -95,31 +91,30 @@
         <TextView
             android:id="@+id/web"
             android:layout_width="match_parent"
-            android:layout_height="84dp"
+            android:layout_height="42dp"
 
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:drawableLeft="@drawable/phone"
+            android:drawableLeft="@drawable/link"
             android:drawablePadding="5dp"
             android:textSize="14sp"
             android:gravity="center_vertical"
             android:textColor="@color/colorPrimary"
             android:background="@drawable/et_update_profile"
             android:layout_marginTop="5dp"
-            android:layout_gravity="center_vertical"
 
             />
 
         <TextView
             android:id="@+id/mapk"
             android:layout_width="match_parent"
-            android:layout_height="84dp"
+            android:layout_height="42dp"
 
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:drawableLeft="@drawable/map"
             android:drawablePadding="5dp"
-            android:textSize="30sp"
+            android:textSize="14sp"
             android:gravity="center_vertical"
             android:textColor="@color/colorPrimary"
             android:text="@string/location"
@@ -150,28 +145,30 @@
                     <EditText
                         android:id="@+id/edt_name"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="50dp"
                         android:layout_marginBottom="10dp"
                         android:hint="@string/name"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:textSize="30sp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textSize="13sp"
                         android:background="@drawable/edt_bg"
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/colorPrimary" />
                     <EditText
                         android:id="@+id/edt_mail"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="50dp"
                         android:layout_marginBottom="10dp"
                         android:inputType="textEmailAddress"
                         android:hint="@string/email"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:textSize="30sp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textSize="13sp"
+
                         android:background="@drawable/edt_bg"
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/colorPrimary"/>
+
                     <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -179,7 +176,6 @@
                         android:layout_marginBottom="10dp"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
-
                         >
                         <com.lamudi.phonefield.PhoneInputLayout
                             android:id="@+id/edt_phone"
@@ -195,12 +191,14 @@
                     <EditText
                         android:id="@+id/edt_message"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"
+                        android:layout_height="150dp"
                         android:layout_marginBottom="10dp"
                         android:hint="@string/message"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:textSize="30sp"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:textSize="13sp"
+                        android:gravity="top"
+                        android:paddingTop="10dp"
                         android:background="@drawable/edt_bg"
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/colorPrimary" />
@@ -210,12 +208,11 @@
             <Button
                 android:id="@+id/btn_contact"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="80dp"
                 android:textColor="@color/colorPrimary"
                 android:text="@string/send"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:textSize="30sp"
                 android:background="@drawable/profile_btn"/>
         </LinearLayout>
 

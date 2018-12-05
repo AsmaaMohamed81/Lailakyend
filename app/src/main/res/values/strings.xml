@@ -9,7 +9,7 @@
     <string name="Skip">Visitor</string>
     <string name="registerMassege">Do you have account ?</string>
 
-    <string name="details">details</string>
+    <string name="details">details : </string>
     <string name="view">view</string>
     <string name="book">book</string>
     <string name="subject">Subject</string>
@@ -77,8 +77,8 @@
     <string name="enter_name">Name require</string>
     <string name="email_require">Email require</string>
     <string name="enter_msg">Enter your message</string>
-    <string name="price">Price</string>
-    <string name="album_size">Album page size</string>
+    <string name="price">Price : </string>
+    <string name="album_size">Album page size : </string>
     <string name="upl_image">Upload album images....</string>
     <string name="view2">View</string>
     <string name="another_page">Another page</string>

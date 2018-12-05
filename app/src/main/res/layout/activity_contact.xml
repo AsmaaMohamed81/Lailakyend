@@ -66,16 +66,14 @@
         android:textSize="14sp"
         android:gravity="center_vertical"
         android:textColor="@color/colorPrimary"
-        android:enabled="false"
         android:background="@drawable/et_update_profile"
         android:layout_marginTop="5dp"
-        android:text="sajdhjsadhjshdjsk"
 
 
 
         />
     <TextView
-        android:id="@+id/phone"
+        android:id="@+id/contact_phone"
         android:layout_width="match_parent"
         android:layout_height="42dp"
         android:layout_marginLeft="10dp"
@@ -85,10 +83,8 @@
         android:textSize="14sp"
         android:gravity="center_vertical"
         android:textColor="@color/colorPrimary"
-        android:enabled="false"
         android:background="@drawable/et_update_profile"
         android:layout_marginTop="5dp"
-        android:text="ashajshjakshaas"
 
         />
 

@@ -2,6 +2,7 @@ package com.Alatheer.Projects.lailaky.Activites;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -37,7 +38,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
     private Shimmer shimmer;
     private ShimmerTextView offer_txt;
     private EditText name,email,message;
-    private TextView mail,web,mob,map,time_work;
+    private TextView mail,web,mobile,map,time_work;
     private Button send;
     private PhoneInputLayout edt_phone;
     double lat,lang;
@@ -76,7 +77,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
         edt_phone.getTextInputLayout().getEditText().setHintTextColor(ContextCompat.getColor(this,R.color.colorPrimary));
         edt_phone.getTextInputLayout().getEditText().setText(getString(R.string.phone));
         mail=findViewById(R.id.email);
-        mob=findViewById(R.id.phone);
+        mobile=findViewById(R.id.contact_phone);
         web=findViewById(R.id.web);
         map=findViewById(R.id.mapk);
         time_work=findViewById(R.id.time_work);
@@ -89,6 +90,51 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
                 intent.putExtra("lat",lat);
                 intent.putExtra("lang",lang);
                 startActivity(intent);
+            }
+        });
+
+        mail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(Intent.ACTION_SEND);
+                intent.setData(Uri.parse("mailto:"));
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_EMAIL, mail.getText().toString());
+                intent.putExtra(Intent.EXTRA_SUBJECT, "استفسارت");
+                intent.putExtra(Intent.EXTRA_TEXT, "Email message goes here");
+
+                try {
+                    startActivity(Intent.createChooser(intent, "Send mail..."));
+                    finish();
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(ContactActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+
+        web.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("http://"+web.getText().toString()));
+                startActivity(i);
+
+            }
+        });
+
+         mobile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Toast.makeText(ContactActivity.this, "hghgg", Toast.LENGTH_SHORT).show();
+
+                Intent intent=new Intent(Intent.ACTION_DIAL,Uri.fromParts("tel",mobile.getText().toString(),null));
+                startActivity(intent);
+
+
             }
         });
 
@@ -111,7 +157,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
 
                         mail.setText(response.body().getEmail_info());
                         web.setText(response.body().getWeb_info());
-                        mob.setText(response.body().getTele_info());
+                        mobile.setText(response.body().getTele_info());
                         time_work.setText(response.body().getTime_work());
 
                         lat=response.body().getLocation_google_lat();

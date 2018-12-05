@@ -45,6 +45,10 @@
             android:background="@drawable/regist1"
             android:gravity="center"
             android:hint="@string/username"
+            android:paddingRight="100dp"
+            android:paddingLeft="10dp"
+
+            android:lines="2"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary" />
 
@@ -56,6 +60,9 @@
             android:gravity="center"
             android:hint="@string/pass"
             android:inputType="textPassword"
+            android:paddingRight="100dp"
+            android:paddingLeft="10dp"
+
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary" />
 

@@ -12,7 +12,7 @@
     <string name="registerMassege">لا يوجد لديك حساب ؟</string>
     <string name="title_activity_maps">الخريطة</string>
 
-    <string name="details">التفاصيل</string>
+    <string name="details">التفاصـيل : </string>
     <string name="view">عرض</string>
     <string name="book">احجز</string>
     <string name="subject">العنوان</string>
@@ -76,8 +76,8 @@
     <string name="enter_name">أدخل الاسم</string>
     <string name="email_require">أدخل البريد الالكتروني</string>
     <string name="enter_msg">أدخل الرسالة</string>
-    <string name="price">السعر</string>
-    <string name="album_size">عدد صفحات الالبوم</string>
+    <string name="price">السعر : </string>
+    <string name="album_size">عدد صفحات الالبوم : </string>
     <string name="upl_image">جار رفع صور الالبوم....</string>
     <string name="view2">مشاهده</string>
     <string name="another_page">صفحة اخرى</string>
