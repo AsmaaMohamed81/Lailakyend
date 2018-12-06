@@ -37,6 +37,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     implementation 'com.android.support:design:27.1.1'
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'
+    implementation 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
+
 
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation 'com.romainpiel.shimmer:library:1.4.0@aar'

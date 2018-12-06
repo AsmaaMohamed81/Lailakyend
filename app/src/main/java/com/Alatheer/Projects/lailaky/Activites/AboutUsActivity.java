@@ -12,6 +12,7 @@ import com.Alatheer.Projects.lailaky.ApiServices.Services;
 import com.Alatheer.Projects.lailaky.Models.AboutUsModel;
 import com.Alatheer.Projects.lailaky.R;
 
+import net.cachapa.expandablelayout.ExpandableLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,10 +70,11 @@ public class AboutUsActivity extends AppCompatActivity {
 
     private void initView() {
         recyclerView=findViewById(R.id.about_rec);
+
         modelaboutList=new ArrayList<>();
         recyclerView.setLayoutManager(new LinearLayoutManager(AboutUsActivity.this));
         recyclerView.setHasFixedSize(true);
-        aboutAdapter = new AboutAdapter(modelaboutList,AboutUsActivity.this);
+        aboutAdapter = new AboutAdapter(modelaboutList,AboutUsActivity.this,recyclerView);
         recyclerView.setAdapter(aboutAdapter);
 
     }
