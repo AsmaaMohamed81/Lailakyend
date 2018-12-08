@@ -49,29 +49,6 @@ public class AboutAdapter extends RecyclerView.Adapter<AboutAdapter.Holder> {
 
         holder.bind();
 
-//        expand_layout.collapse(true);
-//
-//        modelabout=aboutUsModels.get(position);
-//
-//
-//        holder.title.setText(modelabout.getTitle());
-//        holder.content.setText(modelabout.getContent());
-//        holder.title.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                if(expand_layout.isExpanded()){
-//                    expand_layout.collapse(true);
-//
-//                }else {
-//
-//                    expand_layout.expand(true);
-//
-//                }
-//
-//
-//            }
-//        });
 
 
 

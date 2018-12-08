@@ -85,7 +85,7 @@
     <string name="img_not_eno">Album is full</string>
     <string name="do_se">Do you want to select other pages to upload?. or View images.\n</string>
     <string name="rem">Remain</string>
-    <string name="sel_min">Select minimum 5 photo</string>
+    <string name="sel_min">Press long and Select minimum 5 photo</string>
     <string name="show_photo">Show photo</string>
     <string name="page">Page</string>
     <string name="sar">SAR</string>
@@ -103,7 +103,7 @@
     <string name="city">City</string>
     <string name="forgetPass">Forgot Password?</string>
     <string name="complement">Complete Information</string>
-    <string name="sendmail">انتظر حتي يتم ارسال الايميل</string>
-    <string name="choose">اختيار</string>
+    <string name="sendmail">Wait Until Send Email .. </string>
+    <string name="choose">Choose</string>
 
 </resources>
