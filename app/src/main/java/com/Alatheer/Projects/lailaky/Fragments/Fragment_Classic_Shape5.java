@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
@@ -63,6 +64,8 @@ public class Fragment_Classic_Shape5 extends Fragment implements View.OnTouchLis
     private FrameLayout root;
     FinalAlbumImage instance;
     private EditText textframe;
+    int finalHeight, finalWidth;
+
 
 
     @Nullable
@@ -229,6 +232,15 @@ public class Fragment_Classic_Shape5 extends Fragment implements View.OnTouchLis
     public void getImageUri(String uri)
     {
         Bitmap bitmap = BitmapFactory.decodeFile(uri);
+
+        finalWidth=bitmap.getWidth();
+        finalHeight=bitmap.getHeight();
+
+        if (finalHeight<100||finalWidth<100){
+
+            Toast.makeText(activity, R.string.night, Toast.LENGTH_LONG).show();
+        }
+        else {
         if (bitmap1==null)
         {
 
@@ -349,7 +361,7 @@ public class Fragment_Classic_Shape5 extends Fragment implements View.OnTouchLis
 
 
 
-        }
+        }}
     }
 
     public static Fragment_Classic_Shape5 getInstance(String user_id, String offer_id, String paper_id, int album_size)

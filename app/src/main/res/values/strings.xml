@@ -105,5 +105,6 @@
     <string name="complement">Complete Information</string>
     <string name="sendmail">Wait Until Send Email .. </string>
     <string name="choose">Choose</string>
+    <string name="night">لا يمكن وضع هذه الصوره لان حجمها اقل من المطلوب</string>
 
 </resources>

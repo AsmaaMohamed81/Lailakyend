@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
@@ -59,6 +60,8 @@ public class Fragment_Poster_Frame22 extends Fragment implements View.OnTouchLis
     private int count=0;
     private FrameLayout root;
     FinalAlbumImage instance;
+    int finalHeight, finalWidth;
+
 
     @Nullable
     @Override
@@ -191,6 +194,14 @@ public class Fragment_Poster_Frame22 extends Fragment implements View.OnTouchLis
     public void getImageUri(String uri)
     {
         Bitmap bitmap = BitmapFactory.decodeFile(uri);
+        finalWidth=bitmap.getWidth();
+        finalHeight=bitmap.getHeight();
+
+        if (finalHeight<100||finalWidth<100){
+
+            Toast.makeText(activity, R.string.night, Toast.LENGTH_LONG).show();
+        }
+        else {
         if (bitmap1==null)
         {
 
@@ -312,7 +323,7 @@ public class Fragment_Poster_Frame22 extends Fragment implements View.OnTouchLis
 
 
         }
-    }
+    }}
     public Bitmap getBitmap()
     {
         f1.setBackgroundResource(R.drawable.transparent_bg);

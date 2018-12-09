@@ -5,12 +5,15 @@ import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.Alatheer.Projects.lailaky.Activites.DetailsAlbumaty;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
+import com.Alatheer.Projects.lailaky.Models.GalleryImagesModel;
 import com.Alatheer.Projects.lailaky.Models.ImgModel;
 import com.Alatheer.Projects.lailaky.R;
 import com.github.chrisbanes.photoview.PhotoView;
@@ -25,13 +28,12 @@ import java.util.List;
 
 public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder> {
 
-    private List<ImgModel> imgModelList1, imgModelList2;
+    private List<GalleryImagesModel> galleryImagesModelList;
     private Context context;
-    private Target target;
     private DetailsAlbumaty detailsAlbumaty;
 
-    public GalleryAdapter(List<ImgModel> imgModelList1, Context context) {
-        this.imgModelList1 = imgModelList1;
+    public GalleryAdapter(List<GalleryImagesModel> galleryImagesModelList, Context context) {
+        this.galleryImagesModelList = galleryImagesModelList;
 
         this.context = context;
         detailsAlbumaty = (DetailsAlbumaty) context;
@@ -46,54 +48,17 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
     @Override
     public void onBindViewHolder(final myHolder holder, int position) {
 
+        GalleryImagesModel galleryImagesModel = galleryImagesModelList.get(position);
 
-        ImgModel imgModel = imgModelList1.get(position);
-//         ImgModel imgModel2 = imgModelList1.get(position+1);
-//        holder.BindData(imgModel);
-//        holder.BindData2(imgModel2);
+        holder.BindData(galleryImagesModel);
 
 
-       if (position+1>=imgModelList1.size()){
-           Picasso.with(context).load(Uri.parse(Tags.ImgPath + imgModelList1.get(position).getImage())).into(holder.gallery_Img1);
-
-//           holder.gallery_Img2.setVisibility(View.GONE);
-       }else {
-
-
-           Picasso.with(context).load(Uri.parse(Tags.ImgPath + imgModelList1.get(position).getImage())).into(holder.gallery_Img1);
-           Picasso.with(context).load(Uri.parse(Tags.ImgPath + imgModelList1.get(position + 1).getImage())).into(holder.gallery_Img2);
-
-       }
-
-
-
-
-
-
-
-       /* if (detailsAlbumaty.isContextMode)
-        {
-            holder.checkbox.setVisibility(View.VISIBLE);
-
-        }else
-            {
-                holder.checkbox.setChecked(false);
-                holder.checkbox.setVisibility(View.GONE);
-
-            }
-        holder.itemView.setOnLongClickListener(detailsAlbumaty);
-        //holder.checkbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                detailsAlbumaty.SetPos(view,holder.getAdapterPosition());
-            }
-        });*/
 
     }
 
     @Override
     public int getItemCount() {
-        return imgModelList1.size();
+        return galleryImagesModelList.size();
     }
 
     public class myHolder extends RecyclerView.ViewHolder {
@@ -109,30 +74,22 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.myHolder
 
         }
 
-//        public void BindData(ImgModel imgModel)
-//        {
-//            target = new Target() {
-//                @Override
-//                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-//                    gallery_Img1.setImageBitmap(resizeBitmap(bitmap));
-//
-//                }
-//
-//                @Override
-//                public void onBitmapFailed(Drawable errorDrawable) {
-//
-//                }
-//
-//                @Override
-//                public void onPrepareLoad(Drawable placeHolderDrawable) {
-//
-//                }
-//            };
-//
-//            Log.e("fsdfsdddddd",Tags.ImgPath+imgModel.getImage());
-//            Picasso.with(context).load(Uri.parse(Tags.ImgPath+imgModel.getImage())).into(target);
-//
-//        }
+        public void BindData(GalleryImagesModel galleryImagesModel)
+        {
+
+            Log.e("imageurl1",Tags.ImgPath+galleryImagesModel.getFirst_image_name());
+
+            Picasso.with(context).load(Uri.parse(Tags.ImgPath+galleryImagesModel.getFirst_image_name())).into(gallery_Img1);
+
+            if (!TextUtils.isEmpty(galleryImagesModel.getSecond_image_name()))
+            {
+                Log.e("imageurl2",Tags.ImgPath+galleryImagesModel.getSecond_image_name());
+
+                Picasso.with(context).load(Uri.parse(Tags.ImgPath+galleryImagesModel.getSecond_image_name())).into(gallery_Img2);
+
+            }
+
+        }
 
 //
 //        public void BindData2(ImgModel imgModel2)

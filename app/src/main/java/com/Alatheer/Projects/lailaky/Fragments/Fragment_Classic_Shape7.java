@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
@@ -64,6 +65,7 @@ public class Fragment_Classic_Shape7 extends Fragment implements View.OnTouchLis
     FinalAlbumImage instance;
     private EditText textframe;
 
+    int finalHeight, finalWidth;
 
     @Nullable
     @Override
@@ -227,6 +229,15 @@ public class Fragment_Classic_Shape7 extends Fragment implements View.OnTouchLis
     public void getImageUri(String uri)
     {
         Bitmap bitmap = BitmapFactory.decodeFile(uri);
+
+        finalWidth=bitmap.getWidth();
+        finalHeight=bitmap.getHeight();
+
+        if (finalHeight<100||finalWidth<100){
+
+            Toast.makeText(activity, R.string.night, Toast.LENGTH_LONG).show();
+        }
+        else {
         if (bitmap1==null)
         {
 
@@ -318,34 +329,27 @@ public class Fragment_Classic_Shape7 extends Fragment implements View.OnTouchLis
 
         }
 
-        else if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null&&bitmap4!=null)
-        {
+        else if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null&&bitmap4!=null) {
 
-                DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
-                activity.setButtonsaveVisibility(Tags.visible_btn);
+            DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+            activity.setButtonsaveVisibility(Tags.visible_btn);
 
-            if (img1_selected==1)
-            {
+            if (img1_selected == 1) {
                 shape1.setImageBitmap(bitmap);
 
-            }else if (img2_selected==1)
-            {
+            } else if (img2_selected == 1) {
                 shape2.setImageBitmap(bitmap);
 
-            }
-            else if (img3_selected==1)
-            {
+            } else if (img3_selected == 1) {
                 shape3.setImageBitmap(bitmap);
 
-            }
-            else if (img4_selected==1)
-            {
+            } else if (img4_selected == 1) {
                 shape4.setImageBitmap(bitmap);
 
             }
 
 
-
+        }
         }
     }
     public static Fragment_Classic_Shape7 getInstance(String user_id, String offer_id, String paper_id, int album_size)

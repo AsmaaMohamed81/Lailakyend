@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
@@ -60,6 +61,7 @@ public class Fragment_Pinboard_Shape2 extends Fragment implements View.OnTouchLi
     private int count=0;
     private FrameLayout root;
     private EditText textframe;
+    int finalHeight, finalWidth;
 
 
     @Nullable
@@ -145,68 +147,65 @@ public class Fragment_Pinboard_Shape2 extends Fragment implements View.OnTouchLi
     public void getImageUri(String uri)
     {
         Bitmap bitmap = BitmapFactory.decodeFile(uri);
-        if (bitmap1==null)
-        {
+        finalWidth=bitmap.getWidth();
+        finalHeight=bitmap.getHeight();
 
-            bitmap1 = bitmap;
-            shape1.setImageBitmap(bitmap1);
-            shape1_icon.setVisibility(View.GONE);
-            f1.setBackgroundResource(R.drawable.img_selected);
-            f2.setBackgroundResource(R.drawable.img_unselected);
+        if (finalHeight<100||finalWidth<100){
 
-            img1_selected = 1;
-            img2_selected = 0;
-            if (bitmap1!=null&&bitmap2!=null)
-            {
-                DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
-                activity.setButtonsaveVisibility(Tags.visible_btn);
-            }
-            shape1.setOnTouchListener(this);
-
-
-
-        }else if (bitmap2==null)
-        {
-
-            bitmap2 = bitmap;
-            shape2.setImageBitmap(bitmap2);
-            shape2_icon.setVisibility(View.GONE);
-            f1.setBackgroundResource(R.drawable.img_unselected);
-            f2.setBackgroundResource(R.drawable.img_selected);
-            if (bitmap1!=null&&bitmap2!=null)
-            {
-                DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
-                activity.setButtonsaveVisibility(Tags.visible_btn);
-            }
-            shape2.setOnTouchListener(this);
-
-            img1_selected = 0;
-            img2_selected = 1;
-
+            Toast.makeText(activity, R.string.night, Toast.LENGTH_LONG).show();
         }
-        else if (bitmap1!=null&&bitmap2!=null)
-        {
+        else {
+            if (bitmap1 == null) {
+
+                bitmap1 = bitmap;
+                shape1.setImageBitmap(bitmap1);
+                shape1_icon.setVisibility(View.GONE);
+                f1.setBackgroundResource(R.drawable.img_selected);
+                f2.setBackgroundResource(R.drawable.img_unselected);
+
+                img1_selected = 1;
+                img2_selected = 0;
+                if (bitmap1 != null && bitmap2 != null) {
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                }
+                shape1.setOnTouchListener(this);
+
+
+            } else if (bitmap2 == null) {
+
+                bitmap2 = bitmap;
+                shape2.setImageBitmap(bitmap2);
+                shape2_icon.setVisibility(View.GONE);
+                f1.setBackgroundResource(R.drawable.img_unselected);
+                f2.setBackgroundResource(R.drawable.img_selected);
+                if (bitmap1 != null && bitmap2 != null) {
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                }
+                shape2.setOnTouchListener(this);
+
+                img1_selected = 0;
+                img2_selected = 1;
+
+            } else if (bitmap1 != null && bitmap2 != null) {
 
                 DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
                 activity.setButtonsaveVisibility(Tags.visible_btn);
 
-            if (img1_selected==1)
-            {
-                shape1.setImageBitmap(bitmap);
+                if (img1_selected == 1) {
+                    shape1.setImageBitmap(bitmap);
 
-            }else if (img2_selected==1)
-            {
-                shape2.setImageBitmap(bitmap);
+                } else if (img2_selected == 1) {
+                    shape2.setImageBitmap(bitmap);
+
+                }
+
 
             }
 
 
-
-
-        }
-
-
-    }
+        }}
     public Bitmap getBitmap()
     {
         f1.setBackgroundResource(R.drawable.transparent_bg);

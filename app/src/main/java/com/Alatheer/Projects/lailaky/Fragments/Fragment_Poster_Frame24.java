@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
@@ -59,6 +60,8 @@ public class Fragment_Poster_Frame24 extends Fragment implements View.OnTouchLis
     private int count=0;
     private FrameLayout root;
     FinalAlbumImage instance;
+    int finalHeight, finalWidth;
+
 
     @Nullable
     @Override
@@ -170,6 +173,14 @@ public class Fragment_Poster_Frame24 extends Fragment implements View.OnTouchLis
     public void getImageUri(String uri)
     {
         Bitmap bitmap = BitmapFactory.decodeFile(uri);
+        finalWidth=bitmap.getWidth();
+        finalHeight=bitmap.getHeight();
+
+        if (finalHeight<100||finalWidth<100){
+
+            Toast.makeText(activity, R.string.night, Toast.LENGTH_LONG).show();
+        }
+        else {
         if (bitmap1==null)
         {
 
@@ -235,28 +246,23 @@ public class Fragment_Poster_Frame24 extends Fragment implements View.OnTouchLis
             img2_selected = 0;
             img3_selected = 1;
 
-        } else if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null)
-        {
+        } else if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null) {
 
-                DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
-                activity.setButtonsaveVisibility(Tags.visible_btn);
+            DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+            activity.setButtonsaveVisibility(Tags.visible_btn);
 
-            if (img1_selected==1)
-            {
+            if (img1_selected == 1) {
                 shape1.setImageBitmap(bitmap);
 
-            }else if (img2_selected==1)
-            {
+            } else if (img2_selected == 1) {
                 shape2.setImageBitmap(bitmap);
 
-            }
-            else if (img3_selected==1)
-            {
+            } else if (img3_selected == 1) {
                 shape3.setImageBitmap(bitmap);
 
             }
 
-
+        }
 
         }
 

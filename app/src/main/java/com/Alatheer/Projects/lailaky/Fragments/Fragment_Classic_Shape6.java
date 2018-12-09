@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
@@ -65,6 +66,7 @@ public class Fragment_Classic_Shape6 extends Fragment implements View.OnTouchLis
     FinalAlbumImage instance;
     private EditText textframe;
 
+    int finalHeight, finalWidth;
 
     @Nullable
     @Override
@@ -206,99 +208,94 @@ public class Fragment_Classic_Shape6 extends Fragment implements View.OnTouchLis
     public void getImageUri(String uri)
     {
         Bitmap bitmap = BitmapFactory.decodeFile(uri);
-        if (bitmap1==null)
-        {
+        finalWidth=bitmap.getWidth();
+        finalHeight=bitmap.getHeight();
 
-            bitmap1 = bitmap;
-            shape1.setImageBitmap(bitmap1);
-            shape1_icon.setVisibility(View.GONE);
-            f1.setBackgroundResource(R.drawable.img_selected);
-            f2.setBackgroundResource(R.drawable.img_unselected);
-            f3.setBackgroundResource(R.drawable.img_unselected);
+        if (finalHeight<100||finalWidth<100){
 
-            img1_selected = 1;
-            img2_selected = 0;
-            img3_selected = 0;
-            shape1.setOnTouchListener(this);
-
-            if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null)
-            {
-                DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
-                activity.setButtonsaveVisibility(Tags.visible_btn);
-            }
-
-
-        }else if (bitmap2==null)
-        {
-
-            bitmap2 = bitmap;
-            shape2.setImageBitmap(bitmap2);
-            shape2_icon.setVisibility(View.GONE);
-            f1.setBackgroundResource(R.drawable.img_unselected);
-            f2.setBackgroundResource(R.drawable.img_selected);
-            f3.setBackgroundResource(R.drawable.img_unselected);
-
-            img1_selected = 0;
-            img2_selected = 1;
-            img3_selected = 0;
-            shape2.setOnTouchListener(this);
-
-            if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null)
-            {
-                DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
-                activity.setButtonsaveVisibility(Tags.visible_btn);
-            }
-
+            Toast.makeText(activity, R.string.night, Toast.LENGTH_LONG).show();
         }
-        else if (bitmap3==null)
-        {
+        else {
+            if (bitmap1 == null) {
 
-            bitmap3 = bitmap;
+                bitmap1 = bitmap;
+                shape1.setImageBitmap(bitmap1);
+                shape1_icon.setVisibility(View.GONE);
+                f1.setBackgroundResource(R.drawable.img_selected);
+                f2.setBackgroundResource(R.drawable.img_unselected);
+                f3.setBackgroundResource(R.drawable.img_unselected);
 
-            shape3.setImageBitmap(bitmap3);
-            shape3_icon.setVisibility(View.GONE);
-            f1.setBackgroundResource(R.drawable.img_unselected);
-            f2.setBackgroundResource(R.drawable.img_unselected);
-            f3.setBackgroundResource(R.drawable.img_selected);
+                img1_selected = 1;
+                img2_selected = 0;
+                img3_selected = 0;
+                shape1.setOnTouchListener(this);
 
-            img1_selected = 0;
-            img2_selected = 0;
-            img3_selected = 1;
-            shape3.setOnTouchListener(this);
+                if (bitmap1 != null && bitmap2 != null && bitmap3 != null) {
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                }
 
-            if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null)
-            {
+
+            } else if (bitmap2 == null) {
+
+                bitmap2 = bitmap;
+                shape2.setImageBitmap(bitmap2);
+                shape2_icon.setVisibility(View.GONE);
+                f1.setBackgroundResource(R.drawable.img_unselected);
+                f2.setBackgroundResource(R.drawable.img_selected);
+                f3.setBackgroundResource(R.drawable.img_unselected);
+
+                img1_selected = 0;
+                img2_selected = 1;
+                img3_selected = 0;
+                shape2.setOnTouchListener(this);
+
+                if (bitmap1 != null && bitmap2 != null && bitmap3 != null) {
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                }
+
+            } else if (bitmap3 == null) {
+
+                bitmap3 = bitmap;
+
+                shape3.setImageBitmap(bitmap3);
+                shape3_icon.setVisibility(View.GONE);
+                f1.setBackgroundResource(R.drawable.img_unselected);
+                f2.setBackgroundResource(R.drawable.img_unselected);
+                f3.setBackgroundResource(R.drawable.img_selected);
+
+                img1_selected = 0;
+                img2_selected = 0;
+                img3_selected = 1;
+                shape3.setOnTouchListener(this);
+
+                if (bitmap1 != null && bitmap2 != null && bitmap3 != null) {
+                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                }
+
+
+            } else if (bitmap1 != null && bitmap2 != null && bitmap3 != null) {
+
+
                 DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
                 activity.setButtonsaveVisibility(Tags.visible_btn);
-            }
 
+                if (img1_selected == 1) {
+                    shape1.setImageBitmap(bitmap);
 
-        } else if (bitmap1!=null&&bitmap2!=null&&bitmap3!=null)
-        {
+                } else if (img2_selected == 1) {
+                    shape2.setImageBitmap(bitmap);
 
+                } else if (img3_selected == 1) {
+                    shape3.setImageBitmap(bitmap);
 
-                DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
-                activity.setButtonsaveVisibility(Tags.visible_btn);
+                }
 
-            if (img1_selected==1)
-            {
-                shape1.setImageBitmap(bitmap);
-
-            }else if (img2_selected==1)
-            {
-                shape2.setImageBitmap(bitmap);
 
             }
-            else if (img3_selected==1)
-            {
-                shape3.setImageBitmap(bitmap);
-
-            }
-
-
-
         }
-
 
     }
     public static Fragment_Classic_Shape6 getInstance(String user_id, String offer_id, String paper_id, int album_size)

@@ -65,7 +65,11 @@ public class CoverActivity extends AppCompatActivity {
 
                 if (response.isSuccessful())
                 {
-                    Picasso.with(CoverActivity.this).load(Uri.parse(Tags.ImgPath + response.body().get(0).getImage())).into(imagecover);
+                    if (response.body().size()>0)
+                    {
+                        Picasso.with(CoverActivity.this).load(Uri.parse(Tags.ImgPath + response.body().get(0).getImage())).into(imagecover);
+
+                    }
 
 
 

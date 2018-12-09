@@ -17,6 +17,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
@@ -60,6 +61,7 @@ public class Fragment_Pinboard_Shape5 extends Fragment implements View.OnTouchLi
     FinalAlbumImage instance;
     private RelativeLayout root;
     private EditText textframe;
+    int finalHeight, finalWidth;
 
 
     @Nullable
@@ -122,6 +124,14 @@ public class Fragment_Pinboard_Shape5 extends Fragment implements View.OnTouchLi
     public void getImageUri(String uri)
     {
         Bitmap bitmap = BitmapFactory.decodeFile(uri);
+
+        finalHeight=bitmap.getHeight();
+
+        if (finalHeight<100||finalWidth<100){
+
+            Toast.makeText(activity, R.string.night, Toast.LENGTH_LONG).show();
+        }
+        else {
         if (bitmap1==null)
         {
 
@@ -151,7 +161,7 @@ public class Fragment_Pinboard_Shape5 extends Fragment implements View.OnTouchLi
             }
 
 
-        }
+        }}
     }
     public Bitmap getBitmap()
     {
