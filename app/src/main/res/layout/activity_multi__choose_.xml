@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activites.multi_Choose_Activity"
+    android:background="@drawable/background"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <Button
+        android:id="@+id/cover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edt_bg"
+        android:layout_marginBottom="15dp"
+        android:text="@string/cover"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+    <Button
+        android:id="@+id/frames"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edt_bg"
+        android:layout_marginBottom="15dp"
+        android:text="@string/frames"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+    <Button
+        android:id="@+id/twopages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edt_bg"
+        android:text="@string/twopages"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        android:textSize="15dp"/>
+
+
+
+</LinearLayout>

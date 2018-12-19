@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/background2"
     android:fitsSystemWindows="true"
     android:fillViewport="true"
     >
@@ -190,20 +190,7 @@
 
         </LinearLayout>
 
-            <Button
-                android:id="@+id/Upload"
-                android:text="@string/uploadImge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:textColor="@color/colorPrimary"
-                android:layout_gravity="center"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                android:background="@drawable/collect2"
 
-
-                />
 
 
 </LinearLayout>
@@ -230,6 +217,19 @@
             android:background="@drawable/collect2"
             android:layout_marginTop="5dp"
             />-->
+        <Button
+            android:id="@+id/Upload"
+            android:text="@string/uploadImge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:layout_gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:background="@drawable/collect2"
 
+
+            />
     </LinearLayout>
 </ScrollView>

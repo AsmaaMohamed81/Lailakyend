@@ -24,12 +24,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Adapter.ImagesAdapter;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
 import com.Alatheer.Projects.lailaky.Fragments.Fragment_Classic_Shape1;
+import com.Alatheer.Projects.lailaky.Fragments.Fragment_Cover_Shape1;
+import com.Alatheer.Projects.lailaky.Fragments.Fragment_Cover_Shape2;
 import com.Alatheer.Projects.lailaky.Fragments.Fragment_Pinboard_Shape9;
 import com.Alatheer.Projects.lailaky.Fragments.Fragment_Classic_Shape2;
 import com.Alatheer.Projects.lailaky.Fragments.Fragment_Classic_Shape3;
@@ -71,6 +74,11 @@ import com.Alatheer.Projects.lailaky.Fragments.Fragment_Poster_Frame6;
 import com.Alatheer.Projects.lailaky.Fragments.Fragment_Poster_Frame7;
 import com.Alatheer.Projects.lailaky.Fragments.Fragment_Poster_Frame8;
 import com.Alatheer.Projects.lailaky.Fragments.Fragment_Poster_Frame9;
+import com.Alatheer.Projects.lailaky.Fragments.Fragment_twopages_shape1;
+import com.Alatheer.Projects.lailaky.Fragments.Fragment_twopages_shape2;
+import com.Alatheer.Projects.lailaky.Fragments.Fragment_twopages_shape3;
+import com.Alatheer.Projects.lailaky.Fragments.Fragment_twopages_shape4;
+import com.Alatheer.Projects.lailaky.Models.typeimg;
 import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.FinalAlbumImage;
 import com.Alatheer.Projects.lailaky.share.Common;
@@ -143,7 +151,19 @@ public class DisplayImagesActivity extends AppCompatActivity {
     private Fragment_Poster_Frame24 posterframe24;
     private Fragment_Poster_Frame25 posterframe25;
 
+
+    private Fragment_twopages_shape1 fragmentTwopagesShape1;
+    private Fragment_twopages_shape2 fragmentTwopagesShape2;
+    private Fragment_twopages_shape3 fragmentTwopagesShape3;
+    private Fragment_twopages_shape4 fragmentTwopagesShape4;
+
+    private Fragment_Cover_Shape1 fragmentCoverShape1;
+    private Fragment_Cover_Shape2 fragmentCoverShape2;
+
+
+
     private List<Bitmap> bitmapList;
+    private List<typeimg> Listtypeimg;
     private Button btn_save;
     private FinalAlbumImage instance;
     private AlertDialog dialog;
@@ -228,6 +248,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
     private void initView() {
         instance = FinalAlbumImage.getInstance();
         bitmapList = new ArrayList<>();
+        Listtypeimg=new ArrayList<>();
         getDataFromIntent();
         //Toast.makeText(this, "noo"+paper_id, Toast.LENGTH_SHORT).show();
 
@@ -345,12 +366,14 @@ public class DisplayImagesActivity extends AppCompatActivity {
                     //classicShape1.getImageUri(uri);
                     bitmapList.clear();
                     bitmapList.add(classicShape1.getBitmap());
+                    Listtypeimg.add(new typeimg(bitmapList,1));
                     instance.setImages(bitmapList);
                     classicShape1.clearUi();
                     break;
                 case 1:
                     bitmapList.clear();
                     bitmapList.add(classicShape2.getBitmap());
+                    Listtypeimg.add(new typeimg(bitmapList,1));
                     instance.setImages(bitmapList);
 
                     classicShape2.clearUi();
@@ -358,6 +381,7 @@ public class DisplayImagesActivity extends AppCompatActivity {
                 case 2:
                     bitmapList.clear();
                     bitmapList.add(classicShape3.getBitmap());
+                    Listtypeimg.add(new typeimg(bitmapList,1));
                     instance.setImages(bitmapList);
 
                     classicShape3.clearUi();
@@ -365,43 +389,43 @@ public class DisplayImagesActivity extends AppCompatActivity {
                 case 3:
                     bitmapList.clear();
                     bitmapList.add(classicShape4.getBitmap());
+                    Listtypeimg.add(new typeimg(bitmapList,1));
                     instance.setImages(bitmapList);
-
                     classicShape4.clearUi();
                     break;
                 case 4:
                     bitmapList.clear();
                     bitmapList.add(classicShape5.getBitmap());
+                    Listtypeimg.add(new typeimg(bitmapList,1));
                     instance.setImages(bitmapList);
-
                     classicShape5.clearUi();
                     break;
                 case 5:
                     bitmapList.clear();
                     bitmapList.add(classicShape6.getBitmap());
+                    Listtypeimg.add(new typeimg(bitmapList,1));
                     instance.setImages(bitmapList);
-
                     classicShape6.clearUi();
                     break;
                 case 6:
                     bitmapList.clear();
                     bitmapList.add(classicShape7.getBitmap());
+                    Listtypeimg.add(new typeimg(bitmapList,1));
                     instance.setImages(bitmapList);
-
                     classicShape7.clearUi();
                     break;
                 case 7:
                     bitmapList.clear();
                     bitmapList.add(classicShape8.getBitmap());
+                    Listtypeimg.add(new typeimg(bitmapList,1));
                     instance.setImages(bitmapList);
-
                     classicShape8.clearUi();
                     break;
                 case 8:
                     bitmapList.clear();
                     bitmapList.add(classicShape9.getBitmap());
+                    Listtypeimg.add(new typeimg(bitmapList,1));
                     instance.setImages(bitmapList);
-
                     classicShape9.clearUi();
                     break;
 
@@ -414,56 +438,57 @@ public class DisplayImagesActivity extends AppCompatActivity {
                 case 0:
                     bitmapList.clear();
                     bitmapList.add(pinboardShape1.getBitmap());
+                    Listtypeimg.add(new typeimg(bitmapList,1));
                     instance.setImages(bitmapList);
                     pinboardShape1.clearUi();
                     break;
                 case 1:
                     bitmapList.clear();
                     bitmapList.add(pinboardShape2.getBitmap());
-                    instance.setImages(bitmapList);
-                    pinboardShape2.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                        pinboardShape2.clearUi();
                     break;
                 case 2:
                     bitmapList.clear();
                     bitmapList.add(pinboardShape3.getBitmap());
-                    instance.setImages(bitmapList);
-                    pinboardShape3.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                        pinboardShape3.clearUi();
                     break;
                 case 3:
                     bitmapList.clear();
                     bitmapList.add(pinboardShape4.getBitmap());
-                    instance.setImages(bitmapList);
-                    pinboardShape4.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                        pinboardShape4.clearUi();
                     break;
                 case 4:
                     bitmapList.clear();
                     bitmapList.add(pinboardShape5.getBitmap());
-                    instance.setImages(bitmapList);
-                    pinboardShape5.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                        pinboardShape5.clearUi();
                     break;
                 case 5:
                     bitmapList.clear();
                     bitmapList.add(pinboardShape6.getBitmap());
-                    instance.setImages(bitmapList);
-                    pinboardShape6.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                        pinboardShape6.clearUi();
                     break;
                 case 6:
                     bitmapList.clear();
                     bitmapList.add(pinboardShape7.getBitmap());
-                    instance.setImages(bitmapList);
-                    pinboardShape7.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                        pinboardShape7.clearUi();
                     break;
                 case 7:
                     bitmapList.clear();
                     bitmapList.add(pinboardShape8.getBitmap());
-                    instance.setImages(bitmapList);
-                    pinboardShape8.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                        pinboardShape8.clearUi();
                     break;
                 case 8:
                     bitmapList.clear();
                     bitmapList.add(pinboardShape9.getBitmap());
-                    instance.setImages(bitmapList);
-                    pinboardShape9.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                        pinboardShape9.clearUi();
                     break;
 
 
@@ -479,157 +504,220 @@ public class DisplayImagesActivity extends AppCompatActivity {
                 case 0:
                     bitmapList.clear();
                     bitmapList.add(posterframe1.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe1.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe1.clearUi();
                     break;
                 case 1:
                     bitmapList.clear();
                     bitmapList.add(posterframe2.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe2.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe2.clearUi();
                     break;
 
                 case 2:
                     bitmapList.clear();
                     bitmapList.add(posterframe3.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe3.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe3.clearUi();
                     break;
                 case 3:
                     bitmapList.clear();
                     bitmapList.add(posterframe4.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe4.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe4.clearUi();
                     break;
                 case 4:
                     bitmapList.clear();
                     bitmapList.add(posterframe5.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe5.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe5.clearUi();
                     break;
                 case 5:
                     bitmapList.clear();
                     bitmapList.add(posterframe6.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe6.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe6.clearUi();
                     break;
                 case 6:
                     bitmapList.clear();
                     bitmapList.add(posterframe7.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe7.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe7.clearUi();
                     break;
                 case 7:
                     bitmapList.clear();
                     bitmapList.add(posterframe8.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe8.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe8.clearUi();
                     break;
                 case 8:
                     bitmapList.clear();
                     bitmapList.add(posterframe9.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe9.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe9.clearUi();
                     break;
 
 
                 case 9:
                     bitmapList.clear();
                     bitmapList.add(posterframe10.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe10.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe10.clearUi();
                     break;
 
                 case 10:
                     bitmapList.clear();
                     bitmapList.add(posterframe11.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe11.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe11.clearUi();
                     break;
                 case 11:
                     bitmapList.clear();
                     bitmapList.add(posterframe12.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe12.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe12.clearUi();
                     break;
                 case 12:
                     bitmapList.clear();
                     bitmapList.add(posterframe13.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe13.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe13.clearUi();
                     break;
                 case 13:
                     bitmapList.clear();
                     bitmapList.add(posterframe14.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe14.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe14.clearUi();
                     break;
                 case 14:
                     bitmapList.clear();
                     bitmapList.add(posterframe15.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe15.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe15.clearUi();
                     break;
                 case 15:
                     bitmapList.clear();
                     bitmapList.add(posterframe16.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe16.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe16.clearUi();
                     break;
                 case 16:
                     bitmapList.clear();
                     bitmapList.add(posterframe17.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe17.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe17.clearUi();
                     break;
                 case 17:
                     bitmapList.clear();
                     bitmapList.add(posterframe18.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe18.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe18.clearUi();
                     break;
 
                 case 18:
                     bitmapList.clear();
                     bitmapList.add(posterframe19.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe19.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe19.clearUi();
                     break;
 
                 case 19:
                     bitmapList.clear();
                     bitmapList.add(posterframe20.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe20.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe20.clearUi();
                     break;
                 case 20:
                     bitmapList.clear();
                     bitmapList.add(posterframe21.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe21.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe21.clearUi();
                     break;
 
                 case 21:
                     bitmapList.clear();
                     bitmapList.add(posterframe22.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe22.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe22.clearUi();
                     break;
 
 
                 case 22:
                     bitmapList.clear();
                     bitmapList.add(posterframe24.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe24.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe24.clearUi();
                     break;
 
                 case 23:
                     bitmapList.clear();
                     bitmapList.add(posterframe25.getBitmap());
-                    instance.setImages(bitmapList);
-                    posterframe25.clearUi();
+                    Listtypeimg.add(new typeimg(bitmapList,1));
+                    instance.setImages(bitmapList);                       posterframe25.clearUi();
                     break;
+
+            }
+
+        }
+
+        else if (type.equals(Tags.twopager))
+        {
+
+            switch (this.pos)
+            {
+                case 0:
+                    bitmapList.clear();
+                    bitmapList.add(fragmentTwopagesShape1.getBitmap());
+                    Listtypeimg.add(new typeimg(bitmapList,2));
+                    instance.setImages(bitmapList);
+                    fragmentTwopagesShape1.clearUi();
+                    break;
+                case 1:
+                    bitmapList.clear();
+                    bitmapList.add(fragmentTwopagesShape2.getBitmap());
+                    instance.setImages(bitmapList);
+                    fragmentTwopagesShape2.clearUi();
+                    break;
+
+                case 2:
+                    bitmapList.clear();
+                    bitmapList.add(fragmentTwopagesShape3.getBitmap());
+                    instance.setImages(bitmapList);
+                    fragmentTwopagesShape3.clearUi();
+                    break;
+
+                case 3:
+                    bitmapList.clear();
+                    bitmapList.add(fragmentTwopagesShape4.getBitmap());
+                    instance.setImages(bitmapList);
+                    fragmentTwopagesShape4.clearUi();
+                    break;
+
+
+
+            }
+
+        }
+        else if (type.equals(Tags.cover))
+        {
+
+            switch (this.pos)
+            {
+                case 0:
+                    bitmapList.clear();
+                    bitmapList.add(fragmentCoverShape1.getBitmap());
+                    instance.setImages(bitmapList);
+                    fragmentCoverShape1.clearUi();
+                    break;
+                case 1:
+                    bitmapList.clear();
+                    bitmapList.add(fragmentCoverShape2.getBitmap());
+                    instance.setImages(bitmapList);
+                    fragmentCoverShape2.clearUi();
+                    break;
+
+
+
 
             }
 
@@ -893,6 +981,41 @@ public class DisplayImagesActivity extends AppCompatActivity {
            finish();
 
     }
+
+        else if (type.equals(Tags.twopager))
+        {
+
+            switch (pos) {
+                case 0:
+                    fragmentTwopagesShape1 = Fragment_twopages_shape1.getInstance(user_id,offer_id,paper_id,album_size);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentTwopagesShape1).commit();
+                    break;
+                case 1:
+                    fragmentTwopagesShape2 = Fragment_twopages_shape2.getInstance(user_id,offer_id,paper_id,album_size);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentTwopagesShape2).commit();
+                    break;
+
+
+            }
+
+        }
+
+        else if (type.equals(Tags.cover))
+        {
+
+            switch (pos) {
+                case 0:
+                    fragmentCoverShape1 = Fragment_Cover_Shape1.getInstance(user_id,offer_id,paper_id,album_size);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentCoverShape1).commit();
+                    break;
+                case 1:
+                    fragmentCoverShape2 = Fragment_Cover_Shape2.getInstance(user_id,offer_id,paper_id,album_size);
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentCoverShape2).commit();
+                    break;
+
+            }
+
+        }
     }
 
     public void SetPos(int pos)
@@ -1095,6 +1218,46 @@ public class DisplayImagesActivity extends AppCompatActivity {
                     posterframe25.getImageUri(uri);
 
                     break;
+
+            }
+
+        }
+
+        else if (type.equals(Tags.twopager))
+        {
+
+            switch (this.pos)
+            {
+                case 0:
+                    fragmentTwopagesShape1.getImageUri(uri);
+                    break;
+                case 1:
+                    fragmentTwopagesShape2.getImageUri(uri);
+                    break;
+                case 2:
+                    fragmentTwopagesShape3.getImageUri(uri);
+                    break;
+                case 3:
+                    fragmentTwopagesShape4.getImageUri(uri);
+                    break;
+
+            }
+
+        }
+
+
+        else if (type.equals(Tags.cover))
+        {
+
+            switch (this.pos)
+            {
+                case 0:
+                    fragmentCoverShape1.getImageUri(uri);
+                    break;
+                case 1:
+                    fragmentCoverShape2.getImageUri(uri);
+                    break;
+
 
             }
 

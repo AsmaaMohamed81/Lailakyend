@@ -105,6 +105,9 @@
     <string name="sendmail">انتظر حتي يتم ارسال الايميل</string>
     <string name="choose">اختيار</string>
     <string name="night">لا يمكن وضع هذه الصوره لان حجمها اقل من المطلوب</string>
+    <string name="cover">اصنع غلاف لالبومك</string>
+    <string name="frames">اصنع صور مجمعه لالبومك</string>
+    <string name="twopages">اصنع صوره علي صفحتين متقبلتين</string>
 
 
 </resources>

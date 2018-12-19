@@ -61,6 +61,7 @@ public class Signup extends AppCompatActivity {
 
     }
 
+
     private void initView() {
 
         userName = findViewById(R.id.user_name);
@@ -162,7 +163,7 @@ public class Signup extends AppCompatActivity {
                             if (response.body().getSuccess()==1)
                             {
 
-                                Toast.makeText(Signup.this, "yasss", Toast.LENGTH_SHORT).show();
+                          //      Toast.makeText(Signup.this, "yasss", Toast.LENGTH_SHORT).show();
 
                                 users.setUserData(response.body());
                                 preferences.CreatePref(response.body());

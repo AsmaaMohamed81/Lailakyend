@@ -21,6 +21,7 @@ import com.Alatheer.Projects.lailaky.Adapter.FinalAlbumAdapter;
 import com.Alatheer.Projects.lailaky.ApiServices.Api;
 import com.Alatheer.Projects.lailaky.ApiServices.Services;
 import com.Alatheer.Projects.lailaky.Models.ResponseModel;
+import com.Alatheer.Projects.lailaky.Models.typeimg;
 import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.FinalAlbumImage;
 
@@ -51,6 +52,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
     private String user_id="",offer_id="",paper_id="";
     private Button uploadBtn;
     private ProgressDialog dialog;
+    private ArrayList<typeimg> Listtypeimg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
         getDataFromIntent();
         instance = FinalAlbumImage.getInstance();
         bitmapList = new ArrayList<>();
+        Listtypeimg=new ArrayList<>();
         bitmapList_selection = new ArrayList<>();
         toolBar = findViewById(R.id.toolBar);
         setSupportActionBar(toolBar);
@@ -87,7 +90,10 @@ public class FinalAlbumActivity extends AppCompatActivity {
         adapter = new FinalAlbumAdapter(this,bitmapList);
         recView.setAdapter(adapter);
 
+
+
         bitmapList.addAll(instance.getbitmaps());
+
         adapter.notifyDataSetChanged();
         back.setOnClickListener(new View.OnClickListener() {
             @Override

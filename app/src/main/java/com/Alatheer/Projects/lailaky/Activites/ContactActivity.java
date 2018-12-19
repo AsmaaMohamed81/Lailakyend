@@ -129,7 +129,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(ContactActivity.this, "hghgg", Toast.LENGTH_SHORT).show();
+            //    Toast.makeText(ContactActivity.this, "hghgg", Toast.LENGTH_SHORT).show();
 
                 Intent intent=new Intent(Intent.ACTION_DIAL,Uri.fromParts("tel",mobile.getText().toString(),null));
                 startActivity(intent);
@@ -177,7 +177,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
             public void onFailure(Call<ModelContactUs> call, Throwable t) {
                 Log.e("Errortttttttttttt",t.getMessage());
 
-                Toast.makeText(ContactActivity.this, "faillllll"+call, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(ContactActivity.this, "faillllll"+call, Toast.LENGTH_SHORT).show();
 
             }
         });

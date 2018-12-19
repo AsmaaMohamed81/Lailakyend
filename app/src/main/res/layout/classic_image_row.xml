@@ -12,6 +12,7 @@
         app:siBorderWidth="1.5px"
         app:siBorderColor="@color/colorPrimary"
         app:siRadius="8dp"
+        android:src="@drawable/a1"
 
         />
 </FrameLayout>

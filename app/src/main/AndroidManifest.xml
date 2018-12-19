@@ -77,7 +77,12 @@
         <activity android:name=".Activites.confirmEmail_ForgetPass" />
         <activity android:name=".Activites.TypeePaperActivity" />
         <activity android:name=".Activites.CoverActivity" />
-        <activity android:name=".Activites.Credit"></activity>
+        <activity android:name=".Activites.Credit" />
+        <activity android:name=".Activites.multi_Choose_Activity" />
+
+        <activity android:name=".Activites.makeCoverActivity" />
+        <activity android:name=".Activites.twopagesActivity" />
+
     </application>
 
 </manifest>

@@ -53,36 +53,43 @@ public class Confirm_SignUPActivity extends AppCompatActivity implements Users.o
         User_id=i.getStringExtra("user_id");
         Toast.makeText(this, ""+userModel.getUser_id(), Toast.LENGTH_SHORT).show();
 
-        Services services=Api.getClient().create(Services.class);
-        Call<UserModel> call=services.personaldata(userModel.getUser_id());
-        call.enqueue(new Callback<UserModel>() {
-            @Override
-            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
-                if (response.isSuccessful()){
 
-                    Toast.makeText(Confirm_SignUPActivity.this, "yesss", Toast.LENGTH_SHORT).show();
-                    if (response.body()!=null)
-                    {
-
-                        phone.setText(response.body().getUser_phone());
-                        mail.setText(response.body().getUser_email());
-                        governate.setText(response.body().getGovernate());
-                        city.setText(response.body().getCity());
-                        adress.setText(response.body().getAddress());
-
-
-
-
-                    }}
-            }
-
-            @Override
-            public void onFailure(Call<UserModel> call, Throwable t) {
-                Toast.makeText(Confirm_SignUPActivity.this, "nooo"+t, Toast.LENGTH_SHORT).show();
-                Log.e("ttttttt",t+"");
-
-            }
-        });
+        phone.setText(userModel.getUser_phone());
+        mail.setText(userModel.getUser_email());
+        governate.setText(userModel.getGovernate());
+        city.setText(userModel.getCity());
+        adress.setText(userModel.getAddress());
+//
+//        Services services=Api.getClient().create(Services.class);
+//        Call<UserModel> call=services.personaldata(userModel.getUser_id());
+//        call.enqueue(new Callback<UserModel>() {
+//            @Override
+//            public void onResponse(Call<UserModel> call, Response<UserModel> response) {
+//                if (response.isSuccessful()){
+//
+//                  //  Toast.makeText(Confirm_SignUPActivity.this, "yesss", Toast.LENGTH_SHORT).show();
+//                    if (response.body()!=null)
+//                    {
+//
+//                        phone.setText(response.body().getUser_phone());
+//                        mail.setText(response.body().getUser_email());
+//                        governate.setText(response.body().getGovernate());
+//                        city.setText(response.body().getCity());
+//                        adress.setText(response.body().getAddress());
+//
+//
+//
+//
+//                    }}
+//            }
+//
+//            @Override
+//            public void onFailure(Call<UserModel> call, Throwable t) {
+//           //     Toast.makeText(Confirm_SignUPActivity.this, "nooo"+t, Toast.LENGTH_SHORT).show();
+//                Log.e("ttttttt",t+"");
+//
+//            }
+//        });
 
 
 
@@ -120,7 +127,7 @@ public class Confirm_SignUPActivity extends AppCompatActivity implements Users.o
                     public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                         if (response.isSuccessful()) {
 
-                            Toast.makeText(Confirm_SignUPActivity.this, "yesss", Toast.LENGTH_SHORT).show();
+                        //    Toast.makeText(Confirm_SignUPActivity.this, "yesss", Toast.LENGTH_SHORT).show();
 
 
                             if (response.body().getSuccess()==1)
@@ -142,7 +149,7 @@ public class Confirm_SignUPActivity extends AppCompatActivity implements Users.o
 
                     @Override
                     public void onFailure(Call<UserModel> call, Throwable t) {
-                        Toast.makeText(Confirm_SignUPActivity.this, "nooooooo", Toast.LENGTH_SHORT).show();
+                       //// Toast.makeText(Confirm_SignUPActivity.this, "nooooooo", Toast.LENGTH_SHORT).show();
 
                         Log.e("yyyyyy",t+"");
 

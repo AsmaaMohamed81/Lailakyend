@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
 import com.Alatheer.Projects.lailaky.Fragments.Fragment_Classic;
+import com.Alatheer.Projects.lailaky.Fragments.Fragment_Cover;
 import com.Alatheer.Projects.lailaky.Fragments.Fragment_Pinboard;
 import com.Alatheer.Projects.lailaky.Fragments.Fragment_Poster;
+import com.Alatheer.Projects.lailaky.Fragments.Fragment_twopages;
 import com.Alatheer.Projects.lailaky.R;
 import com.github.siyamed.shapeimageview.RoundedImageView;
 
@@ -29,6 +31,10 @@ public class ClassicImagesAdapter extends RecyclerView.Adapter<ClassicImagesAdap
     private Fragment_Classic fragment_classic;
     private Fragment_Pinboard fragment_pinboard;
     private Fragment_Poster fragment_poster;
+    private Fragment_twopages fragment_twopages;
+    private Fragment_Cover fragment_cover;
+
+
     public ClassicImagesAdapter(Context context, List<Integer> images,String type, Fragment fragment) {
         this.context = context;
         this.images = images;
@@ -42,6 +48,13 @@ public class ClassicImagesAdapter extends RecyclerView.Adapter<ClassicImagesAdap
         }else if (type.equals(Tags.Poster))
         {
             this.fragment_poster = (Fragment_Poster) fragment;
+        }else if (type.equals(Tags.twopager))
+        {
+            this.fragment_twopages = (Fragment_twopages) fragment;
+        }
+        else if (type.equals(Tags.cover))
+        {
+            this.fragment_cover = (Fragment_Cover) fragment;
         }
     }
 
@@ -71,6 +84,16 @@ public class ClassicImagesAdapter extends RecyclerView.Adapter<ClassicImagesAdap
                 }else if (type.equals(Tags.Poster))
                 {
                     fragment_poster.SetPos(holder.getAdapterPosition());
+
+                }
+                else if (type.equals(Tags.twopager))
+                {
+                    fragment_twopages.SetPos(holder.getAdapterPosition());
+
+                }
+                else if (type.equals(Tags.cover))
+                {
+                    fragment_cover.SetPos(holder.getAdapterPosition());
 
                 }
             }

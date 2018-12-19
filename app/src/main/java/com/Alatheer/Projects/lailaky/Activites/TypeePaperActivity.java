@@ -42,7 +42,7 @@ public class TypeePaperActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_typee_paper);
         paperRecyclerView = (RecyclerView) findViewById(R.id.paper_recyc);
-        choose=findViewById(R.id.choose);
+        //choose=findViewById(R.id.choose);
 
 
 
@@ -92,7 +92,7 @@ public class TypeePaperActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<PaperModel>> call, Throwable t) {
-                Toast.makeText(TypeePaperActivity.this, "nooo" + t, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(TypeePaperActivity.this, "nooo" + t, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -123,7 +123,7 @@ public class TypeePaperActivity extends AppCompatActivity {
         PaperModel paperModel= mPaperModelList.get(pos);
         paper_id= paperModel.getpaper_id();
 
-        Intent intent = new Intent(TypeePaperActivity.this,FramesActivity.class);
+        Intent intent = new Intent(TypeePaperActivity.this,multi_Choose_Activity.class);
 
         //intent.putExtra("data",encoded);
         intent.putExtra("album_size",album_size);

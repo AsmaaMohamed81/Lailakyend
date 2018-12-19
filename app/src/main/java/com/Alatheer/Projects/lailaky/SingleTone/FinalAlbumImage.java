@@ -2,6 +2,8 @@ package com.Alatheer.Projects.lailaky.SingleTone;
 
 import android.graphics.Bitmap;
 
+import com.Alatheer.Projects.lailaky.Models.typeimg;
+
 import java.util.ArrayList;
 import java.util.List;
 
