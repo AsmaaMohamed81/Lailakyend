@@ -14,6 +14,7 @@ import java.util.List;
 public class FinalAlbumImage {
     private static FinalAlbumImage instance;
     private List<Bitmap> bitmapList = new ArrayList<>();
+    private List<typeimg> typeList = new ArrayList<>();
     private int count=0;
 
     private FinalAlbumImage() {
@@ -46,6 +47,14 @@ public class FinalAlbumImage {
             bitmapList.clear();
             ResetCount();
         }
+    }
+
+    public List<typeimg> getTypeList() {
+        return typeList;
+    }
+
+    public void setTypeList(List<typeimg> typeList) {
+        this.typeList = typeList;
     }
 
     public void increaseCount()

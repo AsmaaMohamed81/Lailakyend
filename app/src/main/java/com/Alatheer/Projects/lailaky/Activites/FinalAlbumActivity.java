@@ -21,9 +21,11 @@ import com.Alatheer.Projects.lailaky.Adapter.FinalAlbumAdapter;
 import com.Alatheer.Projects.lailaky.ApiServices.Api;
 import com.Alatheer.Projects.lailaky.ApiServices.Services;
 import com.Alatheer.Projects.lailaky.Models.ResponseModel;
+import com.Alatheer.Projects.lailaky.Models.sendphoyo;
 import com.Alatheer.Projects.lailaky.Models.typeimg;
 import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.FinalAlbumImage;
+import com.google.android.gms.common.util.ArrayUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -53,6 +55,9 @@ public class FinalAlbumActivity extends AppCompatActivity {
     private Button uploadBtn;
     private ProgressDialog dialog;
     private ArrayList<typeimg> Listtypeimg;
+    sendphoyo sendphoyo;
+    List<sendphoyo> listend;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +83,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
         instance = FinalAlbumImage.getInstance();
         bitmapList = new ArrayList<>();
         Listtypeimg=new ArrayList<>();
+        listend=new ArrayList<>();
         bitmapList_selection = new ArrayList<>();
         toolBar = findViewById(R.id.toolBar);
         setSupportActionBar(toolBar);
@@ -93,6 +99,9 @@ public class FinalAlbumActivity extends AppCompatActivity {
 
 
         bitmapList.addAll(instance.getbitmaps());
+
+        Listtypeimg.addAll(instance.getTypeList());
+
 
         adapter.notifyDataSetChanged();
         back.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +129,9 @@ public class FinalAlbumActivity extends AppCompatActivity {
             partList.add(part);
 
         }
+
+
+
 
         SendDataToServer(partList);
     }
