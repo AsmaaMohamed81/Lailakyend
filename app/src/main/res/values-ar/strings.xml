@@ -106,8 +106,11 @@
     <string name="choose">اختيار</string>
     <string name="night">لا يمكن وضع هذه الصوره لان حجمها اقل من المطلوب</string>
     <string name="cover">اصنع غلاف لالبومك</string>
-    <string name="frames">اصنع صور مجمعه لالبومك</string>
-    <string name="twopages">اصنع صوره علي صفحتين متقبلتين</string>
+    <string name="frames">اصنع صور مجمعة لالبومك</string>
+    <string name="twopages">اصنع صورة علي صفحتين متقابلتين</string>
+    <string name="ch_own_photo_cover">اختر صورة لغلاف البومك</string>
+    <string name="add_cov">إضافة صورة للغلاف</string>
+    <string name="cover_photo">صورة الغلاف</string>
 
 
 </resources>

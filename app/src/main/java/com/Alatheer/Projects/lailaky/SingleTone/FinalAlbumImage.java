@@ -2,8 +2,6 @@ package com.Alatheer.Projects.lailaky.SingleTone;
 
 import android.graphics.Bitmap;
 
-import com.Alatheer.Projects.lailaky.Models.typeimg;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +12,10 @@ import java.util.List;
 public class FinalAlbumImage {
     private static FinalAlbumImage instance;
     private List<Bitmap> bitmapList = new ArrayList<>();
-    private List<typeimg> typeList = new ArrayList<>();
+    private List<String> imageTypeList = new ArrayList<>();
     private int count=0;
+    private  Bitmap coverBitmap=null;
+
 
     private FinalAlbumImage() {
     }
@@ -35,7 +35,7 @@ public class FinalAlbumImage {
         this.bitmapList.addAll(bitmapList);
     }
 
-    public List<Bitmap> getbitmaps()
+    public List<Bitmap> getBitmaps()
     {
         return bitmapList;
     }
@@ -44,18 +44,14 @@ public class FinalAlbumImage {
     {
         if (bitmapList!=null)
         {
+            this.imageTypeList.clear();
             bitmapList.clear();
+            this.coverBitmap=null;
             ResetCount();
         }
     }
 
-    public List<typeimg> getTypeList() {
-        return typeList;
-    }
 
-    public void setTypeList(List<typeimg> typeList) {
-        this.typeList = typeList;
-    }
 
     public void increaseCount()
     {
@@ -72,12 +68,34 @@ public class FinalAlbumImage {
         this.count=0;
     }
 
+    public void setCoverImage(Bitmap coverImage)
+    {
+        this.coverBitmap = coverImage;
+    }
+
+    public Bitmap getCoverImage()
+    {
+        return this.coverBitmap;
+    }
+
     public void setCount(int count)
     {
         this.count=count;
     }
-    public void deleteItem(List<Bitmap> bitmapList)
+
+    public void addImageType(String type)
     {
-        this.bitmapList.removeAll(bitmapList);
+        this.imageTypeList.add(type);
+    }
+
+    public List<String> getImageTypeList() {
+        return imageTypeList;
+    }
+
+    public void deleteItem(int pos)
+    {
+
+        this.bitmapList.remove(pos);
+        this.imageTypeList.remove(pos);
     }
 }

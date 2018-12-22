@@ -72,6 +72,9 @@ public class ClassicImagesAdapter extends RecyclerView.Adapter<ClassicImagesAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
                 if (type.equals(Tags.Classic))
                 {
                     fragment_classic.SetPos(holder.getAdapterPosition());

@@ -97,7 +97,7 @@
     <string name="continu">Continue</string>
     <string name="hsnan">OK</string>
     <string name="bynat">Personal Information</string>
-    <string name="adress">Adress</string>
+    <string name="adress">Address</string>
     <string name="bynatTwsel">Connection Information</string>
     <string name="Governorate">Governorate</string>
     <string name="city">City</string>
@@ -105,9 +105,12 @@
     <string name="complement">Complete Information</string>
     <string name="sendmail">Wait Until Send Email .. </string>
     <string name="choose">Choose</string>
-    <string name="night">لا يمكن وضع هذه الصوره لان حجمها اقل من المطلوب</string>
-    <string name="cover">اصنع غلاف لالبومك</string>
-    <string name="frames">اصنع صور مجمعه لالبومك</string>
-    <string name="twopages">اصنع صوره علي صفحتين متقبلتين</string>
+    <string name="night">This image can not be placed because its size is less than required</string>
+    <string name="cover">Make cover</string>
+    <string name="frames">Choose frames</string>
+    <string name="twopages">One photo on two pages</string>
+    <string name="ch_own_photo_cover">Choose cover photo</string>
+    <string name="add_cov">Add photo on cover</string>
+    <string name="cover_photo">Cover photo</string>
 
 </resources>

@@ -1,9 +1,13 @@
 package com.Alatheer.Projects.lailaky.Fragments;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.PointF;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,16 +16,17 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
-import com.Alatheer.Projects.lailaky.ApiServices.Tags;
+import com.Alatheer.Projects.lailaky.Activites.DesiredCoverActivity;
 import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.FinalAlbumImage;
+import com.Alatheer.Projects.lailaky.share.Common;
 
 import net.karthikraj.shapesimage.ShapesImage;
 
@@ -42,7 +47,9 @@ public class Fragment_Cover_Shape1 extends Fragment implements View.OnTouchListe
     private Bitmap bitmap1;
     private final int IMG_REQ1=1;
     private FrameLayout f1;
-    private DisplayImagesActivity activity;
+    //private DisplayImagesActivity activity;
+    private DesiredCoverActivity activity;
+
     private int img1_selected = 0;
 
     private Matrix matrix = new Matrix();
@@ -60,9 +67,11 @@ public class Fragment_Cover_Shape1 extends Fragment implements View.OnTouchListe
     private float[] lastEvent = null;
     private int count=0;
     private RelativeLayout root;
-    FinalAlbumImage instance;
+    private FinalAlbumImage instance;
     private EditText textframe;
     int finalHeight, finalWidth;
+    private Button btn_add;
+
 
 
     @Nullable
@@ -84,7 +93,9 @@ public class Fragment_Cover_Shape1 extends Fragment implements View.OnTouchListe
 
             album_size = bundle.getInt(TAG3);
         }
-        activity = (DisplayImagesActivity) getActivity();
+        //activity = (DisplayImagesActivity) getActivity();
+        activity = (DesiredCoverActivity) getActivity();
+
         shape1 = view.findViewById(R.id.shape1);
 
 
@@ -93,6 +104,7 @@ public class Fragment_Cover_Shape1 extends Fragment implements View.OnTouchListe
         f1 = view.findViewById(R.id.f1);
         root = view.findViewById(R.id.root);
         textframe=view.findViewById(R.id.textframe);
+        btn_add =view.findViewById(R.id.btn_add);
 
 
 
@@ -112,11 +124,22 @@ public class Fragment_Cover_Shape1 extends Fragment implements View.OnTouchListe
             }
         });
 
+        btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bitmap bitmap = getBitmap();
+                instance.setCoverImage(bitmap);
+                activity.Finish();
+
+            }
+        });
+
 
 
     }
     public Bitmap getBitmap()
     {
+        btn_add.setVisibility(View.GONE);
         f1.setBackgroundResource(R.drawable.transparent_bg);
 
         if (textframe.getText().toString().trim().length() == 0){
@@ -139,12 +162,38 @@ public class Fragment_Cover_Shape1 extends Fragment implements View.OnTouchListe
     }
     private void SelectImage(int img_req)
     {
-        activity.displayImage(img_req);
+        Intent intent;
+        if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT)
+        {
+            intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        }else
+        {
+            intent = new Intent(Intent.ACTION_GET_CONTENT);
+
+        }
+        intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setType("image/*");
+        startActivityForResult(intent.createChooser(intent,"Select Image"),img_req);
     }
 
-    public void getImageUri(String uri)
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == IMG_REQ1 && resultCode == Activity.RESULT_OK && data!=null)
+
+        {
+
+            Uri uri = data.getData();
+            getImageUri(uri);
+        }
+
+    }
+
+    public void getImageUri(Uri uri)
     {
-        Bitmap bitmap = BitmapFactory.decodeFile(uri);
+        Bitmap bitmap = BitmapFactory.decodeFile(Common.getImagePath(getActivity(),uri));
 
         finalWidth=bitmap.getWidth();
         finalHeight=bitmap.getHeight();
@@ -157,8 +206,6 @@ public class Fragment_Cover_Shape1 extends Fragment implements View.OnTouchListe
         if (bitmap1==null)
         {
 
-                DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
-                activity.setButtonsaveVisibility(Tags.visible_btn);
 
             bitmap1 = bitmap;
             shape1.setImageBitmap(bitmap1);
@@ -182,7 +229,11 @@ public class Fragment_Cover_Shape1 extends Fragment implements View.OnTouchListe
             }
 
 
-        }}
+
+        }
+            btn_add.setVisibility(View.VISIBLE);
+
+        }
     }
     public static Fragment_Cover_Shape1 getInstance(String user_id, String offer_id, String paper_id, int album_size)
     {

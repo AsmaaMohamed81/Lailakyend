@@ -16,4 +16,8 @@ public class Tags {
     public static final int  visible_btn=1;
     public static final int  invisible_btn=0;
 
+    public static final String type_cover="0";
+    public static final String type_one_page="1";
+    public static final String type_two_pages="2";
+
 }

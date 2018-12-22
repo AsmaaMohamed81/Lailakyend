@@ -16,10 +16,10 @@
         android:layout_height="wrap_content"
         android:background="@drawable/edt_bg"
         android:layout_marginBottom="15dp"
-        android:text="@string/cover"
+        android:text="@string/ch_own_photo_cover"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
-        android:textSize="15dp"/>
+        android:textSize="15sp"/>
     <Button
         android:id="@+id/frames"
         android:layout_width="match_parent"
@@ -29,7 +29,7 @@
         android:text="@string/frames"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
-        android:textSize="15dp"/>
+        android:textSize="15sp"/>
     <Button
         android:id="@+id/twopages"
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
         android:text="@string/twopages"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
-        android:textSize="15dp"/>
+        android:textSize="15sp"/>
 
 
 

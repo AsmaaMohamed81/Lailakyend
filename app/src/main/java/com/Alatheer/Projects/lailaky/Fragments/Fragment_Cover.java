@@ -1,11 +1,6 @@
 package com.Alatheer.Projects.lailaky.Fragments;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.graphics.PointF;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,22 +9,13 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
-import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
+import com.Alatheer.Projects.lailaky.Activites.makeCoverActivity;
 import com.Alatheer.Projects.lailaky.Adapter.ClassicImagesAdapter;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
 import com.Alatheer.Projects.lailaky.R;
-import com.Alatheer.Projects.lailaky.SingleTone.FinalAlbumImage;
-
-import net.karthikraj.shapesimage.ShapesImage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,10 +25,13 @@ import java.util.List;
  */
 
 public class Fragment_Cover extends Fragment {
+
     private static final String TAG1="user_id";
     private static final String TAG2="offer_id";
     private static final String TAG3="album_size";
     private static final String TAG4="paper_id";
+    private static final String TAG5="from";
+
     private String user_id="",offer_id="",paper_id="";
     private int album_size=0;
     private RecyclerView recView;
@@ -50,6 +39,7 @@ public class Fragment_Cover extends Fragment {
     private RecyclerView.Adapter adapter;
     private List<Integer> Images;
     private Context context;
+    private makeCoverActivity activity;
 
     @Nullable
     @Override
@@ -61,6 +51,9 @@ public class Fragment_Cover extends Fragment {
     }
 
     private void initView(View view) {
+
+        activity = (makeCoverActivity) getActivity();
+
         Bundle bundle = getArguments();
 
         if (bundle!=null)
@@ -69,7 +62,6 @@ public class Fragment_Cover extends Fragment {
             offer_id = bundle.getString(TAG2);
             paper_id = bundle.getString(TAG4);
             album_size = bundle.getInt(TAG3);
-
 
             Log.e("fclassic",album_size+"");
             Log.e("fclassic",user_id+"");
@@ -112,18 +104,17 @@ public class Fragment_Cover extends Fragment {
     public void SetPos(int pos)
     {
 
-
-        Intent intent = new Intent(getActivity(), DisplayImagesActivity.class);
-        intent.putExtra("position",pos);
-        intent.putExtra("type",Tags.cover);
-        intent.putExtra("album_size",album_size);
-        intent.putExtra("user_id",user_id);
-        intent.putExtra("id_offer",offer_id);
-        intent.putExtra("paper_id",paper_id);
-
-
-        context.startActivity(intent);
+        activity.NavigateToAnotherActivity(pos);
     }
 
-
+   /* @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 123 && resultCode == Activity.RESULT_OK && data !=null)
+        {
+            Intent intent = getActivity().getIntent();
+            getActivity().setResult(Activity.RESULT_OK,intent);
+            getActivity().finish();
+        }
+    }*/
 }

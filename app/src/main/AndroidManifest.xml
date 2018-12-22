@@ -32,28 +32,52 @@
         </activity>
         <activity
             android:name=".Activites.LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Activites.Signup" />
-        <activity android:name=".Activites.HomeActivity" />
-        <activity android:name=".Activites.Albumaty" />
-        <activity android:name=".Activites.OfferAlbum" />
-        <activity android:name=".Activites.DetailOffer" />
-        <activity android:name=".Activites.DetailsAlbumaty" />
-        <activity android:name=".Activites.AddImges" />
-        <activity android:name=".Activites.AboutUsActivity" />
-        <activity android:name=".Activites.ContactActivity" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.Signup"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.HomeActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.Albumaty"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.OfferAlbum"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.DetailOffer"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.DetailsAlbumaty"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.AddImges"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.AboutUsActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.ContactActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".Activites.ProfileActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".Activites.UpdatePasswordActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".Activites.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".Activites.DetailsMyOffer" />
-        <activity android:name=".Activites.UserActivity" />
+        <activity
+            android:name=".Activites.DetailsMyOffer"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.UserActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -62,27 +86,55 @@
         <activity
             android:name=".Activites.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".Activites.DisplayGalleryActivity" />
-        <activity android:name=".Activites.FramesActivity" />
-        <activity android:name=".Activites.DisplayImagesActivity" />
-        <activity android:name=".Activites.CustomShapeActivity" />
+        <activity
+            android:name=".Activites.DisplayGalleryActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.FramesActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.DisplayImagesActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.CustomShapeActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".Activites.FinalAlbumActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
             android:name=".Activites.HelpActivity"
-            android:screenOrientation="landscape" />
-        <activity android:name=".Activites.ChooseLanguage_Activity" />
-        <activity android:name=".Activites.Confirm_SignUPActivity" />
-        <activity android:name=".Activites.confirmEmail_ForgetPass" />
-        <activity android:name=".Activites.TypeePaperActivity" />
-        <activity android:name=".Activites.CoverActivity" />
-        <activity android:name=".Activites.Credit" />
-        <activity android:name=".Activites.multi_Choose_Activity" />
-
-        <activity android:name=".Activites.makeCoverActivity" />
-        <activity android:name=".Activites.twopagesActivity" />
-
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.ChooseLanguage_Activity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.Confirm_SignUPActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.confirmEmail_ForgetPass"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.TypeePaperActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.CoverActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.Credit"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.multi_Choose_Activity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.makeCoverActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".Activites.twopagesActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".Activites.DesiredCoverActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 
 </manifest>

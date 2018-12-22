@@ -29,6 +29,7 @@ public class multi_Choose_Activity extends AppCompatActivity {
     private String user_id = "", id_offer = "",paper_id="";
     private String album_size = "";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,6 +107,9 @@ public class multi_Choose_Activity extends AppCompatActivity {
     private void getDataFromIntent() {
         Intent intent = getIntent();
         if (intent != null) {
+
+
+
             album_size = intent.getStringExtra("album_size");
             user_id = intent.getStringExtra("user_id");
             id_offer = intent.getStringExtra("id_offer");
