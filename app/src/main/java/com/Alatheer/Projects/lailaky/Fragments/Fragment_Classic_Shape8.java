@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
+import com.Alatheer.Projects.lailaky.Activites.UpdateImageActivity;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
 import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.FinalAlbumImage;
@@ -34,6 +35,9 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
     private static final String TAG2="offer_id";
     private static final String TAG3="album_size";
     private static final String TAG4="paper_id";
+    private static final String TAG5="activity";
+    private String which_activity="";
+    private UpdateImageActivity updateImageActivity;
 
     private String user_id="",offer_id="",paper_id="";
     private int album_size=0;
@@ -81,10 +85,18 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
             user_id = bundle.getString(TAG1);
             offer_id = bundle.getString(TAG2);
             paper_id = bundle.getString(TAG4);
+            which_activity = bundle.getString(TAG5);
 
             album_size = bundle.getInt(TAG3);
         }
-        activity = (DisplayImagesActivity) getActivity();
+        if (which_activity.equals(Tags.DisplayImagesActivity))
+        {
+            activity = (DisplayImagesActivity) getActivity();
+
+        }else
+        {
+            updateImageActivity = (UpdateImageActivity) getActivity();
+        }
         shape1 = view.findViewById(R.id.shape1);
 
 
@@ -139,7 +151,18 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
     }
     private void SelectImage(int img_req)
     {
-        activity.displayImage(img_req);
+
+        if (which_activity.equals(Tags.DisplayImagesActivity))
+        {
+            activity.displayImage(img_req);
+
+        }else
+        {
+            updateImageActivity.displayImage(img_req);
+
+        }
+
+
     }
 
     public void getImageUri(String uri)
@@ -151,14 +174,21 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
 
         if (finalHeight<100||finalWidth<100){
 
-            Toast.makeText(activity, R.string.night, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.night, Toast.LENGTH_LONG).show();
         }
         else {
         if (bitmap1==null)
         {
 
-                DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
+            if (which_activity.equals(Tags.DisplayImagesActivity))
+            {
                 activity.setButtonsaveVisibility(Tags.visible_btn);
+
+            }else
+            {
+                updateImageActivity.setButtonsaveVisibility(Tags.visible_btn);
+
+            }
 
             bitmap1 = bitmap;
             shape1.setImageBitmap(bitmap1);
@@ -184,7 +214,7 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
 
         }}
     }
-    public static Fragment_Classic_Shape8 getInstance(String user_id, String offer_id, String paper_id, int album_size)
+    public static Fragment_Classic_Shape8 getInstance(String user_id, String offer_id, String paper_id, int album_size, String displayImagesActivity)
     {
         Fragment_Classic_Shape8 fragment = new Fragment_Classic_Shape8();
         Bundle bundle = new Bundle();
@@ -192,6 +222,7 @@ public class Fragment_Classic_Shape8 extends Fragment implements View.OnTouchLis
         bundle.putString(TAG2,offer_id);
         bundle.putString(TAG4,paper_id);
         bundle.putInt(TAG3,album_size);
+        bundle.putString(TAG5,displayImagesActivity);
         fragment.setArguments(bundle);
         return fragment;
     }

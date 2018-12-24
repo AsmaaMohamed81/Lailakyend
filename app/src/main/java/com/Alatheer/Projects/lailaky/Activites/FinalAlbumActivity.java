@@ -3,6 +3,7 @@ package com.Alatheer.Projects.lailaky.Activites;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,8 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,7 +41,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -48,13 +48,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class FinalAlbumActivity extends AppCompatActivity {
-    private List<Bitmap> bitmapList;
-    private List<String> typesList;
     /*private RecyclerView recView;
     private RecyclerView.LayoutManager manager;
     private RecyclerView.Adapter adapter;*/
     private FinalAlbumImage instance;
-    private List<Bitmap> bitmapList_selection;
+    private List<Bitmap> finalImage_toUpload;
+    private List<String> finalImageType_toUpload;
+
     private Toolbar toolBar;
     private ImageView back;
     private String user_id="",offer_id="",paper_id="";
@@ -65,7 +65,12 @@ public class FinalAlbumActivity extends AppCompatActivity {
     private TextView tv_page_counter;
     private DiscreteScrollView recView;
     private MyPagerAdapter adapter;
-    private List<FinalImageModel> finalImageModelList;
+    private List<FinalImageModel>desiredList ;
+    private int total_page=0;
+    private TextView tv_page1,tv_page2;
+    private FinalImageModel finalImageModel_after_update;
+    private int pos_for_update;
+    private Bitmap bitmap_cover=null;
 
 
 
@@ -90,11 +95,12 @@ public class FinalAlbumActivity extends AppCompatActivity {
 
     private void initView() {
         getDataFromIntent();
-        finalImageModelList = new ArrayList<>();
+        desiredList = new ArrayList<>();
+
         instance = FinalAlbumImage.getInstance();
-        bitmapList = new ArrayList<>();
-        typesList = new ArrayList<>();
-        bitmapList_selection = new ArrayList<>();
+        finalImage_toUpload = new ArrayList<>();
+        finalImageType_toUpload = new ArrayList<>();
+
         toolBar = findViewById(R.id.toolBar);
         setSupportActionBar(toolBar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -107,22 +113,17 @@ public class FinalAlbumActivity extends AppCompatActivity {
 
         tab = findViewById(R.id.tab);
         tv_page_counter = findViewById(R.id.tv_page_counter);
+        tv_page1 = findViewById(R.id.tv_page1);
+        tv_page2 = findViewById(R.id.tv_page2);
 
-        /*recView = findViewById(R.id.recView);
-        manager = new LinearLayoutManager(this);
-        recView.setLayoutManager(manager);
-        adapter = new FinalAlbumAdapter(this,bitmapList);
-        recView.setAdapter(adapter);*/
 
         if (!Locale.getDefault().getLanguage().equals("ar"))
         {
             back.setRotation(180f);
         }
 
-        typesList.addAll(instance.getImageTypeList());
-        bitmapList.addAll(instance.getBitmaps());
 
-        UpdateUI(bitmapList,typesList);
+        UpdateUI(instance.getImages());
 
 
 
@@ -137,7 +138,8 @@ public class FinalAlbumActivity extends AppCompatActivity {
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Upload(bitmapList,typesList);
+                Log.e("sxsx",desiredList.size()+"__");
+                PrepareDataToUpload(desiredList);
             }
         });
 
@@ -158,115 +160,158 @@ public class FinalAlbumActivity extends AppCompatActivity {
 
     }
 
-    private void UpdateUI(final List<Bitmap> bitmapList, List<String> typesList) {
+    private void UpdateUI(List<FinalImageModel> finalImageModelList) {
         if (instance.getCoverImage()==null)
         {
             image_add_cover.setVisibility(View.VISIBLE);
             image_cover_gallery.setVisibility(View.VISIBLE);
+            bitmap_cover = null;
         }else
             {
                 image_add_cover.setVisibility(View.VISIBLE);
                 image_cover_gallery.setVisibility(View.GONE);
-                image_cover.setImageBitmap(instance.getCoverImage());
+                bitmap_cover = instance.getCoverImage();
+                image_cover.setImageBitmap(bitmap_cover);
             }
 
-            /*int counter =0;
-            for (String type:typesList)
+
+            orderPages(finalImageModelList);
+
+
+
+
+
+
+
+
+
+
+    }
+
+    private void orderPages(List<FinalImageModel> finalImageModelList) {
+
+        Log.e("size",finalImageModelList.size()+"_");
+
+
+        for (FinalImageModel finalImageModel:finalImageModelList)
+        {
+            Log.e("type_before_arrangement",finalImageModel.getType()+"_");
+        }
+
+        List<FinalImageModel> two_image_on_one_page_List = new ArrayList<>();
+        List<FinalImageModel> one_image_on_one_page_List = new ArrayList<>();
+        List<FinalImageModel> orderedList = new ArrayList<>();
+
+        for (int i = 0; i<finalImageModelList.size();i++)
+        {
+            FinalImageModel finalImageModel = finalImageModelList.get(i);
+
+            if (finalImageModel.getType().equals(Tags.type_two_pages))
             {
-                if (type.equals(Tags.type_two_pages))
+                two_image_on_one_page_List.add(finalImageModel);
+            }else
                 {
-                    counter +=1;
+                    one_image_on_one_page_List.add(finalImageModel);
                 }
-            }*/
 
+        }
 
-
-            //Log.e("counter",counter+"_");
-        //tv_page_counter.setText("("+1+"/"+(bitmapList.size()-counter)+")");
-
-
-
-        List<Integer> two_image_indexes = new ArrayList<>();
-
-        for (int i = 0 ; i < typesList.size(); i++)
+        if (two_image_on_one_page_List.size()>0)
         {
-            if (typesList.get(i).equals(Tags.type_two_pages))
-            {
-                two_image_indexes.add(i);
-            }
+            desiredList.addAll(two_image_on_one_page_List);
+
+        }
+
+        if (one_image_on_one_page_List.size()>0)
+        {
+            orderedList.addAll(one_image_on_one_page_List);
+
+        }
+
+        for (FinalImageModel finalImageModel:orderedList)
+        {
+            Log.e("type_after_arrangement",finalImageModel.getType()+"_");
         }
 
 
 
-        List<Bitmap> two_image_bitmap = new ArrayList<>();
-
-        if (two_image_indexes.size()>0)
-        {
-            for (int i = 0 ; i < two_image_indexes.size(); i++)
-            {
-                typesList.remove(i);
-                two_image_bitmap.add(bitmapList.get(i));
-                bitmapList.remove(i);
-            }
-
-        }
-
-
-        if (two_image_indexes.size()>0)
-        {
-            for (int i = 0 ; i < two_image_indexes.size(); i++)
-            {
-                typesList.add(i,Tags.type_two_pages);
-                bitmapList.add(i,two_image_bitmap.get(i));
-            }
-
-        }
-
-
-
-        for (int i = 0 ;i<bitmapList.size();i+=2)
+        for (int i=0;i<orderedList.size();i+=2)
         {
             FinalImageModel finalImageModel = new FinalImageModel();
-            if (typesList.get(i).equals(Tags.type_two_pages))
+            finalImageModel.setType(orderedList.get(i).getType());
+            finalImageModel.setFrame_type(orderedList.get(i).getFrame_type());
+            finalImageModel.setPosition_on_frame(orderedList.get(i).getPosition_on_frame());
+
+            finalImageModel.setImage1(orderedList.get(i).getImage1());
+
+
+            if ((i+1) < orderedList.size())
             {
-                finalImageModel.setImage1(getByteArrayFromBitmap(bitmapList.get(i)));
-                finalImageModel.setType(Tags.type_two_pages);
-                finalImageModel.setImage2(null);
+                finalImageModel.setImage2(orderedList.get(i+1).getImage1());
+            }else
+                {
+                    finalImageModel.setImage2(null);
 
-            }else if (typesList.get(i).equals(Tags.type_one_page))
-            {
-                finalImageModel.setImage1(getByteArrayFromBitmap(bitmapList.get(i)));
-                finalImageModel.setType(Tags.type_one_page);
-            }
+                }
 
-            i++;
+                desiredList.add(finalImageModel);
 
-            if (i<bitmapList.size())
-            {
-                finalImageModel.setImage1(getByteArrayFromBitmap(bitmapList.get(i)));
-                finalImageModel.setType(Tags.type_one_page);
-            }
 
-            finalImageModelList.add(finalImageModel);
 
         }
 
+        for (FinalImageModel finalImageModel:desiredList)
+        {
+            Log.e("type_after_arrangement2",finalImageModel.getType()+"_");
+        }
 
+        tab.removeAllTabs();
 
-        for (int i=0;i<(bitmapList.size());i++)
+            total_page = desiredList.size();
+
+        for (int i=0 ;i<total_page;i++)
         {
             tab.addTab(tab.newTab());
         }
 
+        for (int i=0 ;i<tab.getTabCount();i++)
+        {
+            View view = ((ViewGroup)tab.getChildAt(0)).getChildAt(i);
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+
+            params.setMargins(0,0,8,0);
+        }
+
+        tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                recView.smoothScrollToPosition(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        tv_page_counter.setText("("+1+"/"+total_page+")");
+
+        updateAdapter(desiredList,total_page);
 
 
 
 
 
+    }
 
-
-
-        adapter = new MyPagerAdapter(this,finalImageModelList);
+    private void updateAdapter(List<FinalImageModel> desiredList, final int total_page)
+    {
+         adapter = new MyPagerAdapter(this,desiredList);
         recView.setAdapter(adapter);
 
         recView.setItemTransformer(new ScaleTransformer.Builder()
@@ -282,8 +327,14 @@ public class FinalAlbumActivity extends AppCompatActivity {
                 @Override
                 public void onCurrentItemChanged(@Nullable RecyclerView.ViewHolder viewHolder, int adapterPosition) {
                     try {
+                        int page_prev = ((adapterPosition+1)*2)-1;
+                        int page_next = (adapterPosition+1)*2;
+
+                        tv_page1.setText("("+page_prev+")");
+                        tv_page2.setText("("+page_next+")");
+
                         tab.getTabAt(adapterPosition).select();
-                        tv_page_counter.setText("("+(adapterPosition+1)+"/"+bitmapList.size()+")");
+                        tv_page_counter.setText("("+(adapterPosition+1)+"/"+total_page+")");
 
                     }catch (Exception e){}
 
@@ -294,8 +345,6 @@ public class FinalAlbumActivity extends AppCompatActivity {
 
         }
 
-
-
     }
 
     private byte [] getByteArrayFromBitmap(Bitmap bitmap)
@@ -304,27 +353,134 @@ public class FinalAlbumActivity extends AppCompatActivity {
         bitmap.compress(Bitmap.CompressFormat.PNG,100,outputStream);
         return outputStream.toByteArray();
     }
-    public void deletePage(int pos)
+    public void deletePage(FinalImageModel finalImageModel ,String type,String pos_for_delete)
     {
-        bitmapList.remove(pos);
-        typesList.remove(pos);
-        instance.deleteItem(pos);
+        List<FinalImageModel> finalImageModelList = instance.deleteItem(finalImageModel,type,pos_for_delete);
 
-
-        if (bitmapList.size()==0)
+        if (finalImageModelList.size()==0)
         {
             finish();
         }else
             {
+                UpdatePageAfterDeleteItem(finalImageModelList);
 
-                tab.removeTabAt(pos);
-                adapter.notifyItemRemoved(pos);
-
-                //myPagerAgapter.AddBitmapList(bitmapList);
             }
 
     }
 
+    private void UpdatePageAfterDeleteItem(List<FinalImageModel> finalImageModelList)
+    {
+        this.desiredList.clear();
+        this.total_page= 0;
+        Log.e("size",finalImageModelList.size()+"_");
+
+
+        for (FinalImageModel finalImageModel:finalImageModelList)
+        {
+            Log.e("type_before_arrangement",finalImageModel.getType()+"_");
+        }
+
+        List<FinalImageModel> two_image_on_one_page_List = new ArrayList<>();
+        List<FinalImageModel> one_image_on_one_page_List = new ArrayList<>();
+        List<FinalImageModel> orderedList = new ArrayList<>();
+        List<FinalImageModel> desireList2 = new ArrayList<>();
+
+        for (int i = 0; i<finalImageModelList.size();i++)
+        {
+            FinalImageModel finalImageModel = finalImageModelList.get(i);
+
+            if (finalImageModel.getType().equals(Tags.type_two_pages))
+            {
+                two_image_on_one_page_List.add(finalImageModel);
+            }else
+            {
+                one_image_on_one_page_List.add(finalImageModel);
+            }
+
+        }
+
+        if (two_image_on_one_page_List.size()>0)
+        {
+            desireList2.addAll(two_image_on_one_page_List);
+
+        }
+
+        if (one_image_on_one_page_List.size()>0)
+        {
+            orderedList.addAll(one_image_on_one_page_List);
+
+        }
+
+        for (FinalImageModel finalImageModel:orderedList)
+        {
+            Log.e("type_after_arrangement",finalImageModel.getType()+"_");
+        }
+
+
+
+        for (int i=0;i<orderedList.size();i+=2)
+        {
+            FinalImageModel finalImageModel = new FinalImageModel();
+            finalImageModel.setType(Tags.type_one_page);
+            finalImageModel.setImage1(orderedList.get(i).getImage1());
+
+
+            if ((i+1) < orderedList.size())
+            {
+                finalImageModel.setImage2(orderedList.get(i+1).getImage1());
+            }else
+            {
+                finalImageModel.setImage2(null);
+
+            }
+
+            desireList2.add(finalImageModel);
+
+
+
+        }
+
+        for (FinalImageModel finalImageModel:desireList2)
+        {
+            Log.e("type_after_arrangement2",finalImageModel.getType()+"_");
+        }
+
+        tab.removeAllTabs();
+
+        total_page = desireList2.size();
+
+        for (int i=0 ;i<total_page;i++)
+        {
+            tab.addTab(tab.newTab());
+        }
+
+        for (int i=0 ;i<tab.getTabCount();i++)
+        {
+            View view = ((ViewGroup)tab.getChildAt(0)).getChildAt(i);
+            ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+
+            params.setMargins(0,0,15,0);
+        }
+
+
+        Log.e("total",total_page+"_2");
+
+        tv_page_counter.setText("("+1+"/"+total_page+")");
+
+        updateAdapter(desireList2,total_page);
+
+    }
+
+    public void NavigateToUpdateItem(FinalImageModel finalImageModel,String which_image,int pos_for_update)
+    {
+        this.pos_for_update = pos_for_update;
+        Intent intent = new Intent(FinalAlbumActivity.this,UpdateImageActivity.class);
+        intent.putExtra("frame",finalImageModel.getFrame_type());
+        intent.putExtra("position",finalImageModel.getPosition_on_frame());
+        intent.putExtra("which_image",which_image);
+        instance.setItemBeforeUpdate(finalImageModel);
+        startActivityForResult(intent,1122);
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -332,33 +488,78 @@ public class FinalAlbumActivity extends AppCompatActivity {
         {
             image_add_cover.setVisibility(View.VISIBLE);
             image_cover_gallery.setVisibility(View.GONE);
-            image_cover.setImageBitmap(instance.getCoverImage());
+            bitmap_cover = instance.getCoverImage();
+            image_cover.setImageBitmap(bitmap_cover);
+        }
+        else if (requestCode == 1122 && resultCode == RESULT_OK && data!=null)
+        {
+           finalImageModel_after_update = instance.getFinalImageModel_after_update();
+           this.desiredList.set(pos_for_update,finalImageModel_after_update);
+           adapter.notifyDataSetChanged();
+
         }
     }
 
-    private void Upload(List<Bitmap> bitmapList, List<String> typesList) {
-        if (instance.getCoverImage()!=null)
+    private void PrepareDataToUpload(List<FinalImageModel> desiredList)
+    {
+        //collect all image and types
+        finalImage_toUpload.clear();
+        finalImageType_toUpload.clear();
+
+        if (bitmap_cover!=null)
         {
-            bitmapList.add(0,instance.getCoverImage());
-            typesList.add(0, Tags.type_cover);
+            finalImageType_toUpload.add(Tags.type_cover);
+            finalImage_toUpload.add(bitmap_cover);
         }
 
-        Log.e("bitmap_size",bitmapList.size()+"bs");
-        Log.e("type_size",typesList.size()+"ts");
-
-        int count = 0;
-        for (String type:typesList)
+        for (int i=0;i<desiredList.size();i++)
         {
-            count += Integer.parseInt(type);
-            Log.e("type0",count+"");
+            Log.e(i+"",desiredList.get(i).getImage1()+"__");
+            Log.e(i+"",desiredList.get(i).getImage2()+"__");
+
         }
 
 
+        for (FinalImageModel finalImageModel :desiredList)
+        {
+
+            if (finalImageModel.getImage1()!=null && finalImageModel.getImage2()!=null)
+            {
+                Bitmap bitmap1 = BitmapFactory.decodeByteArray(finalImageModel.getImage1(),0,finalImageModel.getImage1().length);
+                finalImage_toUpload.add(bitmap1);
+                finalImageType_toUpload.add(finalImageModel.getType());
+
+                Bitmap bitmap2 = BitmapFactory.decodeByteArray(finalImageModel.getImage2(),0,finalImageModel.getImage2().length);
+                finalImage_toUpload.add(bitmap2);
+                finalImageType_toUpload.add(finalImageModel.getType());
+
+            }else if (finalImageModel.getImage1()!=null)
+            {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(finalImageModel.getImage1(),0,finalImageModel.getImage1().length);
+                finalImage_toUpload.add(bitmap);
+                finalImageType_toUpload.add(finalImageModel.getType());
+            }else if (finalImageModel.getImage2()!=null)
+            {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(finalImageModel.getImage2(),0,finalImageModel.getImage2().length);
+                finalImage_toUpload.add(bitmap);
+                finalImageType_toUpload.add(finalImageModel.getType());
+
+            }
+        }
+
+        Upload(finalImage_toUpload,finalImageType_toUpload);
 
 
-        List<MultipartBody.Part> partList = new ArrayList<>();
+    }
+    private void Upload(List<Bitmap> finalImage_toUpload,List<String> finalImageType_toUpload) {
+
+
+
+
+        /*List<MultipartBody.Part> partList = new ArrayList<>();
+
         List<RequestBody> requestBodyList = new ArrayList<>();
-        for (Bitmap bitmap : bitmapList)
+        for (Bitmap bitmap : finalImage_toUpload)
         {
             File file = getFile(resizeBitmap(bitmap));
             RequestBody requestBody = RequestBody.create(MediaType.parse("image/*"),file);
@@ -368,14 +569,13 @@ public class FinalAlbumActivity extends AppCompatActivity {
         }
 
 
-        for (String type: typesList)
+        for (String type: finalImageType_toUpload)
         {
             RequestBody requestBody = RequestBody.create(MediaType.parse("text/plain"),type);
             requestBodyList.add(requestBody);
         }
+*/
 
-
-        Log.e("bitmap_size",bitmapList.size()+"bs");
 
 
 
@@ -385,7 +585,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
     private void SendDataToServer(List<MultipartBody.Part> partList, List<RequestBody> requestBodyList) {
         dialog.show();
         Api.getClient().create(Services.class)
-                .uploadAlbumImages(user_id,offer_id,paper_id,partList)
+                .uploadAlbumImages(user_id,offer_id,paper_id,requestBodyList,partList)
                 .enqueue(new Callback<ResponseModel>() {
                     @Override
                     public void onResponse(Call<ResponseModel> call, Response<ResponseModel> response) {
@@ -394,13 +594,13 @@ public class FinalAlbumActivity extends AppCompatActivity {
                             dialog.dismiss();
                             if (response.body().getSuccess_upload()==1)
                             {
-                         //   ClearData();
-
+                                ClearData();
 
                                 Toast.makeText(FinalAlbumActivity.this, "تم رفع صور الالبوم بنجاح", Toast.LENGTH_SHORT).show();
 
                                 Intent intent =new Intent(FinalAlbumActivity.this,Credit.class);
                                 startActivity(intent);
+                                finish();
 
 
                             }else if (response.body().getSuccess_upload()==0)
@@ -440,7 +640,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
     }
 
 
-    public void setBitmapForDelete(int pos,View view)
+   /* public void setBitmapForDelete(int pos,View view)
     {
         CheckBox checkBox = (CheckBox) view;
         if (checkBox.isChecked())
@@ -459,7 +659,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
 
                 }
             }
-    }
+    }*/
 
     private void updateToolBar(int type)
     {

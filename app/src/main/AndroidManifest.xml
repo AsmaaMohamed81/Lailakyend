@@ -133,8 +133,10 @@
         <activity
             android:name=".Activites.twopagesActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity android:name=".Activites.DesiredCoverActivity"
+        <activity
+            android:name=".Activites.DesiredCoverActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity android:name=".Activites.UpdateImageActivity"></activity>
     </application>
 
 </manifest>

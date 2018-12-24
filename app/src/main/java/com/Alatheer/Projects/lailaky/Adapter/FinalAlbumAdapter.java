@@ -7,11 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 
 import com.Alatheer.Projects.lailaky.Activites.FinalAlbumActivity;
-import com.Alatheer.Projects.lailaky.Models.typeimg;
 import com.Alatheer.Projects.lailaky.R;
 import com.github.chrisbanes.photoview.PhotoView;
 
@@ -51,7 +49,7 @@ public class FinalAlbumAdapter extends RecyclerView.Adapter<FinalAlbumAdapter.My
         holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.setBitmapForDelete(holder.getAdapterPosition(),holder.checkBox);
+                //activity.setBitmapForDelete(holder.getAdapterPosition(),holder.checkBox);
             }
         });
 

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
+import com.Alatheer.Projects.lailaky.Activites.UpdateImageActivity;
 import com.Alatheer.Projects.lailaky.R;
 
 import java.util.List;
@@ -23,11 +24,22 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.MyHolder> 
     private Context context;
     private List<String> imagesUri;
     private DisplayImagesActivity activity;
+    private UpdateImageActivity updateImageActivity;
+    private String type_of_context;
 
-    public ImagesAdapter(Context context, List<String> imagesUri) {
+    public ImagesAdapter(Context context, List<String> imagesUri,String type_of_context) {
         this.context = context;
         this.imagesUri = imagesUri;
-        this.activity = (DisplayImagesActivity) context;
+        this.type_of_context = type_of_context;
+        if (type_of_context.equals("1"))
+        {
+            this.activity = (DisplayImagesActivity) context;
+
+        }else if (type_of_context.equals("2"))
+        {
+            this.updateImageActivity = (UpdateImageActivity) context;
+
+        }
 
     }
 
@@ -45,7 +57,16 @@ public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.MyHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.SetPos(holder.getAdapterPosition());
+
+                if (type_of_context.equals("1"))
+                {
+                    activity.SetPos(holder.getAdapterPosition());
+
+                }else if (type_of_context.equals("2"))
+                {
+                    updateImageActivity.SetPos(holder.getAdapterPosition());
+
+                }
             }
         });
 

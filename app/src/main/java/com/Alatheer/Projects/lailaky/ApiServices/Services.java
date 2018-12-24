@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
@@ -87,7 +88,11 @@ public interface Services {
 
     @Multipart
     @POST("Api/AddAlbumImage/{user_id}/{offer_id}/{paper_id}")
-    Call<ResponseModel> uploadAlbumImages(@Path("user_id") String user_id,@Path("offer_id") String offer_id,@Path("paper_id") String paper_id,@Part List<MultipartBody.Part> imagesList);
+    Call<ResponseModel> uploadAlbumImages(@Path("user_id") String user_id,
+                                          @Path("offer_id") String offer_id,
+                                          @Path("paper_id") String paper_id,
+                                          @Part("types[]") List<RequestBody> requestBodyList,
+                                          @Part List<MultipartBody.Part> imagesList);
 
     @FormUrlEncoded
     @POST("Api/forgetPassword")

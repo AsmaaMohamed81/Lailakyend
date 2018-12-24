@@ -122,11 +122,40 @@
                 android:layout_marginBottom="50dp"
 
                 />
+            <LinearLayout
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:weightSum="1"
+                android:layout_gravity="center_horizontal"
+                >
+                <TextView
+                    android:id="@+id/tv_page1"
+                    android:layout_width="0dp"
+                    android:layout_weight=".5"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/tv_page2"
+
+                    android:layout_width="0dp"
+                    android:layout_weight=".5"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
             <com.yarolegovich.discretescrollview.DiscreteScrollView
                 android:id="@+id/recView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:paddingBottom="8dp"
                 >
 
             </com.yarolegovich.discretescrollview.DiscreteScrollView>
@@ -144,6 +173,7 @@
                 app:tabMaxWidth="30dp"
                 app:tabMinWidth="30dp"
                 android:layout_marginBottom="8dp"
+                android:layout_marginTop="20dp"
 
                 >
 

@@ -33,6 +33,7 @@ public class Credit extends AppCompatActivity {
                 Intent intent=new Intent(Credit.this,MainActivity.class);
                 intent.putExtra("user_type","client");
                 startActivity(intent);
+                finish();
             }
         });
     }

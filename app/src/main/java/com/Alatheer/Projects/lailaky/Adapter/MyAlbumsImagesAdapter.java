@@ -10,26 +10,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.Alatheer.Projects.lailaky.Activites.FinalAlbumActivity;
+import com.Alatheer.Projects.lailaky.Activites.DetailsAlbumaty;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
 import com.Alatheer.Projects.lailaky.Models.FinalImageModel;
 import com.Alatheer.Projects.lailaky.R;
 
 import java.util.List;
 
-public class MyPagerAdapter extends RecyclerView.Adapter {
+public class MyAlbumsImagesAdapter extends RecyclerView.Adapter {
 
     private static final int ITEM_ONE_PAGE=1;
     private static final int ITEM_TWO_PAGE=2;
 
     private Context context;
     private List<FinalImageModel> finalImageModelList;
-    private FinalAlbumActivity  activity;
+    private DetailsAlbumaty activity;
 
-    public MyPagerAdapter(Context context, List<FinalImageModel> finalImageModelList) {
+    public MyAlbumsImagesAdapter(Context context, List<FinalImageModel> finalImageModelList) {
         this.context = context;
         this.finalImageModelList = finalImageModelList;
-        this.activity = (FinalAlbumActivity) context;
+        this.activity = (DetailsAlbumaty) context;
 
     }
 
@@ -56,27 +56,6 @@ public class MyPagerAdapter extends RecyclerView.Adapter {
             final HolderOneImage holderOneImage = (HolderOneImage) holder;
             FinalImageModel finalImageModel = finalImageModelList.get(holderOneImage.getAdapterPosition());
             holderOneImage.BindData(finalImageModel);
-            holderOneImage.image_delete1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    FinalImageModel finalImageModel = finalImageModelList.get(holderOneImage.getAdapterPosition());
-
-                    activity.deletePage(finalImageModel,"2","1");
-
-
-                }
-            });
-
-            holderOneImage.image_update1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    FinalImageModel finalImageModel = finalImageModelList.get(holderOneImage.getAdapterPosition());
-
-                    activity.NavigateToUpdateItem(finalImageModel,"image1",holderOneImage.getAdapterPosition());
-
-                }
-            });
 
         }else if (holder instanceof HolderTowImage)
         {
@@ -85,50 +64,6 @@ public class MyPagerAdapter extends RecyclerView.Adapter {
             final HolderTowImage holderTowImage = (HolderTowImage) holder;
             FinalImageModel finalImageModel = finalImageModelList.get(holderTowImage.getAdapterPosition());
             holderTowImage.BindData(finalImageModel);
-            holderTowImage.image_delete1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    FinalImageModel finalImageModel = finalImageModelList.get(holderTowImage.getAdapterPosition());
-
-                    activity.deletePage(finalImageModel,"1","1");
-
-
-                }
-            });
-
-            holderTowImage.image_delete2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    FinalImageModel finalImageModel = finalImageModelList.get(holderTowImage.getAdapterPosition());
-
-                    activity.deletePage(finalImageModel,"1","2");
-
-                }
-            });
-
-            holderTowImage.image_update1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    FinalImageModel finalImageModel = finalImageModelList.get(holderTowImage.getAdapterPosition());
-
-                    activity.NavigateToUpdateItem(finalImageModel,"image1",holderTowImage.getAdapterPosition());
-
-                }
-            });
-
-            holderTowImage.image_update2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    FinalImageModel finalImageModel = finalImageModelList.get(holderTowImage.getAdapterPosition());
-
-                    activity.NavigateToUpdateItem(finalImageModel,"image2",holderTowImage.getAdapterPosition());
-
-                }
-            });
 
         }
 

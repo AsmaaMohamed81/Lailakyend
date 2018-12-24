@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:background="@color/gray2"
     >
     <Button
         android:id="@+id/btn_save"

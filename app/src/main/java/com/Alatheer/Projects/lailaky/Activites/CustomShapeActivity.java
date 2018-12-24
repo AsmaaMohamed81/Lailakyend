@@ -16,11 +16,14 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.Alatheer.Projects.lailaky.ApiServices.Tags;
+import com.Alatheer.Projects.lailaky.Models.FinalImageModel;
 import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.FinalAlbumImage;
 import com.Alatheer.Projects.lailaky.share.Common;
 import com.jcmore2.collage.CollageView;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,7 +82,7 @@ public class CustomShapeActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                instance.increaseCount();
+                instance.increaseCount(1);
                 if (instance.getCount()>album_size)
                 {
                     instance.setCount(album_size);
@@ -90,9 +93,10 @@ public class CustomShapeActivity extends AppCompatActivity {
                 {
 
 
-
-                    bitmapList2.add(getBitmaps());
-                    instance.setImages(bitmapList2);
+                    FinalImageModel finalImageModel = new FinalImageModel();
+                    finalImageModel.setType(Tags.type_one_page);
+                    finalImageModel.setImage1(getByteArrayFromBitmap(getBitmaps()));
+                    instance.addImage(finalImageModel);
                     CreateAlertDialog(instance.getCount());
 
                 }
@@ -112,6 +116,13 @@ public class CustomShapeActivity extends AppCompatActivity {
         }
     }
 
+
+    private byte[] getByteArrayFromBitmap(Bitmap bitmap)
+    {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,outputStream);
+        return outputStream.toByteArray();
+    }
     private void CreateAlertDialog(int count) {
         int c = album_size-count;
         dialog = new AlertDialog.Builder(this)

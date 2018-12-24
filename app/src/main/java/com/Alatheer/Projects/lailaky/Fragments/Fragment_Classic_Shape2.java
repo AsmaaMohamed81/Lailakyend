@@ -16,10 +16,10 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.Alatheer.Projects.lailaky.Activites.DisplayImagesActivity;
+import com.Alatheer.Projects.lailaky.Activites.UpdateImageActivity;
 import com.Alatheer.Projects.lailaky.ApiServices.Tags;
 import com.Alatheer.Projects.lailaky.R;
 import com.Alatheer.Projects.lailaky.SingleTone.FinalAlbumImage;
@@ -35,6 +35,9 @@ public class Fragment_Classic_Shape2 extends Fragment implements View.OnTouchLis
     private static final String TAG2="offer_id";
     private static final String TAG3="album_size";
     private static final String TAG4="paper_id";
+    private static final String TAG5="activity";
+    private String which_activity="";
+    private UpdateImageActivity updateImageActivity;
 
     private String user_id="",offer_id="",paper_id="";
     private int album_size=0;
@@ -87,9 +90,18 @@ public class Fragment_Classic_Shape2 extends Fragment implements View.OnTouchLis
             offer_id = bundle.getString(TAG2);
             album_size = bundle.getInt(TAG3);
             paper_id = bundle.getString(TAG4);
+            which_activity = bundle.getString(TAG5);
+
 
         }
-        activity = (DisplayImagesActivity) getActivity();
+        if (which_activity.equals(Tags.DisplayImagesActivity))
+        {
+            activity = (DisplayImagesActivity) getActivity();
+
+        }else
+        {
+            updateImageActivity = (UpdateImageActivity) getActivity();
+        }
         shape1 = view.findViewById(R.id.shape1);
         shape2 = view.findViewById(R.id.shape2);
         shape3 = view.findViewById(R.id.shape3);
@@ -175,7 +187,15 @@ public class Fragment_Classic_Shape2 extends Fragment implements View.OnTouchLis
 
     private void SelectImage(int img_req)
     {
-        activity.displayImage(img_req);
+        if (which_activity.equals(Tags.DisplayImagesActivity))
+        {
+            activity.displayImage(img_req);
+
+        }else
+        {
+            updateImageActivity.displayImage(img_req);
+
+        }
     }
 
     public void getImageUri(String uri)
@@ -187,7 +207,7 @@ public class Fragment_Classic_Shape2 extends Fragment implements View.OnTouchLis
 
         if (finalHeight<100||finalWidth<100){
 
-            Toast.makeText(activity, R.string.night, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), R.string.night, Toast.LENGTH_LONG).show();
         }
         else {
             if (bitmap1 == null) {
@@ -205,8 +225,15 @@ public class Fragment_Classic_Shape2 extends Fragment implements View.OnTouchLis
                 shape1.setOnTouchListener(this);
 
                 if (bitmap1 != null && bitmap2 != null && bitmap3 != null) {
-                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
-                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                    if (which_activity.equals(Tags.DisplayImagesActivity))
+                    {
+                        activity.setButtonsaveVisibility(Tags.visible_btn);
+
+                    }else
+                    {
+                        updateImageActivity.setButtonsaveVisibility(Tags.visible_btn);
+
+                    }
                 }
 
 
@@ -225,8 +252,15 @@ public class Fragment_Classic_Shape2 extends Fragment implements View.OnTouchLis
                 shape2.setOnTouchListener(this);
 
                 if (bitmap1 != null && bitmap2 != null && bitmap3 != null) {
-                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
-                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                    if (which_activity.equals(Tags.DisplayImagesActivity))
+                    {
+                        activity.setButtonsaveVisibility(Tags.visible_btn);
+
+                    }else
+                    {
+                        updateImageActivity.setButtonsaveVisibility(Tags.visible_btn);
+
+                    }
                 }
 
             } else if (bitmap3 == null) {
@@ -241,8 +275,15 @@ public class Fragment_Classic_Shape2 extends Fragment implements View.OnTouchLis
                 shape3.setOnTouchListener(this);
 
                 if (bitmap1 != null && bitmap2 != null && bitmap3 != null) {
-                    DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
-                    activity.setButtonsaveVisibility(Tags.visible_btn);
+                    if (which_activity.equals(Tags.DisplayImagesActivity))
+                    {
+                        activity.setButtonsaveVisibility(Tags.visible_btn);
+
+                    }else
+                    {
+                        updateImageActivity.setButtonsaveVisibility(Tags.visible_btn);
+
+                    }
                 }
 
                 img1_selected = 0;
@@ -251,9 +292,15 @@ public class Fragment_Classic_Shape2 extends Fragment implements View.OnTouchLis
 
             } else if (bitmap1 != null && bitmap2 != null && bitmap3 != null) {
 
-                DisplayImagesActivity activity = (DisplayImagesActivity) getActivity();
-                activity.setButtonsaveVisibility(Tags.visible_btn);
+                if (which_activity.equals(Tags.DisplayImagesActivity))
+                {
+                    activity.setButtonsaveVisibility(Tags.visible_btn);
 
+                }else
+                {
+                    updateImageActivity.setButtonsaveVisibility(Tags.visible_btn);
+
+                }
                 if (img1_selected == 1) {
                     shape1.setImageBitmap(bitmap);
 
@@ -299,7 +346,7 @@ public class Fragment_Classic_Shape2 extends Fragment implements View.OnTouchLis
 
 
     }
-    public static Fragment_Classic_Shape2 getInstance(String user_id, String offer_id, String paper_id, int album_size)
+    public static Fragment_Classic_Shape2 getInstance(String user_id, String offer_id, String paper_id, int album_size, String displayImagesActivity)
     {
         Fragment_Classic_Shape2 fragment = new Fragment_Classic_Shape2();
         Bundle bundle = new Bundle();
@@ -307,6 +354,7 @@ public class Fragment_Classic_Shape2 extends Fragment implements View.OnTouchLis
         bundle.putString(TAG2,offer_id);
         bundle.putString(TAG4,paper_id);
         bundle.putInt(TAG3,album_size);
+        bundle.putString(TAG5,displayImagesActivity);
         fragment.setArguments(bundle);
         return fragment;
     }

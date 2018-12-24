@@ -6,6 +6,8 @@ public class FinalImageModel implements Serializable {
     private byte [] image1;
     private byte [] image2;
     private String type;
+    private String frame_type;
+    private int position_on_frame;
 
     public FinalImageModel() {
 
@@ -34,5 +36,21 @@ public class FinalImageModel implements Serializable {
 
     public String getType() {
         return type;
+    }
+
+    public String getFrame_type() {
+        return frame_type;
+    }
+
+    public void setFrame_type(String frame_type) {
+        this.frame_type = frame_type;
+    }
+
+    public int getPosition_on_frame() {
+        return position_on_frame;
+    }
+
+    public void setPosition_on_frame(int position_on_frame) {
+        this.position_on_frame = position_on_frame;
     }
 }
