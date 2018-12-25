@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
@@ -556,7 +557,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
 
 
 
-        /*List<MultipartBody.Part> partList = new ArrayList<>();
+        List<MultipartBody.Part> partList = new ArrayList<>();
 
         List<RequestBody> requestBodyList = new ArrayList<>();
         for (Bitmap bitmap : finalImage_toUpload)
@@ -574,12 +575,11 @@ public class FinalAlbumActivity extends AppCompatActivity {
             RequestBody requestBody = RequestBody.create(MediaType.parse("text/plain"),type);
             requestBodyList.add(requestBody);
         }
-*/
 
 
 
 
-        //SendDataToServer(partList,requestBodyList);
+        SendDataToServer(partList,requestBodyList);
     }
 
     private void SendDataToServer(List<MultipartBody.Part> partList, List<RequestBody> requestBodyList) {
