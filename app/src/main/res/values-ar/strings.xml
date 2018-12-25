@@ -111,6 +111,8 @@
     <string name="ch_own_photo_cover">اختر صورة لغلاف البومك</string>
     <string name="add_cov">إضافة صورة للغلاف</string>
     <string name="cover_photo">صورة الغلاف</string>
+    <string name="lod">جار التحميل...</string>
+    <string name="cov_photo">صورة الغلاف</string>
 
 
 </resources>

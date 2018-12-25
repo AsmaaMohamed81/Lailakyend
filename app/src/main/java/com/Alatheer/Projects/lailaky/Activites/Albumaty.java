@@ -131,6 +131,7 @@ public class Albumaty extends AppCompatActivity implements Users.onCompleteListe
     @Override
     public void OnDataSuccess(UserModel userModel) {
         this.userModel=userModel;
+        Log.e("user_id",userModel.getUser_id()+"___");
 
     }
 }

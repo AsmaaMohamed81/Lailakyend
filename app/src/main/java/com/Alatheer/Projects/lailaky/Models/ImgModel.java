@@ -4,6 +4,7 @@ public class ImgModel {
 
     private String image_id;
     private String image;
+    private String type;
 
     public String getImage_id() {
         return image_id;
@@ -30,4 +31,7 @@ public class ImgModel {
         return image;
     }
 
+    public String getType() {
+        return type;
+    }
 }

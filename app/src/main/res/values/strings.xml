@@ -112,5 +112,7 @@
     <string name="ch_own_photo_cover">Choose cover photo</string>
     <string name="add_cov">Add photo on cover</string>
     <string name="cover_photo">Cover photo</string>
+    <string name="lod">Loading...</string>
+    <string name="cov_photo">Cover Photo</string>
 
 </resources>

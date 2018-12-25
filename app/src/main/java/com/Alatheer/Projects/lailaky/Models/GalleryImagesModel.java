@@ -1,11 +1,14 @@
 package com.Alatheer.Projects.lailaky.Models;
 
-public class GalleryImagesModel {
+import java.io.Serializable;
+
+public class GalleryImagesModel implements Serializable{
 
     private String first_image_id;
     private String second_image_id;
     private String first_image_name;
     private String second_image_name;
+    private String type;
 
 
     public void setFirst_image_id(String first_image_id) {
@@ -38,5 +41,13 @@ public class GalleryImagesModel {
 
     public String getSecond_image_name() {
         return second_image_name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }
