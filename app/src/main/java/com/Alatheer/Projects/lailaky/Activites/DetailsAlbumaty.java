@@ -212,41 +212,85 @@ public class DetailsAlbumaty extends AppCompatActivity {
 
     private void UpdateAdapterUI(List<ImgModel> uriList1) {
         Log.e("sicexxxxxxxx",uriList1.size()+"___");
+
+
+        for (ImgModel imgModel : uriList1)
+        {
+            Log.e("imaaaaaaaaaage",imgModel.getImage()+"_");
+            Log.e("typeeeeeeeeeeeee",imgModel.getType()+"_");
+
+        }
+
         for (int i=0;i<uriList1.size();i+=2)
         {
 
             Log.e("type",uriList1.get(i).getType());
             Log.e("image",uriList1.get(i).getImage());
 
-            if (uriList1.get(i).getType().equals("0")||uriList1.get(i).getType().equals("2"))
+            if (uriList1.size()<=2)
             {
-                GalleryImagesModel galleryImagesModel = new GalleryImagesModel();
-                galleryImagesModel.setType(uriList1.get(i).getType());
-                galleryImagesModel.setFirst_image_id(uriList1.get(i).getImage_id());
-                galleryImagesModel.setSecond_image_id("");
-                galleryImagesModel.setFirst_image_name(uriList1.get(i).getImage());
-                galleryImagesModel.setSecond_image_name("");
-                galleryImagesModelList.add(galleryImagesModel);
-
-            }else
+                if (uriList1.get(i).getType().equals("0")||uriList1.get(i).getType().equals("2"))
                 {
                     GalleryImagesModel galleryImagesModel = new GalleryImagesModel();
-                    galleryImagesModel.setFirst_image_id(uriList1.get(i).getImage_id());
-                    galleryImagesModel.setFirst_image_name(uriList1.get(i).getImage());
                     galleryImagesModel.setType(uriList1.get(i).getType());
-                    if ((i+1)<uriList1.size()&& uriList1.get(i+1).getType().equals("1"))
+                    galleryImagesModel.setFirst_image_id(uriList1.get(i).getImage_id());
+                    galleryImagesModel.setSecond_image_id("");
+                    galleryImagesModel.setFirst_image_name(uriList1.get(i).getImage());
+                    galleryImagesModel.setSecond_image_name("");
+                    galleryImagesModelList.add(galleryImagesModel);
+
+
+                    if ((i+1)<uriList1.size())
                     {
-                        galleryImagesModel.setSecond_image_id(uriList1.get(i+1).getImage_id());
-                        galleryImagesModel.setSecond_image_name(uriList1.get(i+1).getImage());
+                        GalleryImagesModel galleryImagesModel2 = new GalleryImagesModel();
+                        galleryImagesModel2.setFirst_image_id(uriList1.get(i+1).getImage_id());
+                        galleryImagesModel2.setFirst_image_name(uriList1.get(i+1).getImage());
+                        galleryImagesModel2.setType(uriList1.get(i+1).getType());
+                        galleryImagesModel2.setSecond_image_id(uriList1.get(i+1).getImage_id());
+                        galleryImagesModel2.setSecond_image_name(uriList1.get(i+1).getImage());
+                        galleryImagesModel2.setSecond_image_id("");
+                        galleryImagesModel2.setSecond_image_name("");
+
+                        galleryImagesModelList.add(galleryImagesModel2);
+                    }
+
+
+
+                }
+            }else
+                {
+                    if (uriList1.get(i).getType().equals("0")||uriList1.get(i).getType().equals("2"))
+                    {
+                        GalleryImagesModel galleryImagesModel = new GalleryImagesModel();
+                        galleryImagesModel.setType(uriList1.get(i).getType());
+                        galleryImagesModel.setFirst_image_id(uriList1.get(i).getImage_id());
+                        galleryImagesModel.setSecond_image_id("");
+                        galleryImagesModel.setFirst_image_name(uriList1.get(i).getImage());
+                        galleryImagesModel.setSecond_image_name("");
+                        galleryImagesModelList.add(galleryImagesModel);
 
                     }else
                     {
-                        galleryImagesModel.setSecond_image_id("");
-                        galleryImagesModel.setSecond_image_name("");
-                    }
+                        GalleryImagesModel galleryImagesModel = new GalleryImagesModel();
+                        galleryImagesModel.setFirst_image_id(uriList1.get(i).getImage_id());
+                        galleryImagesModel.setFirst_image_name(uriList1.get(i).getImage());
+                        galleryImagesModel.setType(uriList1.get(i).getType());
+                        if ((i+1)<uriList1.size()&& uriList1.get(i+1).getType().equals("1"))
+                        {
+                            galleryImagesModel.setSecond_image_id(uriList1.get(i+1).getImage_id());
+                            galleryImagesModel.setSecond_image_name(uriList1.get(i+1).getImage());
 
-                    galleryImagesModelList.add(galleryImagesModel);
+                        }else
+                        {
+                            galleryImagesModel.setSecond_image_id("");
+                            galleryImagesModel.setSecond_image_name("");
+                        }
+
+                        galleryImagesModelList.add(galleryImagesModel);
+                    }
                 }
+
+
 
 
 
@@ -277,7 +321,7 @@ public class DetailsAlbumaty extends AppCompatActivity {
 
     private void AddFragments(List<GalleryImagesModel> galleryImagesModelList) {
 
-
+        Log.e("siiiiiii",galleryImagesModelList.size()+"__");
         for (GalleryImagesModel galleryImagesModel :galleryImagesModelList)
         {
             if (galleryImagesModel.getType().equals("0"))
