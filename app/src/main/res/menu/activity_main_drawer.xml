@@ -29,7 +29,7 @@
             android:title="@string/contact" />
         <item
             android:id="@+id/nav_help"
-            android:icon="@drawable/help"
+            android:icon="@drawable/info_icon_nav"
             android:title="@string/help" />
         <item
             android:id="@+id/nav_share"

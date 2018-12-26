@@ -1133,11 +1133,11 @@ public class DisplayImagesActivity extends AppCompatActivity {
                     fragmentTwopagesShape2 = Fragment_twopages_shape2.getInstance(user_id, offer_id, paper_id, album_size,"DisplayImagesActivity");
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentTwopagesShape2).commit();
                     break;
-                case 3:
+                case 2:
                     fragmentTwopagesShape3 = Fragment_twopages_shape3.getInstance(user_id, offer_id, paper_id, album_size,"DisplayImagesActivity");
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentTwopagesShape3).commit();
                     break;
-                case 4:
+                case 3:
                     fragmentTwopagesShape4 = Fragment_twopages_shape4.getInstance(user_id, offer_id, paper_id, album_size,"DisplayImagesActivity");
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragmentTwopagesShape4).commit();
                     break;

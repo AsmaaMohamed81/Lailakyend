@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.Alatheer.Projects.lailaky"
+        applicationId "com.Alatheer.Projects.lailaky1"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
