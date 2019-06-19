@@ -555,11 +555,10 @@ public class FinalAlbumActivity extends AppCompatActivity {
     private void Upload(List<Bitmap> finalImage_toUpload,List<String> finalImageType_toUpload) {
 
 
-
-
         List<MultipartBody.Part> partList = new ArrayList<>();
 
         List<RequestBody> requestBodyList = new ArrayList<>();
+
         for (Bitmap bitmap : finalImage_toUpload)
         {
             File file = getFile(resizeBitmap(bitmap));
@@ -568,7 +567,6 @@ public class FinalAlbumActivity extends AppCompatActivity {
             partList.add(part);
 
         }
-
 
         for (String type: finalImageType_toUpload)
         {
@@ -605,7 +603,7 @@ public class FinalAlbumActivity extends AppCompatActivity {
 
                             }else if (response.body().getSuccess_upload()==0)
                             {
-                                Toast.makeText(FinalAlbumActivity.this, "فشل لم يتم رفع الالبوم حاول مره اخرى لاحقا", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(FinalAlbumActivity.this, "فشل لم يتم رفع الالبوم ", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }

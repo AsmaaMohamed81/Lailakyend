@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.LinearLayout;
@@ -24,6 +25,7 @@ public class Splash extends AppCompatActivity {
     protected void attachBaseContext(Context newBase) {
         Paper.init(newBase);
         String lang = Paper.book().read("language");
+        Log.d("Asmaa", "attachBaseContext: "+lang);
         super.attachBaseContext(LanguageHelper.onAttach(newBase,lang));
     }
     @Override
