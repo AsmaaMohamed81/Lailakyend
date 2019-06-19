@@ -1,8 +1,8 @@
 package com.Alatheer.Projects.lailaky.Activites;
 
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -11,8 +11,6 @@ import com.Alatheer.Projects.lailaky.ApiServices.Api;
 import com.Alatheer.Projects.lailaky.ApiServices.Services;
 import com.Alatheer.Projects.lailaky.Models.AboutUsModel;
 import com.Alatheer.Projects.lailaky.R;
-
-import net.cachapa.expandablelayout.ExpandableLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +33,8 @@ public class AboutUsActivity extends AppCompatActivity {
         Paper.init(newBase);
         super.attachBaseContext(LanguageHelper.onAttach(newBase, Paper.book().read("language", Locale.getDefault().getLanguage())));
     }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
